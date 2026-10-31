@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galactic Field Guide: Relics of the Moon & Mars</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c1233;--navy2:#161d4a;--bg:#eef1f8;--line:#e1e5f0;--ink:#1a2040;--mute:#5b6384;--amber:#f5a524;--teal:#13a98b;--coral:#ef5d5d;--blue:#3b6cf6}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font:400 15px/1.5 'Nunito Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);overflow:hidden}
+h1,h2,h3{font-family:'Outfit',sans-serif;margin:0;line-height:1.2;letter-spacing:-.01em}
+.app{display:grid;grid-template-columns:232px 1fr;grid-template-rows:62px 1fr;height:100vh}
+header{grid-column:1/3;display:flex;align-items:center;justify-content:space-between;padding:0 24px;color:#fff;background:linear-gradient(100deg,var(--navy),var(--navy2));border-bottom:1px solid #ffffff1a}
+.brand{display:flex;align-items:center;gap:12px}
+.brand h1{font-size:20px;font-weight:700}
+.brand small{color:#aab3e0;font-size:13px;margin-left:6px;padding-left:12px;border-left:1px solid #ffffff33}
+.live{font:600 13px 'Outfit';color:#8ff0d3;display:flex;align-items:center;gap:8px}
+.live:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px #13a98b33}
+aside{background:var(--navy);color:#fff;padding:18px 14px;display:flex;flex-direction:column;gap:6px}
+aside .cap{font:600 11px 'Outfit';letter-spacing:.12em;text-transform:uppercase;color:#7e89c4;padding:0 10px 6px}
+aside button.nv{display:flex;align-items:center;gap:12px;text-align:left;font:600 15px 'Outfit';color:#c3caef;background:none;border:0;border-radius:10px;padding:11px 12px;cursor:pointer}
+aside button.nv span{width:26px;height:26px;border-radius:8px;background:#ffffff14;display:grid;place-items:center;font-size:13px}
+aside button.nv:hover{background:#ffffff0d}
+aside button.nv.on{background:#ffffff1c;color:#fff}
+aside button.nv.on span{background:var(--amber);color:#3a2800}
+.xpc{margin-top:auto;background:#ffffff12;border:1px solid #ffffff1f;border-radius:14px;padding:14px}
+.xpc .r{display:flex;justify-content:space-between;font:600 14px 'Outfit'}
+.xpc .t{height:6px;border-radius:9px;background:#ffffff2b;overflow:hidden;margin:10px 0 6px}
+.xpc .t i{display:block;height:100%;width:0;background:var(--amber);transition:width .5s}
+.xpc small{color:#98a3d6;font-size:12px}
+main{padding:18px 22px;min-height:0;min-width:0}
+section{display:none;height:100%;min-height:0}
+section.on{display:grid;gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 1px 2px #0c123310,0 8px 24px #0c123308;min-height:0;min-width:0;display:flex;flex-direction:column;overflow:hidden}
+.label{align-self:flex-start;font:600 12px 'Outfit';color:var(--blue);background:#e9efff;border-radius:99px;padding:3px 11px;margin-bottom:10px}
+.label.t{color:#0b7a64;background:#dcf5ee}.label.a{color:#8a5600;background:#fdeccb}
+.card h2{font-size:24px;margin-bottom:6px}.card h3{font-size:17px;margin-bottom:6px}
+.card p{margin:0 0 10px;color:#3a4266}
+.art{flex:1;min-height:90px;border-radius:12px;margin-bottom:14px;background:linear-gradient(160deg,var(--navy),#26307a);overflow:hidden}
+.art svg{width:100%;height:100%;display:block}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:12px;margin:4px 0 12px}
+.stat{padding:10px 14px;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat b{display:block;font:700 20px 'Outfit'}
+.stat span{font-size:12px;color:var(--mute);line-height:1.3;display:block}
+.note{border-left:4px solid var(--amber);background:#fff8ea;border-radius:0 10px 10px 0;padding:10px 14px;font-size:14px;color:#4a3f1e}
+.note.b{border-color:var(--blue);background:#eef3ff;color:#26356e}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;font:600 14px 'Nunito Sans';border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;cursor:pointer;color:var(--ink);transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--blue);background:#f6f9ff}
+.opt i{font:700 12px 'Outfit';font-style:normal;width:24px;height:24px;border-radius:50%;background:#eef0f8;display:grid;place-items:center;flex:none}
+.opt.right{border-color:var(--teal);background:#e8f8f3}.opt.right i{background:var(--teal);color:#fff}
+.opt.wrong{border-color:var(--coral);background:#fdeeee;animation:sh .35s}
+@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.msg{min-height:22px;margin:8px 0 0;font-weight:700;font-size:14px}
+.btn{font:600 14px 'Outfit';border:0;border-radius:10px;padding:10px 18px;background:var(--navy);color:#fff;cursor:pointer;align-self:flex-start}
+.btn:hover{background:var(--navy2)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font:600 13px 'Outfit';border:1px solid var(--line);background:#fff;border-radius:99px;padding:5px 13px;cursor:pointer;color:var(--ink)}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.step{display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;cursor:pointer;font:600 14px 'Outfit';color:var(--ink)}
+.step b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#eef0f8;font-size:13px;flex:none}
+.step.on{border-color:var(--amber);background:#fffaf0}.step.on b{background:var(--amber);color:#3a2800}
+input[type=range]{width:100%;accent-color:var(--blue);margin:4px 0 8px}
+.big{font:700 34px 'Outfit';line-height:1}
+.meter{height:10px;background:#e9ecf6;border-radius:9px;overflow:hidden;margin:10px 0}
+.meter i{display:block;height:100%;width:0;background:var(--teal);border-radius:9px;transition:width .25s,background .25s}
+.map{position:relative;border-radius:16px;overflow:hidden;background:linear-gradient(160deg,var(--navy),#1c2670);box-shadow:0 8px 24px #0c123322;min-height:0}
+.map:before{content:"";position:absolute;inset:0;background:linear-gradient(#ffffff0f 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,#ffffff0f 1px,transparent 1px) 0 0/48px 48px}
+.sweep{position:absolute;left:50%;top:50%;width:900px;height:900px;margin:-450px;border-radius:50%;background:conic-gradient(from 0deg,#13a98b44,transparent 55deg);animation:sp 7s linear infinite;pointer-events:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+.hud{position:absolute;left:14px;bottom:12px;font:600 12px 'Outfit';color:#8ff0d3;letter-spacing:.08em}
+.pin{position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;border:2px solid #fff;background:var(--amber);color:#3a2800;font:700 13px 'Outfit';cursor:pointer;z-index:2}
+.pin:hover,.pin.on{background:#fff;box-shadow:0 0 0 6px #ffffff33}
+.pin span{position:absolute;left:38px;top:50%;transform:translateY(-50%);background:#0c1233cc;color:#fff;font:600 12px 'Outfit';padding:2px 8px;border-radius:6px;white-space:nowrap;pointer-events:none}
+.count{font:600 13px 'Outfit';background:#fdeccb;color:#8a5600;border-radius:99px;padding:3px 12px;align-self:flex-start;margin-bottom:10px}
+.coord{font:600 12px 'Outfit';color:var(--teal);margin-bottom:4px}
+.pc{position:fixed;width:8px;height:8px;border-radius:50%;pointer-events:none;z-index:99;animation:fl 1s ease-out forwards}
+@keyframes fl{to{transform:translate(var(--x),var(--y));opacity:0}}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+#buggy.on,#surveyor.on{grid-template-columns:1.25fr 1fr}
+#buggy .col,#surveyor .col{display:grid;gap:16px;min-height:0}
+#buggy .col{grid-template-rows:auto 1fr}
+#surveyor .col{grid-template-rows:auto 1fr}
+#mars.on{grid-template-rows:auto 1fr}
+#mars .low{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:0}
+#radar.on{grid-template-columns:2fr 1fr}
+#radar .side{display:grid;grid-template-rows:auto 1fr;gap:16px;min-height:0}
+@media(max-width:900px),(max-height:620px){body{overflow:auto}.app{height:auto;grid-template-columns:1fr}header{grid-column:1}aside{flex-direction:row;flex-wrap:wrap}.xpc{margin:0}section.on{display:block;height:auto}.card,.map{margin-bottom:14px}.map{height:320px}.steps,#mars .low{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand">
+    <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9" fill="#f5a524"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#fff" stroke-width="2" transform="rotate(-25 20 20)"/><circle cx="34" cy="12" r="2.5" fill="#fff"/></svg>
+    <h1>Galactic Field Guide</h1><small>Relics of the Moon & Mars</small>
+  </div>
+  <div class="live">Mission Control online</div>
+</header>
+
+<aside id="nav">
+  <div class="cap">Missions</div>
+  <button class="nv on" data-t="buggy"><span>1</span>Moon Buggy</button>
+  <button class="nv" data-t="surveyor"><span>2</span>Surveyor 3</button>
+  <button class="nv" data-t="mars"><span>3</span>Mars Rock Relay</button>
+  <button class="nv" data-t="radar"><span>4</span>Radar Map</button>
+  <div class="xpc">
+    <div class="r"><span id="lvl">Level 1</span><span><b id="xp">0</b> XP</span></div>
+    <div class="t"><i id="xpbar"></i></div>
+    <small>Answer quizzes and scan the map to level up.</small>
+  </div>
+</aside>
+
+<main>
+<section id="buggy" class="on">
+  <div class="card">
+    <span class="label a">Chapter 1 · Lunar Relics</span>
+    <h2>The Lost Moon Buggy</h2>
+    <p>In 1971, Apollo 15 astronauts drove the first car on the Moon. When it was time to go home, they parked it near Hadley Rille. It is still there today.</p>
+    <div class="art"><svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="40" r="22" fill="#fff" opacity=".9"/><circle cx="60" cy="30" r="2" fill="#fff"/><circle cx="200" cy="20" r="2" fill="#fff"/><path d="M0 120 Q120 100 220 118 T400 112 V150 H0Z" fill="#8f98c9"/><circle cx="60" cy="132" r="9" fill="#7580b8"/><circle cx="330" cy="130" r="6" fill="#7580b8"/><g transform="translate(150 78)"><rect x="8" y="14" width="86" height="12" rx="4" fill="#f5a524"/><rect x="40" y="2" width="28" height="12" rx="3" fill="#fff"/><circle cx="22" cy="38" r="12" fill="#2b3370" stroke="#fff" stroke-width="3"/><circle cx="80" cy="38" r="12" fill="#2b3370" stroke="#fff" stroke-width="3"/></g></svg></div>
+    <div class="stats">
+      <div class="stat"><b>8 mph</b><span>Top speed</span></div>
+      <div class="stat"><b>17.3 mi</b><span>Total distance driven</span></div>
+      <div class="stat"><b>462 lb</b><span>Weight on Earth</span></div>
+    </div>
+    <div class="note"><b>Why leave it?</b> Every pound left behind made room for more Moon rocks. The crew brought home about 170 pounds of them.</div>
+  </div>
+  <div class="col">
+    <div class="card quiz" data-xp="50" data-ok="1" data-good="Correct! The Moon has no wind or rain, so it can sit there for ages.">
+      <span class="label t">Quiz · +50 XP</span>
+      <h3>Why did the astronauts leave the buggy on the Moon?</h3>
+      <div class="opts">
+        <button class="opt"><i>A</i>It ran out of snacks</button>
+        <button class="opt"><i>B</i>It was too heavy to bring home with the Moon rocks</button>
+        <button class="opt"><i>C</i>It was painted the wrong color</button>
+      </div>
+      <div class="msg" aria-live="polite"></div>
+    </div>
+    <div class="card">
+      <span class="label">Cosmo Fact</span>
+      <h3 id="fact" style="font-weight:600;font-size:18px;line-height:1.4"></h3>
+      <button class="btn" id="shuf" style="margin-top:auto">Next fact</button>
+    </div>
+  </div>
+</section>
+
+<section id="surveyor">
+  <div class="card">
+    <span class="label">Chapter 2 · Apollo 12</span>
+    <h2>Humans Visit a Robot on the Moon</h2>
+    <p>In 1969, Pete Conrad and Alan Bean landed close to Surveyor 3, a robot that had been sitting alone on the Moon since 1967. They cut off its TV camera and brought it back to Earth.</p>
+    <div class="art"><svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="70" cy="35" r="2" fill="#fff"/><circle cx="300" cy="28" r="2" fill="#fff"/><path d="M0 125 Q150 105 260 122 T400 118 V150 H0Z" fill="#8f98c9"/><g transform="translate(160 40)"><rect x="30" y="20" width="50" height="34" rx="6" fill="#fff"/><circle cx="85" cy="18" r="10" fill="#f5a524"/><path d="M30 54 L8 84 M80 54 L102 84 M55 54 V86" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M55 4 V20 M44 4 H66" stroke="#fff" stroke-width="4" stroke-linecap="round"/></g></svg></div>
+    <div class="stats">
+      <div class="stat"><b>~535 ft</b><span>Walk to the robot</span></div>
+      <div class="stat"><b>942 days</b><span>Robot waited alone</span></div>
+      <div class="stat"><b>DC</b><span>Camera at the Smithsonian</span></div>
+    </div>
+    <div class="note"><b>The germ mystery:</b> Scientists once reported a tiny germ inside the camera. Many experts now think it got in on Earth, so it is still debated.</div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h3>Explore the robot</h3>
+      <div class="chips" id="parts">
+        <button class="chip on" data-p="cam">Camera</button>
+        <button class="chip" data-p="arm">Scoop arm</button>
+        <button class="chip" data-p="sun">Solar panel</button>
+      </div>
+      <div class="note b" id="partInfo"></div>
+    </div>
+    <div class="card quiz" data-xp="50" data-ok="0" data-good="Right! Conrad used bolt cutters.">
+      <span class="label t">Quiz · +50 XP</span>
+      <h3>What tool cut the camera off Surveyor 3?</h3>
+      <div class="opts">
+        <button class="opt"><i>A</i>Bolt cutters</button>
+        <button class="opt"><i>B</i>A laser torch</button>
+        <button class="opt"><i>C</i>Warm mittens</button>
+      </div>
+      <div class="msg" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="mars">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><h2 style="margin:0">Mars Rock Relay: 4 steps to bring samples home</h2><span class="label a" style="margin:0">Jezero Crater</span></div>
+    <div class="steps" id="steps" style="margin:14px 0 12px">
+      <button class="step on" data-s="0"><b>1</b>Drill and cache</button>
+      <button class="step" data-s="1"><b>2</b>Pick up tubes</button>
+      <button class="step" data-s="2"><b>3</b>Launch from Mars</button>
+      <button class="step" data-s="3"><b>4</b>Catch in orbit</button>
+    </div>
+    <div class="note b" id="stepInfo"></div>
+  </div>
+  <div class="low">
+    <div class="card">
+      <span class="label">Rocket weight balancer</span>
+      <h3>How heavy is your cargo?</h3>
+      <div class="chips">
+        <button class="chip" data-w="15">Rock tubes (15 kg)</button>
+        <button class="chip" data-w="1025">Whole rover (1,025 kg)</button>
+      </div>
+      <label for="w" style="font-weight:700;font-size:13px">Cargo: <span id="wv">15 kg</span> · 1 kg to orbit needs about 15 kg of fuel</label>
+      <input type="range" id="w" min="5" max="1200" value="15">
+      <div style="display:flex;align-items:baseline;gap:8px"><div class="big" id="fuel">225 kg</div><span style="font-size:13px;color:var(--mute)">fuel needed</span></div>
+      <div class="meter"><i id="tank"></i></div>
+      <div class="note" id="verdict"></div>
+    </div>
+    <div class="card quiz" data-xp="100" data-ok="1" data-good="Correct! Heavy rovers would need giant rockets.">
+      <span class="label t">Quiz · +100 XP</span>
+      <h3>Why can't the rover just fly home to Earth?</h3>
+      <div class="opts">
+        <button class="opt"><i>A</i>Martian air rusts its wheels</button>
+        <button class="opt"><i>B</i>It is too heavy and would need a gigantic rocket</button>
+        <button class="opt"><i>C</i>It does not know the way</button>
+      </div>
+      <div class="msg" aria-live="polite"></div>
+      <button class="btn" id="plan" style="margin-top:auto">Test my retrieval plan</button>
+    </div>
+  </div>
+</section>
+
+<section id="radar">
+  <div class="map" id="map"><div class="sweep"></div><div class="hud" id="hud">LUNAR SURFACE SCANNER</div></div>
+  <div class="side">
+    <div class="card">
+      <span class="count" id="found">0/4 found</span>
+      <h2 style="font-size:20px">Surface Radar Map</h2>
+      <p style="font-size:14px">Select markers to scan them. Find all four to earn the Golden Wheels Medal.</p>
+      <div class="chips" id="planet" style="margin:0">
+        <button class="chip on" data-pl="moon">Moon</button>
+        <button class="chip" data-pl="mars">Mars</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="coord" id="rc">No target selected</div>
+      <h3 id="rt" style="font-size:20px">Select a marker</h3>
+      <p id="rd">Choose a spot on the radar to learn what is there.</p>
+      <button class="btn" id="hint" style="margin-top:auto">Where is the first Moon car?</button>
+    </div>
+  </div>
+</section>
+</main>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+let xp=0;
+function addXP(n,e){xp+=n;$('#xp').textContent=xp;$('#lvl').textContent='Level '+(1+Math.floor(xp/150));$('#xpbar').style.width=(xp%150)/150*100+'%';
+  const r=e?e.getBoundingClientRect():{left:innerWidth/2,top:innerHeight/2,width:0,height:0},cols=['#f5a524','#13a98b','#3b6cf6','#ef5d5d'];
+  for(let i=0;i<12;i++){const p=document.createElement('div');p.className='pc';p.style.background=cols[i%4];
+    p.style.left=r.left+r.width/2+'px';p.style.top=r.top+r.height/2+'px';
+    p.style.setProperty('--x',(Math.random()*200-100)+'px');p.style.setProperty('--y',(Math.random()*-140-10)+'px');
+    document.body.appendChild(p);setTimeout(()=>p.remove(),1000)}}
+$('#nav').onclick=e=>{const b=e.target.closest('.nv');if(!b)return;$$('.nv').forEach(x=>x.classList.toggle('on',x===b));$$('section').forEach(s=>s.classList.toggle('on',s.id===b.dataset.t))};
+$$('.quiz').forEach(q=>{let done=false;const msg=q.querySelector('.msg');
+  q.querySelectorAll('.opt').forEach((o,i)=>o.onclick=()=>{if(done)return;
+    if(i==q.dataset.ok){done=true;o.classList.add('right');msg.style.color='#0b7a64';msg.textContent=q.dataset.good+' +'+q.dataset.xp+' XP';addXP(+q.dataset.xp,o)}
+    else{o.classList.add('wrong');msg.style.color='#c23c3c';msg.textContent='Not quite. Try again!';setTimeout(()=>o.classList.remove('wrong'),400)}})});
+const facts=['Apollo 15 left a tiny statue called "Fallen Astronaut" on the Moon. It is only 3.3 inches tall.','Footprints on the Moon can last for millions of years because there is no wind.','Mars has the biggest volcano in our solar system, Olympus Mons.','A day on Mars is about 24 hours and 40 minutes long.'];let fi=0;
+$('#fact').textContent=facts[0];
+$('#shuf').onclick=()=>{fi=(fi+1)%facts.length;$('#fact').textContent=facts[fi]};
+const parts={cam:'The TV camera was removed by the Apollo 12 crew and flown home so scientists could study how space changed it.',arm:'A scoop arm dug small trenches to test whether the Moon dust could hold up a lander. It could.',sun:'Surveyor used solar power, so it only worked well while the Sun was shining on it.'};
+function showPart(k){$$('#parts .chip').forEach(c=>c.classList.toggle('on',c.dataset.p==k));$('#partInfo').textContent=parts[k]}
+$('#parts').onclick=e=>{if(e.target.dataset.p){showPart(e.target.dataset.p);addXP(5,e.target)}};showPart('cam');
+const steps=['Perseverance drills rock cores and seals them in tubes. Some tubes are already waiting in a depot at Jezero Crater.','A pickup lander, and possibly helicopters, would collect the tubes. Mission plans keep changing, so check NASA for updates.','A small rocket called the Mars Ascent Vehicle would lift off. It would be the first launch from another planet.','A spacecraft in orbit would catch the sample container and carry it home to Earth.'];
+function showStep(i){$$('.step').forEach((b,j)=>b.classList.toggle('on',i==j));$('#stepInfo').textContent=steps[i]}
+$('#steps').onclick=e=>{const b=e.target.closest('.step');if(b){showStep(+b.dataset.s);addXP(5,b)}};showStep(0);
+function bal(){const w=+$('#w').value,f=w*15;$('#wv').textContent=w+' kg';$('#fuel').textContent=f.toLocaleString()+' kg';
+  $('#tank').style.width=Math.min(100,f/300*100)+'%';const ok=f<=300;$('#tank').style.background=ok?'var(--teal)':'var(--coral)';
+  $('#verdict').textContent=ok?'This fits in a small Mars rocket. Ready to launch.':'Too much fuel! You would need a rocket as big as a skyscraper.'}
+$('#w').oninput=bal;$$('[data-w]').forEach(b=>b.onclick=()=>{$('#w').value=b.dataset.w;bal()});bal();
+$('#plan').onclick=e=>{const b=e.target;b.textContent='Calculating...';setTimeout(()=>{b.textContent='Plan works! +25 XP';addXP(25,b);setTimeout(()=>b.textContent='Test my retrieval plan',2200)},1000)};
+const pins={moon:[
+ {id:'s3',n:'Surveyor 3',x:40,y:58,c:'3.0° S, 23.4° W',d:'A robot that landed in 1967. Apollo 12 astronauts walked over to visit it.'},
+ {id:'a12',n:'Apollo 12',x:54,y:40,c:'3.0° S, 23.4° W',d:'Pete Conrad and Alan Bean made a pinpoint landing here in 1969.'},
+ {id:'a15',n:'Moon Buggy',x:72,y:24,c:'26.1° N, 3.6° E',d:'The first car driven on the Moon. Scott and Irwin drove it 17.3 miles.'},
+ {id:'a11',n:'Tranquility Base',x:70,y:72,c:'0.7° N, 23.5° E',d:'Neil Armstrong and Buzz Aldrin landed here on July 20, 1969.'}],
+ mars:[
+ {id:'jz',n:'Rock Tube Depot',x:28,y:40,c:'18.4° N, 77.6° E',d:'Rock tubes waiting in Jezero Crater for a ride home.'},
+ {id:'pv',n:'Perseverance',x:55,y:58,c:'18.4° N, 77.6° E',d:'A car-sized rover collecting rock samples.'},
+ {id:'ig',n:'Ingenuity',x:72,y:28,c:'Jezero Crater',d:'The first helicopter to fly on another planet.'},
+ {id:'ol',n:'Olympus Mons',x:26,y:74,c:'18.7° N, 226° E',d:'The tallest volcano we know of in the solar system.'}]};
+let pl='moon',seen=new Set();
+function draw(){$$('.pin').forEach(p=>p.remove());$('#hud').textContent=(pl=='moon'?'LUNAR':'MARTIAN')+' SURFACE SCANNER';pins[pl].forEach((p,i)=>{const b=document.createElement('button');b.className='pin';b.style.left=p.x+'%';b.style.top=p.y+'%';b.setAttribute('aria-label',p.n);b.innerHTML=(i+1)+'<span>'+p.n+'</span>';
+  b.onclick=()=>{$$('.pin').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#rt').textContent=p.n;$('#rc').textContent=p.c;$('#rd').textContent=p.d;
+   if(!seen.has(p.id)){seen.add(p.id);addXP(30,b);cnt()}};
+  $('#map').appendChild(b)});cnt()}
+function cnt(){const n=pins[pl].filter(q=>seen.has(q.id)).length;$('#found').textContent=n+'/4 found'+(n==4?' · Medal earned!':'')}
+$('#planet').onclick=e=>{if(!e.target.dataset.pl)return;pl=e.target.dataset.pl;$$('#planet .chip').forEach(c=>c.classList.toggle('on',c===e.target));draw();$('#hint').style.display=pl=='moon'?'':'none'};
+$('#hint').onclick=()=>{const b=$$('.pin')[2];b&&b.click()};
+draw();
+</script>
+</body>
+</html>
