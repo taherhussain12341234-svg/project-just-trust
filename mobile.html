@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Galactic Field Guide: Relics of the Moon &amp; Mars</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c1233;--navy2:#161d4a;--bg:#eef1f8;--card:#fff;--line:#e1e5f0;--ink:#1a2040;--mute:#5b6384;--p:#3a4266;--na:#fff8ea;--nat:#4a3f1e;--nb:#eef3ff;--nbt:#26356e;--chip:#eef0f8;--hov:#f6f9ff;--amber:#f5a524;--teal:#13a98b;--coral:#ef5d5d;--blue:#3b6cf6;color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root{--bg:#0a0e26;--card:#141a3d;--line:#262e5c;--ink:#e8ebff;--mute:#9aa3d0;--p:#c3caef;--na:#2e2410;--nat:#f1dfae;--nb:#18265a;--nbt:#c9d6ff;--chip:#222a58;--hov:#1b2350}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{font:400 15px/1.5 'Nunito Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+h1,h2,h3{font-family:'Outfit',sans-serif;margin:0;line-height:1.2;letter-spacing:-.01em}
+header{display:flex;align-items:center;justify-content:space-between;color:#fff;background:linear-gradient(100deg,var(--navy),var(--navy2));border-bottom:1px solid #ffffff1a}
+.brand{display:flex;align-items:center;gap:12px}.brand h1{font-size:20px;font-weight:700}
+.brand small{color:#aab3e0;font-size:13px;margin-left:6px;padding-left:12px;border-left:1px solid #ffffff33}
+.live{font:600 13px 'Outfit';color:#8ff0d3;display:flex;align-items:center;gap:8px}
+.live:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px #13a98b33}
+aside,nav#nav{background:var(--navy);color:#fff}
+.nv{font-family:'Outfit',sans-serif;color:#c3caef;background:none;border:0;cursor:pointer}
+.nv span{display:grid;place-items:center;background:#ffffff14;font-size:13px}
+.nv.on{background:#ffffff1c;color:#fff}.nv.on span{background:var(--amber);color:#3a2800}
+.xpc{background:#ffffff12;border:1px solid #ffffff1f;border-radius:14px;padding:14px}
+.xpc .r{display:flex;justify-content:space-between;font:600 14px 'Outfit'}
+.xpc .t{height:6px;border-radius:9px;background:#ffffff2b;overflow:hidden;margin:10px 0 6px}
+.xpc .t i{display:block;height:100%;width:0;background:var(--amber);transition:width .5s}
+.xpc small{color:#98a3d6;font-size:12px}
+section{display:none}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 1px 2px #0c123310,0 8px 24px #0c123308;min-height:0;min-width:0;display:flex;flex-direction:column;overflow:hidden}
+.label{align-self:flex-start;font:600 12px 'Outfit';color:var(--blue);background:#e9efff;border-radius:99px;padding:3px 11px;margin-bottom:10px}
+.label.t{color:#0b7a64;background:#dcf5ee}.label.a{color:#8a5600;background:#fdeccb}
+.card h2{font-size:24px;margin-bottom:6px}.card h3{font-size:17px;margin-bottom:6px}
+.card p{margin:0 0 10px;color:var(--p)}
+.art{flex:1;min-height:90px;border-radius:12px;margin-bottom:14px;background:linear-gradient(160deg,var(--navy),#26307a);overflow:hidden}
+.art svg{width:100%;height:100%;display:block}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:12px;margin:4px 0 12px}
+.stat{padding:10px 14px;border-right:1px solid var(--line)}.stat:last-child{border:0}
+.stat b{display:block;font:700 20px 'Outfit'}.stat span{font-size:12px;color:var(--mute);line-height:1.3;display:block}
+.note{border-left:4px solid var(--amber);background:var(--na);border-radius:0 10px 10px 0;padding:10px 14px;font-size:14px;color:var(--nat)}
+.note.b{border-color:var(--blue);background:var(--nb);color:var(--nbt)}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;font:600 14px 'Nunito Sans';border:1px solid var(--line);background:var(--card);border-radius:10px;padding:10px 12px;cursor:pointer;color:var(--ink)}
+.opt:hover{border-color:var(--blue);background:var(--hov)}
+.opt i{font:700 12px 'Outfit';font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--chip);display:grid;place-items:center;flex:none}
+.opt.right{border-color:var(--teal);background:#13a98b22}.opt.right i{background:var(--teal);color:#fff}
+.opt.wrong{border-color:var(--coral);background:#ef5d5d22;animation:sh .35s}
+@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.msg{min-height:22px;margin:8px 0 0;font-weight:700;font-size:14px}
+.btn{font:600 14px 'Outfit';border:0;border-radius:10px;padding:11px 18px;background:var(--navy);color:#fff;cursor:pointer;align-self:flex-start}
+.btn:hover{background:var(--navy2)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font:600 13px 'Outfit';border:1px solid var(--line);background:var(--card);border-radius:99px;padding:6px 13px;cursor:pointer;color:var(--ink)}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.step{display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 12px;cursor:pointer;font:600 14px 'Outfit';color:var(--ink)}
+.step b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--chip);font-size:13px;flex:none}
+.step.on{border-color:var(--amber)}.step.on b{background:var(--amber);color:#3a2800}
+input[type=range]{width:100%;accent-color:var(--blue);margin:4px 0 8px}
+.big{font:700 34px 'Outfit';line-height:1}
+.meter{height:10px;background:var(--chip);border-radius:9px;overflow:hidden;margin:10px 0}
+.meter i{display:block;height:100%;width:0;background:var(--teal);border-radius:9px;transition:width .25s,background .25s}
+.count{font:600 13px 'Outfit';background:#fdeccb;color:#8a5600;border-radius:99px;padding:3px 12px;align-self:flex-start;margin-bottom:10px}
+.coord{font:600 12px 'Outfit';color:var(--teal);margin-bottom:4px}
+.pc{position:fixed;width:8px;height:8px;border-radius:50%;pointer-events:none;z-index:99;animation:fl 1s ease-out forwards}
+@keyframes fl{to{transform:translate(var(--x),var(--y));opacity:0}}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.cr{margin:0;padding-left:18px;color:var(--p);font-size:14px}.cr li{margin-bottom:7px}.cr a{color:var(--blue);word-break:break-word}
+.art{position:relative}.art .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:1}
+.art.hasph:after{content:attr(data-c);position:absolute;right:8px;bottom:6px;z-index:2;font:600 11px 'Outfit';color:#fff;background:#0c1233b3;border-radius:6px;padding:2px 8px}
+.rph{display:none;position:relative;margin:0 0 10px;border-radius:12px;overflow:hidden;height:64px;background:#0c1233;flex:none}.rph img{width:100%;height:100%;object-fit:cover;display:block}
+.rph span{position:absolute;right:8px;bottom:6px;font:600 11px 'Outfit';color:#fff;background:#0c1233b3;border-radius:6px;padding:2px 8px}
+#plist .chip{font-size:12px;padding:5px 10px}
+/* map */
+.mapwrap{position:relative;border-radius:16px;overflow:hidden;background:#080c26;box-shadow:0 8px 24px #0c123322;min-height:0}
+#svg{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+#svg path,#svg line,#svg circle{vector-effect:non-scaling-stroke}
+.bg0{fill:#1a2150}.mare{fill:#0a0f33;stroke:#27e0a9;stroke-opacity:.35;stroke-width:1.2px}
+.ct{fill:none;stroke:#27e0a9;stroke-opacity:.4;stroke-width:1px}.ct.hi{stroke:#54fdc4;stroke-opacity:.7;stroke-width:1.6px}
+.crt{fill:#0c1236;stroke:#adc6ff;stroke-opacity:.5;stroke-width:1px}.rille{fill:none;stroke:#ffb59d;stroke-opacity:.8;stroke-width:1.6px;stroke-dasharray:4 3}
+.gl{stroke:#8c909f;stroke-opacity:.28;stroke-width:.8px;stroke-dasharray:3 3;fill:none}
+.tk{font:700 var(--fs,11px) 'Outfit';fill:#aab3e0;opacity:.85}
+.rl{font:700 calc(var(--fs,11px)*1.15) 'Outfit';fill:#8fa0e8;opacity:.55;letter-spacing:.18em}
+.pin{cursor:pointer}.pr{fill:#f5a524;stroke:#fff;stroke-width:2px}.pc2{fill:none;stroke:#f5a524;stroke-opacity:.5;stroke-width:2px;animation:pu 2s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pu{from{transform:scale(1)}to{transform:scale(2.1);opacity:0}}
+.pin.t-rover .pr{fill:#27e0a9}.pin.t-depot .pr{fill:#ffb59d}.pin.t-site .pr{fill:#adc6ff}
+.pin.seen .pc2{display:none}.pin.on .pr{fill:#fff;stroke:#f5a524}
+.pn{font:700 13px 'Outfit';fill:#2a1c00;pointer-events:none}
+.pl rect{fill:#060a2d;fill-opacity:.88;stroke:#ffffff33}.pl text{font:700 12px 'Outfit';fill:#fff;pointer-events:none}
+.hud{position:absolute;z-index:3;font:700 12px 'Outfit';color:#dfe0ff;background:#161c4ae6;backdrop-filter:blur(6px);border-radius:99px;padding:6px 12px;display:flex;align-items:center;gap:8px}
+.hud.tl{left:12px;top:12px}.hud.tr{right:12px;top:12px;flex-direction:column;border-radius:12px;padding:6px 9px;gap:0;pointer-events:none}
+.hud.bl{left:12px;bottom:12px;padding:4px;gap:4px}.hud.br{right:12px;bottom:12px;flex-direction:column;align-items:flex-end;gap:3px;border-radius:12px}
+.hud b{color:#27e0a9}.hud button{font:700 12px 'Outfit';color:#dfe0ff;background:#2d3255;border:0;border-radius:99px;min-width:34px;height:34px;padding:0 10px;cursor:pointer}
+.hud button.on{background:#4d8eff;color:#00285d}
+.fl{position:absolute;z-index:3;left:12px;right:12px;top:52px;display:flex;gap:6px;flex-wrap:wrap}
+.fl button{font:700 11px 'Outfit';color:#dfe0ff;background:#161c4ae6;border:1px solid #ffffff22;border-radius:99px;padding:6px 11px;cursor:pointer}
+.fl button.on{background:#4d8eff;color:#00285d;border-color:#4d8eff}
+.sb{height:5px;border:2px solid #dfe0ff;border-top:0;display:block}
+.ro{font-variant-numeric:tabular-nums}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.nv em{font-style:normal}
+.dyk{background:#ffffff12;border:1px solid #ffffff1f;border-radius:14px;padding:12px;font-size:12.5px;color:#c3caef;line-height:1.4}
+.dyk b{display:block;color:var(--amber);font:700 11px 'Outfit';letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.pick{display:flex;gap:10px;flex:none}
+.pk{flex:1;min-width:0;display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:6px 10px;cursor:pointer;color:var(--ink);font:600 13px 'Outfit';text-align:left}
+.pk img{width:44px;height:44px;border-radius:8px;object-fit:contain;background:#0c1233;flex:none}.pk span{overflow:hidden;text-overflow:ellipsis}
+.pk.on{border-color:var(--amber);background:var(--na)}
+.book{flex:1;min-height:0;gap:10px}
+.bk-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}.bk-head h2{margin:0}.bk-head .label{margin-bottom:6px}
+.bk-body{flex:1;min-height:0}.bk-foot{display:flex;justify-content:space-between;flex:none}
+.p1{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;height:100%;min-height:0}
+.art2{position:relative;margin:0;border-radius:14px;background:#0c1233;overflow:hidden;min-height:0;display:flex}
+.art2 img{width:100%;height:100%;object-fit:contain;display:block}
+.pcap{position:absolute;right:8px;bottom:8px;font:600 11px 'Outfit';color:#fff;background:#0c1233b3;border-radius:6px;padding:2px 8px}
+.info{min-height:0}.info h4,.blk h4{margin:10px 0 6px;font:700 13px 'Outfit';letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.blk h4{margin-top:0}
+.lead{font-size:15px;margin:0 0 10px;color:var(--p)}
+.ff{margin:0;padding-left:18px;font-size:14px;color:var(--p)}.ff li{margin-bottom:4px}
+.p2{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;height:100%;min-height:0}
+.col2{display:grid;grid-template-rows:1fr 1fr;gap:14px;min-height:0}
+.blk{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--hov);min-height:0;display:flex;flex-direction:column}
+.blk.g{background:#13a98b14;border-color:#13a98b44}.blk.b{background:var(--nb)}.blk p{margin:0;font-size:14.5px;color:var(--p)}
+.stp{margin:0 0 12px;padding-left:20px;font-size:14.5px;color:var(--p)}.stp li{margin-bottom:8px}.blk .btn{margin-top:auto}
+.gcard{flex:1;min-height:0;gap:6px}
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}.mt>div{display:grid;gap:6px;align-content:start}.opt.right[disabled]{opacity:1}
+.cvw{display:flex;justify-content:center}#cv{width:min(100%,830px);height:auto;border-radius:12px;touch-action:manipulation;background:#05071a}
+.rhead{display:flex;gap:12px;align-items:center;margin-bottom:10px}.rhead img{width:72px;height:72px;border-radius:10px;object-fit:contain;background:#0c1233;flex:none}.rhead h3{margin:0;font-size:20px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+.pk .ck{margin-left:auto;color:var(--teal);font:800 15px 'Outfit'}.chip.dn:not(.on){border-color:var(--teal);color:var(--teal)}
+.p3{display:flex;flex-direction:column;gap:10px;height:100%;min-height:0}.gbox{flex:1;min-height:0;border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--hov);overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.gbox h2{font-size:22px}.gbox .btn{align-self:flex-start}#cv{width:min(100%,640px)!important}
+
+body{overflow-x:hidden}
+header{position:sticky;top:0;z-index:30;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top))}
+.brand h1{font-size:16px}.brand small{display:none}
+.mx{display:flex;flex-direction:column;align-items:flex-end;gap:3px;font:600 12px 'Outfit';min-width:96px}
+.mx .t{height:5px;width:96px;border-radius:9px;background:#ffffff2b;overflow:hidden}.mx .t i{display:block;height:100%;width:0;background:var(--amber);transition:width .5s}
+nav#nav{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom));border-top:1px solid #ffffff1a}
+.nv{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;font-weight:600;padding:5px 2px;border-radius:10px;min-height:52px}
+.nv span{width:28px;height:28px;border-radius:9px}
+main{padding:14px 14px calc(90px + env(safe-area-inset-bottom))}
+section.on{display:flex;flex-direction:column;gap:14px}
+.card{padding:16px}.card h2{font-size:21px}
+.art{flex:none;height:130px}
+.steps{grid-template-columns:1fr 1fr}.step{padding:12px}
+#mars .low{display:flex;flex-direction:column;gap:14px}
+.mapwrap{height:min(62vh,520px);min-height:380px;flex:none}
+.fl{top:50px;flex-wrap:nowrap;overflow-x:auto}.hud.tr{display:none}.hud.tl{max-width:calc(100% - 24px)}
+.hud button{min-width:42px;height:42px;font-size:15px}.hud.bl{bottom:calc(12px)}
+.opt,.chip{min-height:44px}.btn{min-height:44px;width:100%;text-align:center}
+.rph{height:150px}.stat{padding:8px 10px}.stat b{font-size:17px}
+
+.pick{overflow-x:auto}.pk{flex:none;min-width:150px}.book{flex:none}.bk-body{flex:none}
+.p1,.p2{display:flex;flex-direction:column;gap:14px;height:auto}.art2{height:240px}.col2{display:flex;flex-direction:column}
+.mt{grid-template-columns:1fr 1fr;gap:6px 10px}.mt .opt{font-size:13px;padding:8px}#file.on,#games.on{display:flex;flex-direction:column;gap:12px}.dyk{margin-bottom:14px;background:var(--navy);border-color:#ffffff1f}.bk-foot .btn{width:auto}
+</style></head><body class="mob"><header><div class="brand"><svg width="32" height="32" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9" fill="#f5a524"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#fff" stroke-width="2" transform="rotate(-25 20 20)"/><circle cx="34" cy="12" r="2.5" fill="#fff"/></svg><h1>Galactic Field Guide</h1><small>Relics of the Moon &amp; Mars</small></div><div class="mx"><span><span id="lvl">Level 1</span> · <b id="xp">0</b> XP</span><div class="t"><i id="xpbar"></i></div></div></header><main><div class="dyk"><b>Did you know?</b><span id="dykt"></span></div>
+<section id="file"><div class="pick" id="pick"></div><div class="card book"><div class="bk-head"><div><span class="label a" id="ctag"></span><h2 id="cname"></h2></div><div class="chips" id="pgs" style="margin:0"><button class="chip on" data-pg="1">1 · Meet it</button><button class="chip" data-pg="2">2 · Why it stayed &amp; how it helps</button><button class="chip" data-pg="3">3 · Play</button></div></div><div class="bk-body" id="bk"></div><div class="bk-foot"><button class="btn" id="prevp">← Back</button><button class="btn" id="nextp">Turn the page →</button></div></div></section>
+<section id="radar"><div class="mapwrap" id="mw"><svg id="svg" role="img" aria-label="Interactive topographic map of relic locations"><rect class="bg0" x="-3000" y="-3000" width="7000" height="7000"/><g id="terrain"></g><g id="grid"></g><g id="gl"></g><g id="ln"></g><g id="pins"></g></svg>
+<div class="hud tl"><span id="mname">LUNAR NEARSIDE</span><b id="mdata">STYLIZED TOPO</b></div>
+<div class="fl" id="flt"><button class="on" data-f="all">ALL</button><button data-f="lander">LANDERS</button><button data-f="rover">ROVERS</button><button data-f="depot">DEPOTS</button></div>
+<div class="hud tr" aria-hidden="true"><b style="font-size:16px">▲</b><b>N</b></div>
+<div class="hud bl"><button id="zi" aria-label="Zoom in">+</button><button id="zo" aria-label="Zoom out">−</button><button id="zr">RESET</button></div>
+<div class="hud br"><span class="ro" id="ro">Move over the map</span><span><i class="sb" id="sb" style="width:80px"></i><b id="sbt">500 km</b></span></div></div>
+<div class="side"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px"><span class="count" id="found" style="margin:0">0/4 found</span><div class="chips" id="planet" style="margin:0"><button class="chip on" data-pl="moon">Moon</button><button class="chip" data-pl="mars">Mars</button></div></div><div class="chips" id="plist" style="margin:0"></div><small style="color:var(--mute);margin-top:8px;font-size:12px">Tap a marker to scan it. Drag the map to move. Find every marker to earn the Golden Wheels Medal.</small></div>
+<div class="card"><div class="rhead"><img id="rimg" alt="" style="display:none"><div><div class="coord" id="rc">No target selected</div><h3 id="rt">Select a marker</h3></div></div><div class="relf" id="rrel" data-rel=""><div class="chips"><button class="chip on" data-k="about">1 · What it is</button><button class="chip" data-k="why">2 · Why it stayed</button><button class="chip" data-k="today">3 · Helping today</button></div><div class="note b rt" id="rd">Choose a spot on the map to learn what is there.</div></div><button class="btn" id="hint" style="margin-top:auto">Where is the first Moon car?</button><button class="btn" id="open" style="display:none;margin-top:auto">Open the full file →</button></div></div></section>
+<section id="credits"><div class="card"><span class="label">Sources &amp; Credits</span><h2>Where the facts come from</h2><p style="font-size:14px">Made for curious kids. Facts and coordinates come from the public sources below. Please check them if you use this in a classroom.</p>
+<ul class="cr"><li><b>Apollo 11, 12 and 15:</b> NASA, <a href="https://history.nasa.gov/alsj/" target="_blank" rel="noopener">Apollo Lunar Surface Journal</a> and mission reports, <a href="https://www.nasa.gov" target="_blank" rel="noopener">nasa.gov</a>.</li>
+<li><b>Landing-site coordinates and orbit photos:</b> NASA / Goddard / Arizona State University, Lunar Reconnaissance Orbiter Camera, <a href="https://www.lroc.asu.edu" target="_blank" rel="noopener">lroc.asu.edu</a>.</li>
+<li><b>Surveyor 3:</b> <a href="https://science.nasa.gov/mission/lunar-rangers-and-surveyors/surveyor-3/" target="_blank" rel="noopener">NASA Science</a>; camera tests: <a href="https://ntrs.nasa.gov/citations/19710024418" target="_blank" rel="noopener">NASA Technical Reports Server</a>; <a href="https://www.collectspace.com/news/news-112219a-apollo-12-surveyor-parts-50-years.html" target="_blank" rel="noopener">collectSPACE</a>. The camera is on loan to the <a href="https://airandspace.si.edu" target="_blank" rel="noopener">Smithsonian National Air and Space Museum</a>.</li>
+<li><b>Moon laser mirrors:</b> <a href="https://eos.org/features/seeing-the-light" target="_blank" rel="noopener">Eos, “Seeing the Light”</a> and <a href="https://lroc.im-ldi.com/posts/153" target="_blank" rel="noopener">LROC</a>.</li>
+<li><b>Photos of the Apollo 15 buggy, the Apollo 11 lunar module Eagle in lunar orbit, the Apollo 12 lunar module Intrepid, Surveyor 3, Perseverance, Ingenuity and a sample tube:</b> NASA. The sample-tube picture is a frame from NASA test footage made on Earth, not a photo taken on Mars. Keep NASA’s original captions with them.</li></ul></div>
+<div class="card"><h3>More credits</h3><ul class="cr"><li><b>Mars craft and Jezero Crater:</b> NASA / JPL-Caltech and ESA, <a href="https://science.nasa.gov/mars/" target="_blank" rel="noopener">science.nasa.gov/mars</a>. <b>Ingenuity:</b> <a href="https://www.airspacemag.com/smart-news/nasa-ingenuity-mars-helicopter-taken-final-flight-180983667/" target="_blank" rel="noopener">Smithsonian Air &amp; Space</a>.</li>
+<li><b>Mars Sample Return status (January 2026):</b> <a href="https://www.theregister.com/2026/01/16/nasa_science_budget/" target="_blank" rel="noopener">The Register</a> and <a href="https://livescience.com/space/mars/nasas-mars-sample-return-is-dead-leaving-china-to-retrieve-signs-of-life-from-the-red-planet" target="_blank" rel="noopener">Live Science</a>. Plans can change, so check NASA.</li>
+<li><b>Photos:</b> pictures of each craft are loaded from the <a href="https://images.nasa.gov" target="_blank" rel="noopener">NASA Image and Video Library</a> or, if that fails, from <a href=\"https://commons.wikimedia.org\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (NASA pictures), and each caption names the photo. If a photo cannot be loaded, a drawing made for this guide is shown instead (marked “Illustration”). Check the <a href="https://www.nasa.gov/nasa-brand-center/images-and-media/" target="_blank" rel="noopener">NASA media guidelines</a> before reusing any photo.</li>
+<li><b>Map:</b> drawn in the style of lunar and Martian topographic maps. Shapes are illustrations, not real elevation data, and marker positions are approximate. Surveyor 3 and Apollo 12 are only about 600 ft apart, so they are drawn apart.</li>
+<li><b>Rocket Balancer:</b> a simplified teaching estimate, not an official NASA number.</li>
+<li><b>Fonts:</b> Outfit and Nunito Sans from <a href="https://fonts.google.com" target="_blank" rel="noopener">Google Fonts</a> (SIL Open Font License). NASA does not endorse this site.</li></ul><p style="margin-top:10px;font-size:14px">Looking at this on a big screen? Open the <a href="index.html?desktop">desktop version</a>.</p></div></section>
+</main><nav id="nav"><button class="nv on" data-t="moon"><span>1</span><em>Moon</em></button><button class="nv" data-t="mars"><span>2</span><em>Mars</em></button><button class="nv" data-t="radar"><span>3</span><em>Map</em></button><button class="nv" data-t="credits"><span>4</span><em>Credits</em></button></nav><script>const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const MOB=document.body.classList.contains('mob');
+let xp=0;
+function addXP(n,e){xp+=n;$('#xp').textContent=xp;$('#lvl').textContent='Level '+(1+Math.floor(xp/150));$('#xpbar').style.width=(xp%150)/150*100+'%';
+ const r=e?e.getBoundingClientRect():{left:innerWidth/2,top:innerHeight/2,width:0,height:0},cols=['#f5a524','#13a98b','#3b6cf6','#ef5d5d'];
+ for(let i=0;i<10;i++){const p=document.createElement('div');p.className='pc';p.style.background=cols[i%4];p.style.left=r.left+r.width/2+'px';p.style.top=r.top+r.height/2+'px';p.style.setProperty('--x',(Math.random()*200-100)+'px');p.style.setProperty('--y',(Math.random()*-140-10)+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),1000)}}
+const ART={"a15": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 240\"><rect width=\"400\" height=\"240\" fill=\"#05071a\"/><g fill=\"#fff\"><circle cx=\"40\" cy=\"30\" r=\"1.5\"/><circle cx=\"120\" cy=\"60\" r=\"1\"/><circle cx=\"210\" cy=\"25\" r=\"1.5\"/><circle cx=\"300\" cy=\"55\" r=\"1\"/><circle cx=\"360\" cy=\"95\" r=\"1.5\"/><circle cx=\"70\" cy=\"105\" r=\"1\"/><circle cx=\"250\" cy=\"90\" r=\"1\"/></g><circle cx=\"345\" cy=\"40\" r=\"15\" fill=\"#3b6cf6\"/><path d=\"M336 36q7-7 14 0q-2 9-9 9z\" fill=\"#27e0a9\"/><path d=\"M0 185 Q90 172 190 184 T400 180 V240 H0Z\" fill=\"#9aa3d0\"/><path d=\"M0 207 Q120 196 220 208 T400 202 V240 H0Z\" fill=\"#7f89bd\"/><ellipse cx=\"62\" cy=\"219\" rx=\"26\" ry=\"6\" fill=\"#6a74a8\"/><ellipse cx=\"338\" cy=\"223\" rx=\"18\" ry=\"5\" fill=\"#6a74a8\"/><g transform=\"translate(112 112) scale(1.55)\"><rect x=\"8\" y=\"14\" width=\"86\" height=\"12\" rx=\"4\" fill=\"#f5a524\"/><rect x=\"40\" y=\"2\" width=\"28\" height=\"12\" rx=\"3\" fill=\"#fff\"/><path d=\"M14 14 V-10\" stroke=\"#fff\" stroke-width=\"2\"/><ellipse cx=\"14\" cy=\"-12\" rx=\"12\" ry=\"4\" fill=\"#f5a524\"/><circle cx=\"22\" cy=\"38\" r=\"12\" fill=\"#2b3370\" stroke=\"#fff\" stroke-width=\"3\"/><circle cx=\"80\" cy=\"38\" r=\"12\" fill=\"#2b3370\" stroke=\"#fff\" stroke-width=\"3\"/></g></svg>", "s3": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 240\"><rect width=\"400\" height=\"240\" fill=\"#05071a\"/><g fill=\"#fff\"><circle cx=\"40\" cy=\"30\" r=\"1.5\"/><circle cx=\"120\" cy=\"60\" r=\"1\"/><circle cx=\"210\" cy=\"25\" r=\"1.5\"/><circle cx=\"300\" cy=\"55\" r=\"1\"/><circle cx=\"360\" cy=\"95\" r=\"1.5\"/><circle cx=\"70\" cy=\"105\" r=\"1\"/><circle cx=\"250\" cy=\"90\" r=\"1\"/></g><circle cx=\"345\" cy=\"40\" r=\"15\" fill=\"#3b6cf6\"/><path d=\"M336 36q7-7 14 0q-2 9-9 9z\" fill=\"#27e0a9\"/><path d=\"M0 185 Q90 172 190 184 T400 180 V240 H0Z\" fill=\"#9aa3d0\"/><path d=\"M0 207 Q120 196 220 208 T400 202 V240 H0Z\" fill=\"#7f89bd\"/><ellipse cx=\"62\" cy=\"219\" rx=\"26\" ry=\"6\" fill=\"#6a74a8\"/><ellipse cx=\"338\" cy=\"223\" rx=\"18\" ry=\"5\" fill=\"#6a74a8\"/><g transform=\"translate(118 70) scale(1.5)\"><rect x=\"30\" y=\"20\" width=\"50\" height=\"34\" rx=\"6\" fill=\"#fff\"/><circle cx=\"85\" cy=\"18\" r=\"10\" fill=\"#f5a524\"/><path d=\"M30 54 L8 84 M80 54 L102 84 M55 54 V86\" stroke=\"#fff\" stroke-width=\"4\" stroke-linecap=\"round\"/><path d=\"M55 4 V20 M44 4 H66\" stroke=\"#fff\" stroke-width=\"4\" stroke-linecap=\"round\"/></g></svg>", "a12": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 240\"><rect width=\"400\" height=\"240\" fill=\"#05071a\"/><g fill=\"#fff\"><circle cx=\"40\" cy=\"30\" r=\"1.5\"/><circle cx=\"120\" cy=\"60\" r=\"1\"/><circle cx=\"210\" cy=\"25\" r=\"1.5\"/><circle cx=\"300\" cy=\"55\" r=\"1\"/><circle cx=\"360\" cy=\"95\" r=\"1.5\"/><circle cx=\"70\" cy=\"105\" r=\"1\"/><circle cx=\"250\" cy=\"90\" r=\"1\"/></g><circle cx=\"345\" cy=\"40\" r=\"15\" fill=\"#3b6cf6\"/><path d=\"M336 36q7-7 14 0q-2 9-9 9z\" fill=\"#27e0a9\"/><path d=\"M0 185 Q90 172 190 184 T400 180 V240 H0Z\" fill=\"#9aa3d0\"/><path d=\"M0 207 Q120 196 220 208 T400 202 V240 H0Z\" fill=\"#7f89bd\"/><ellipse cx=\"62\" cy=\"219\" rx=\"26\" ry=\"6\" fill=\"#6a74a8\"/><ellipse cx=\"338\" cy=\"223\" rx=\"18\" ry=\"5\" fill=\"#6a74a8\"/><g><path d=\"M132 168 L96 200 M268 168 L304 200 M165 172 L150 204 M235 172 L250 204\" stroke=\"#cfd3df\" stroke-width=\"4\" stroke-linecap=\"round\"/><ellipse cx=\"96\" cy=\"202\" rx=\"13\" ry=\"4\" fill=\"#cfd3df\"/><ellipse cx=\"304\" cy=\"202\" rx=\"13\" ry=\"4\" fill=\"#cfd3df\"/><ellipse cx=\"150\" cy=\"206\" rx=\"12\" ry=\"4\" fill=\"#cfd3df\"/><ellipse cx=\"250\" cy=\"206\" rx=\"12\" ry=\"4\" fill=\"#cfd3df\"/><polygon points=\"126,138 274,138 288,174 112,174\" fill=\"#d9a441\" stroke=\"#8a5a00\" stroke-width=\"2\"/><polygon points=\"150,86 250,86 264,138 136,138\" fill=\"#dfe3f0\" stroke=\"#8c909f\" stroke-width=\"2\"/><polygon points=\"168,100 192,100 186,116 170,116\" fill=\"#1c2670\"/><polygon points=\"208,100 232,100 230,116 214,116\" fill=\"#1c2670\"/><path d=\"M258 84 L270 64\" stroke=\"#fff\" stroke-width=\"3\"/><ellipse cx=\"272\" cy=\"62\" rx=\"12\" ry=\"4\" fill=\"#f5a524\"/><path d=\"M200 138 V174\" stroke=\"#8a5a00\" stroke-width=\"2\"/><text x=\"200\" y=\"162\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"#5a3b00\" font-family=\"sans-serif\">INTREPID</text></g></svg>", "a11": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 240\"><rect width=\"400\" height=\"240\" fill=\"#05071a\"/><g fill=\"#fff\"><circle cx=\"40\" cy=\"30\" r=\"1.5\"/><circle cx=\"120\" cy=\"60\" r=\"1\"/><circle cx=\"210\" cy=\"25\" r=\"1.5\"/><circle cx=\"300\" cy=\"55\" r=\"1\"/><circle cx=\"360\" cy=\"95\" r=\"1.5\"/><circle cx=\"70\" cy=\"105\" r=\"1\"/><circle cx=\"250\" cy=\"90\" r=\"1\"/></g><circle cx=\"345\" cy=\"40\" r=\"15\" fill=\"#3b6cf6\"/><path d=\"M336 36q7-7 14 0q-2 9-9 9z\" fill=\"#27e0a9\"/><path d=\"M0 185 Q90 172 190 184 T400 180 V240 H0Z\" fill=\"#9aa3d0\"/><path d=\"M0 207 Q120 196 220 208 T400 202 V240 H0Z\" fill=\"#7f89bd\"/><ellipse cx=\"62\" cy=\"219\" rx=\"26\" ry=\"6\" fill=\"#6a74a8\"/><ellipse cx=\"338\" cy=\"223\" rx=\"18\" ry=\"5\" fill=\"#6a74a8\"/><g><path d=\"M132 168 L96 200 M268 168 L304 200 M165 172 L150 204 M235 172 L250 204\" stroke=\"#cfd3df\" stroke-width=\"4\" stroke-linecap=\"round\"/><ellipse cx=\"96\" cy=\"202\" rx=\"13\" ry=\"4\" fill=\"#cfd3df\"/><ellipse cx=\"304\" cy=\"202\" rx=\"13\" ry=\"4\" fill=\"#cfd3df\"/><ellipse cx=\"150\" cy=\"206\" rx=\"12\" ry=\"4\" fill=\"#cfd3df\"/><ellipse cx=\"250\" cy=\"206\" rx=\"12\" ry=\"4\" fill=\"#cfd3df\"/><polygon points=\"126,138 274,138 288,174 112,174\" fill=\"#d9a441\" stroke=\"#8a5a00\" stroke-width=\"2\"/><polygon points=\"150,86 250,86 264,138 136,138\" fill=\"#dfe3f0\" stroke=\"#8c909f\" stroke-width=\"2\"/><polygon points=\"168,100 192,100 186,116 170,116\" fill=\"#1c2670\"/><polygon points=\"208,100 232,100 230,116 214,116\" fill=\"#1c2670\"/><path d=\"M258 84 L270 64\" stroke=\"#fff\" stroke-width=\"3\"/><ellipse cx=\"272\" cy=\"62\" rx=\"12\" ry=\"4\" fill=\"#f5a524\"/><path d=\"M200 138 V174\" stroke=\"#8a5a00\" stroke-width=\"2\"/><text x=\"200\" y=\"162\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"#5a3b00\" font-family=\"sans-serif\">EAGLE</text><path d=\"M330 130 V204\" stroke=\"#fff\" stroke-width=\"3\"/><rect x=\"332\" y=\"130\" width=\"40\" height=\"24\" fill=\"#ef5d5d\"/><rect x=\"332\" y=\"130\" width=\"40\" height=\"8\" fill=\"#fff\"/><rect x=\"332\" y=\"146\" width=\"40\" height=\"8\" fill=\"#fff\"/><rect x=\"332\" y=\"130\" width=\"16\" height=\"12\" fill=\"#3b6cf6\"/></g></svg>", "pv": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 240\"><defs><linearGradient id=\"m\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a2a52\"/><stop offset=\".75\" stop-color=\"#e9a27a\"/></linearGradient></defs><rect width=\"400\" height=\"240\" fill=\"url(#m)\"/><circle cx=\"330\" cy=\"50\" r=\"9\" fill=\"#fff3d6\"/><path d=\"M0 182 Q80 160 160 180 T320 176 T400 184 V240 H0Z\" fill=\"#c4683f\"/><path d=\"M0 208 Q120 194 240 209 T400 203 V240 H0Z\" fill=\"#a24b30\"/><g transform=\"translate(95 92) scale(1.1)\"><rect x=\"36\" y=\"22\" width=\"170\" height=\"38\" rx=\"7\" fill=\"#e8ebf5\" stroke=\"#8c909f\" stroke-width=\"2\"/><rect x=\"4\" y=\"34\" width=\"36\" height=\"16\" rx=\"3\" fill=\"#8c909f\"/><rect x=\"150\" y=\"-8\" width=\"7\" height=\"32\" fill=\"#cfd3df\"/><rect x=\"138\" y=\"-26\" width=\"32\" height=\"18\" rx=\"3\" fill=\"#fff\" stroke=\"#8c909f\"/><circle cx=\"148\" cy=\"-17\" r=\"4\" fill=\"#1c2670\"/><circle cx=\"161\" cy=\"-17\" r=\"4\" fill=\"#1c2670\"/><path d=\"M200 50 L232 70 L222 84\" stroke=\"#cfd3df\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M60 60 L60 84 M120 60 L120 84 M180 60 L180 84\" stroke=\"#8c909f\" stroke-width=\"4\"/><g fill=\"#2b3370\" stroke=\"#cfd3df\" stroke-width=\"3\"><circle cx=\"60\" cy=\"92\" r=\"17\"/><circle cx=\"120\" cy=\"92\" r=\"17\"/><circle cx=\"180\" cy=\"92\" r=\"17\"/></g></g></svg>", "ig": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 240\"><defs><linearGradient id=\"m\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a2a52\"/><stop offset=\".75\" stop-color=\"#e9a27a\"/></linearGradient></defs><rect width=\"400\" height=\"240\" fill=\"url(#m)\"/><circle cx=\"330\" cy=\"50\" r=\"9\" fill=\"#fff3d6\"/><path d=\"M0 182 Q80 160 160 180 T320 176 T400 184 V240 H0Z\" fill=\"#c4683f\"/><path d=\"M0 208 Q120 194 240 209 T400 203 V240 H0Z\" fill=\"#a24b30\"/><g transform=\"translate(120 38) scale(1.35)\"><ellipse cx=\"75\" cy=\"22\" rx=\"78\" ry=\"5\" fill=\"#adc6ff\" opacity=\".85\"/><ellipse cx=\"75\" cy=\"34\" rx=\"78\" ry=\"5\" fill=\"#adc6ff\" opacity=\".7\"/><path d=\"M75 34 V58\" stroke=\"#fff\" stroke-width=\"3\"/><rect x=\"38\" y=\"6\" width=\"74\" height=\"8\" rx=\"2\" fill=\"#1c2670\" stroke=\"#fff\"/><rect x=\"52\" y=\"58\" width=\"46\" height=\"40\" rx=\"7\" fill=\"#f5f7ff\" stroke=\"#8c909f\" stroke-width=\"2\"/><circle cx=\"75\" cy=\"78\" r=\"8\" fill=\"#1c2670\"/><path d=\"M56 98 L40 124 M94 98 L110 124 M62 98 L56 124 M88 98 L94 124\" stroke=\"#dfe3f0\" stroke-width=\"3\" stroke-linecap=\"round\"/></g></svg>", "jz": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 240\"><defs><linearGradient id=\"m\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a2a52\"/><stop offset=\".75\" stop-color=\"#e9a27a\"/></linearGradient></defs><rect width=\"400\" height=\"240\" fill=\"url(#m)\"/><circle cx=\"330\" cy=\"50\" r=\"9\" fill=\"#fff3d6\"/><path d=\"M0 182 Q80 160 160 180 T320 176 T400 184 V240 H0Z\" fill=\"#c4683f\"/><path d=\"M0 208 Q120 194 240 209 T400 203 V240 H0Z\" fill=\"#a24b30\"/><g transform=\"translate(90 176) rotate(-8)\"><rect x=\"-4\" width=\"8\" height=\"34\" rx=\"3\" fill=\"#dfe3f0\" stroke=\"#8c909f\"/><rect x=\"-4\" width=\"8\" height=\"7\" rx=\"3\" fill=\"#8c909f\"/></g><g transform=\"translate(125 184) rotate(6)\"><rect x=\"-4\" width=\"8\" height=\"34\" rx=\"3\" fill=\"#dfe3f0\" stroke=\"#8c909f\"/><rect x=\"-4\" width=\"8\" height=\"7\" rx=\"3\" fill=\"#8c909f\"/></g><g transform=\"translate(160 176) rotate(-4)\"><rect x=\"-4\" width=\"8\" height=\"34\" rx=\"3\" fill=\"#dfe3f0\" stroke=\"#8c909f\"/><rect x=\"-4\" width=\"8\" height=\"7\" rx=\"3\" fill=\"#8c909f\"/></g><g transform=\"translate(195 186) rotate(10)\"><rect x=\"-4\" width=\"8\" height=\"34\" rx=\"3\" fill=\"#dfe3f0\" stroke=\"#8c909f\"/><rect x=\"-4\" width=\"8\" height=\"7\" rx=\"3\" fill=\"#8c909f\"/></g><g transform=\"translate(230 177) rotate(-10)\"><rect x=\"-4\" width=\"8\" height=\"34\" rx=\"3\" fill=\"#dfe3f0\" stroke=\"#8c909f\"/><rect x=\"-4\" width=\"8\" height=\"7\" rx=\"3\" fill=\"#8c909f\"/></g><g transform=\"translate(265 185) rotate(5)\"><rect x=\"-4\" width=\"8\" height=\"34\" rx=\"3\" fill=\"#dfe3f0\" stroke=\"#8c909f\"/><rect x=\"-4\" width=\"8\" height=\"7\" rx=\"3\" fill=\"#8c909f\"/></g><g transform=\"translate(300 177) rotate(-6)\"><rect x=\"-4\" width=\"8\" height=\"34\" rx=\"3\" fill=\"#dfe3f0\" stroke=\"#8c909f\"/><rect x=\"-4\" width=\"8\" height=\"7\" rx=\"3\" fill=\"#8c909f\"/></g><g transform=\"translate(110 208) rotate(12)\"><rect x=\"-4\" width=\"8\" height=\"34\" rx=\"3\" fill=\"#dfe3f0\" stroke=\"#8c909f\"/><rect x=\"-4\" width=\"8\" height=\"7\" rx=\"3\" fill=\"#8c909f\"/></g><g transform=\"translate(180 210) rotate(-9)\"><rect x=\"-4\" width=\"8\" height=\"34\" rx=\"3\" fill=\"#dfe3f0\" stroke=\"#8c909f\"/><rect x=\"-4\" width=\"8\" height=\"7\" rx=\"3\" fill=\"#8c909f\"/></g><g transform=\"translate(255 209) rotate(7)\"><rect x=\"-4\" width=\"8\" height=\"34\" rx=\"3\" fill=\"#dfe3f0\" stroke=\"#8c909f\"/><rect x=\"-4\" width=\"8\" height=\"7\" rx=\"3\" fill=\"#8c909f\"/></g><g transform=\"translate(250 112) scale(.5)\"><rect x=\"36\" y=\"22\" width=\"170\" height=\"38\" rx=\"7\" fill=\"#e8ebf5\"/><g fill=\"#2b3370\" stroke=\"#cfd3df\" stroke-width=\"3\"><circle cx=\"60\" cy=\"72\" r=\"17\"/><circle cx=\"120\" cy=\"72\" r=\"17\"/><circle cx=\"180\" cy=\"72\" r=\"17\"/></g><rect x=\"150\" y=\"-8\" width=\"7\" height=\"32\" fill=\"#cfd3df\"/></g></svg>"};
+
+const STEPS5=[['Drill and seal','Perseverance drills rock cores and seals them in tubes.'],['Pick up the tubes','A lander would collect them from the rover or the depot.'],['Launch from Mars','A small rocket would lift the samples into orbit.'],['Catch in orbit','A spacecraft would catch the container in orbit.'],['Fly home','The samples would travel to Earth for labs to study.']];
+const CR=[
+{id:'a15',w:'moon',n:'Moon Buggy',full:'Lunar Roving Vehicle, Apollo 15',tag:'Apollo 15 · 1971',st:[['8 mph','Top speed'],['17.3 mi','Total drive'],['460 lb','Weight on Earth']],
+ ff:['It folded up flat to fit on the side of the lunar module.','Its wheels were woven wire mesh instead of air-filled tires.','The crew drove it on all three of their moonwalks.','Apollo 15 also left a tiny statue called “Fallen Astronaut.” It is only 3.3 inches tall.'],
+ steps:['Fire lasers at the Apollo 15 mirror panel from Earth.','Photograph the landing site from orbit with the Lunar Reconnaissance Orbiter.','Study how the wheels and batteries held up to design better rovers.','Use these lessons when planning rovers for future Moon missions.'],
+ qz:[['How did the Moon buggy get to the Moon?','Folded flat on the side of the lunar module',['Driven there from Earth','Carried in the astronauts’ backpacks']],['What were its wheels made of?','Woven wire mesh',['Rubber balloons','Solid wood']],['Why was it left on the Moon?','Every extra pound would take space and fuel from the trip home',['It ran out of snacks','It was painted the wrong color']]],
+ tf:[['The buggy’s top speed was about 8 mph.',1,'Yes, about 8 mph.'],['The buggy’s batteries could be recharged.',0,'They could not be recharged.'],['Apollo 15 was the first mission to use a Moon buggy.',1,'Yes, it was the first.']],
+ sp:{k:'buggy',name:'Buggy Run'}},
+{id:'s3',w:'moon',n:'Surveyor 3',full:'Surveyor 3 robot lander',tag:'Robot lander · 1967',st:[['1967','Landed'],['~600 ft','From Apollo 12'],['31 months','Alone on the Moon']],
+ ff:['It bounced twice before it settled on the Moon.','Its scoop arm could reach about 5 feet and dig about 7 inches deep.','Its TV camera looked through a mirror that could tilt.','Apollo 12 astronauts landed within walking distance and visited it.'],
+ steps:['Bring home the camera and scoop (done in 1969).','Test them in labs for dust, radiation and wear.','Keep the camera safe at the Smithsonian for future study.','Use the lessons to build landers that last longer on the Moon.'],
+ qz:[['What tool cut the camera off Surveyor 3?','Bolt cutters',['A laser torch','Warm mittens']],['How long was Surveyor 3 on the Moon before Apollo 12 visited?','About 31 months',['About 31 days','About 31 years']],['What could Surveyor 3’s scoop arm do?','Dig small trenches to test the soil',['Drive across the Moon','Fly to orbit']]],
+ tf:[['Surveyor 3 bounced twice when it landed.',1,'Yes, before it settled.'],['The camera is now on loan to the Smithsonian.',1,'Yes, in Washington, DC.'],['Surveyor 3 landed on the far side of the Moon.',0,'It landed in the Ocean of Storms on the near side.']],
+ sp:{k:'match',name:'Match the Parts',pairs:[['Camera','Took pictures of the Moon'],['Scoop arm','Dug trenches in the soil'],['Solar panel','Made power from sunlight'],['Landing legs','Helped it land softly']]}},
+{id:'a12',w:'moon',n:'Intrepid (Apollo 12)',full:'Apollo 12 lunar module Intrepid',tag:'Apollo 12 · 1969',st:[['Nov 1969','Landed'],['~600 ft','From Surveyor 3'],['75 lb','Moon rock brought home']],
+ ff:['It was the first pinpoint landing on the Moon.','Lightning struck the rocket twice just after liftoff, but the crew kept going.','The crew set up the first science station built to run for a long time.','Its top stage was crashed on purpose so seismometers could record the shaking.'],
+ steps:['Photograph the site from orbit and keep the records.','Keep the old science-station data for new study.','Use pinpoint-landing lessons for future landers.','Help protect the Apollo sites as historic places.'],
+ qz:[['What was special about the Apollo 12 landing?','It was the first pinpoint landing',['It landed on Mars','It landed upside down']],['What stayed on the Moon when the astronauts left?','The bottom stage of Intrepid',['The whole spaceship','Nothing at all']],['What happened to Intrepid’s top stage?','It was crashed on purpose to make a moonquake',['It flew to Mars','It became a museum']]],
+ tf:[['Lightning hit the Apollo 12 rocket after liftoff.',1,'Twice, but the crew kept going.'],['Apollo 12 landed far from Surveyor 3.',0,'About 600 ft away, within walking distance.'],['Apollo 12 left a nuclear-powered science station.',1,'Yes, powered by a small nuclear generator.']],
+ sp:{k:'sort',name:'Mission Sorter',note:'Tap the steps of the Apollo 12 mission from first to last.',steps:[['Launch','The Saturn V rocket lifts off, and lightning strikes it.'],['Land','Intrepid lands close to Surveyor 3.'],['Moonwalks','Conrad and Bean explore and visit Surveyor 3.'],['Lift off','The top stage blasts off from the Moon.'],['Come home','The crew returns to Earth.']]}},
+{id:'a11',w:'moon',n:'Eagle (Apollo 11)',full:'Apollo 11 lunar module Eagle',tag:'Apollo 11 · 1969',st:[['July 1969','Landed'],['21 h 36 m','On the Moon'],['100','Mirror cubes left']],
+ ff:['Neil Armstrong and Buzz Aldrin were the first people to walk on the Moon.','Michael Collins stayed in orbit in the ship Columbia.','They left a flag, a plaque and a laser mirror panel.','They brought home about 47 lb of Moon rock.'],
+ steps:['Keep measuring the Moon’s distance with the Apollo 11 mirror.','Study the Apollo 11 Moon rocks with new tools.','Use orbiter maps to plan safe landings.','Help protect the site for the future.'],
+ qz:[['Who stayed in orbit in the ship Columbia?','Michael Collins',['Neil Armstrong','Buzz Aldrin']],['How long did Armstrong and Aldrin stay on the Moon?','About 21 and a half hours',['About 21 days','About 21 minutes']],['What did Apollo 11 leave behind for science?','A mirror panel for laser measuring',['A telescope for stars','A tiny car']]],
+ tf:[['Eagle’s landing stage was left on the Moon.',1,'Yes, it was the launch pad for the top stage.'],['Apollo 11 brought home about 47 lb of Moon rock.',1,'Yes, about 47 pounds.'],['Apollo 11 was the second mission to land on the Moon.',0,'It was the first.']],
+ sp:{k:'match',name:'Crew Match-Up',pairs:[['Neil Armstrong','First person on the Moon'],['Buzz Aldrin','Second person on the Moon'],['Michael Collins','Stayed in orbit'],['Eagle','The lunar module'],['Columbia','The command ship'],['The plaque','“We came in peace”']]}},
+{id:'pv',w:'mars',n:'Perseverance',full:'Perseverance rover',tag:'Mars rover · 2021',st:[['2,260 lb','Weight'],['6','Wheels'],['30+','Tubes filled']],
+ ff:['It was lowered to Mars by a rocket “sky crane” on Feb. 18, 2021.','It has microphones, so we have heard sounds from Mars.','The tread on its wheels leaves marks that spell “JPL” in Morse code.','It brought the helicopter Ingenuity along.'],
+ steps:['Drive across the ancient river delta and pick the best rocks.','Drill, seal and store the best samples in tubes.','Send photos and data to Earth every day.','Test tools that could help future astronauts, like making oxygen.'],
+ qz:[['Where did Perseverance land?','Jezero Crater',['The Moon','The North Pole']],['How did it land on Mars?','A rocket “sky crane” lowered it',['It rolled off a cliff','It flew like a plane']],['What does its drill collect?','Rock cores in tubes',['Gold','Paint']]],
+ tf:[['Perseverance has microphones.',1,'Yes, so we have heard wind and rover sounds.'],['Perseverance weighs about the same as a bicycle.',0,'About 2,260 lb, closer to a small car.'],['Its wheel tracks spell “JPL” in Morse code.',1,'Yes!']],
+ sp:{k:'bal',name:'Rocket Balancer'}},
+{id:'ig',w:'mars',n:'Ingenuity',full:'Ingenuity Mars helicopter',tag:'Mars helicopter · 2021',st:[['72','Flights'],['17 km','Total distance'],['4 lb','Weight']],
+ ff:['Its first flight lasted about 39 seconds.','Its rotors spin about 2,400 times a minute, much faster than a helicopter on Earth.','A tiny piece of fabric from the Wright brothers’ 1903 airplane rode along.','Mars air is so thin that flying there is like flying very high above Earth.'],
+ steps:['Test flying on Mars (done: 72 flights).','Use its photos and maps to guide Perseverance.','Study its data to design future Mars flyers.','Share what was learned with engineers around the world.'],
+ qz:[['What was Ingenuity?','A helicopter',['A rover','A rocket']],['How many times did it fly?','72 times',['5 times','200 times']],['What ended its flying?','A damaged rotor blade',['It ran out of snacks','It flew to the Moon']]],
+ tf:[['Ingenuity was built to fly only 5 times.',1,'Yes, and it flew 72 times.'],['Ingenuity’s rotors spin about 2,400 times a minute.',1,'Yes, very fast, because Mars air is thin.'],['Ingenuity flew on the Moon.',0,'It flew on Mars.']],
+ sp:{k:'match',name:'Match the Numbers',pairs:[['72','Flights it flew'],['4 lb','Its weight'],['17 km','Total distance flown'],['39 seconds','Length of its first flight'],['2,400','Rotor spins a minute']]}},
+{id:'jz',w:'mars',n:'Rock Tube Depot',full:'Three Forks sample depot',tag:'Sample depot · 2023',st:[['10','Tubes'],['2023','Finished'],['None yet','Ride home funded']],
+ ff:['It was the first sample depot on another world.','The tubes are sealed so air cannot get in or out.','One tube is a “witness” tube that helps check for Earth dust.','It sits on the floor of Jezero Crater, where a lake once was.'],
+ steps:['Perseverance placed 10 backup tubes on the ground (done in early 2023).','Perseverance keeps filling and carrying its own tubes.','Study the rocks from afar with the rover’s tools.','Look for a new, lower-cost plan to bring samples home. None is approved yet.'],
+ qz:[['How many backup tubes are at the depot?','10',['2','100']],['What are the tubes made of?','Titanium',['Cardboard','Glass']],['Why can’t the samples come home yet?','No ride home is funded right now',['They are too heavy for Earth','They melted']]],
+ tf:[['The depot is on the Moon.',0,'It is on Mars, in Jezero Crater.'],['One tube is a “witness” tube.',1,'It helps check for Earth dust.'],['A rocket to bring the samples home is approved today.',0,'None is approved right now.']],
+ sp:{k:'sort',name:'Sample Return Sorter',note:'Tap the steps of Mars Sample Return from first to last. In January 2026 the US Congress chose not to fund this plan, so no ride home is approved right now.',steps:STEPS5}}];
+const RELICS={
+a15:{about:'The Lunar Roving Vehicle was a folding electric car. It rode to the Moon folded flat on the side of the lunar module. It had four wire-mesh wheels, two batteries that could not be recharged, and a top speed of about 8 mph. Apollo 15 was the first mission to use one. The crew drove it 17.3 miles.',
+ why:'It weighs about 460 lb. The lunar module’s top half had only enough room and fuel to carry two astronauts and their Moon rocks back to orbit, about 170 lb of them. A heavy buggy would have taken that space. Its batteries could not be recharged either, so its job was done.',
+ today:'Apollo 15 also left a mirror panel with 300 glass corner cubes. Scientists on Earth still fire lasers at it to measure the distance to the Moon to about a millimeter and to test theories of gravity. That is how we know the Moon drifts away from us by about 3.8 cm a year.'},
+s3:{about:'Surveyor 3 was a robot lander launched on April 17, 1967. It landed on April 20 in the Ocean of Storms and bounced twice before it settled. It had a TV camera and a scoop arm that dug trenches. Its soil tests showed the ground was strong enough to land astronauts.',
+ why:'It was built for a one-way trip. After 31 months on the Moon, the Apollo 12 crew could only carry home small parts: the TV camera, the scoop, and some cable and tubing. The rest of the lander was too big and heavy for their ship.',
+ today:'Scientists saw how space treats machines. The camera mostly still worked, white parts had turned tan from dust and radiation, and there was little sign of space-rock damage. That helped engineers plan long-lasting Moon equipment. The camera is now on loan to the Smithsonian. (A germ reported inside it was probably picked up on Earth.)'},
+a12:{about:'Intrepid was the lunar module that landed Pete Conrad and Alan Bean on Nov. 19, 1969, about 600 ft from Surveyor 3. It was the first pinpoint Moon landing. A lunar module had two parts: a bottom stage with the legs and landing engine, and a top stage with the crew cabin.',
+ why:'The bottom stage was the launch pad for the trip home, so it stayed. Only the top stage lifted off to meet the ship in orbit. It was then crashed back onto the Moon on purpose, so the seismometer the crew left behind could record the shaking.',
+ today:'Apollo 12 left a nuclear-powered science station on the Moon, the first built to run for a long time. NASA’s Lunar Reconnaissance Orbiter has photographed the site, showing the landing stage, Surveyor 3 and the astronauts’ paths. The pinpoint landing proved we can aim for exact spots.'},
+a11:{about:'Eagle was the lunar module that carried Neil Armstrong and Buzz Aldrin to the Moon on July 20, 1969. They stayed 21 hours 36 minutes on the surface. A plaque on its landing stage says they came in peace for all mankind.',
+ why:'Like every lunar module, Eagle was built in two pieces. The landing stage was the launch pad and stayed behind. The top stage carried the astronauts back to the ship Columbia and was then let go in lunar orbit.',
+ today:'Apollo 11 left a mirror panel with 100 glass corner cubes, and scientists still use it for laser measurements of the Moon’s distance. The Moon rocks the crew brought home are still being studied with new tools. Orbiters photograph the site, which helps future missions plan their landings.'},
+jz:{about:'In early 2023, Perseverance placed 10 sealed titanium tubes on the floor of Jezero Crater, at a spot called Three Forks. Each tube holds a rock core about as long as a finger. It was the first sample depot on another world, a backup in case the rover cannot deliver its own tubes.',
+ why:'Bringing them home needs a pickup lander, a rocket that launches from Mars, and a ship to catch it in orbit. That plan was called Mars Sample Return. In January 2026 the US Congress chose not to fund it, so right now there is no ride home. Check NASA for updates.',
+ today:'The tubes are waiting like a time capsule. They hold rocks from an ancient river delta, which could someday be studied in labs on Earth, by NASA or another country. China plans its own Mars sample mission, Tianwen-3, to launch around 2028.'},
+pv:{about:'Perseverance is a car-sized NASA rover that landed in Jezero Crater on Feb. 18, 2021. It weighs about 2,260 lb, drives on six wheels, and has a drill, cameras and many science tools. It has filled more than 30 sample tubes with rock, dust and air.',
+ why:'A rover cannot launch itself off Mars. It would need a rocket as big as a building, and it was built to explore, not to fly home. So it stays on Mars, still carrying its sealed tubes.',
+ today:'It is still exploring today. It studies the ancient river delta, and it found a rock named Cheyava Falls with “leopard spots” that might be a sign of ancient life. Scientists need more study to know. It also tested making oxygen from Martian air for future astronauts.'},
+ig:{about:'Ingenuity was a 4-pound helicopter that rode to Mars on Perseverance. On April 19, 2021, it made the first powered, controlled flight on another planet. It was built for 5 test flights, but flew 72 times over nearly three years, about 17 km in total.',
+ why:'On Jan. 18, 2024, a rotor blade was damaged during its 72nd landing, so it could never fly again. It was a small test machine with no way to carry itself home. It rests on Mars about a kilometer from Perseverance.',
+ today:'It proved that flying on Mars is possible, even in very thin air. It scouted safe paths, took photos and made 3D maps for Perseverance’s team. Engineers are using what it taught them to design future flying machines for Mars.'}};
+function relSet(box,id,k){k=k||'about';box.dataset.rel=id;box.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k==k));const r=RELICS[id];if(r)box.querySelector('.rt').textContent=r[k]}
+$$('.relf').forEach(b=>{b.onclick=e=>{const t=e.target.closest('button');if(t&&b.dataset.rel)relSet(b,b.dataset.rel,t.dataset.k)}});
+
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+let bestRun=0,RUN=null;
+function stopRun(){if(RUN){cancelAnimationFrame(RUN.raf);document.removeEventListener('keydown',RUN.kd);RUN=null}}
+function gQuiz(b,Q0){const Q=shuf(Q0);let i=0,s=0;(function q(){if(i>=Q.length){b.innerHTML=`<span class="label t">Quick Quiz</span><h2>You scored ${s} out of ${Q.length}</h2><p>${s==Q.length?'Perfect score, space cadet!':'Good try. Read the earlier pages and play again.'}</p><button class="btn" id="again">Play again</button>`;$('#again').onclick=gQuiz.bind(null,b,Q0);return}
+ const[t,ok,bad]=Q[i],o=shuf([ok,...bad]);b.innerHTML=`<span class="label t">Quick Quiz · Question ${i+1} of ${Q.length}</span><h3 style="font-size:20px">${t}</h3><div class="opts">${o.map((x,k)=>`<button class="opt"><i>${'ABC'[k]}</i>${x}</button>`).join('')}</div><div class="msg" id="gm"></div>`;let done=0;
+ b.querySelectorAll('.opt').forEach(e=>e.onclick=()=>{if(done)return;if(e.textContent.slice(1)==ok){done=1;s++;e.classList.add('right');$('#gm').style.color='#0b9a7c';$('#gm').textContent='Correct! +15 XP';addXP(15,e);setTimeout(()=>{i++;q()},900)}else{e.classList.add('wrong');$('#gm').style.color='#e05555';$('#gm').textContent='Not quite. Try again!';setTimeout(()=>e.classList.remove('wrong'),400)}})})()}
+function gMatch(b,P0,nm){const P=shuf(P0).slice(0,6),R=shuf(P.map((p,i)=>i));let sl=null,m=0;
+ b.innerHTML=`<span class="label t">${nm}</span><h3>Match each item to its clue</h3><div class="mt"><div>${P.map((p,i)=>`<button class="opt ml" data-i="${i}">${p[0]}</button>`).join('')}</div><div>${R.map(i=>`<button class="opt mr" data-i="${i}">${P[i][1]}</button>`).join('')}</div></div><div class="msg" id="gm">Pick an item, then its clue.</div>`;
+ b.querySelectorAll('.ml').forEach(e=>e.onclick=()=>{if(e.disabled)return;b.querySelectorAll('.ml').forEach(x=>x.style.borderColor='');sl=e;e.style.borderColor='var(--blue)'});
+ b.querySelectorAll('.mr').forEach(e=>e.onclick=()=>{if(!sl||e.disabled)return;if(sl.dataset.i==e.dataset.i){[sl,e].forEach(x=>{x.classList.add('right');x.disabled=true;x.style.borderColor=''});sl=null;m++;addXP(10,e);if(m==P.length){$('#gm').style.color='#0b9a7c';$('#gm').textContent='All matched! Great job. +30 XP';addXP(30,e)}}else{e.classList.add('wrong');setTimeout(()=>e.classList.remove('wrong'),400)}})}
+function gBuggy(b){b.innerHTML=`<span class="label a">Buggy Run</span><h3>Drive the Moon buggy over rocks and craters</h3><p style="margin:0 0 8px;font-size:13px">Press Space, the Up arrow, or tap the screen to jump. Best: <b id="bs">${bestRun}</b> m</p><div class="cvw"><canvas id="cv" width="720" height="260"></canvas></div>`;startRun()}
+function startRun(){stopRun();const c=$('#cv');if(!c)return;const x=c.getContext('2d'),G=205,W=720,bx=100;let y=0,vy=0,sp=5,sc=0,over=0,nx=70,ob=[],t=0,ms=0;
+ const st=[...Array(40)].map(()=>[Math.random()*W,Math.random()*140,Math.random()*1.5+.5]);
+ function jump(){if(over){startRun();return}if(y==0)vy=-11.5}
+ const kd=e=>{if((e.code=='Space'||e.code=='ArrowUp')&&$('#cv')){e.preventDefault();jump()}};document.addEventListener('keydown',kd);c.onpointerdown=jump;
+ function loop(){if(!document.body.contains(c))return;RUN.raf=requestAnimationFrame(loop);
+  if(!over){t++;sp=Math.min(9,5+t/900);vy+=.62;y+=vy;if(y>=0){y=0;vy=0}sc+=sp/12;nx-=sp/5;
+   if(nx<=0){const cr=Math.random()<.5;ob.push(cr?{k:'c',x:W+10,w:70}:{k:'r',x:W+10,w:26,h:24});nx=60+Math.random()*70}
+   ob.forEach(o=>o.x-=sp);ob=ob.filter(o=>o.x>-90);
+   ob.forEach(o=>{if(o.k=='r'&&o.x<bx+58&&o.x+o.w>bx+6&&y>-o.h+2)over=1;if(o.k=='c'&&y==0&&o.x+8<bx+32&&o.x+o.w-8>bx+32)over=1});
+   if(Math.floor(sc/100)>ms){ms=Math.floor(sc/100);addXP(10,c)}
+   if(over&&sc>bestRun){bestRun=Math.floor(sc);const e=$('#bs');if(e)e.textContent=bestRun}}
+  x.fillStyle='#05071a';x.fillRect(0,0,W,260);x.fillStyle='#fff';st.forEach(s=>{if(!over)s[0]=(s[0]-s[2]*.3+W)%W;x.fillRect(s[0],s[1],s[2],s[2])});
+  x.fillStyle='#1c2670';x.beginPath();x.moveTo(0,G);for(let i=0;i<=W;i+=60)x.lineTo(i,G-38-30*Math.abs(Math.sin((i+t*.6)/140)));x.lineTo(W,G);x.fill();
+  x.fillStyle='#9aa3d0';x.fillRect(0,G,W,60);
+  ob.forEach(o=>{if(o.k=='c'){x.fillStyle='#2b3370';x.beginPath();x.ellipse(o.x+o.w/2,G+4,o.w/2,13,0,0,6.3);x.fill()}else{x.fillStyle='#6a74a8';x.beginPath();x.moveTo(o.x,G);x.lineTo(o.x+6,G-o.h);x.lineTo(o.x+o.w-4,G-o.h+6);x.lineTo(o.x+o.w,G);x.fill()}});
+  const by=G+y;x.fillStyle='#f5a524';x.fillRect(bx,by-34,64,10);x.fillStyle='#fff';x.fillRect(bx+22,by-46,20,12);x.strokeStyle='#fff';x.lineWidth=2;x.beginPath();x.moveTo(bx+8,by-34);x.lineTo(bx+8,by-58);x.stroke();x.fillStyle='#f5a524';x.beginPath();x.ellipse(bx+8,by-59,10,3,0,0,6.3);x.fill();
+  [bx+14,bx+50].forEach(wx=>{x.fillStyle='#2b3370';x.beginPath();x.arc(wx,by-11,11,0,6.3);x.fill();x.strokeStyle='#fff';x.lineWidth=3;x.stroke()});
+  x.fillStyle='#fff';x.font='700 18px Outfit,sans-serif';x.fillText(Math.floor(sc)+' m',W-100,28);
+  if(over){x.fillStyle='#05071acc';x.fillRect(0,0,W,260);x.fillStyle='#fff';x.textAlign='center';x.font='700 28px Outfit,sans-serif';x.fillText('Crash! '+Math.floor(sc)+' m',W/2,120);x.font='600 16px Outfit,sans-serif';x.fillText('Tap or press Space to try again',W/2,152);x.textAlign='left'}}
+ RUN={kd,raf:requestAnimationFrame(loop)}}
+function gBal(b){b.innerHTML=`<span class="label">Rocket Balancer</span><h3>How heavy is your cargo?</h3><p style="font-size:14px">Every kilogram that leaves Mars needs a lot of fuel. This is a simplified estimate: about 15 kg of fuel for each 1 kg.</p><div class="chips"><button class="chip" data-w="15">Rock tubes (15 kg)</button><button class="chip" data-w="1025">Whole rover (1,025 kg)</button></div><label for="w" style="font-weight:700;font-size:13px">Cargo: <span id="wv">15 kg</span></label><input type="range" id="w" min="5" max="1200" value="15"><div style="display:flex;align-items:baseline;gap:8px"><div class="big" id="fuel">225 kg</div><span style="font-size:13px;color:var(--mute)">fuel needed</span></div><div class="meter"><i id="tank"></i></div><div class="note" id="verdict"></div>`;
+ const f=()=>{const w=+$('#w').value,fu=w*15;$('#wv').textContent=w+' kg';$('#fuel').textContent=fu.toLocaleString()+' kg';$('#tank').style.width=Math.min(100,fu/300*100)+'%';const ok=fu<=300;$('#tank').style.background=ok?'var(--teal)':'var(--coral)';$('#verdict').textContent=ok?'This fits in a small Mars rocket. Ready to launch.':'Too much fuel! You would need a rocket as big as a skyscraper.'};
+ $('#w').oninput=f;b.querySelectorAll('[data-w]').forEach(e=>e.onclick=()=>{$('#w').value=e.dataset.w;f();addXP(5,e)});f()}
+function gSort(b,S,note){let n=0;const L=shuf(S.map((s,i)=>i));b.innerHTML=`<span class="label a">Step Sorter</span><h3>Put the steps in order</h3><p style="font-size:14px">${note}</p><div class="opts">${L.map(i=>`<button class="opt" data-i="${i}"><i>?</i>${S[i][0]}</button>`).join('')}</div><div class="msg" id="gm"></div>`;
+ b.querySelectorAll('.opt').forEach(e=>e.onclick=()=>{if(e.disabled)return;if(+e.dataset.i==n){e.disabled=true;e.classList.add('right');e.querySelector('i').textContent=n+1;e.innerHTML+=` <small style="color:var(--mute)">${S[n][1]}</small>`;n++;addXP(10,e);if(n==S.length){$('#gm').style.color='#0b9a7c';$('#gm').textContent='Perfect order! +25 XP';addXP(25,e)}}else{e.classList.add('wrong');setTimeout(()=>e.classList.remove('wrong'),400)}})}
+function gTF(b,Q0){const Q=shuf(Q0);let i=0,s=0;(function q(){if(i>=Q.length){b.innerHTML=`<span class="label t">True or False</span><h2>${s} out of ${Q.length} correct</h2><button class="btn" id="again">Play again</button>`;$('#again').onclick=gTF.bind(null,b,Q0);return}
+ b.innerHTML=`<span class="label t">True or False · ${i+1} of ${Q.length}</span><h3 style="font-size:21px;margin:8px 0 14px">${Q[i][0]}</h3><div class="chips"><button class="btn" data-a="1">True</button><button class="btn" data-a="0">False</button></div><div class="msg" id="gm"></div>`;let d=0;
+ b.querySelectorAll('[data-a]').forEach(e=>e.onclick=()=>{if(d)return;d=1;const ok=+e.dataset.a==Q[i][1];if(ok){s++;addXP(10,e)}$('#gm').style.color=ok?'#0b9a7c':'#e05555';$('#gm').textContent=(ok?'Correct! ':'Not quite. ')+Q[i][2];setTimeout(()=>{i++;q()},1800)})})()}
+
+const EMB={a15:'data:image/jpeg;base64,'+
+'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'+
+'y
