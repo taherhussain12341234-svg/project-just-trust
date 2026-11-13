@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Galactic Field Guide: Relics of the Moon &amp; Mars</title>
+<title>Galactic Field Guide: Relics of the Moon &amp; Mars</title><meta name="description" content="A kid-friendly NASA field guide to the machines left on the Moon and Mars, with 3D models, stories and games."><meta name="theme-color" content="#cdeaff"><meta property="og:title" content="Galactic Field Guide: Relics of the Moon and Mars"><meta property="og:description" content="Seven machines, seven stories. Explore them in 3D.">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <script>if(/Android|iPhone|iPod|Mobi/i.test(navigator.userAgent)&&!/[?&]desktop/.test(location.search)){fetch("mobile.html",{method:"HEAD"}).then(function(r){if(r.ok)location.replace("mobile.html")}).catch(function(){})}</script><style>
 :root{--fh:'Plus Jakarta Sans','Nunito Sans',system-ui,sans-serif;--fb:'Nunito Sans',system-ui,sans-serif;--sky:#3b9be0;--sky2:#7cc6f7;--sky3:#e3f3ff;--pink:#ff5fa2;--pink2:#ff8cc0;--pink3:#ffe7f1;--pinkd:#b02c6a;--ink:#0d2f55;--p:#36597f;--mute:#6584a3;--line:#d8e9f7;--card:#fff;--glass:#ffffffe0;--soft:#f5fafe;--t1:#fff3f8;--t1l:#ffd6e7;--t2:#edf7ff;--t2l:#c9e5fa;--bg1:#cdeaff;--bg2:#eff8ff;--bg3:#fff;--teal:#16a37f;--coral:#ff5c7a;--blue:#3b9be0;--chip:#eef6fd;color-scheme:light dark}
@@ -189,15 +189,51 @@ section{height:100%;min-height:0}section.on{display:flex;flex-direction:column;g
 #file.on,#lab.on{gap:12px}
 .feats{grid-template-columns:repeat(5,1fr)}
 .foot{display:flex;justify-content:space-between;align-items:center;padding:0 32px;font-size:12px;color:var(--mute);border-top:1px solid var(--line);background:var(--glass)}
+
+.skyfx::after{content:'';position:absolute;inset:0;background-image:radial-gradient(1.4px 1.4px at 20px 30px,#fffc,#0000),radial-gradient(1px 1px at 120px 90px,#fffb,#0000),radial-gradient(1.4px 1.4px at 210px 20px,#fff9,#0000);background-size:260px 140px;opacity:.5}
+header.top{box-shadow:0 8px 28px #0d2f5514}
+.card{box-shadow:inset 0 1px 0 #ffffff90,0 1px 2px #0d2f5510,0 16px 38px #3b9be01c}
+.btn:active{transform:translateY(1px)}h1,h2,h3{text-wrap:balance}
+.fgtb{font:800 11px var(--fh);color:#fff;background:linear-gradient(180deg,#ff78b1,#ff5a9f);border:0;border-radius:8px;padding:5px 10px;cursor:pointer;white-space:nowrap}
+.fgo{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:18px;background:radial-gradient(120% 90% at 50% 0%,#17497e,#0a2340 60%,#050d1f);color:#eaf6ff;font-family:var(--fb);opacity:0;pointer-events:none;transition:opacity .5s;overflow:auto}
+.fgo.on{opacity:1;pointer-events:auto}.fgo canvas{position:fixed;inset:0;width:100%;height:100%}
+.fgo.lt{background:rgba(5,13,31,.62);backdrop-filter:blur(6px)}
+.fgi{position:relative;max-width:640px;text-align:center}
+.fgi h1{font:800 clamp(30px,6vw,52px)/1.05 var(--fh);color:#fff;margin:0 0 16px}
+.fgi h1 em{font-style:normal;color:#ff8cc0}
+.fgl{font-size:clamp(16px,2.6vw,20px);margin:8px 0;opacity:0;transform:translateY(8px);transition:all .6s}.fgl.on{opacity:1;transform:none}
+.fgb{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:24px;opacity:0;transition:opacity .6s}.fgb.on{opacity:1}
+.fgb .btn{align-self:auto;min-height:44px}
+.fgc{position:relative;background:var(--card);color:var(--p);border:1px solid var(--line);border-radius:18px;padding:24px;width:min(720px,94vw);max-height:88vh;overflow:auto;box-shadow:0 24px 60px #0008}
+.fgc h2{font-size:26px;margin:6px 0 8px}.fgc p{margin:0 0 10px}.fgc .label{display:inline-block}
+.fgxb{position:absolute;top:10px;right:12px;border:0;background:var(--chip);color:var(--ink);width:34px;height:34px;border-radius:10px;font-size:20px;cursor:pointer}
+.fgbtn{display:flex;gap:10px;flex-wrap:wrap}.fgbtn .btn{min-height:44px}
+.fgli{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:6px}
+.fgli li{padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);font-size:13.5px}
+.fgli li.ok::after{content:' \2713';color:var(--teal);font-weight:800}
+.fgg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:10px 0}
+.fgg a{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--card);text-decoration:none;color:var(--ink)}
+.fgg img{width:100%;height:110px;object-fit:cover;display:block;background:#0f3a63}.fgg span{display:block;padding:6px 8px;font:600 11.5px var(--fb)}
+.fgs{font-size:12.5px}.fgs a{color:#1b78c2}
+.fgt{position:fixed;left:50%;bottom:46px;transform:translateX(-50%);width:min(760px,94vw);z-index:900;display:none;background:var(--glass);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:18px;padding:12px 16px;box-shadow:0 18px 44px #0d2f5538}
+.fgt.on{display:block}.mobx .fgt{bottom:calc(78px + env(safe-area-inset-bottom))}
+.fgtc{margin:0 0 8px;font:600 15px/1.45 var(--fb);color:var(--ink);min-height:2.9em}
+.fgp{height:6px;background:var(--line);border-radius:9px;overflow:hidden}.fgp i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--pink2))}
+.fgtr{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}.fgtn{font:700 12px var(--fh);color:var(--pinkd)}
+.bk-foot .swipe{display:block;flex:1;margin:0 14px;align-self:center;text-align:center;font:600 13px var(--fb);color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mobx .bk-foot .swipe{display:none}
+.fgsl{margin:0 0 10px;padding:10px 14px;border-radius:12px;background:var(--t1);border:1px solid var(--t1l);font-size:14px}.fgsl em{display:block;font-style:normal;font-weight:800;color:var(--pinkd)}
+.fgnb{flex:none;align-self:center;white-space:nowrap}
+#labq{display:flex;flex-direction:column;flex:1;min-height:0;gap:8px}
 </style></head><body class="desk"><div class="skyfx" aria-hidden="true"><svg class="cloud c1" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c2" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c3" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c4" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg></div><div class="app"><header class="top"><button class="brand" data-go="home" aria-label="Galactic Field Guide home"><svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10" fill="#ff6fae"/><ellipse cx="20" cy="20" rx="18" ry="6" fill="none" stroke="#4fb3f6" stroke-width="3" transform="rotate(-25 20 20)"/><circle cx="33" cy="9" r="2.6" fill="#fff" stroke="#4fb3f6"/></svg><div style="text-align:left"><h1>Galactic Field Guide</h1><small>Relics of the Moon &amp; Mars</small></div></button><nav id="nav"><button class="nv on" data-t="home">Home</button><button class="nv" data-t="moon">Moon Relics</button><button class="nv" data-t="mars">Mars Relics</button><button class="nv" data-t="lab">3D Lab</button><button class="nv" data-t="radar">Radar Map</button><button class="nv" data-t="credits">Credits</button></nav><div class="xpp"><span id="lvl">Level 1</span><span><b id="xp">0</b> XP</span><div class="t"><i id="xpbar"></i></div></div></header><main><section id="home"><div class="hero"><div class="hero-text"><span class="eyebrow">A space guide for curious kids</span><h1>Lost on the Moon and Mars, <em>never forgotten</em></h1>
 <p class="sub">Meet the spacecraft and tools that humans left behind. Find out why they could not come home, and how they still help scientists today.</p>
-<div class="cta"><button class="btn" data-go="moon">Explore the Moon</button><button class="btn alt" data-go="mars">Explore Mars</button><button class="btn ghost" data-go="lab">Try the 3D Lab</button></div>
+<div class="cta"><button class="btn" data-go="moon">Start the story</button><button class="btn alt" data-go="mars">Explore Mars</button><button class="btn ghost" data-go="lab">Try the 3D Lab</button></div>
 <div class="trust"><div><b>7</b><span>real relics</span></div><div><b>21</b><span>mini games</span></div><div><b>7</b><span>3D models</span></div></div></div>
 <div class="hero-art"><figure class="ph ph1"><img id="h1i" alt="The Apollo 15 Moon buggy"><span>Moon Buggy</span></figure><figure class="ph ph2"><img id="h2i" alt="The Ingenuity helicopter on Mars"><span>Ingenuity</span></figure><figure class="ph ph3"><img id="h3i" alt="Surveyor 3 on the Moon"><span>Surveyor 3</span></figure></div></div>
 <div class="feats"><div class="feat" data-go="moon"><b><svg viewBox="0 0 24 24"><path d="M3.5 5.5C6.5 4.3 9.5 4.5 12 6.2c2.5-1.7 5.5-1.9 8.5-.7V19c-3-1.2-6-1-8.5.7-2.5-1.7-5.5-1.9-8.5-.7z" fill="#fff"/><path d="M12 6.4v13" stroke="#ff8fc0" stroke-width="1.5"/></svg></b><h3>Meet it</h3><p>Real facts and photos of every craft.</p></div><div class="feat" data-go="moon"><b><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="#fff" stroke-width="2"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="#fff"/></svg></b><h3>Why it stayed</h3><p>And how it helps us today.</p></div><div class="feat" data-go="mars"><b><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></b><h3>Play</h3><p>Quizzes, matches and mini games.</p></div><div class="feat" data-go="lab"><b><svg viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M3 7l9 5 9-5M12 12v10" fill="none" stroke="#fff" stroke-width="2"/></svg></b><h3>3D Lab</h3><p>Turn, explore and simulate each craft.</p></div><div class="feat" data-go="radar"><b><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="#fff"/></svg></b><h3>Radar Map</h3><p>See where each relic sits.</p></div></div>
 <div class="dyk"><b>Did you know?</b><span id="dykt"></span></div></section>
 
-<section id="file"><div class="pick" id="pick"></div><div class="card book"><div class="bk-head"><div><span class="label a" id="ctag"></span><h2 id="cname"></h2></div><div class="steps3" id="pgs"><button class="st on" data-pg="1"><b>1</b><span>Meet it<small>What it is</small></span></button><i class="ln"></i><button class="st" data-pg="2"><b>2</b><span>Why it stayed<small>and how it helps</small></span></button><i class="ln"></i><button class="st" data-pg="3"><b>3</b><span>Play<small>quiz and games</small></span></button></div></div><div class="bk-body" id="bk"></div><div class="bk-foot"><button class="btn" id="prevp">← Back</button><span class="swipe">swipe or tap to turn the page</span><button class="btn" id="nextp">Turn the page →</button></div></div></section>
+<section id="file"><div class="pick" id="pick"></div><div class="card book"><div class="bk-head"><div><span class="label a" id="ctag"></span><h2 id="cname"></h2></div><div class="steps3" id="pgs"><button class="st on" data-pg="1"><b>1</b><span>Start<small>the journey</small></span></button><i class="ln"></i><button class="st" data-pg="2"><b>2</b><span>End<small>why it stayed</small></span></button><i class="ln"></i><button class="st" data-pg="3"><b>3</b><span>Your turn<small>quiz and games</small></span></button></div></div><div class="bk-body" id="bk"></div><div class="bk-foot"><button class="btn" id="prevp">← Back</button><span class="swipe">swipe or tap to turn the page</span><button class="btn" id="nextp">Turn the page →</button></div></div></section>
 <section id="radar"><div class="mapwrap" id="mw"><svg id="svg" role="img" aria-label="Interactive topographic map of relic locations"><rect class="bg0" x="-3000" y="-3000" width="7000" height="7000"/><g id="terrain"></g><g id="grid"></g><g id="gl"></g><g id="ln"></g><g id="pins"></g></svg>
 <div class="hud tl"><span id="mname">LUNAR NEARSIDE</span><b id="mdata">STYLIZED TOPO</b></div>
 <div class="fl" id="flt"><button class="on" data-f="all">ALL</button><button data-f="lander">LANDERS</button><button data-f="rover">ROVERS</button><button data-f="depot">DEPOTS</button></div>
@@ -220,8 +256,8 @@ section{height:100%;min-height:0}section.on{display:flex;flex-direction:column;g
 <li><b>Mars Sample Return status (January 2026):</b> <a href="https://www.theregister.com/2026/01/16/nasa_science_budget/" target="_blank" rel="noopener">The Register</a> and <a href="https://livescience.com/space/mars/nasas-mars-sample-return-is-dead-leaving-china-to-retrieve-signs-of-life-from-the-red-planet" target="_blank" rel="noopener">Live Science</a>. Plans can change, so check NASA.</li>
 <li><b>Photos:</b> the pictures of each craft are NASA images built into this page. If a photo cannot be shown, a drawing made for this guide appears instead, marked “Illustration”. Check the <a href=\"https://www.nasa.gov/nasa-brand-center/images-and-media/\" target=\"_blank\" rel=\"noopener\">NASA media guidelines</a> before reusing any photo.</li>
 <li><b>Map:</b> drawn in the style of lunar and Martian topographic maps. Shapes are illustrations, not real elevation data, and marker positions are approximate. Surveyor 3 and Apollo 12 are only about 600 ft apart, so they are drawn apart.</li>
-<li><b>3D Lab:</b> built with <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> (MIT license), loaded from cdnjs and jsDelivr when you open the tab. The 3D models are simplified drawings made for this guide, not exact engineering models.</li><li><b>Rocket Balancer:</b> a simplified teaching estimate, not an official NASA number.</li>
-<li><b>Fonts:</b> Outfit and Nunito Sans from <a href="https://fonts.google.com" target="_blank" rel="noopener">Google Fonts</a> (SIL Open Font License). NASA does not endorse this site.</li></ul><p style="margin-top:10px;font-size:14px">On a phone? Open the <a href="mobile.html">mobile version</a>.</p></div></section>
+<li><b>3D Lab:</b> built with <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> (MIT license), loaded from cdnjs and jsDelivr when you open the tab. The 3D models are simplified drawings made for this guide, not exact engineering models.</li><li><b>NASA Live photos:</b> fetched when you tap the NASA button from the NASA Image and Video Library (images-api.nasa.gov). Credit: NASA. NASA does not endorse this site.</li><li><b>Rocket Balancer:</b> a simplified teaching estimate, not an official NASA number.</li>
+<li><b>Fonts:</b> Plus Jakarta Sans and Nunito Sans from <a href="https://fonts.google.com" target="_blank" rel="noopener">Google Fonts</a> (SIL Open Font License). NASA does not endorse this site.</li></ul><p style="margin-top:10px;font-size:14px">On a phone? Open the <a href="mobile.html">mobile version</a>.</p></div></section>
 </main><footer class="foot"><span>Galactic Field Guide · Facts and photos from NASA. See Credits for sources.</span><span><button class="lnk" data-go="credits">Sources &amp; Credits</button> · NASA does not endorse this site.</span></footer></div><script>window.addEventListener("error",function(e){if(!document.body)return;var d=document.getElementById("errbar");if(!d){d=document.createElement("div");d.id="errbar";d.style.cssText="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#b3261e;color:#fff;font:13px/1.4 system-ui,sans-serif;padding:8px 12px";document.body.appendChild(d)}d.textContent="Something went wrong: "+(e.message||"script error")+" (line "+(e.lineno||"?")+"). Please tell the site owner."});</script><script>(function(){var W=1200,H=740;function f(){var s=Math.max(.5,Math.min(1.5,Math.min(innerWidth/W,innerHeight/H)));document.body.style.zoom=s;var a=document.querySelector('.app');a.style.width=innerWidth/s+'px';a.style.height=innerHeight/s+'px'}f();addEventListener('resize',f)})()</script><script>const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const MOB=document.body.classList.contains('mob');
 let xp=0;
 function addXP(n,e){xp+=n;$('#xp').textContent=xp;$('#lvl').textContent='Level '+(1+Math.floor(xp/150));$('#xpbar').style.width=(xp%150)/150*100+'%';
@@ -293,7 +329,7 @@ pv:{about:'Perseverance is a car-sized NASA rover that landed in Jezero Crater o
  why:'A rover cannot launch itself off Mars. It would need a rocket as big as a building, and it was built to explore, not to fly home. So it stays on Mars, still carrying its sealed tubes.',
  today:'It is still exploring today. It studies the ancient river delta, and it found a rock named Cheyava Falls with “leopard spots” that might be a sign of ancient life. Scientists need more study to know. It also tested making oxygen from Martian air for future astronauts.'},
 ig:{about:'Ingenuity was a 4-pound helicopter that rode to Mars on Perseverance. On April 19, 2021, it made the first powered, controlled flight on another planet. It was built for 5 test flights, but flew 72 times over nearly three years, about 17 km in total.',
- why:'On Jan. 18, 2024, a rotor blade was damaged during its 72nd landing, so it could never fly again. It was a small test machine with no way to carry itself home. It rests on Mars about a kilometer from Perseverance.',
+ why:'On Jan. 18, 2024, a rotor blade was damaged during its 72nd landing, so it could never fly again. It was a small test machine with no way to carry itself home. It rests where it made its last landing in Jezero Crater.',
  today:'It proved that flying on Mars is possible, even in very thin air. It scouted safe paths, took photos and made 3D maps for Perseverance’s team. Engineers are using what it taught them to design future flying machines for Mars.'}};
 function relSet(box,id,k){k=k||'about';box.dataset.rel=id;box.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k==k));const r=RELICS[id];if(r)box.querySelector('.rt').textContent=r[k]}
 $$('.relf').forEach(b=>{b.onclick=e=>{const t=e.target.closest('button');if(t&&b.dataset.rel)relSet(b,b.dataset.rel,t.dataset.k)}});
@@ -326,8 +362,8 @@ function startRun(){stopRun();const c=$('#cv');if(!c)return;const x=c.getContext
   ob.forEach(o=>{if(o.k=='c'){x.fillStyle='#2b3370';x.beginPath();x.ellipse(o.x+o.w/2,G+4,o.w/2,13,0,0,6.3);x.fill()}else{x.fillStyle='#6a74a8';x.beginPath();x.moveTo(o.x,G);x.lineTo(o.x+6,G-o.h);x.lineTo(o.x+o.w-4,G-o.h+6);x.lineTo(o.x+o.w,G);x.fill()}});
   const by=G+y;x.fillStyle='#f5a524';x.fillRect(bx,by-34,64,10);x.fillStyle='#fff';x.fillRect(bx+22,by-46,20,12);x.strokeStyle='#fff';x.lineWidth=2;x.beginPath();x.moveTo(bx+8,by-34);x.lineTo(bx+8,by-58);x.stroke();x.fillStyle='#f5a524';x.beginPath();x.ellipse(bx+8,by-59,10,3,0,0,6.3);x.fill();
   [bx+14,bx+50].forEach(wx=>{x.fillStyle='#2b3370';x.beginPath();x.arc(wx,by-11,11,0,6.3);x.fill();x.strokeStyle='#fff';x.lineWidth=3;x.stroke()});
-  x.fillStyle='#fff';x.font='700 18px Outfit,sans-serif';x.fillText(Math.floor(sc)+' m',W-100,28);
-  if(over){x.fillStyle='#05071acc';x.fillRect(0,0,W,260);x.fillStyle='#fff';x.textAlign='center';x.font='700 28px Outfit,sans-serif';x.fillText('Crash! '+Math.floor(sc)+' m',W/2,120);x.font='600 16px Outfit,sans-serif';x.fillText('Tap or press Space to try again',W/2,152);x.textAlign='left'}}
+  x.fillStyle='#fff';x.font='700 18px Plus Jakarta Sans,sans-serif';x.fillText(Math.floor(sc)+' m',W-100,28);
+  if(over){x.fillStyle='#05071acc';x.fillRect(0,0,W,260);x.fillStyle='#fff';x.textAlign='center';x.font='700 28px Plus Jakarta Sans,sans-serif';x.fillText('Crash! '+Math.floor(sc)+' m',W/2,120);x.font='600 16px Plus Jakarta Sans,sans-serif';x.fillText('Tap or press Space to try again',W/2,152);x.textAlign='left'}}
  RUN={kd,raf:requestAnimationFrame(loop)}}
 function gBal(b){b.innerHTML=`<span class="label">Rocket Balancer</span><h3>How heavy is your cargo?</h3><p style="font-size:14px">Every kilogram that leaves Mars needs a lot of fuel. This is a simplified estimate: about 15 kg of fuel for each 1 kg.</p><div class="chips"><button class="chip" data-w="15">Rock tubes (15 kg)</button><button class="chip" data-w="1025">Whole rover (1,025 kg)</button></div><label for="w" style="font-weight:700;font-size:13px">Cargo: <span id="wv">15 kg</span></label><input type="range" id="w" min="5" max="1200" value="15"><div style="display:flex;align-items:baseline;gap:8px"><div class="big" id="fuel">225 kg</div><span style="font-size:13px;color:var(--mute)">fuel needed</span></div><div class="meter"><i id="tank"></i></div><div class="note" id="verdict"></div>`;
  const f=()=>{const w=+$('#w').value,fu=w*15;$('#wv').textContent=w+' kg';$('#fuel').textContent=fu.toLocaleString()+' kg';$('#tank').style.width=Math.min(100,fu/300*100)+'%';const ok=fu<=300;$('#tank').style.background=ok?'var(--teal)':'var(--coral)';$('#verdict').textContent=ok?'This fits in a small Mars rocket. Ready to launch.':'Too much fuel! You would need a rocket as big as a skyscraper.'};
@@ -358,9 +394,9 @@ function renderBook(){const c=CR.find(x=>x.id==cid),R=RELICS[cid],L=CR.filter(x=
  if(cpg==1){$('#bk').innerHTML=`<div class="p1"><figure class="art2"><img id="cimg" alt="${c.full}"><figcaption class="pcap" id="ccap"></figcaption></figure><div class="info"><p class="lead">${R.about}</p><div class="stats">${c.st.map(s=>`<div class="stat"><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div><h4>Fast facts</h4><ul class="ff">${c.ff.map(f=>`<li>${f}</li>`).join('')}</ul><button class="tease" id="tz">Why couldn’t ${c.n} come home? Turn the page <span>→</span></button></div></div>`;loadArt($('#cimg'),$('#ccap'),cid);$('#cimg').parentNode.style.setProperty('--bgimg','url(\"'+(EMB[cid]||artURI(cid))+'\")');$('#tz').onclick=()=>{cpg=2;renderBook()}}
  else if(cpg==2){$('#bk').innerHTML=`<div class="p2"><div class="col2"><div class="blk"><h4>Why it can’t come back</h4><p>${R.why}</p></div><div class="blk g"><h4>How it helps us today</h4><p>${R.today}</p></div></div><div class="blk b"><h4>NASA’s steps to help</h4><ol class="stp">${c.steps.map(x=>`<li>${x}</li>`).join('')}</ol><button class="btn" id="pgame">Next: play the mini games →</button></div></div>`;$('#pgame').onclick=()=>{cpg=3;renderBook()}}
  else{$('#bk').innerHTML=`<div class="p3"><div class="chips" id="gt"></div><div class="gbox" id="gbody"></div></div>`;renderGames(c)}
- $('#prevp').textContent=cpg==2?'← Back: Meet it':'← Back: Why it stayed';$('#prevp').style.visibility=cpg==1?'hidden':'';
- $('#nextp').textContent=cpg==1?'Next: Why it stayed →':cpg==2?'Next: Play →':ix<L.length-1?'Next craft: '+L[ix+1].n+' →':cw=='moon'?'Go to the Mars relics →':'See the Radar Map →';
- const bk=$('#bk');bk.classList.remove('inR','inL');void bk.offsetWidth;bk.classList.add(cpg>=(window.lastPg||1)?'inR':'inL');window.lastPg=cpg;const k=cid+cpg;if(!vis.has(k)){vis.add(k);addXP(10,null)}markDone()}
+ $('#prevp').textContent=cpg==2?'← Back: Start':'← Back: End';$('#prevp').style.visibility=cpg==1?'hidden':'';
+ $('#nextp').textContent=cpg==1?'Next: The ending →':cpg==2?'Next: Your turn →':ix<L.length-1?'Next craft: '+L[ix+1].n+' →':cw=='moon'?'Go to the Mars relics →':'See the Radar Map →';
+ const bk=$('#bk');bk.classList.remove('inR','inL');void bk.offsetWidth;bk.classList.add(cpg>=(window.lastPg||1)?'inR':'inL');window.lastPg=cpg;const k=cid+cpg;if(!vis.has(k)){vis.add(k);addXP(10,null)}markDone();if(window.FG)FG.afterBook()}
 function show(t){$$('.nv').forEach(x=>x.classList.toggle('on',x.dataset.t==t));const sec=(t=='moon'||t=='mars')?'file':t;$$('section').forEach(s=>s.classList.toggle('on',s.id==sec));stopRun();scrollTo(0,0);
  if(t=='moon'||t=='mars'){if(cw!=t){cw=t;cid=CR.find(c=>c.w==t).id;cpg=1}renderPick();renderBook()}if(t=='radar')requestAnimationFrame(resetV);if(t=='home')homeImgs();if(t=='lab')labOpen()}
 function openFile(id){const c=CR.find(x=>x.id==id);cw=c.w;cid=id;cpg=1;show(c.w)}
@@ -368,7 +404,7 @@ $('#nav').onclick=e=>{const b=e.target.closest('.nv');if(b)show(b.dataset.t)};
 $('#pick').onclick=e=>{const b=e.target.closest('.pk');if(b){cid=b.dataset.id;cpg=1;renderBook()}};
 $('#pgs').onclick=e=>{const b=e.target.closest('[data-pg]');if(b){cpg=+b.dataset.pg;renderBook()}};
 $('#prevp').onclick=()=>{cpg=Math.max(1,cpg-1);renderBook()};
-$('#nextp').onclick=()=>{const L=CR.filter(x=>x.w==cw),i=L.findIndex(x=>x.id==cid);if(cpg<3)cpg++;else if(i<L.length-1){cid=L[i+1].id;cpg=1}else{show(cw=='moon'?'mars':'radar');return}renderBook()};
+$('#nextp').onclick=()=>{const L=CR.filter(x=>x.w==cw),i=L.findIndex(x=>x.id==cid);if(cpg<3)cpg++;else if(i<L.length-1){cid=L[i+1].id;cpg=1}else{FG.next();return}renderBook()};
 document.addEventListener('keydown',e=>{if(!$('#file').classList.contains('on')||/INPUT|TEXTAREA/.test((e.target||{}).tagName||''))return;if(e.key=='ArrowRight'&&cpg<3&&!$('#cv')){cpg++;renderBook()}else if(e.key=='ArrowLeft'&&cpg>1&&!$('#cv')){cpg--;renderBook()}});
 setInterval(dyk,14000);dyk();
 /* ---------- MAP ---------- */
@@ -704,10 +740,10 @@ function labBuild(){
  function info(k){const p=k&&LP[LAB.id][k],nm=(LABCR.filter(c=>c[0]==LAB.id)[0]||[0,''])[1];
   $('#pinfo').innerHTML=p?'<div class="coord">Selected part</div><h3>'+p[0]+'</h3><h4>What it does</h4><p>'+p[1]+'</p><div class="note b"><b>Did you know?</b> '+p[2]+'</div>':'<div class="coord">3D model</div><h3>'+nm+'</h3><p>'+LABINTRO[LAB.id]+'</p>';
   $$('#plist2 .chip').forEach(b=>b.classList.toggle('on',b.dataset.k===k))}
- function select(k){LAB.sel=k;info(k);if(!k){return}controls.autoRotate=false;$('#lbSpin').classList.remove('on');setTab('learn');
+ function select(k){LAB.sel=k;info(k);if(window.FG&&FG.onPart)FG.onPart(k);if(!k){return}controls.autoRotate=false;$('#lbSpin').classList.remove('on');if(!(window.FG&&FG.quest))setTab('learn');
   const ms=REG[LAB.id][k]||[];if(!ms.length)return;const b=new T.Box3();ms.forEach(m=>b.expandByObject(m));const c=b.getCenter(new T.Vector3()),s=b.getSize(new T.Vector3()),d=Math.max(s.x,s.y,s.z)*2.2+3.2,dir=camera.position.clone().sub(controls.target).normalize();
   LAB.focus={t:c,p:c.clone().addScaledVector(dir,d)}}
- function setTab(t){LAB.tab=t;$$('#labtabs .chip').forEach(b=>b.classList.toggle('on',b.dataset.lt===t));$('#labl').style.display=t==='learn'?'':'none';$('#labs').style.display=t==='sim'?'':'none'}
+ function setTab(t){LAB.tab=t;$$('#labtabs .chip').forEach(b=>b.classList.toggle('on',b.dataset.lt===t));$('#labl').style.display=t==='learn'?'':'none';$('#labs').style.display=t==='sim'?'':'none';var q=$('#labq');if(q)q.style.display=t==='quest'?'':'none';if(window.FG&&FG.onTab)FG.onTab(t)}
  function simUI(){const c=LSIM[LAB.id];$('#sintro').textContent=c.intro;$('#sstep').innerHTML=c.steps.map(s=>'<li>'+s[0]+'</li>').join('');
   $('#sctl').innerHTML=c.ctl.map((x,i)=>'<label><span>'+x[1]+'</span><span class="sv" id="sv'+i+'">'+x[5]+'</span></label><input type="range" data-p="'+x[0]+'" data-i="'+i+'" min="'+x[2]+'" max="'+x[3]+'" step="'+x[4]+'" value="'+x[5]+'">').join('');
   $$('#sctl input').forEach(e=>{e.oninput=()=>{LAB.st[e.dataset.p]=+e.value;$('#sv'+e.dataset.i).textContent=(+e.value).toFixed(e.step<1?2:0)}});$('#splay').textContent='Play simulation';$('#splay').classList.remove('on');syncCtl(false)}
@@ -721,7 +757,7 @@ function labBuild(){
   LAB.st=Object.assign({},SIM[id].def);camReset();
   $$('#labpick .pk').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
   $('#plist2').innerHTML=Object.keys(LP[id]).map(k=>'<button class="chip" data-k="'+k+'">'+LP[id][k][0]+'</button>').join('');info(null);simUI();setTab('learn')}
- LAB.craft=craft;
+ LAB.craft=craft;LAB.select=select;LAB.setTab=setTab;
  $('#labpick').innerHTML=LABCR.map(c=>'<button class="pk" data-id="'+c[0]+'"><img alt=""><span>'+c[1]+'</span></button>').join('');
  $$('#labpick .pk').forEach(b=>loadArt(b.querySelector('img'),null,b.dataset.id));
  $('#labpick').onclick=e=>{const b=e.target.closest('.pk');if(b)craft(b.dataset.id)};
@@ -3075,4 +3111,102 @@ pv:'data:image/jpeg;base64,'+
 '8+xyv1uIgYAn1V9sLHGCw3Dav65SPvjH/wAJ/wA7ZzrUdTySJHGhZ3baoHc/Xtjw8KKQ7tTqWBHJAA2g4jESI+DXJ/llizASAMaL'+
 'ci8y1FQxSNo0JVSep7jKkseChIrsOT9sI/8A04/qc4/kjPc98GjWnVwhAP5hySf0GNMGEYWMDeasnovyc7oaHteFb/2cXyRfzmLX'+
 'SC6eNi3muAADw5FfoPf5xiSoQ52gFuLcc1/TK6XmVAeQCeMF4gT5Upvnaf5YKsrxPXHUOIIPQl0Tf8zkwlIFIDF1RrLgUGbsMyX4'+
-'dq+MNqWYR0GI9F9fnOsnjno+t1e6FIbBccuR2PsM7M5f3M7H8xz6t1//2Q=='});</script></body><script src="field-guide-plus.js"></script></html>
+'dq+MNqWYR0GI9F9fnOsnjno+t1e6FIbBccuR2PsM7M5f3M7H8xz6t1//2Q=='});</script><script>
+(function(){
+var DOC=document.documentElement;if(MOB)DOC.classList.add('mobx');
+var ST={a15:['The car that folded itself onto a spaceship','1971: it unfolds beside the lunar module and drives away.','Parked at the Apollo 15 site for good. Its batteries could not be recharged.'],
+s3:['The robot that waited for visitors','1967: it lands, bounces twice, then digs and takes pictures.','1969: astronauts snip off its camera and bring it home. The rest stays.'],
+a12:['The landing that hit its target','1969: lightning strikes the rocket, yet Intrepid lands near Surveyor 3.','The top half lifts off and is crashed on purpose. The bottom half stays.'],
+a11:['The first footprints','1969: Eagle lands and two people step onto the Moon.','The top half returns to Columbia. The landing stage stays at Tranquility Base.'],
+pv:['The rover building a library of rocks','2021: a sky crane lowers it into Jezero Crater.','It cannot fly home, so it keeps exploring and carrying its sealed tubes.'],
+ig:['The helicopter that was only a test','2021: the first powered flight on another planet.','2024: a damaged rotor ends its flying after 72 flights. The idea worked.'],
+jz:['The time capsule on Mars','2023: Perseverance lays 10 sealed tubes on the ground.','Waiting. No ride home is funded right now.']};
+var NQ={a15:'Apollo 15 lunar roving vehicle',s3:'Surveyor 3 Apollo 12',a12:'Apollo 12 lunar module Intrepid',a11:'Apollo 11 lunar module Eagle',pv:'Perseverance rover Jezero',ig:'Ingenuity helicopter Mars',jz:'Perseverance Three Forks sample depot'};
+var SL={a15:[['NASA Apollo Lunar Surface Journal','https://history.nasa.gov/alsj/']],a12:[['NASA Apollo Lunar Surface Journal','https://history.nasa.gov/alsj/']],a11:[['NASA Apollo Lunar Surface Journal','https://history.nasa.gov/alsj/']],
+s3:[['NASA Surveyor 3','https://science.nasa.gov/mission/lunar-rangers-and-surveyors/surveyor-3/']],pv:[['NASA Mars 2020 Perseverance','https://science.nasa.gov/mission/mars-2020-perseverance/']],
+ig:[['NASA Ingenuity','https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/']],jz:[['NASA Mars Sample Return','https://science.nasa.gov/mission/mars-sample-return/']]};
+var RS={a15:'about 10 ft (3.1 m) long, a bit shorter than a small car',a12:'about 23 ft (7 m) tall with its legs out',a11:'about 23 ft (7 m) tall with its legs out',pv:'about 10 ft (3 m) long, car-sized',ig:'about 19 in (49 cm) tall, with blades 4 ft (1.2 m) across'};
+for(var k in RS)if(window.LABINTRO&&LABINTRO[k])LABINTRO[k]+=' Real size: '+RS[k]+'.';
+function el(t,c){var e=document.createElement(t);if(c)e.className=c;DOC.appendChild(e);return e}
+function modal(h){var o=el('div','fgo lt on');o.innerHTML='<div class="fgc" role="dialog" aria-modal="true">'+h+'<button class="fgxb" aria-label="Close">\u00d7</button></div>';
+ o.close=function(){o.classList.remove('on');setTimeout(function(){o.remove()},350)};o.querySelector('.fgxb').onclick=o.close;o.addEventListener('click',function(e){if(e.target===o)o.close()});return o}
+addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.querySelectorAll('.fgo.lt.on');if(m.length)m[m.length-1].close()}});
+/* opening */
+function stars(c,host){var x=c.getContext('2d'),w,h,S=[];function fit(){w=c.width=host.clientWidth||innerWidth;h=c.height=host.clientHeight||innerHeight}fit();addEventListener('resize',fit);
+ for(var i=0;i<140;i++)S.push([Math.random(),Math.random(),Math.random()*1.6+.3,Math.random()*.0004+.0001]);
+ function pl(cx,cy,r,a,b){var g=x.createRadialGradient(cx-r*.3,cy-r*.3,r*.1,cx,cy,r);g.addColorStop(0,a);g.addColorStop(1,b);x.globalAlpha=1;x.fillStyle=g;x.beginPath();x.arc(cx,cy,r,0,6.3);x.fill()}
+ (function f(){if(!c.isConnected)return;x.clearRect(0,0,w,h);S.forEach(function(s){s[1]=(s[1]+s[3])%1;x.globalAlpha=.4+.6*Math.abs(Math.sin(s[1]*40+s[0]*9));x.fillStyle='#fff';x.fillRect(s[0]*w,s[1]*h,s[2],s[2])});
+ var m=Math.min(w,h);pl(w*.16,h+m*.08,m*.5,'#d9deea','#5b647d');pl(w*.88,h+m*.1,m*.4,'#ff9a6b','#8a3b24');requestAnimationFrame(f)})()}
+function intro(){var o=el('div','fgo on');o.setAttribute('role','dialog');o.setAttribute('aria-label','Welcome');
+ o.innerHTML='<canvas></canvas><div class="fgi"><h1>Machines we left behind, <em>stories we never finished</em></h1><p class="fgl">1967: a robot lands on the Moon.</p><p class="fgl">1969: two people walk over to visit it.</p><p class="fgl">2021: a helicopter flies on Mars.</p><p class="fgl">None of them came home. Can you find them all?</p><div class="fgb"><button class="btn" id="fgGo">Begin the mission</button><button class="btn alt" id="fgTr">Watch the 2-minute tour</button><button class="btn ghost" id="fgSk">Skip</button></div></div>';
+ stars(o.querySelector('canvas'),o);var L=o.querySelectorAll('.fgl'),B=o.querySelector('.fgb'),n=0,tm=setInterval(function(){if(n<L.length)L[n++].classList.add('on');else{B.classList.add('on');clearInterval(tm)}},1300);
+ function end(){clearInterval(tm);o.classList.remove('on');setTimeout(function(){o.remove()},600);try{sessionStorage.setItem('fgSeen','1')}catch(e){}}
+ o.querySelector('#fgGo').onclick=function(){end();show('moon')};o.querySelector('#fgSk').onclick=end;o.querySelector('#fgTr').onclick=function(){end();tourStart()};
+ setTimeout(function(){B.classList.add('on')},9000)}
+/* NASA live */
+var NC={};
+function nasa(id){var c=CR.find(function(x){return x.id==id}),q=NQ[id];
+ var lk=(SL[id]||[]).concat([['Search all NASA photos','https://images.nasa.gov/search?q='+encodeURIComponent(q)]]).map(function(l){return '<a href="'+l[1]+'" target="_blank" rel="noopener">'+l[0]+'</a>'}).join(' \u00b7 ');
+ var o=modal('<span class="label a">Live from NASA</span><h2>'+c.n+'</h2><p>Official photos from the NASA Image and Video Library. Tap one to open its NASA record.</p><div class="fgg" id="fgg">Contacting NASA\u2026</div><p class="fgs">Check the facts: '+lk+'</p>'),g=o.querySelector('#fgg');
+ function paint(items){g.textContent='';items.slice(0,4).forEach(function(it){var d=(it.data||[])[0]||{},l=(it.links||[])[0];if(!l)return;var a=document.createElement('a');a.href='https://images.nasa.gov/details/'+encodeURIComponent(d.nasa_id||'');a.target='_blank';a.rel='noopener';var im=new Image();im.loading='lazy';im.alt=d.title||'NASA image';im.src=l.href;var s=document.createElement('span');s.textContent=(d.title||'NASA image')+' \u00b7 '+(d.nasa_id||'');a.appendChild(im);a.appendChild(s);g.appendChild(a)});if(!g.children.length)g.textContent='No photos found right now.'}
+ if(NC[id])return paint(NC[id]);var ac=window.AbortController?new AbortController():null,to=setTimeout(function(){ac&&ac.abort()},9000);
+ fetch('https://images-api.nasa.gov/search?media_type=image&q='+encodeURIComponent(q),ac?{signal:ac.signal}:{}).then(function(r){return r.json()}).then(function(j){clearTimeout(to);NC[id]=j.collection.items;paint(NC[id])}).catch(function(){g.textContent='Could not reach NASA right now (are you offline?). Use the links below instead.'})}
+/* chapters */
+function chap(){var o=modal('<span class="label">Chapter complete</span><h2>The Moon is finished. Mars is next.</h2><p>You followed four Moon stories: a buggy, a robot and two landers. All of them stayed behind. On Mars, the machines are still working.</p><div class="fgbtn"><button class="btn" id="fgM">Go to Mars</button></div>');o.querySelector('#fgM').onclick=function(){o.close();show('mars')}}
+function finale(tour){var n=CR.filter(function(c){return[1,2,3].every(function(p){return vis.has(c.id+p)})}).length;if(!FG.fin){FG.fin=1;addXP(50)}
+ var li=CR.map(function(c,i){var d=[1,2,3].every(function(p){return vis.has(c.id+p)});return '<li class="'+(d?'ok':'')+'"><b>'+(i+1)+'. '+c.n+'</b>: '+ST[c.id][0]+'</li>'}).join('');
+ var o=modal('<span class="label t">Mission complete</span><h2>Seven machines, seven stories</h2><p>You have '+xp+' XP and finished '+n+' of 7 chapters'+(FG.qd?', plus '+FG.qd+' 3D quest'+(FG.qd>1?'s':''):'')+'. Every one of these machines is still out there.</p><ul class="fgli">'+li+'</ul><div class="fgbtn"><button class="btn" id="fgR">Open the radar map</button><button class="btn alt" id="fgT">Replay the 2-minute tour</button></div>');
+ o.querySelector('#fgR').onclick=function(){o.close();tourStop();show('radar')};o.querySelector('#fgT').onclick=function(){o.close();tourStart()};if(tour)o.querySelector('.fgxb').addEventListener('click',tourStop)}
+/* story banner */
+function afterBook(){var c=CR.find(function(x){return x.id==cid}),s=ST[cid],t=$('#ctag');if(!c||!s)return;
+ t.textContent='Chapter '+(CR.indexOf(c)+1)+' of 7 \u00b7 '+c.tag;
+ var b=['START','END','YOUR TURN'][cpg-1],x=cpg==1?s[1]:cpg==2?s[2]:'Test what you remember about: '+s[0]+'.';
+ var sw=$('.bk-foot .swipe');if(sw)sw.innerHTML='<b>'+b+'</b> '+x;
+ if(MOB){var bk=$('#bk');if(bk)bk.insertAdjacentHTML('afterbegin','<div class="fgsl"><em>'+s[0]+'</em><b>'+b+'</b> '+x+'</div>')}
+ var pk=$('#pick');if(pk&&!$('#fgNB')){var n=document.createElement('button');n.id='fgNB';n.className='chip fgnb';n.textContent='\ud83d\udce1 NASA photos';n.onclick=function(){nasa(cid)};pk.appendChild(n)}}
+function next(){if(cw=='moon')chap();else finale()}
+/* 3D quest */
+var Q={l:[],i:0,ok:0,lock:0,miss:0};
+function labUI(){var tb=$('#labtabs');if(!tb||$('#labq'))return;var b=document.createElement('button');b.className='chip';b.dataset.lt='quest';b.textContent='Quest';tb.appendChild(b);
+ var q=document.createElement('div');q.id='labq';q.style.display='none';$('#labs').parentNode.appendChild(q);
+ var t=$('.labtools');if(t){var n=document.createElement('button');n.textContent='\ud83d\udce1 NASA';n.onclick=function(){nasa(LAB.id)};t.appendChild(n)}}
+function qs(){Q.l=shuf(Object.keys(LP[LAB.id])).slice(0,5);Q.i=0;Q.ok=0;Q.lock=0;Q.miss=0;qr()}
+function qr(){var q=$('#labq');if(!q)return;var id=LAB.id;
+ if(Q.i>=Q.l.length){FG.qd++;addXP(30);q.innerHTML='<span class="label t">Quest complete</span><h3>'+Q.ok+' of '+Q.l.length+' parts found on the first try</h3><p class="lead">Nice engineering eyes! Run the simulation to see the parts working together.</p><div class="sbtns"><button class="btn" id="qa">Play again</button><button class="chip" id="qsm">Open simulation</button></div>';$('#qa').onclick=qs;$('#qsm').onclick=function(){LAB.setTab('sim')};return}
+ var k=Q.l[Q.i];q.innerHTML='<span class="label t">Part quest \u00b7 '+(Q.i+1)+' of '+Q.l.length+'</span><h3>Tap the part that does this</h3><div class="note">'+LP[id][k][1]+'</div><div class="msg" id="qm">Tap the part on the 3D model.</div><div class="sbtns"><button class="chip" id="qh">Hint</button><button class="chip" id="qk">Skip</button></div>';
+ $('#qh').onclick=function(){LAB.hover=k;setTimeout(function(){if(LAB.hover===k)LAB.hover=null},1800)};$('#qk').onclick=function(){Q.i++;Q.miss=0;Q.lock=0;qr()}}
+function onPart(k){if(!FG.quest||!k||Q.lock||Q.i>=Q.l.length)return;var p=LP[LAB.id][k],m=$('#qm');if(!p||!m)return;
+ if(k===Q.l[Q.i]){Q.lock=1;if(!Q.miss)Q.ok++;addXP(20);m.style.color='#0b9a7c';m.innerHTML='Yes! That is the <b>'+p[0]+'</b>. Did you know? '+p[2]+' <button class="chip" id="qn">Next</button>';$('#qn').onclick=function(){Q.i++;Q.miss=0;Q.lock=0;qr()}}
+ else{Q.miss=1;m.style.color='#e05555';m.textContent='That is the '+p[0]+'. Not this one, look again!'}}
+function onTab(t){FG.quest=t==='quest';if(FG.quest)qs()}
+/* 2-minute tour */
+function whenLab(cb){var n=0;(function p(){if(window.LAB&&LAB.ready&&LAB.craft)return cb(true);if(++n>40)return cb(false);setTimeout(p,300)})()}
+function lab(id){return function(){show('lab');whenLab(function(ok){if(!ok){openFile(id);return}LAB.craft(id);LAB.setTab('sim');var b=$('#splay');if(b&&!LAB.sim.on)b.click()})}}
+var TS=[{d:10,t:'Welcome to the Galactic Field Guide. Robots and rovers have left their footprints on the Moon and Mars. Every one has a story with a start, a middle and an end.',go:function(){show('home')}},
+{d:13,t:'Story one: the Moon buggy. It rode to the Moon folded flat and drove 17 miles. When the astronauts left, it stayed, because every pound mattered for the trip home.',go:lab('a15')},
+{d:13,t:'Story two: Surveyor 3. This robot dug the Moon soil and took pictures. Thirty-one months later, Apollo 12 astronauts walked over and brought its camera back to Earth.',go:lab('s3')},
+{d:12,t:'Story three: the lunar module. Watch the top half blast off. The bottom half is the launch pad, so it stays on the Moon forever.',go:lab('a12')},
+{d:12,t:'Every relic has an address. On the radar map, pins show where people and robots touched down. This one is Tranquility Base.',go:function(){show('radar');var c=$('#planet [data-pl="moon"]');if(c)c.click();var p=$('#plist [data-i="3"]');if(p)p.click()}},
+{d:13,t:'Now Mars. Perseverance drills rock cores and seals them in tubes. It cannot launch itself home, so it keeps exploring while carrying its samples.',go:lab('pv')},
+{d:12,t:'Ingenuity was a four pound helicopter built for five flights. It flew seventy two times, and proved that flying on Mars is possible.',go:lab('ig')},
+{d:12,t:'At Three Forks, ten sealed tubes wait like a time capsule. Right now no ride home is funded, so this story is still unfinished.',go:lab('jz')},
+{d:11,t:'Now it is your turn. Quizzes, matching games and puzzles help you remember every story.',go:function(){cw='mars';cid='pv';cpg=3;show('mars')}},
+{d:12,t:'Seven machines, seven stories. Which one is your favorite? Pick a chapter and start exploring.',go:function(){finale(1)}}];
+var cum=[],tot=0;TS.forEach(function(s){tot+=s.d;cum.push(tot)});var tms=0,tp=0,tc=-1,tt=0,narr=0,tb;
+function tourUI(){tb=el('div','fgt');tb.setAttribute('role','region');tb.setAttribute('aria-label','Guided tour');
+ tb.innerHTML='<p class="fgtc" aria-live="polite"></p><div class="fgp"><i></i></div><div class="fgtr"><span class="fgtn"></span><span><button class="chip" id="fgP">Pause</button> <button class="chip" id="fgS">Skip</button> <button class="chip" id="fgV">Voice: off</button> <button class="chip" id="fgE">End tour</button></span></div>';
+ tb.querySelector('#fgP').onclick=function(){tp=!tp;this.textContent=tp?'Play':'Pause';if(window.speechSynthesis){tp?speechSynthesis.pause():speechSynthesis.resume()}};
+ tb.querySelector('#fgS').onclick=function(){tms=cum[Math.max(0,tc)]+1};tb.querySelector('#fgE').onclick=tourStop;
+ tb.querySelector('#fgV').onclick=function(){narr=!narr;this.textContent='Voice: '+(narr?'on':'off');if(!narr&&window.speechSynthesis)speechSynthesis.cancel()};
+ var h=document.querySelector('header.top .xpp');if(h){var b=document.createElement('button');b.className='fgtb';b.textContent='\u25b6 Tour';b.setAttribute('aria-label','Start the 2-minute tour');b.onclick=tourStart;h.appendChild(b)}}
+function say(t){try{if(narr&&window.speechSynthesis){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.rate=.97;speechSynthesis.speak(u)}}catch(e){}}
+function tick(){if(tp)return;tms+=250;var i=-1;for(var j=0;j<cum.length;j++){if(tms<cum[j]){i=j;break}}
+ if(i<0){tms=tot;return}tb.querySelector('.fgp i').style.width=(tms/tot*100)+'%';
+ if(i!==tc){tc=i;tb.querySelector('.fgtc').textContent=TS[i].t;tb.querySelector('.fgtn').textContent='Tour '+(i+1)+' of '+TS.length;try{TS[i].go()}catch(e){}say(TS[i].t)}}
+function tourStart(){document.querySelectorAll('.fgo').forEach(function(o){if(o.close)o.close()});tourStop(1);tms=0;tc=-1;tp=0;tb.classList.add('on');tt=setInterval(tick,250)}
+function tourStop(q){clearInterval(tt);tt=0;if(tb)tb.classList.remove('on');try{if(window.speechSynthesis)speechSynthesis.cancel();if(window.LAB&&LAB.sim&&LAB.sim.on){var b=$('#splay');if(b)b.click()}}catch(e){}}
+window.FG={quest:false,qd:0,fin:0,onPart:onPart,onTab:onTab,afterBook:afterBook,next:next,finale:finale,tour:tourStart};
+function init(){labUI();tourUI();var s=0;try{s=sessionStorage.getItem('fgSeen')}catch(e){}if(!s)intro()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script></body></html>
