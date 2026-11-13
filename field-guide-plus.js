@@ -1,4 +1,3 @@
-
 /* Galactic Field Guide add-on. Add ONE line just before </body> in index.html (and mobile.html):
    <script src="field-guide-plus.js"></script>
    Adds: launch intro, 2-minute story tour, 3D Lab challenge, live NASA photos, fact fixes. */
@@ -164,7 +163,7 @@ if (host) {
     if (!QZ.on || !D) return;
     var d = D; D = null;
     if (Math.abs(e.clientX - d.x) + Math.abs(e.clientY - d.y) < 7 && performance.now() - d.t < 600) {
-      LAB.focus = null; LAB.sel = null; qShow(); qAnswer(pickKey(e)); /* runs after the Lab's own tap handler, so it wins */
+      LAB.focus = null; LAB.sel = null; qShow(); qAnswer(pickKey(e));
     }
   });
 }
@@ -214,4 +213,3 @@ if (typeof _rb === 'function') {
 var cr = Q('#credits .card:last-child .cr');
 if (cr) { var li = el('li'); li.innerHTML = '<b>Live photos:</b> <a href="https://images.nasa.gov" target="_blank" rel="noopener">NASA Image and Video Library</a>, loaded only when you tap “More NASA photos”. Each result links to its own NASA record.'; cr.appendChild(li); }
 })();
-Displaying field-guide-plus.js.
