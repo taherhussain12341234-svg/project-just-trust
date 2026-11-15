@@ -1,9 +1,12 @@
-/* journey.js — v6
-   Full 3D cinematic tour, detailed ship, self-contained flow.
-   Fixes the "ship vanishes" bug by using outward normals for approach positions,
-   plus a hard safety net that pushes ship/camera out of planets if they clip in. */
+/* journey.js — v7
+   Same tour flow as v6, but planets now have detailed procedural textures:
+   - Earth: continents (fBm), oceans with depth gradient, polar ice, banded clouds
+   - Moon:  maria (dark plains) + 280 craters with bright rims and dark interiors
+   - Mars:  rust/ochre surface, dark basalt regions, dust patches, craters, polar caps
+   All three get bump maps for surface relief + atmospheric halos.
+   Moon enlarged to radius 2.2 so its crater detail is visible at tour distance. */
 
-console.log('[journey] v6 loading…');
+console.log('[journey] v7 loading…');
 
 (function(){
 'use strict';
@@ -18,10 +21,7 @@ var CONFIG = {
   verbose: true
 };
 
-function log(){
-  if (!CONFIG.verbose) return;
-  try { console.log.apply(console, ['[journey]'].concat([].slice.call(arguments))); } catch (e) {}
-}
+function log(){ if (!CONFIG.verbose) return; try { console.log.apply(console, ['[journey]'].concat([].slice.call(arguments))); } catch (e) {} }
 function warn(){ try { console.warn.apply(console, ['[journey] WARN'].concat([].slice.call(arguments))); } catch (e) {} }
 function err(){ try { console.error.apply(console, ['[journey] ERROR'].concat([].slice.call(arguments))); } catch (e) {} }
 
@@ -36,10 +36,6 @@ function forceSection(id){
   } catch (e) {}
   return false;
 }
-
-/* ========================================================================== */
-/*  BOOT                                                                      */
-/* ========================================================================== */
 
 var threeRequested = false;
 
@@ -62,19 +58,15 @@ function boot(tries){
     return setTimeout(function(){ boot(tries + 1); }, 250);
   }
 
-  try { build(); log('v6 build complete'); }
+  try { build(); log('v7 build complete'); }
   catch (e) { err('build failed:', e); alert('Tour failed: ' + (e && e.message ? e.message : e)); }
 }
 
-/* ========================================================================== */
-/*  BUILD                                                                     */
-/* ========================================================================== */
-
 function build(){
 
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 /*  CSS                                                                       */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 
 var style = document.createElement('style');
 style.textContent = [
@@ -117,9 +109,9 @@ style.textContent = [
 ].join('');
 document.head.appendChild(style);
 
-/* -------------------------------------------------------------------------- */
-/*  HTML                                                                      */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+/*  HTML OVERLAY                                                              */
+/* ========================================================================== */
 
 var ov = document.createElement('div');
 ov.id = 'j3-overlay';
@@ -161,9 +153,9 @@ function setStatus(msg){
   else statusEl.classList.remove('on');
 }
 
-/* -------------------------------------------------------------------------- */
-/*  RENDERER / SCENE / CAMERA                                                 */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+/*  RENDERER / SCENE                                                          */
+/* ========================================================================== */
 
 var canvas = document.getElementById('j3-cv');
 var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
@@ -176,13 +168,13 @@ scene.fog = new THREE.FogExp2(0x05080f, 0.0007);
 
 var camera = new THREE.PerspectiveCamera(48, innerWidth / innerHeight, 0.1, 8000);
 
-scene.add(new THREE.AmbientLight(0x2a3550, 0.8));
+scene.add(new THREE.AmbientLight(0x2a3550, 0.9));
 
 var sunLight = new THREE.DirectionalLight(0xfff0d0, 2.4);
 sunLight.position.set(150, 80, 100);
 scene.add(sunLight);
 
-var rimLight = new THREE.DirectionalLight(0x4a9eff, 0.8);
+var rimLight = new THREE.DirectionalLight(0x4a9eff, 0.6);
 rimLight.position.set(-100, -50, -100);
 scene.add(rimLight);
 
@@ -193,7 +185,6 @@ var sunSphere = new THREE.Mesh(
 sunSphere.position.copy(sunLight.position).multiplyScalar(2);
 scene.add(sunSphere);
 
-/* Sun glow. */
 var sunGlow = new THREE.Mesh(
   new THREE.SphereGeometry(28, 32, 32),
   new THREE.MeshBasicMaterial({
@@ -204,11 +195,11 @@ var sunGlow = new THREE.Mesh(
 sunGlow.position.copy(sunSphere.position);
 scene.add(sunGlow);
 
-/* -------------------------------------------------------------------------- */
-/*  STAR FIELD — with color variance                                          */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+/*  STAR FIELD                                                                */
+/* ========================================================================== */
 
-(function makeStars(){
+(function(){
   var N = 5000;
   var g = new THREE.BufferGeometry();
   var pos = new Float32Array(N * 3);
@@ -222,152 +213,463 @@ scene.add(sunGlow);
     pos[i*3+2] = r * Math.cos(p);
     var v = Math.random();
     if (v < 0.7) { col[i*3] = 1; col[i*3+1] = 1; col[i*3+2] = 1; }
-    else if (v < 0.85) { col[i*3] = 1; col[i*3+1] = 0.75; col[i*3+2] = 0.55; }
+    else if (v < 0.85) { col[i*3] = 1; col[i*3+1] = 0.78; col[i*3+2] = 0.55; }
     else { col[i*3] = 0.65; col[i*3+1] = 0.82; col[i*3+2] = 1; }
   }
   g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   g.setAttribute('color', new THREE.BufferAttribute(col, 3));
-  var mat = new THREE.PointsMaterial({
-    size: 1.3, transparent: true, opacity: 0.9,
-    vertexColors: true, sizeAttenuation: true
-  });
-  scene.add(new THREE.Points(g, mat));
-})();
-
-/* Distant nebula spots — faint colored points. */
-(function nebula(){
-  var N = 400;
-  var g = new THREE.BufferGeometry();
-  var pos = new Float32Array(N * 3);
-  var col = new Float32Array(N * 3);
-  for (var i = 0; i < N; i++) {
-    var cluster = Math.floor(i / 100);
-    var cx = [800, -600, 1200, -900][cluster];
-    var cy = [-400, 700, -800, 300][cluster];
-    var cz = [1500, 1200, -1400, -1600][cluster];
-    pos[i*3]   = cx + (Math.random() - 0.5) * 400;
-    pos[i*3+1] = cy + (Math.random() - 0.5) * 400;
-    pos[i*3+2] = cz + (Math.random() - 0.5) * 400;
-    var palette = [
-      [0.9, 0.5, 0.8],
-      [0.5, 0.7, 1.0],
-      [1.0, 0.8, 0.5],
-      [0.6, 0.9, 0.7]
-    ][cluster];
-    col[i*3] = palette[0];
-    col[i*3+1] = palette[1];
-    col[i*3+2] = palette[2];
-  }
-  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  g.setAttribute('color', new THREE.BufferAttribute(col, 3));
   scene.add(new THREE.Points(g, new THREE.PointsMaterial({
-    size: 12, transparent: true, opacity: 0.35,
-    vertexColors: true, sizeAttenuation: true,
-    blending: THREE.AdditiveBlending, depthWrite: false
+    size: 1.3, transparent: true, opacity: 0.9, vertexColors: true, sizeAttenuation: true
   })));
 })();
 
-/* -------------------------------------------------------------------------- */
-/*  PLANETS                                                                   */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+/*  PROCEDURAL NOISE — fast table lookup                                      */
+/* ========================================================================== */
 
-var PLANETS = {};
+var NT = 256;
+var noiseTable = (function(){
+  var t = new Float32Array(NT * NT);
+  for (var i = 0; i < t.length; i++) t[i] = Math.random();
+  return t;
+})();
 
-PLANETS.earth = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 64, 64),
-  new THREE.MeshStandardMaterial({ color: 0x2a5a80, roughness: 0.9, metalness: 0.05 })
-);
-scene.add(PLANETS.earth);
+function noise2D(x, y){
+  var ix = Math.floor(x);
+  var iy = Math.floor(y);
+  var fx = x - ix;
+  var fy = y - iy;
+  fx = fx * fx * (3 - 2 * fx);
+  fy = fy * fy * (3 - 2 * fy);
+  var x0 = ix & (NT - 1);
+  var y0 = iy & (NT - 1);
+  var x1 = (x0 + 1) & (NT - 1);
+  var y1 = (y0 + 1) & (NT - 1);
+  var n00 = noiseTable[x0 + y0 * NT];
+  var n10 = noiseTable[x1 + y0 * NT];
+  var n01 = noiseTable[x0 + y1 * NT];
+  var n11 = noiseTable[x1 + y1 * NT];
+  var nx0 = n00 * (1 - fx) + n10 * fx;
+  var nx1 = n01 * (1 - fx) + n11 * fx;
+  return nx0 * (1 - fy) + nx1 * fy;
+}
 
-PLANETS.earthGlow = new THREE.Mesh(
-  new THREE.SphereGeometry(6.5, 48, 48),
-  new THREE.MeshBasicMaterial({
-    color: 0x4a9eff, transparent: true, opacity: 0.18,
-    side: THREE.BackSide, blending: THREE.AdditiveBlending
-  })
-);
-scene.add(PLANETS.earthGlow);
+function fbm(x, y, oct){
+  var s = 0, amp = 1, freq = 1, tot = 0;
+  for (var i = 0; i < oct; i++){
+    s += noise2D(x * freq, y * freq) * amp;
+    tot += amp;
+    amp *= 0.5;
+    freq *= 2;
+  }
+  return s / tot;
+}
 
-PLANETS.clouds = new THREE.Mesh(
-  new THREE.SphereGeometry(6.06, 64, 64),
-  new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.35, roughness: 1 })
-);
-scene.add(PLANETS.clouds);
+/* ========================================================================== */
+/*  PROCEDURAL TEXTURES                                                       */
+/* ========================================================================== */
 
-PLANETS.moon = new THREE.Mesh(
-  new THREE.SphereGeometry(1.7, 48, 48),
-  new THREE.MeshStandardMaterial({ color: 0x8a8a92, roughness: 1, metalness: 0 })
-);
-PLANETS.moon.position.set(28, 4, -8);
-scene.add(PLANETS.moon);
+function genEarth(){
+  var W = 1024, H = 512;
+  var colC = document.createElement('canvas');
+  colC.width = W; colC.height = H;
+  var colX = colC.getContext('2d');
+  var colI = colX.createImageData(W, H);
 
-PLANETS.moonGlow = new THREE.Mesh(
-  new THREE.SphereGeometry(1.85, 32, 32),
-  new THREE.MeshBasicMaterial({
-    color: 0xdddddd, transparent: true, opacity: 0.1,
-    side: THREE.BackSide, blending: THREE.AdditiveBlending
-  })
-);
-PLANETS.moonGlow.position.copy(PLANETS.moon.position);
-scene.add(PLANETS.moonGlow);
+  var bmpC = document.createElement('canvas');
+  bmpC.width = W; bmpC.height = H;
+  var bmpX = bmpC.getContext('2d');
+  var bmpI = bmpX.createImageData(W, H);
 
-function marsProcTex(){
+  for (var y = 0; y < H; y++){
+    for (var x = 0; x < W; x++){
+      var u = x / W * 6;
+      var v = y / H * 3;
+      var n1 = fbm(u, v, 5);
+      var n2 = fbm(u * 3 + 10, v * 3 + 5, 4);
+      var n3 = fbm(u * 8 + 20, v * 8 + 15, 3);
+
+      var latDist = Math.abs(y / H - 0.5) * 2;
+      var isIce = latDist > 0.87 + (n2 - 0.5) * 0.05;
+
+      var r, g, b, bumpVal;
+
+      if (isIce) {
+        r = 235; g = 242; b = 248;
+        bumpVal = 180;
+      } else if (n1 > 0.52) {
+        var elev = (n1 - 0.52) / 0.48;
+        if (elev < 0.15) { r = 200; g = 210; b = 160; bumpVal = 110 + elev * 100; }
+        else if (elev < 0.35) {
+          if (n2 > 0.5) { r = 70; g = 130; b = 70; }
+          else { r = 150; g = 160; b = 90; }
+          bumpVal = 140 + elev * 80;
+        }
+        else if (elev < 0.6) { r = 130; g = 110; b = 80; bumpVal = 170 + elev * 60; }
+        else { r = 205; g = 200; b = 195; bumpVal = 200 + elev * 55; }
+        var dust = (n3 - 0.5) * 20;
+        r += dust; g += dust; b += dust;
+      } else {
+        var depth = n1 / 0.52;
+        r = 20 + depth * 45;
+        g = 70 + depth * 60;
+        b = 150 + depth * 40;
+        bumpVal = 30;
+      }
+
+      var idx = (y * W + x) * 4;
+      colI.data[idx] = Math.max(0, Math.min(255, r));
+      colI.data[idx + 1] = Math.max(0, Math.min(255, g));
+      colI.data[idx + 2] = Math.max(0, Math.min(255, b));
+      colI.data[idx + 3] = 255;
+      bmpI.data[idx] = bmpI.data[idx + 1] = bmpI.data[idx + 2] = bumpVal;
+      bmpI.data[idx + 3] = 255;
+    }
+  }
+  colX.putImageData(colI, 0, 0);
+  bmpX.putImageData(bmpI, 0, 0);
+
+  var ct = new THREE.CanvasTexture(colC);
+  ct.needsUpdate = true;
+  ct.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  var bt = new THREE.CanvasTexture(bmpC);
+  bt.needsUpdate = true;
+
+  return { color: ct, bump: bt };
+}
+
+function genEarthClouds(){
+  var W = 1024, H = 512;
   var c = document.createElement('canvas');
-  c.width = c.height = 512;
+  c.width = W; c.height = H;
   var x = c.getContext('2d');
-  var g = x.createLinearGradient(0, 0, 0, 512);
-  g.addColorStop(0, '#8a3a1f');
-  g.addColorStop(.5, '#c05a32');
-  g.addColorStop(1, '#8a3a1f');
-  x.fillStyle = g;
-  x.fillRect(0, 0, 512, 512);
-  for (var i = 0; i < 250; i++) {
-    x.fillStyle = 'rgba(90,40,15,' + (0.15 + Math.random() * 0.35) + ')';
-    x.fillRect(Math.random() * 512, Math.random() * 512, 30 + Math.random() * 80, 4 + Math.random() * 15);
+  var img = x.createImageData(W, H);
+
+  for (var y = 0; y < H; y++){
+    for (var px = 0; px < W; px++){
+      var u = px / W * 8;
+      var v = y / H * 4;
+      var n = fbm(u, v, 5);
+      var band = 0.5 + 0.5 * Math.sin((y / H) * Math.PI * 8);
+      var density = Math.max(0, (n - 0.42) * 3) * (0.6 + band * 0.4);
+      var i = (y * W + px) * 4;
+      img.data[i] = img.data[i + 1] = img.data[i + 2] = 255;
+      img.data[i + 3] = Math.min(255, density * 255);
+    }
   }
-  for (var j = 0; j < 800; j++) {
-    x.fillStyle = 'rgba(255,220,200,' + (Math.random() * 0.15) + ')';
-    x.fillRect(Math.random() * 512, Math.random() * 512, 2, 2);
-  }
+  x.putImageData(img, 0, 0);
   var t = new THREE.CanvasTexture(c);
   t.needsUpdate = true;
   return t;
 }
 
+function genMoon(){
+  var W = 1024, H = 512;
+  var colC = document.createElement('canvas');
+  colC.width = W; colC.height = H;
+  var colX = colC.getContext('2d');
+  var colI = colX.createImageData(W, H);
+
+  var bmpC = document.createElement('canvas');
+  bmpC.width = W; bmpC.height = H;
+  var bmpX = bmpC.getContext('2d');
+  var bmpI = bmpX.createImageData(W, H);
+
+  for (var y = 0; y < H; y++){
+    for (var x = 0; x < W; x++){
+      var u = x / W * 5;
+      var v = y / H * 3;
+      var n1 = fbm(u, v, 4);
+      var n2 = fbm(u * 12 + 30, v * 12 + 20, 3);
+      var base = 140 + (n1 - 0.5) * 70 + (n2 - 0.5) * 30;
+      var i = (y * W + x) * 4;
+      colI.data[i] = base;
+      colI.data[i + 1] = base;
+      colI.data[i + 2] = base + 3;
+      colI.data[i + 3] = 255;
+      bmpI.data[i] = bmpI.data[i + 1] = bmpI.data[i + 2] = base;
+      bmpI.data[i + 3] = 255;
+    }
+  }
+  colX.putImageData(colI, 0, 0);
+  bmpX.putImageData(bmpI, 0, 0);
+
+  var maria = [
+    {x: 0.25, y: 0.40, rx: 0.10, ry: 0.10},
+    {x: 0.55, y: 0.36, rx: 0.09, ry: 0.08},
+    {x: 0.72, y: 0.42, rx: 0.08, ry: 0.07},
+    {x: 0.40, y: 0.55, rx: 0.06, ry: 0.06},
+    {x: 0.62, y: 0.58, rx: 0.06, ry: 0.05},
+    {x: 0.15, y: 0.65, rx: 0.05, ry: 0.04}
+  ];
+  maria.forEach(function(m){
+    var cx = m.x * W, cy = m.y * H;
+    var rx = m.rx * W, ry = m.ry * H;
+    var g = colX.createRadialGradient(cx, cy, 0, cx, cy, Math.max(rx, ry));
+    g.addColorStop(0, 'rgba(70,70,80,0.75)');
+    g.addColorStop(0.7, 'rgba(80,80,90,0.4)');
+    g.addColorStop(1, 'rgba(80,80,90,0)');
+    colX.fillStyle = g;
+    colX.beginPath();
+    colX.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+    colX.fill();
+
+    var gb = bmpX.createRadialGradient(cx, cy, 0, cx, cy, Math.max(rx, ry));
+    gb.addColorStop(0, 'rgba(110,110,110,0.8)');
+    gb.addColorStop(1, 'rgba(140,140,140,0)');
+    bmpX.fillStyle = gb;
+    bmpX.beginPath();
+    bmpX.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+    bmpX.fill();
+  });
+
+  for (var k = 0; k < 280; k++){
+    var cx0 = Math.random() * W;
+    var cy0 = Math.random() * H;
+    var r0 = Math.pow(Math.random(), 2.5) * 24 + 2;
+
+    var rim = colX.createRadialGradient(cx0, cy0, r0 * 0.8, cx0, cy0, r0 * 1.35);
+    rim.addColorStop(0, 'rgba(200,200,210,0.35)');
+    rim.addColorStop(1, 'rgba(200,200,210,0)');
+    colX.fillStyle = rim;
+    colX.beginPath();
+    colX.arc(cx0, cy0, r0 * 1.35, 0, Math.PI * 2);
+    colX.fill();
+
+    var int = colX.createRadialGradient(cx0 - r0 * 0.15, cy0 - r0 * 0.15, 0, cx0, cy0, r0);
+    int.addColorStop(0, 'rgba(60,60,70,0.9)');
+    int.addColorStop(1, 'rgba(100,100,110,0.5)');
+    colX.fillStyle = int;
+    colX.beginPath();
+    colX.arc(cx0, cy0, r0, 0, Math.PI * 2);
+    colX.fill();
+
+    var br = bmpX.createRadialGradient(cx0, cy0, r0 * 0.8, cx0, cy0, r0 * 1.3);
+    br.addColorStop(0, 'rgba(200,200,200,0.4)');
+    br.addColorStop(1, 'rgba(140,140,140,0)');
+    bmpX.fillStyle = br;
+    bmpX.beginPath();
+    bmpX.arc(cx0, cy0, r0 * 1.3, 0, Math.PI * 2);
+    bmpX.fill();
+
+    var bi = bmpX.createRadialGradient(cx0, cy0, 0, cx0, cy0, r0);
+    bi.addColorStop(0, 'rgba(30,30,30,0.9)');
+    bi.addColorStop(1, 'rgba(90,90,90,0.4)');
+    bmpX.fillStyle = bi;
+    bmpX.beginPath();
+    bmpX.arc(cx0, cy0, r0, 0, Math.PI * 2);
+    bmpX.fill();
+  }
+
+  var ct = new THREE.CanvasTexture(colC);
+  ct.needsUpdate = true;
+  ct.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  var bt = new THREE.CanvasTexture(bmpC);
+  bt.needsUpdate = true;
+  return { color: ct, bump: bt };
+}
+
+function genMars(){
+  var W = 1024, H = 512;
+  var colC = document.createElement('canvas');
+  colC.width = W; colC.height = H;
+  var colX = colC.getContext('2d');
+  var colI = colX.createImageData(W, H);
+
+  var bmpC = document.createElement('canvas');
+  bmpC.width = W; bmpC.height = H;
+  var bmpX = bmpC.getContext('2d');
+  var bmpI = bmpX.createImageData(W, H);
+
+  for (var y = 0; y < H; y++){
+    for (var x = 0; x < W; x++){
+      var u = x / W * 5;
+      var v = y / H * 3;
+      var n1 = fbm(u, v, 5);
+      var n2 = fbm(u * 10 + 40, v * 10 + 30, 3);
+      var n3 = fbm(u * 25 + 80, v * 25 + 60, 2);
+
+      var latDist = Math.abs(y / H - 0.5) * 2;
+      var isIce = latDist > 0.92 + (n1 - 0.5) * 0.03;
+
+      var r, g, b, bumpVal;
+      if (isIce) {
+        r = 235; g = 238; b = 240;
+        bumpVal = 210;
+      } else {
+        var base = 0.5 + (n1 - 0.5) * 0.8;
+        r = 180 + base * 40 + n2 * 25 + n3 * 10;
+        g = 90 + base * 35 + n2 * 20 + n3 * 10;
+        b = 55 + base * 25 + n2 * 15 + n3 * 5;
+        if (n1 < 0.4) {
+          var d = (0.4 - n1) / 0.4;
+          r -= d * 60; g -= d * 40; b -= d * 25;
+        }
+        if (n2 > 0.65) {
+          var l = (n2 - 0.65) / 0.35;
+          r += l * 40; g += l * 25; b += l * 15;
+        }
+        bumpVal = 100 + base * 100;
+      }
+
+      var i = (y * W + x) * 4;
+      colI.data[i] = Math.max(0, Math.min(255, r));
+      colI.data[i + 1] = Math.max(0, Math.min(255, g));
+      colI.data[i + 2] = Math.max(0, Math.min(255, b));
+      colI.data[i + 3] = 255;
+      bmpI.data[i] = bmpI.data[i + 1] = bmpI.data[i + 2] = Math.max(0, Math.min(255, bumpVal));
+      bmpI.data[i + 3] = 255;
+    }
+  }
+  colX.putImageData(colI, 0, 0);
+  bmpX.putImageData(bmpI, 0, 0);
+
+  for (var k = 0; k < 180; k++){
+    var cx0 = Math.random() * W;
+    var cy0 = Math.random() * H;
+    var r0 = Math.pow(Math.random(), 2.5) * 18 + 1.5;
+
+    var rim = colX.createRadialGradient(cx0, cy0, r0 * 0.8, cx0, cy0, r0 * 1.3);
+    rim.addColorStop(0, 'rgba(230,180,140,0.3)');
+    rim.addColorStop(1, 'rgba(230,180,140,0)');
+    colX.fillStyle = rim;
+    colX.beginPath();
+    colX.arc(cx0, cy0, r0 * 1.3, 0, Math.PI * 2);
+    colX.fill();
+
+    var int = colX.createRadialGradient(cx0, cy0, 0, cx0, cy0, r0);
+    int.addColorStop(0, 'rgba(100,50,30,0.7)');
+    int.addColorStop(1, 'rgba(150,80,50,0.3)');
+    colX.fillStyle = int;
+    colX.beginPath();
+    colX.arc(cx0, cy0, r0, 0, Math.PI * 2);
+    colX.fill();
+
+    var bi = bmpX.createRadialGradient(cx0, cy0, 0, cx0, cy0, r0);
+    bi.addColorStop(0, 'rgba(40,40,40,0.9)');
+    bi.addColorStop(1, 'rgba(100,100,100,0.3)');
+    bmpX.fillStyle = bi;
+    bmpX.beginPath();
+    bmpX.arc(cx0, cy0, r0, 0, Math.PI * 2);
+    bmpX.fill();
+  }
+
+  var ct = new THREE.CanvasTexture(colC);
+  ct.needsUpdate = true;
+  ct.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  var bt = new THREE.CanvasTexture(bmpC);
+  bt.needsUpdate = true;
+  return { color: ct, bump: bt };
+}
+
+log('generating Earth, Moon, Mars textures…');
+var tStart = performance.now();
+var earthTex = genEarth();
+var cloudsTex = genEarthClouds();
+var moonTex = genMoon();
+var marsTex = genMars();
+log('textures generated in', Math.round(performance.now() - tStart) + 'ms');
+
+/* ========================================================================== */
+/*  PLANETS                                                                   */
+/* ========================================================================== */
+
+var PLANETS = {};
+
+PLANETS.earth = new THREE.Mesh(
+  new THREE.SphereGeometry(6, 96, 96),
+  new THREE.MeshStandardMaterial({
+    map: earthTex.color,
+    bumpMap: earthTex.bump,
+    bumpScale: 0.4,
+    roughness: 0.85,
+    metalness: 0.05
+  })
+);
+scene.add(PLANETS.earth);
+
+PLANETS.clouds = new THREE.Mesh(
+  new THREE.SphereGeometry(6.06, 64, 64),
+  new THREE.MeshStandardMaterial({
+    map: cloudsTex,
+    transparent: true,
+    opacity: 0.85,
+    roughness: 1,
+    metalness: 0,
+    depthWrite: false
+  })
+);
+scene.add(PLANETS.clouds);
+
+/* Earth atmosphere — front-side additive blue halo. */
+PLANETS.earthAtmo = new THREE.Mesh(
+  new THREE.SphereGeometry(6.55, 48, 48),
+  new THREE.MeshBasicMaterial({
+    color: 0x88bbff,
+    transparent: true,
+    opacity: 0.14,
+    side: THREE.FrontSide,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  })
+);
+scene.add(PLANETS.earthAtmo);
+
+PLANETS.moon = new THREE.Mesh(
+  new THREE.SphereGeometry(2.2, 96, 96),
+  new THREE.MeshStandardMaterial({
+    map: moonTex.color,
+    bumpMap: moonTex.bump,
+    bumpScale: 0.6,
+    roughness: 1,
+    metalness: 0
+  })
+);
+PLANETS.moon.position.set(28, 4, -8);
+scene.add(PLANETS.moon);
+
 PLANETS.mars = new THREE.Mesh(
-  new THREE.SphereGeometry(3.4, 48, 48),
-  new THREE.MeshStandardMaterial({ map: marsProcTex(), roughness: 0.95, metalness: 0 })
+  new THREE.SphereGeometry(3.4, 96, 96),
+  new THREE.MeshStandardMaterial({
+    map: marsTex.color,
+    bumpMap: marsTex.bump,
+    bumpScale: 0.5,
+    roughness: 0.95,
+    metalness: 0
+  })
 );
 PLANETS.mars.position.set(120, -6, -70);
 scene.add(PLANETS.mars);
 
-PLANETS.marsGlow = new THREE.Mesh(
-  new THREE.SphereGeometry(3.75, 32, 32),
+/* Mars atmosphere — subtle rust halo. */
+PLANETS.marsAtmo = new THREE.Mesh(
+  new THREE.SphereGeometry(3.65, 48, 48),
   new THREE.MeshBasicMaterial({
-    color: 0xff8a4c, transparent: true, opacity: 0.15,
-    side: THREE.BackSide, blending: THREE.AdditiveBlending
+    color: 0xffaa77,
+    transparent: true,
+    opacity: 0.10,
+    side: THREE.FrontSide,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
   })
 );
-PLANETS.marsGlow.position.copy(PLANETS.mars.position);
-scene.add(PLANETS.marsGlow);
+PLANETS.marsAtmo.position.copy(PLANETS.mars.position);
+scene.add(PLANETS.marsAtmo);
 
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 /*  SHIP — detailed                                                           */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 
 var ship = new THREE.Group();
 
-/* Fuselage — tapered cylinder. */
 (function(){
   var geo = new THREE.CylinderGeometry(0.24, 0.32, 1.4, 14);
   geo.rotateX(Math.PI / 2);
-  var m = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({
+  ship.add(new THREE.Mesh(geo, new THREE.MeshStandardMaterial({
     color: 0xe8ecf4, roughness: 0.32, metalness: 0.72
-  }));
-  ship.add(m);
+  })));
 })();
 
-/* Nose cone. */
 (function(){
   var geo = new THREE.ConeGeometry(0.24, 0.55, 14);
   geo.rotateX(Math.PI / 2);
@@ -378,7 +680,6 @@ var ship = new THREE.Group();
   ship.add(m);
 })();
 
-/* Cockpit dome — half sphere. */
 (function(){
   var m = new THREE.Mesh(
     new THREE.SphereGeometry(0.22, 20, 12, 0, Math.PI * 2, 0, Math.PI / 2),
@@ -392,7 +693,6 @@ var ship = new THREE.Group();
   ship.add(m);
 })();
 
-/* Emissive window strips on sides of fuselage. */
 [-1, 1].forEach(function(s){
   var m = new THREE.Mesh(
     new THREE.BoxGeometry(0.04, 0.08, 0.35),
@@ -402,7 +702,6 @@ var ship = new THREE.Group();
   ship.add(m);
 });
 
-/* Tapered wings — extruded shape. */
 [-1, 1].forEach(function(s){
   var shape = new THREE.Shape();
   shape.moveTo(0, 0);
@@ -419,7 +718,6 @@ var ship = new THREE.Group();
   m.position.set(s * 0.15, -0.02, -0.15);
   ship.add(m);
 
-  /* Wing tip marker — small light. */
   var tip = new THREE.Mesh(
     new THREE.SphereGeometry(0.035, 8, 8),
     new THREE.MeshBasicMaterial({ color: s > 0 ? 0xff3030 : 0x30ff30 })
@@ -428,7 +726,6 @@ var ship = new THREE.Group();
   ship.add(tip);
 });
 
-/* Twin engines + exhaust. */
 [-0.18, 0.18].forEach(function(x){
   var engine = new THREE.Mesh(
     new THREE.CylinderGeometry(0.1, 0.14, 0.35, 12),
@@ -438,13 +735,13 @@ var ship = new THREE.Group();
   engine.position.set(x, -0.04, -0.78);
   ship.add(engine);
 
-  var exhaust = new THREE.Mesh(
+  var ex = new THREE.Mesh(
     new THREE.ConeGeometry(0.1, 0.5, 12),
     new THREE.MeshBasicMaterial({ color: 0xff7a3c, transparent: true, opacity: 0.9 })
   );
-  exhaust.rotation.x = -Math.PI / 2;
-  exhaust.position.set(x, -0.04, -1.15);
-  ship.add(exhaust);
+  ex.rotation.x = -Math.PI / 2;
+  ex.position.set(x, -0.04, -1.15);
+  ship.add(ex);
 
   var glow = new THREE.Mesh(
     new THREE.ConeGeometry(0.22, 0.75, 12),
@@ -458,7 +755,6 @@ var ship = new THREE.Group();
   ship.add(glow);
 });
 
-/* Tail fin. */
 (function(){
   var m = new THREE.Mesh(
     new THREE.BoxGeometry(0.035, 0.36, 0.42),
@@ -468,7 +764,6 @@ var ship = new THREE.Group();
   ship.add(m);
 })();
 
-/* Antenna with red beacon. */
 (function(){
   var mast = new THREE.Mesh(
     new THREE.CylinderGeometry(0.008, 0.008, 0.4, 6),
@@ -488,12 +783,12 @@ var ship = new THREE.Group();
 
 scene.add(ship);
 
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 /*  TRAIL PARTICLES                                                           */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 
 var trailPool = [];
-(function initTrail(){
+(function(){
   for (var i = 0; i < 24; i++) {
     var mesh = new THREE.Mesh(
       new THREE.SphereGeometry(0.05, 6, 6),
@@ -530,9 +825,9 @@ function updateTrail(dt){
   }
 }
 
-/* -------------------------------------------------------------------------- */
-/*  ARTIFACTS                                                                 */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+/*  ARTIFACTS + APPROACH POSITIONS                                            */
+/* ========================================================================== */
 
 var ARTIFACTS = [
   { id:'a15', name:'Moon Buggy', planet:'moon', label:'Apollo 15 · 1971', loc:'Hadley Rille', lat:26.13, lon:3.63,
@@ -566,21 +861,19 @@ scene.add(markerGroup);
 
 ARTIFACTS.forEach(function(a){
   var planet = PLANETS[a.planet];
-  var r = a.planet === 'moon' ? 1.7 : 3.4;
-  var wp = latLon(a.lat, a.lon, r + 0.1).add(planet.position);
+  var radius = a.planet === 'moon' ? 2.2 : 3.4;
+  var wp = latLon(a.lat, a.lon, radius + 0.1).add(planet.position);
   a.world = wp;
 
-  /* Marker dot. */
   var m = new THREE.Mesh(
-    new THREE.SphereGeometry(0.13, 16, 16),
+    new THREE.SphereGeometry(0.14, 16, 16),
     new THREE.MeshBasicMaterial({ color: 0x58d6f1 })
   );
   m.position.copy(wp);
   markerGroup.add(m);
 
-  /* Pulsing ring. */
   var ring = new THREE.Mesh(
-    new THREE.RingGeometry(0.22, 0.3, 24),
+    new THREE.RingGeometry(0.24, 0.34, 24),
     new THREE.MeshBasicMaterial({
       color: 0x58d6f1, transparent: true, opacity: 0.55,
       side: THREE.DoubleSide, depthWrite: false
@@ -591,14 +884,8 @@ ARTIFACTS.forEach(function(a){
   ring.userData.pulse = true;
   markerGroup.add(ring);
 
-  /* ---------------------------------------------------------------- */
-  /*  COMPUTE APPROACH POSITIONS ALONG THE OUTWARD NORMAL             */
-  /*  This is the fix for the ship vanishing: offsets point away from */
-  /*  the planet center, so ship/camera never go inside the sphere.   */
-  /* ---------------------------------------------------------------- */
+  /* Approach positions along the outward normal — prevents ship going underground. */
   var normal = wp.clone().sub(planet.position).normalize();
-
-  /* Camera offset: mostly outward + some tangent for a 3/4 view. */
   var tangent = new THREE.Vector3(1, 0, 0);
   if (Math.abs(normal.dot(tangent)) > 0.9) tangent = new THREE.Vector3(0, 1, 0);
   tangent.cross(normal).normalize();
@@ -610,16 +897,15 @@ ARTIFACTS.forEach(function(a){
     .add(new THREE.Vector3(0, 1.2, 0));
 });
 
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 /*  BEATS                                                                     */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 
 var BEATS = [];
 var prevShip = new THREE.Vector3(14, 5, -2);
 var prevCam  = new THREE.Vector3(15, 6, 3);
 var prevLook = new THREE.Vector3(20, 4, -5);
 
-/* 0 — Launch. */
 BEATS.push({
   name: 'Launch', sub: 'Departing Earth orbit', dur: 3500, artifact: null,
   shipA: [0, 4, 16], shipB: [0, 4, 12],
@@ -630,7 +916,6 @@ BEATS.push({
 prevShip.set(0, 4, 12);
 prevCam.set(0, 5, 20);
 
-/* 1 — Moon transit. */
 BEATS.push({
   name: 'Moon transit', sub: '3 days · 386,000 km', dur: 4500, artifact: null,
   shipA: [prevShip.x, prevShip.y, prevShip.z], shipB: [14, 5, -2],
@@ -642,7 +927,6 @@ prevShip.set(14, 5, -2);
 prevCam.set(15, 6, 3);
 prevLook.set(20, 4, -5);
 
-/* 2-5 — Moon artifacts, using the outward-normal approach positions. */
 [0, 1, 2, 3].forEach(function(i){
   var a = ARTIFACTS[i];
   BEATS.push({
@@ -659,7 +943,6 @@ prevLook.set(20, 4, -5);
   prevLook.copy(a.world);
 });
 
-/* 6 — Mars transit. */
 var marsFirst = ARTIFACTS[4];
 BEATS.push({
   name: 'Mars transit', sub: '7 months · 225M km', dur: 6500, artifact: null,
@@ -670,19 +953,10 @@ BEATS.push({
   look: marsFirst.world.toArray(),
   dest: 'MARS', dist: '225M km'
 });
-prevShip.set(
-  marsFirst.shipPos.x - 30,
-  marsFirst.shipPos.y + 2,
-  marsFirst.shipPos.z - 20
-);
-prevCam.set(
-  marsFirst.camPos.x - 30,
-  marsFirst.camPos.y + 3,
-  marsFirst.camPos.z - 20
-);
+prevShip.set(marsFirst.shipPos.x - 30, marsFirst.shipPos.y + 2, marsFirst.shipPos.z - 20);
+prevCam.set(marsFirst.camPos.x - 30, marsFirst.camPos.y + 3, marsFirst.camPos.z - 20);
 prevLook.copy(marsFirst.world);
 
-/* 7-9 — Mars artifacts. */
 [4, 5, 6].forEach(function(i){
   var a = ARTIFACTS[i];
   BEATS.push({
@@ -699,9 +973,9 @@ prevLook.copy(marsFirst.world);
   prevLook.copy(a.world);
 });
 
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 /*  STATE                                                                     */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 
 var J = {
   state: 'idle',
@@ -714,14 +988,9 @@ var J = {
 };
 
 function setState(s){
-  if (J.state !== s) {
-    log('state:', J.state, '→', s);
-    J.state = s;
-  }
+  if (J.state !== s) { log('state:', J.state, '→', s); J.state = s; }
 }
-
 function clearTimers(){ J.timers.forEach(clearTimeout); J.timers = []; }
-
 function after(ms, fn){
   var id = setTimeout(function(){
     var i = J.timers.indexOf(id);
@@ -732,13 +1001,12 @@ function after(ms, fn){
   J.timers.push(id);
   return id;
 }
-
 function easeInOut(t){ return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 function lerp(a, b, t){ return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
 
-/* -------------------------------------------------------------------------- */
-/*  BEAT MANAGER                                                              */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+/*  BEAT + CARD                                                               */
+/* ========================================================================== */
 
 function setBeat(i){
   J.beat = Math.max(0, Math.min(BEATS.length - 1, i));
@@ -776,16 +1044,12 @@ function showCard(idx){
   if (card) card.classList.add('on');
   setState('card');
   setStatus('Relic card — auto-advancing in ' + Math.round(CONFIG.cardReadTime / 1000) + 's');
-
-  /* Store the ship's resting position so the animate loop can hover it. */
   J.shipRest.copy(ship.position);
-
   after(CONFIG.cardReadTime, function(){
     if (J.state === 'card') openArtifactPage(idx);
   });
 }
 
-/* Try to open the site's own page for this relic, but never block the tour. */
 function openArtifactPage(idx){
   var a = ARTIFACTS[idx];
   log('openArtifactPage →', a.id);
@@ -808,7 +1072,6 @@ function openArtifactPage(idx){
       } catch (e) { warn('window.' + names[i] + ' threw:', e.message); }
     }
   }
-
   forceSection('file');
   if (!succeeded) populateFileSection(a);
 
@@ -848,7 +1111,6 @@ function openArtifactLab(idx){
       break;
     }
   }
-
   forceSection('lab');
 
   var labSuccess = false;
@@ -869,7 +1131,6 @@ function openArtifactLab(idx){
       try { labObj.setTab('learn'); } catch (e) {}
     }
   }
-
   if (!labSuccess) populateLabSection(a);
 
   after(CONFIG.labDwellTime, function(){
@@ -910,10 +1171,7 @@ function journeyComplete(){
   setText('j3-cbody', 'You have visited every relic in the Galactic Field Guide.');
 
   var nb = document.getElementById('j3-next-art');
-  if (nb) {
-    nb.textContent = 'Return home';
-    nb.onclick = function(){ window.Journey.stop(); };
-  }
+  if (nb) { nb.textContent = 'Return home'; nb.onclick = function(){ window.Journey.stop(); }; }
   var op = document.getElementById('j3-open-page');
   if (op) op.style.display = 'none';
 
@@ -926,9 +1184,9 @@ function journeyComplete(){
   });
 }
 
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 /*  BUTTONS                                                                   */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 
 var nextArt = document.getElementById('j3-next-art');
 if (nextArt) {
@@ -949,18 +1207,13 @@ if (openPage) {
   openPage.onclick = function(){
     var b = BEATS[J.beat];
     if (!b || b.artifact == null) return;
-    /* Try to open the file page and pause the auto-advance timer. */
     var a = ARTIFACTS[b.artifact];
     clearTimers();
     var names = ['openFile', 'openArtifact', 'openItem', 'showFile', 'navigateTo'];
     var worked = false;
     for (var i = 0; i < names.length; i++) {
       if (typeof window[names[i]] === 'function') {
-        try {
-          window[names[i]](a.id);
-          worked = true;
-          break;
-        } catch (e) {}
+        try { window[names[i]](a.id); worked = true; break; } catch (e) {}
       }
     }
     if (!worked) {
@@ -986,7 +1239,6 @@ if (skipBtn) {
     log('SKIP, state=', J.state);
     if (J.state === 'card') openArtifactPage(BEATS[J.beat].artifact);
     else if (J.state === 'page') openArtifactLab(BEATS[J.beat].artifact);
-    else if (J.state === 'lab') advanceToNext();
     else advanceToNext();
   };
 }
@@ -998,28 +1250,28 @@ document.addEventListener('keydown', function(e){
   else if (e.key === 'ArrowRight') { if (skipBtn) skipBtn.click(); }
 });
 
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 /*  SAFETY — push ship/camera out of planets if they clip in                  */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 
-function keepOutside(obj, radiusPad){
+function keepOutside(obj, pad){
   ['earth', 'moon', 'mars'].forEach(function(name){
     var planet = PLANETS[name];
     if (!planet) return;
     var baseRadius = planet.geometry.parameters.radius;
-    var safeRadius = baseRadius + radiusPad;
+    var safeRadius = baseRadius + pad;
     var d = obj.position.distanceTo(planet.position);
     if (d < safeRadius) {
-      var outward = obj.position.clone().sub(planet.position).normalize();
-      if (outward.length() < 0.001) outward.set(0, 1, 0);
-      obj.position.copy(planet.position).add(outward.multiplyScalar(safeRadius));
+      var out = obj.position.clone().sub(planet.position).normalize();
+      if (out.length() < 0.001) out.set(0, 1, 0);
+      obj.position.copy(planet.position).add(out.multiplyScalar(safeRadius));
     }
   });
 }
 
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 /*  ANIMATION LOOP                                                            */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 
 var lastFrame = performance.now();
 
@@ -1052,7 +1304,6 @@ function animate(){
         J.lastLookTarget.lerp(lookTarget, 0.1);
         camera.lookAt(J.lastLookTarget);
 
-        /* Spawn trail behind the ship. */
         if (p > 0.05 && p < 0.95) {
           var behind = ship.position.clone();
           var back = new THREE.Vector3(0, 0, -1).applyQuaternion(ship.quaternion);
@@ -1060,7 +1311,6 @@ function animate(){
           spawnTrail(behind);
         }
 
-        /* Safety: keep ship and camera outside planets. */
         keepOutside(ship, 0.4);
         keepOutside(camera, 1.5);
 
@@ -1077,7 +1327,6 @@ function animate(){
         }
       }
     } else if (J.state === 'card' || J.state === 'page' || J.state === 'lab') {
-      /* Gentle hover so the ship doesn't look frozen. */
       var t = now * 0.001;
       ship.position.copy(J.shipRest);
       ship.position.y += Math.sin(t * 1.8) * 0.12;
@@ -1088,20 +1337,17 @@ function animate(){
 
   updateTrail(dt);
 
-  /* Planet rotations. */
   PLANETS.earth.rotation.y += 0.0008;
   PLANETS.clouds.rotation.y += 0.0012;
   PLANETS.moon.rotation.y += 0.0005;
   PLANETS.mars.rotation.y += 0.0004;
 
-  /* Beacon blink. */
   ship.children.forEach(function(c){
     if (c.userData.beacon) {
       c.material.color.setHex(Math.sin(now * 0.006) > 0 ? 0xff3030 : 0x440000);
     }
   });
 
-  /* Marker pulse. */
   markerGroup.children.forEach(function(m){
     if (m.userData.pulse) {
       var s = 1 + Math.sin(now * 0.004) * 0.18;
@@ -1118,9 +1364,9 @@ addEventListener('resize', function(){
   camera.updateProjectionMatrix();
 });
 
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 /*  PUBLIC API                                                                */
-/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
 
 window.Journey = {
   start: function(){
@@ -1130,21 +1376,16 @@ window.Journey = {
     J.beatStart = performance.now();
     J.paused = false;
     clearTimers();
-
     var ov = document.getElementById('j3-overlay');
     if (ov) ov.classList.add('on');
-
     var op = document.getElementById('j3-open-page');
     if (op) op.style.display = '';
-
     var nb = document.getElementById('j3-next-art');
     if (nb) nb.textContent = 'Next relic →';
-
     camera.position.set(0, 5, 22);
     ship.position.set(0, 4, 16);
     J.shipRest.copy(ship.position);
     J.lastLookTarget.set(0, 0, 0);
-
     setBeat(0);
   },
   stop: function(){
@@ -1159,7 +1400,6 @@ window.Journey = {
   }
 };
 
-/* Wire the header button. */
 (function(){
   var b = document.getElementById('fg-tour-btn');
   if (b) {
@@ -1171,7 +1411,6 @@ window.Journey = {
   }
 })();
 
-/* Remove duplicate tour buttons if any exist. */
 (function(){
   var keep = document.getElementById('fg-tour-btn');
   ['gfp-tb', 'fgtb'].forEach(function(id){
