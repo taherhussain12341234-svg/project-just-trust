@@ -4331,4 +4331,52 @@ var ok=!!(window.EMB&&EMB.a15&&EMB.pv);
 if(ok){console.log('[FG] Photo data OK: '+n+' images loaded');}
 else{console.warn('[FG] Photo data missing or incomplete ('+n+' images). Images will show SVG fallbacks. The <script>Object.assign(EMB,{a15:...}> block is likely truncated — copy it from your original index.html using Ctrl+Shift+End.');}
 window.FGDiag={emb:n,ok:ok};
-})();</script><script src="journey.js"></script><script>(function w(){  if(window.Journey&&window.Journey.start){    var b=document.getElementById("fg-tour-btn");    if(b&&!b.dataset.wired){      b.dataset.wired="1";      b.onclick=function(){window.Journey.start()};    }  }else{setTimeout(w,300)}})();</script></body></html>
+})();</script><script src="journey.js"></script><script>(function w(){  if(window.Journey&&window.Journey.start){    var b=document.getElementById("fg-tour-btn");    if(b&&!b.dataset.wired){      b.dataset.wired="1";      b.onclick=function(){window.Journey.start()};    }  }else{setTimeout(w,300)}})();</script>
+<script>
+(function(){
+  var TOUR_SRC = 'journey.js';
+
+  function loadTour(cb){
+    if (window.Journey) return cb();
+    var s = document.createElement('script');
+    s.src = TOUR_SRC;
+    s.onload = cb;
+    s.onerror = function(){
+      alert('journey.js could not be loaded. Is it uploaded next to index.html?');
+    };
+    document.head.appendChild(s);
+  }
+
+  function addButton(){
+    if (document.getElementById('fg-tour-btn')) return true;
+    var header = document.querySelector('header.top') || document.querySelector('.top');
+    if (!header) return false;
+
+    var btn = document.createElement('button');
+    btn.id = 'fg-tour-btn';
+    btn.type = 'button';
+    btn.textContent = '▶ 3D Tour';
+    btn.setAttribute('aria-label', 'Start 3D tour');
+
+    var xpp = header.querySelector('.xpp');
+    if (xpp) header.insertBefore(btn, xpp);
+    else header.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+      loadTour(function(){
+        try { window.Journey.start(); }
+        catch(e){ alert('Tour failed to start: ' + e.message); }
+      });
+    });
+    return true;
+  }
+
+  if (!addButton()) {
+    document.addEventListener('DOMContentLoaded', addButton);
+    var n = 0, t = setInterval(function(){
+      if (addButton() || ++n > 40) clearInterval(t);
+    }, 250);
+  }
+})();
+</script>
+</body></html>
