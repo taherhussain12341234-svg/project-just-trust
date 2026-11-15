@@ -17,6 +17,7 @@ function boot(tries){
   try { build(); }
   catch (e) { console.error('[journey] build failed:', e); alert('Tour build failed: ' + e.message); }
 }
+
 function build(){
 
 /* ---------- CSS ---------- */
@@ -321,10 +322,12 @@ BEATS.push({name:'Mars transit', sub:'7 months · 225M km', dur:5500, artifact:n
 var J = {state:'idle', beat:0, beatStart:0, paused:false, timers:[]};
 function clearTimers(){ J.timers.forEach(clearTimeout); J.timers = []; }
 function after(ms, fn){
-  return setTimeout(function(){
+  var id = setTimeout(function(){
     if (J.paused) { after(300, fn); return; }
     fn();
   }, ms);
+  J.timers.push(id);
+  return id;
 }
 function easeInOut(t){ return t<0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
 function lerp(a,b,t){ return [a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t, a[2]+(b[2]-a[2])*t]; }
@@ -517,6 +520,6 @@ animate();
 
 }
 
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ boot(); });
 else boot();
 })();
