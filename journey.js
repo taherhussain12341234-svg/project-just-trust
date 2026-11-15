@@ -7,12 +7,16 @@
 (function(){
 'use strict';
 
-function boot(){
-  if (typeof window.openFile !== 'function' || !window.LAB) { setTimeout(boot, 300); return; }
+function boot(tries){
+  tries = tries || 0;
   if (document.getElementById('j3-overlay')) return;
-  build();
+  if (typeof window.THREE === 'undefined') {
+    if (tries > 40) { console.error('[journey] Three.js never loaded — aborting'); return; }
+    return setTimeout(function(){ boot(tries + 1); }, 250);
+  }
+  try { build(); }
+  catch (e) { console.error('[journey] build failed:', e); alert('Tour build failed: ' + e.message); }
 }
-
 function build(){
 
 /* ---------- CSS ---------- */
