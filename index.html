@@ -4273,5 +4273,27 @@ window.FGFun = { Sound: Sound, CF: CF, Mascot: Mascot, BADGES: BADGES };
 })();
 </script>
 <!-- === /FG FUN SCRIPT === -->
-  <script src="journey.js"></script>
+ <script>
+(function(){
+  // Load journey.js and add a tour button to the header
+  var s = document.createElement('script');
+  s.src = 'journey.js';
+  s.onload = function(){
+    setTimeout(function(){
+      if (document.getElementById('fg-tour-btn') || !window.Journey) return;
+      var hdr = document.querySelector('header.top');
+      if (!hdr) return;
+      var tb = document.createElement('button');
+      tb.id = 'fg-tour-btn';
+      tb.type = 'button';
+      tb.textContent = '▶ 3D Tour';
+      tb.style.cssText = 'font:700 11px var(--fh),sans-serif;color:#fff;background:linear-gradient(180deg,#ff78b1,#ff5a9f);border:0;border-radius:8px;padding:6px 12px;cursor:pointer;margin-right:8px;white-space:nowrap;box-shadow:0 4px 12px rgba(255,95,162,.35)';
+      tb.onclick = function(){ window.Journey.start(); };
+      var xpp = hdr.querySelector('.xpp');
+      if (xpp) hdr.insertBefore(tb, xpp); else hdr.appendChild(tb);
+    }, 200);
+  };
+  document.body.appendChild(s);
+})();
+</script>
 </body></html>
