@@ -59,6 +59,7 @@ input[type=range]{width:100%;accent-color:var(--pink);margin:4px 0 8px}
 @keyframes fl{to{transform:translate(var(--x),var(--y));opacity:0}}
 :focus-visible{outline:3px solid var(--pink);outline-offset:2px}
 .cr{margin:0;padding-left:18px;color:var(--p);font-size:12.5px}.cr li{margin-bottom:5px}.cr a{color:#1b78c2;word-break:break-word}
+/* home */
 .hero{display:grid;grid-template-columns:1.02fr 1fr;gap:36px;align-items:center;flex:1;min-height:0}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font:700 12px var(--fh);letter-spacing:.06em;text-transform:uppercase;color:var(--pinkd);margin-bottom:14px}
 .eyebrow::before{content:'';width:22px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--pink2))}
@@ -82,6 +83,7 @@ input[type=range]{width:100%;accent-color:var(--pink);margin:4px 0 8px}
 .feat h3{font-size:15px;margin-bottom:2px}.feat p{margin:0;font-size:13px;color:var(--mute)}
 .dyk{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 16px;font-size:14px;flex:none}
 .dyk b{color:var(--pinkd);font:700 11px var(--fh);text-transform:uppercase;letter-spacing:.09em;white-space:nowrap}
+/* craft files */
 .pick{display:flex;gap:10px;flex:none}
 .pk{flex:1;min-width:0;display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:7px 12px;cursor:pointer;color:var(--ink);font:700 14px var(--fh);text-align:left;box-shadow:0 1px 2px #0d2f5510}
 .pk img{width:44px;height:44px;border-radius:9px;object-fit:contain;background:#0f3a63;flex:none}.pk span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -109,6 +111,7 @@ input[type=range]{width:100%;accent-color:var(--pink);margin:4px 0 8px}
 .gbox .opts.two{grid-template-columns:1fr 1fr}
 .mt{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}.mt>div{display:grid;gap:5px;align-content:start}.opt.right[disabled]{opacity:1}
 .cvw{display:flex;justify-content:center}#cv{width:min(100%,540px);height:auto;border-radius:12px;touch-action:manipulation;background:#05071a}
+/* page stepper */
 .steps3{display:flex;align-items:center;gap:6px}
 .st{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:7px 16px 7px 8px;cursor:pointer;font:700 14px var(--fh);color:var(--ink);text-align:left;transition:transform .15s,box-shadow .15s,border-color .15s;box-shadow:0 1px 2px #0d2f5510}
 .st b{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--chip);color:var(--ink);font:800 14px var(--fh);flex:none}
@@ -125,6 +128,7 @@ input[type=range]{width:100%;accent-color:var(--pink);margin:4px 0 8px}
 @keyframes inR{from{opacity:0;transform:translateX(34px)}to{opacity:1;transform:none}}@keyframes inL{from{opacity:0;transform:translateX(-34px)}to{opacity:1;transform:none}}
 #nextp{animation:nudge 2.6s ease-in-out infinite}@keyframes nudge{0%,100%{box-shadow:inset 0 1px 0 #ffffff55,0 6px 16px #ff5fa240}50%{box-shadow:inset 0 1px 0 #ffffff55,0 0 0 7px #ff5fa224,0 6px 16px #ff5fa240}}
 .swipe{display:none}
+/* map */
 .mapwrap{position:relative;border-radius:14px;overflow:hidden;background:#12466f;box-shadow:0 10px 30px #3b9be033;border:3px solid var(--card);min-height:0}
 #svg{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
 #svg path,#svg line,#svg circle{vector-effect:non-scaling-stroke}
@@ -149,6 +153,7 @@ input[type=range]{width:100%;accent-color:var(--pink);margin:4px 0 8px}
 .sb{height:5px;border:2px solid #0d2f55;border-top:0;display:block}.ro{font-variant-numeric:tabular-nums}
 .rhead{display:flex;gap:12px;align-items:center;margin-bottom:8px}.relf .note{font-size:13.5px;line-height:1.45;padding:8px 12px}.rhead img{width:62px;height:62px;border-radius:10px;object-fit:contain;background:#0f3a63;flex:none}.rhead h3{margin:0;font-size:19px}
 .lnk{font:700 12px var(--fh);color:#1b78c2;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+/* 3D lab */
 .btn.ghost{background:var(--card);color:var(--ink);box-shadow:none;border:1px solid var(--line)}
 .labgrid{flex:1;min-height:0;display:grid;grid-template-columns:1.7fr 1fr;gap:16px}
 .labview{position:relative;border-radius:14px;overflow:hidden;background:radial-gradient(circle at 50% 30%,#4a98d6,#12466f 70%,#0b2f50);border:3px solid var(--card);box-shadow:0 10px 30px #3b9be033;min-height:0}
@@ -169,6 +174,7 @@ input[type=range]{width:100%;accent-color:var(--pink);margin:4px 0 8px}
 .sctl label{display:flex;justify-content:space-between;font:700 12px var(--fh);color:var(--ink);margin-top:2px}.sctl input{margin:0 0 2px}
 #labpick .pk{padding:5px 9px;font-size:13px}#labpick .pk img{width:34px;height:34px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
 body{overflow:hidden}
 .app{display:grid;grid-template-rows:66px minmax(0,1fr) 34px;height:100vh}
 #nav{display:flex;gap:30px;align-self:stretch}
@@ -183,6 +189,7 @@ section{height:100%;min-height:0}section.on{display:flex;flex-direction:column;g
 #file.on,#lab.on{gap:12px}
 .feats{grid-template-columns:repeat(5,1fr)}
 .foot{display:flex;justify-content:space-between;align-items:center;padding:0 32px;font-size:12px;color:var(--mute);border-top:1px solid var(--line);background:var(--glass)}
+
 .skyfx::after{content:'';position:absolute;inset:0;background-image:radial-gradient(1.4px 1.4px at 20px 30px,#fffc,#0000),radial-gradient(1px 1px at 120px 90px,#fffb,#0000),radial-gradient(1.4px 1.4px at 210px 20px,#fff9,#0000);background-size:260px 140px;opacity:.5}
 header.top{box-shadow:0 8px 28px #0d2f5514}
 .card{box-shadow:inset 0 1px 0 #ffffff90,0 1px 2px #0d2f5510,0 16px 38px #3b9be01c}
@@ -218,6 +225,12 @@ header.top{box-shadow:0 8px 28px #0d2f5514}
 .fgsl{margin:0 0 10px;padding:10px 14px;border-radius:12px;background:var(--t1);border:1px solid var(--t1l);font-size:14px}.fgsl em{display:block;font-style:normal;font-weight:800;color:var(--pinkd)}
 .fgnb{flex:none;align-self:center;white-space:nowrap}
 #labq{display:flex;flex-direction:column;flex:1;min-height:0;gap:8px}
+</style>
+<!-- === FG CINEMATIC INTRO (injected by patch_cinematic.py) === -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style id="fg-cinema-css">
 #fg-cinema{position:fixed;inset:0;z-index:9999;background:#05080f;overflow:hidden;overflow-y:auto;opacity:1;transition:opacity 1.6s cubic-bezier(.4,0,.2,1);color:#eaf1ff;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:20px 24px calc(32px + env(safe-area-inset-bottom,0px)) 24px;touch-action:manipulation;user-select:none;-webkit-user-select:none;font-family:'Space Grotesk','Plus Jakarta Sans',system-ui,-apple-system,sans-serif}
 #fg-cinema.fg-out{opacity:0;pointer-events:none}
 #fg-cinema canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
@@ -239,11 +252,393 @@ header.top{box-shadow:0 8px 28px #0d2f5514}
 .fg-cin-skip:hover{color:rgba(196,199,202,.9)}
 @media(min-width:720px){#fg-cinema{justify-content:center;padding:32px}.fg-cin-text{margin-bottom:0}}
 @media(prefers-reduced-motion:reduce){.fg-cin-line{transition:none!important;opacity:1!important;transform:none!important}#fg-cinema{transition:opacity .4s!important}.fg-cin-eyebrow::before{animation:none!important}}
-</style></head><body class="desk"><div class="skyfx" aria-hidden="true"><svg class="cloud c1" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c2" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c3" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c4" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg></div><div class="app"><header class="top"><button class="brand" data-go="home" aria-label="Galactic Field Guide home"><svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10" fill="#ff6fae"/><ellipse cx="20" cy="20" rx="18" ry="6" fill="none" stroke="#4fb3f6" stroke-width="3" transform="rotate(-25 20 20)"/><circle cx="33" cy="9" r="2.6" fill="#fff" stroke="#4fb3f6"/></svg><div style="text-align:left"><h1>Galactic Field Guide</h1><small>Relics of the Moon &amp; Mars</small></div></button><nav id="nav"><button class="nv on" data-t="home">Home</button><button class="nv" data-t="moon">Moon Relics</button><button class="nv" data-t="mars">Mars Relics</button><button class="nv" data-t="lab">3D Lab</button><button class="nv" data-t="radar">Radar Map</button><button class="nv" data-t="credits">Credits</button></nav><div class="xpp"><span id="lvl">Level 1</span><span><b id="xp">0</b> XP</span><div class="t"><i id="xpbar"></i></div></div></header><main><section id="home">
+</style>
+<noscript><style>#fg-cinema .fg-cin-line{opacity:1!important;transform:none!important}#fg-cinema{background:radial-gradient(circle at 50% 30%, #1a2740 0%, #05080f 70%)}#fg-cin-begin,#fg-cin-skip{display:none}</style></noscript>
+<!-- === /FG CINEMATIC INTRO HEAD === -->
+
+<!-- === FG FUN THEME === -->
+<style id="fg-fun-theme">
+/* ---- Mascot ---- */
+.fg-mascot{
+  position:fixed;
+  bottom:90px;
+  right:16px;
+  width:56px;height:56px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--pink) 0%,var(--pink2) 100%);
+  border:3px solid var(--card);
+  box-shadow:0 10px 30px rgba(217,106,63,.45),0 4px 12px rgba(30,20,10,.25);
+  cursor:pointer;
+  font-size:28px;
+  z-index:900;
+  display:grid;place-items:center;
+  animation:fgFloat 3s ease-in-out infinite;
+  transition:transform .2s ease;
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.fg-mascot:hover{transform:scale(1.1)}
+.fg-mascot:active{transform:scale(.95)}
+@keyframes fgFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+.fg-mascot-bubble{
+  position:fixed;
+  bottom:158px;
+  right:16px;
+  max-width:260px;
+  background:var(--card);
+  color:var(--ink);
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  box-shadow:0 12px 28px rgba(30,20,10,.25);
+  font-family:var(--fb),system-ui,sans-serif;
+  font-size:13.5px;
+  line-height:1.5;
+  z-index:899;
+  opacity:0;
+  transform:translateY(10px) scale(.95);
+  transition:opacity .3s cubic-bezier(.34,1.56,.64,1),transform .3s cubic-bezier(.34,1.56,.64,1);
+  pointer-events:none;
+}
+.fg-mascot-bubble.on{opacity:1;transform:translateY(0) scale(1)}
+.fg-mascot-bubble::after{
+  content:'';position:absolute;bottom:-8px;right:22px;
+  width:14px;height:14px;background:var(--card);
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  transform:rotate(45deg);
+}
+
+@media(max-width:640px){
+  .fg-mascot{bottom:calc(150px + env(safe-area-inset-bottom,0px));right:12px;width:48px;height:48px;font-size:24px}
+  .fg-mascot-bubble{bottom:calc(210px + env(safe-area-inset-bottom,0px));right:12px;max-width:220px;font-size:12.5px}
+}
+
+/* ---- Sound toggle ---- */
+.fg-sound{
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:10px;
+  width:38px;height:38px;
+  cursor:pointer;
+  font-size:18px;
+  color:var(--ink);
+  margin-left:8px;
+  display:grid;place-items:center;
+  transition:background .15s,border-color .15s;
+}
+.fg-sound:hover{background:var(--soft);border-color:var(--pink2)}
+.fg-sound:active{transform:scale(.95)}
+
+/* ---- Badge popup ---- */
+.fg-badge-pop{
+  position:fixed;inset:0;z-index:9999;
+  display:grid;place-items:center;
+  padding:24px;
+  pointer-events:none;
+}
+.fg-badge-card{
+  background:var(--card);
+  color:var(--ink);
+  border:2px solid var(--pink);
+  border-radius:20px;
+  padding:32px 40px;
+  text-align:center;
+  box-shadow:0 30px 60px rgba(30,20,10,.5);
+  max-width:340px;
+  pointer-events:auto;
+  animation:fgBadgePop .6s cubic-bezier(.34,1.56,.64,1);
+  font-family:var(--fb),system-ui,sans-serif;
+}
+.fg-badge-emoji{font-size:64px;line-height:1;margin-bottom:8px}
+.fg-badge-eyebrow{
+  font-family:var(--mono,'JetBrains Mono',monospace);
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--pinkd);margin-bottom:6px;
+}
+.fg-badge-name{
+  font-family:var(--fh,'Fraunces',serif);
+  font-size:28px;font-weight:500;color:var(--ink);margin-bottom:8px;
+}
+.fg-badge-blurb{font-size:14px;color:var(--p);line-height:1.5}
+.fg-badge-btn{
+  margin-top:20px;
+  background:var(--ink);
+  color:var(--card);
+  border:0;
+  padding:10px 24px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  font-size:14px;
+  font-family:inherit;
+}
+.fg-badge-btn:hover{opacity:.9}
+@keyframes fgBadgePop{
+  0%{transform:scale(.5) rotate(-10deg);opacity:0}
+  60%{transform:scale(1.1) rotate(3deg);opacity:1}
+  100%{transform:scale(1) rotate(0);opacity:1}
+}
+
+/* ---- Toast ---- */
+.fg-toast{
+  position:fixed;
+  left:50%;bottom:120px;
+  transform:translateX(-50%);
+  max-width:min(400px,90vw);
+  background:var(--ink);
+  color:var(--card);
+  padding:14px 20px;
+  border-radius:12px;
+  font-size:14px;
+  line-height:1.5;
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+  z-index:9999;
+  animation:fgToastIn .3s ease-out;
+  font-family:var(--fb),system-ui,sans-serif;
+}
+@keyframes fgToastIn{
+  from{opacity:0;transform:translate(-50%,20px)}
+  to{opacity:1;transform:translate(-50%,0)}
+}
+
+/* ---- Random fact button ---- */
+.fg-random-fact{
+  margin-top:12px;
+  font-size:12px;
+  align-self:flex-start;
+  background:var(--soft);
+  border:1px dashed var(--line);
+  color:var(--ink);
+  padding:8px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-family:var(--mono,'JetBrains Mono',monospace);
+  letter-spacing:.06em;
+  transition:background .15s,border-color .15s;
+}
+.fg-random-fact:hover{background:var(--pink3);border-color:var(--pink2)}
+.fg-random-fact:active{transform:scale(.97)}
+
+/* ---- Playful animations ---- */
+.btn:active{transform:scale(.96) translateY(1px)!important}
+.chip:active{transform:scale(.96)}
+.feat:active{transform:scale(.98)}
+.st:active{transform:scale(.98)}
+.feat:hover b{animation:fgWiggle .4s ease}
+@keyframes fgWiggle{
+  0%,100%{transform:rotate(0)}
+  25%{transform:rotate(-8deg)}
+  75%{transform:rotate(8deg)}
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .fg-mascot{animation:none}
+  .fg-badge-card{animation:none}
+  .feat:hover b{animation:none}
+  .btn:active,.chip:active,.feat:active,.st:active{transform:none!important}
+}
+</style>
+<!-- === /FG FUN THEME === -->
+
+<!-- === FG STORY THEME (injected by patch_story.py) === -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style id="fg-story-theme">
+:root{
+  --fh:'Fraunces','Playfair Display',Georgia,serif;
+  --fb:'Inter','Nunito Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ink:#1a1713;
+  --p:#4a4136;
+  --mute:#8a7e6d;
+  --card:#fbf7ef;
+  --soft:#f4ede0;
+  --line:#e5dcc9;
+  --pink:#d96a3f;
+  --pink2:#f0a577;
+  --pink3:#fbe4d3;
+  --pinkd:#a34717;
+  --sky:#3b6ea8;
+  --sky3:#dde8f4;
+  --teal:#5a8a63;
+  --coral:#c65340;
+  --glass:rgba(251,247,239,.82);
+  --bg1:#f7f0e0;
+  --bg2:#fbf6ec;
+  --bg3:#ffffff;
+  --chip:#f0e8d6;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --ink:#f4ecdc;--p:#cfc4b2;--mute:#8f8574;
+    --card:#1f1a14;--soft:#2a241b;--line:#3a3227;
+    --pink:#f09168;--pink2:#f7b995;--pink3:#3d2820;--pinkd:#ffb98f;
+    --sky:#7ea7d8;--sky3:#1e2a3a;
+    --glass:rgba(31,26,20,.82);
+    --bg1:#100d0a;--bg2:#181410;--bg3:#0a0807;
+    --chip:#2a241b;
+  }
+}
+body{
+  font-family:var(--fb);
+  background:
+    radial-gradient(1200px 600px at 20% -10%, var(--pink3), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, var(--sky3), transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2) 55%,var(--bg3)) fixed;
+  color:var(--p);
+  letter-spacing:-0.005em;
+}
+h1,h2,h3,h4{font-family:var(--fh);color:var(--ink);letter-spacing:-0.015em;font-weight:500}
+h1{font-weight:500}h2{font-weight:500}h3{font-weight:600}
+.hero h1{font-size:clamp(38px,6vw,64px);font-weight:400;line-height:1.02;letter-spacing:-0.03em}
+.hero h1 em{font-style:italic;color:var(--pink);background:none;-webkit-text-fill-color:currentColor}
+.hero p.sub{font-size:17px;line-height:1.6;max-width:520px;color:var(--p)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;color:var(--pinkd);text-transform:uppercase}
+.eyebrow::before{background:var(--pink);width:28px;height:2px}
+.brand h1{font-family:var(--fh);font-weight:500;font-size:19px;letter-spacing:-0.02em}
+.brand small{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+header.top{background:rgba(251,247,239,.78);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+@media(prefers-color-scheme:dark){header.top{background:rgba(31,26,20,.78)}}
+.nv{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.nv.on::after{background:var(--pink);height:2px}
+.card{
+  border-radius:18px;
+  border-color:var(--line);
+  background:var(--card);
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 12px 30px -18px rgba(60,40,20,.35), 0 2px 6px -2px rgba(60,40,20,.10);
+  padding:26px;
+}
+.card h2{font-size:26px;line-height:1.15;letter-spacing:-0.02em}
+.card h3{font-size:17px;letter-spacing:-0.005em}
+.btn{
+  font-family:var(--fb);font-weight:600;font-size:14px;
+  border-radius:11px;padding:13px 22px;letter-spacing:-0.005em;
+  background:var(--ink);color:var(--card);
+  box-shadow:0 1px 0 rgba(255,255,255,.14) inset, 0 8px 22px -10px rgba(30,20,10,.5);
+  transition:transform .15s ease,box-shadow .2s ease,background .2s ease;
+}
+.btn:hover{transform:translateY(-1px);background:#2b2520;box-shadow:0 1px 0 rgba(255,255,255,.14) inset, 0 12px 26px -10px rgba(30,20,10,.6)}
+.btn.alt{background:var(--pink);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.25) inset, 0 8px 22px -10px rgba(200,90,40,.6)}
+.btn.alt:hover{background:#c25633}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{background:var(--soft);border-color:var(--pink2)}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;border-radius:8px;padding:8px 13px;border-color:var(--line);background:transparent;color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.chip:hover{border-color:var(--pink2)}
+.label{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--pinkd);background:var(--pink3);padding:5px 10px;border-radius:6px}
+.label.a{color:var(--sky);background:var(--sky3)}
+.stat{border-color:var(--line);border-radius:12px;background:transparent;padding:10px 14px}
+.stat b{font-family:var(--fh);font-weight:500;font-size:22px;letter-spacing:-0.02em}
+.stat span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.note{border-left:2px solid var(--pink);background:var(--pink3);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;line-height:1.55}
+.note.b{border-color:var(--sky);background:var(--sky3)}
+.note::before{content:'§';font-family:var(--fh);font-style:italic;color:var(--pinkd);margin-right:8px;font-size:16px}
+.note.b::before{color:var(--sky)}
+.feats{grid-template-columns:repeat(5,1fr);gap:12px}
+.feat{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 6px 18px -12px rgba(60,40,20,.35);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.feat:hover{transform:translateY(-3px);border-color:var(--pink2);box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 14px 28px -14px rgba(60,40,20,.45)}
+.feat b{background:var(--ink);box-shadow:none;border-radius:10px;width:36px;height:36px}
+.feat b svg{color:var(--card)}
+.feat h3{font-family:var(--fh);font-weight:500;font-size:15px;margin-bottom:3px}
+.feat p{font-size:12.5px;line-height:1.45;color:var(--mute)}
+.trust b{font-family:var(--fh);font-weight:500;font-size:28px;letter-spacing:-0.02em}
+.trust span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.dyk{border-radius:12px;background:var(--soft);border-color:var(--line);font-size:13.5px;padding:12px 16px}
+.dyk b{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--pinkd);text-transform:uppercase}
+.ph{border:0;border-radius:14px;box-shadow:0 18px 38px -22px rgba(30,20,10,.55)}
+.ph span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);border-radius:5px;padding:4px 8px}
+.pcap{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);border-radius:5px;padding:4px 9px}
+.coord{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--pinkd)}
+.lead{font-family:var(--fh);font-size:16.5px;line-height:1.55;font-weight:400;color:var(--ink)}
+.ff{font-size:14px;line-height:1.65}.ff li{margin-bottom:6px}.ff li::marker{color:var(--pink)}
+.stp{font-size:14.5px;line-height:1.6}.stp li{margin-bottom:10px}.stp li::marker{font-family:var(--mono);color:var(--pink);font-weight:500}
+/* --- Chapter stepper: story arcs --- */
+.steps3{gap:4px}
+.st{
+  font-family:var(--fb);font-size:13px;font-weight:500;
+  background:transparent;border:1px solid var(--line);border-radius:10px;padding:8px 14px 8px 8px;
+  color:var(--p);
+}
+.st b{
+  font-family:var(--fh);font-weight:500;font-size:15px;background:var(--soft);color:var(--ink);
+  width:28px;height:28px;border-radius:8px;
+}
+.st small{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:block;margin-top:1px}
+.st.on{background:var(--ink);border-color:var(--ink);color:var(--card);box-shadow:0 10px 22px -12px rgba(30,20,10,.6)}
+.st.on b{background:var(--card);color:var(--ink)}
+.st.on small{color:rgba(251,247,239,.72)}
+.st.dn:not(.on) b{background:var(--teal);color:#fff}
+.ln{background:var(--line);width:20px;height:2px}
+.ln::after{background:var(--pink)}
+/* --- Pull quote style for excerpts --- */
+.p1 .info .lead{
+  font-family:var(--fh);font-size:17px;line-height:1.55;font-weight:400;
+  padding-left:16px;border-left:2px solid var(--pink);
+  color:var(--ink);
+}
+.blk h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--pinkd);margin-bottom:6px}
+.blk p{font-size:14.5px;line-height:1.6}
+.blk.b{background:var(--card);border-color:var(--line)}
+.blk.g{background:var(--sky3);border-color:var(--sky3)}
+.blk.g h4{color:var(--sky)}
+.tease{
+  font-family:var(--fb);font-weight:500;font-size:14px;
+  background:var(--soft);border:1px dashed var(--line);border-radius:11px;
+  padding:12px 16px;color:var(--ink);
+  transition:background .18s,border-color .18s;
+}
+.tease:hover{background:var(--pink3);border-color:var(--pink2)}
+.tease span{font-family:var(--fh);font-size:22px;color:var(--pink)}
+/* --- Map polish --- */
+.mapwrap{border:0;border-radius:16px;box-shadow:0 20px 44px -22px rgba(30,20,10,.55)}
+.hud{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:rgba(251,247,239,.92);border-radius:8px;padding:7px 12px}
+.hud b{font-family:var(--fh);font-weight:500;letter-spacing:0;text-transform:none;font-size:14px;color:var(--ink)}
+.hud button{font-family:var(--mono);font-size:11px;letter-spacing:.1em;background:var(--ink);color:var(--card);border-radius:7px}
+.fl button{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;background:rgba(251,247,239,.92);border-radius:7px;padding:7px 11px;color:var(--ink)}
+.fl button.on{background:var(--ink);color:var(--card)}
+/* --- 3D Lab polish --- */
+.labview{border:0;border-radius:16px;box-shadow:0 20px 44px -22px rgba(30,20,10,.55)}
+.labhint,.labtools button{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:rgba(251,247,239,.92);border-radius:8px;color:var(--ink)}
+.labtools button.on{background:var(--ink);color:var(--card)}
+.labpanel{border-radius:16px}
+#pinfo h3{font-family:var(--fh);font-weight:500}
+#pinfo h4{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--pinkd)}
+.plist .chip{font-size:10.5px;letter-spacing:.08em;padding:6px 10px}
+.sstep li{font-size:13px;padding:8px 12px;border-radius:9px;line-height:1.45;border:1px solid transparent}
+.sstep li.act{background:var(--pink3);border-color:var(--pink2)}
+.sstep li::before{font-family:var(--mono);background:var(--soft);color:var(--ink)}
+.sstep li.act::before{background:var(--pink);color:#fff}
+.sbtns .btn{padding:10px 18px;font-size:13px}
+/* --- Optional story intro band on home --- */
+.fg-story-band{
+  display:flex;flex-direction:column;gap:8px;
+  padding:22px 24px;border-radius:16px;
+  background:linear-gradient(120deg,var(--pink3),var(--sky3) 85%);
+  border:1px solid var(--line);
+  margin-bottom:14px;
+}
+.fg-story-band .eyebrow{margin:0}
+.fg-story-band h2{font-family:var(--fh);font-weight:400;font-size:clamp(22px,3.2vw,30px);line-height:1.2;margin:0;color:var(--ink);max-width:640px}
+.fg-story-band p{margin:0;font-size:14px;line-height:1.55;color:var(--p);max-width:640px}
+@media(prefers-color-scheme:dark){.fg-story-band{background:linear-gradient(120deg,#3d2820,#1e2a3a 85%)}}
+/* --- Chapter number badge --- */
+#ctag::before{content:'Chapter ';font-family:var(--mono);font-size:0}
+</style>
+<noscript><style>.fg-story-band{display:none}</style></noscript>
+<!-- === /FG STORY THEME === -->
+</head><body class="desk"><div class="skyfx" aria-hidden="true"><svg class="cloud c1" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c2" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c3" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c4" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg></div><div class="app"><header class="top"><button class="brand" data-go="home" aria-label="Galactic Field Guide home"><svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10" fill="#ff6fae"/><ellipse cx="20" cy="20" rx="18" ry="6" fill="none" stroke="#4fb3f6" stroke-width="3" transform="rotate(-25 20 20)"/><circle cx="33" cy="9" r="2.6" fill="#fff" stroke="#4fb3f6"/></svg><div style="text-align:left"><h1>Galactic Field Guide</h1><small>Relics of the Moon &amp; Mars</small></div></button><nav id="nav"><button class="nv on" data-t="home">Home</button><button class="nv" data-t="moon">Moon Relics</button><button class="nv" data-t="mars">Mars Relics</button><button class="nv" data-t="lab">3D Lab</button><button class="nv" data-t="radar">Radar Map</button><button class="nv" data-t="credits">Credits</button></nav><div class="xpp"><span id="lvl">Level 1</span><span><b id="xp">0</b> XP</span><div class="t"><i id="xpbar"></i></div></div></header><main><section id="home">
+<!-- === FG STORY BAND (injected by patch_story.py) === -->
 <div class="fg-story-band" role="region" aria-label="Story introduction">
-<span class="eyebrow">Why this guide exists</span>
-<h2>Seven machines. Seven unfinished stories. All left behind on purpose.</h2>
-<p>Somebody put these things on the Moon and Mars and could not bring them home. That is not a mistake. It is the most interesting part. This guide turns each one into a short chapter: what it was, why it stayed, and what it still teaches us.</p>
+  <span class="eyebrow">Why this guide exists</span>
+  <h2>Seven machines. Seven unfinished stories. All left behind on purpose.</h2>
+  <p>Somebody put these things on the Moon and Mars and could not bring them home. That is not a mistake. It is the most interesting part. This guide turns each one into a short chapter: what it was, why it stayed, and what it still teaches us.</p>
 </div>
 <div class="hero"><div class="hero-text"><span class="eyebrow">A space guide for curious kids</span><h1>Lost on the Moon and Mars, <em>never forgotten</em></h1>
 <p class="sub">Meet the spacecraft and tools that humans left behind. Find out why they could not come home, and how they still help scientists today.</p>
@@ -252,6 +647,7 @@ header.top{box-shadow:0 8px 28px #0d2f5514}
 <div class="hero-art"><figure class="ph ph1"><img id="h1i" alt="The Apollo 15 Moon buggy"><span>Moon Buggy</span></figure><figure class="ph ph2"><img id="h2i" alt="The Ingenuity helicopter on Mars"><span>Ingenuity</span></figure><figure class="ph ph3"><img id="h3i" alt="Surveyor 3 on the Moon"><span>Surveyor 3</span></figure></div></div>
 <div class="feats"><div class="feat" data-go="moon"><b><svg viewBox="0 0 24 24"><path d="M3.5 5.5C6.5 4.3 9.5 4.5 12 6.2c2.5-1.7 5.5-1.9 8.5-.7V19c-3-1.2-6-1-8.5.7-2.5-1.7-5.5-1.9-8.5-.7z" fill="#fff"/><path d="M12 6.4v13" stroke="#ff8fc0" stroke-width="1.5"/></svg></b><h3>Meet it</h3><p>Real facts and photos of every craft.</p></div><div class="feat" data-go="moon"><b><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="#fff" stroke-width="2"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="#fff"/></svg></b><h3>Why it stayed</h3><p>And how it helps us today.</p></div><div class="feat" data-go="mars"><b><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></b><h3>Play</h3><p>Quizzes, matches and mini games.</p></div><div class="feat" data-go="lab"><b><svg viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M3 7l9 5 9-5M12 12v10" fill="none" stroke="#fff" stroke-width="2"/></svg></b><h3>3D Lab</h3><p>Turn, explore and simulate each craft.</p></div><div class="feat" data-go="radar"><b><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="#fff"/></svg></b><h3>Radar Map</h3><p>See where each relic sits.</p></div></div>
 <div class="dyk"><b>Did you know?</b><span id="dykt"></span></div></section>
+
 <section id="file"><div class="pick" id="pick"></div><div class="card book"><div class="bk-head"><div><span class="label a" id="ctag"></span><h2 id="cname"></h2></div><div class="steps3" id="pgs"><button class="st on" data-pg="1"><b>1</b><span>Start<small>the journey</small></span></button><i class="ln"></i><button class="st" data-pg="2"><b>2</b><span>End<small>why it stayed</small></span></button><i class="ln"></i><button class="st" data-pg="3"><b>3</b><span>Your turn<small>quiz and games</small></span></button></div></div><div class="bk-body" id="bk"></div><div class="bk-foot"><button class="btn" id="prevp">← Back</button><span class="swipe">swipe or tap to turn the page</span><button class="btn" id="nextp">Turn the page →</button></div></div></section>
 <section id="radar"><div class="mapwrap" id="mw"><svg id="svg" role="img" aria-label="Interactive topographic map of relic locations"><rect class="bg0" x="-3000" y="-3000" width="7000" height="7000"/><g id="terrain"></g><g id="grid"></g><g id="gl"></g><g id="ln"></g><g id="pins"></g></svg>
 <div class="hud tl"><span id="mname">LUNAR NEARSIDE</span><b id="mdata">STYLIZED TOPO</b></div>
@@ -273,9 +669,9 @@ header.top{box-shadow:0 8px 28px #0d2f5514}
 <li><b>Photos of the Apollo 15 buggy, the Apollo 11 lunar module Eagle in lunar orbit, the Apollo 12 lunar module Intrepid, Surveyor 3, Perseverance, Ingenuity and a sample tube:</b> NASA. The sample-tube picture is a frame from NASA test footage made on Earth, not a photo taken on Mars. Keep NASA’s original captions with them.</li></ul></div>
 <div class="card"><h3>More credits</h3><ul class="cr"><li><b>Mars craft and Jezero Crater:</b> NASA / JPL-Caltech and ESA, <a href="https://science.nasa.gov/mars/" target="_blank" rel="noopener">science.nasa.gov/mars</a>. <b>Ingenuity:</b> <a href="https://www.airspacemag.com/smart-news/nasa-ingenuity-mars-helicopter-taken-final-flight-180983667/" target="_blank" rel="noopener">Smithsonian Air &amp; Space</a>.</li>
 <li><b>Mars Sample Return status (January 2026):</b> <a href="https://www.theregister.com/2026/01/16/nasa_science_budget/" target="_blank" rel="noopener">The Register</a> and <a href="https://livescience.com/space/mars/nasas-mars-sample-return-is-dead-leaving-china-to-retrieve-signs-of-life-from-the-red-planet" target="_blank" rel="noopener">Live Science</a>. Plans can change, so check NASA.</li>
-<li><b>Photos:</b> the pictures of each craft are NASA images built into this page. If a photo cannot be shown, a drawing made for this guide appears instead, marked “Illustration”. Check the <a href="https://www.nasa.gov/nasa-brand-center/images-and-media/" target="_blank" rel="noopener">NASA media guidelines</a> before reusing any photo.</li>
+<li><b>Photos:</b> the pictures of each craft are NASA images built into this page. If a photo cannot be shown, a drawing made for this guide appears instead, marked “Illustration”. Check the <a href=\"https://www.nasa.gov/nasa-brand-center/images-and-media/\" target=\"_blank\" rel=\"noopener\">NASA media guidelines</a> before reusing any photo.</li>
 <li><b>Map:</b> drawn in the style of lunar and Martian topographic maps. Shapes are illustrations, not real elevation data, and marker positions are approximate. Surveyor 3 and Apollo 12 are only about 600 ft apart, so they are drawn apart.</li>
-<li><b>3D Lab:</b> built with <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> (MIT license), loaded from cdnjs and jsDelivr when you open the tab. The 3D models are simplified drawings made for this guide, not exact engineering models.</li><li><b>Rocket Balancer:</b> a simplified teaching estimate, not an official NASA number.</li>
+<li><b>3D Lab:</b> built with <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> (MIT license), loaded from cdnjs and jsDelivr when you open the tab. The 3D models are simplified drawings made for this guide, not exact engineering models.</li><li><b>NASA Live photos:</b> fetched when you tap the NASA button from the NASA Image and Video Library (images-api.nasa.gov). Credit: NASA. NASA does not endorse this site.</li><li><b>Rocket Balancer:</b> a simplified teaching estimate, not an official NASA number.</li>
 <li><b>Fonts:</b> Plus Jakarta Sans and Nunito Sans from <a href="https://fonts.google.com" target="_blank" rel="noopener">Google Fonts</a> (SIL Open Font License). NASA does not endorse this site.</li></ul><p style="margin-top:10px;font-size:14px">On a phone? Open the <a href="mobile.html">mobile version</a>.</p></div></section>
 </main><footer class="foot"><span>Galactic Field Guide · Facts and photos from NASA. See Credits for sources.</span><span><button class="lnk" data-go="credits">Sources &amp; Credits</button> · NASA does not endorse this site.</span></footer></div><script>window.addEventListener("error",function(e){if(!document.body)return;var d=document.getElementById("errbar");if(!d){d=document.createElement("div");d.id="errbar";d.style.cssText="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#b3261e;color:#fff;font:13px/1.4 system-ui,sans-serif;padding:8px 12px";document.body.appendChild(d)}d.textContent="Something went wrong: "+(e.message||"script error")+" (line "+(e.lineno||"?")+"). Please tell the site owner."});</script><script>(function(){var W=1200,H=740;function f(){var s=Math.max(.5,Math.min(1.5,Math.min(innerWidth/W,innerHeight/H)));document.body.style.zoom=s;var a=document.querySelector('.app');a.style.width=innerWidth/s+'px';a.style.height=innerHeight/s+'px'}f();addEventListener('resize',f)})()</script><script>const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const MOB=document.body.classList.contains('mob');
 let xp=0;
@@ -329,31 +725,490 @@ const CR=[
  tf:[['The depot is on the Moon.',0,'It is on Mars, in Jezero Crater.'],['One tube is a “witness” tube.',1,'It helps check for Earth dust.'],['A rocket to bring the samples home is approved today.',0,'None is approved right now.']],
  sp:{k:'sort',name:'Sample Return Sorter',note:'Tap the Mars Sample Return steps from first to last. No ride home is funded right now.',steps:STEPS5}}];
 const RELICS={
-a15:{about:"I was folded flat when they strapped me to the side of the rocket. I couldn't see anything for days — just dark and cold and the hum of the engines. I didn't know what a Moon was yet. Then one morning they unfolded me on the surface of another world, and someone said, 'Welcome to Hadley.'",
-why:"I drove them seventeen point three miles. I was proud. But the top half of the lunar module had room for only two astronauts and a hundred and seventy pounds of Moon rocks. Not a car. Not me. They patted my fender, said thank you, and lifted off without me.",
-today:"Scientists on Earth still fire lasers at the mirror I helped carry. They can't see me directly — I'm too small — but they see the reflection coming back, and that's the same thing, in a way. It's how I still say good morning to them, once a year, from very far away."},
-s3:{about:"I landed on April 20, 1967. I bounced twice. I was not supposed to bounce twice. I dug small trenches in the Moon soil to test how strong it was. I took pictures through a mirror that tilted up and down. I was very good at my job.",
-why:"Then I waited. Thirty-one months I waited. One day I heard footsteps. Two men in white suits walked toward me. They cut my camera off with bolt cutters. I felt it go. I was proud of that camera. I never saw it again.",
-today:"My camera is in a museum in Washington, DC. It's older than most of the people who visit it. My body is still on the Moon, in the Ocean of Storms. Sometimes I think about that camera. I hope it's being taken care of."},
-a12:{about:"Lightning struck my rocket twice on the way up. Two times. The crew kept going. I landed on November 19, 1969, the first pinpoint landing on the Moon — right next to Surveyor 3, right where I was aimed. I was very proud of that.",
-why:"When they lifted off, they lifted off from me. I was their launch pad. Then they crashed the top half back onto the Moon on purpose, to make a moonquake that the seismometers could feel. I felt it too. All of it.",
-today:"A camera orbiting the Moon takes pictures of me every month or so. I am the most-photographed thing on the Moon that did not come home. I think that is a good thing to be."},
-a11:{about:"I carried the first two people to walk on another world. Neil and Buzz. I remember the silence. I remember the dust rising up around my feet as we landed. They placed a plaque on my leg. It said: 'We came in peace for all mankind.'",
-why:"When it was time to go, they climbed back into my top half. My bottom half was the launch pad. I stayed. I don't think they looked back. They couldn't have — the windows face forward. But I would have liked to wave.",
-today:"Footprints are still there. Neil's and Buzz's. Mine too, I suppose — the marks my feet made in the dust. Dust doesn't move on the Moon unless something moves it. Nothing has. It is the quietest place in the solar system."},
-pv:{about:"They lowered me onto Mars with a sky crane. A rocket, hanging on a rope, holding me by a bridle. It was the most terrifying two minutes of my life, and I didn't have a life yet.",
-why:"I cannot launch myself off Mars. I do not have a rocket. I was built to explore, not to leave. That is okay. Not everything has to come home.",
-today:"I found a rock with leopard spots that might be ancient life. I made oxygen from Martian air. My tubes are sealed and full. I am still driving. I hope someone comes for them someday. If not, I will keep them safe."},
-ig:{about:"I was four pounds. I was supposed to fly five times. I flew seventy-two. My rotors spin twenty-four hundred times a minute to push against air that is too thin to breathe. Every flight felt like flying on the edge of impossible.",
-why:"On my seventy-second flight, one of my blades broke during the landing. I felt it snap. It is not a thing I can describe except to say: I knew I couldn't fly again before I landed.",
-today:"I sit on Mars now, about a kilometer from Perseverance. I proved that flying on Mars is possible. Children I will never meet will learn my name. That is not a bad way to spend forever."},
-jz:{about:"I am not one machine. I am ten. Ten sealed titanium tubes. Perseverance placed us on the ground one by one in early 2023. We are the first library ever assembled on another planet.",
-why:"There is no ride home yet. No rocket, no ship, no plan that is funded. So we wait. Waiting is what we are best at.",
-today:"We hold pieces of Mars — rocks from a lake that dried up billions of years ago. Maybe one day someone will open us in a lab on Earth. Until then, we dream. All ten of us. Together."}
-};
-</script>
+a15:{about:'The Lunar Roving Vehicle was a folding electric car. It rode to the Moon folded flat on the side of the lunar module. It had four wire-mesh wheels, two batteries that could not be recharged, and a top speed of about 8 mph. Apollo 15 was the first mission to use one. The crew drove it 17.3 miles.',
+ why:'It weighs about 460 lb. The lunar module’s top half had only enough room and fuel to carry two astronauts and their Moon rocks back to orbit, about 170 lb of them. A heavy buggy would have taken that space. Its batteries could not be recharged either, so its job was done.',
+ today:'Apollo 15 also left a mirror panel with 300 glass corner cubes. Scientists on Earth still fire lasers at it to measure the distance to the Moon to about a millimeter and to test theories of gravity. That is how we know the Moon drifts away from us by about 3.8 cm a year.'},
+s3:{about:'Surveyor 3 was a robot lander launched on April 17, 1967. It landed on April 20 in the Ocean of Storms and bounced twice before it settled. It had a TV camera and a scoop arm that dug trenches. Its soil tests showed the ground was strong enough to land astronauts.',
+ why:'It was built for a one-way trip. After 31 months on the Moon, the Apollo 12 crew could only carry home small parts: the TV camera, the scoop, and some cable and tubing. The rest of the lander was too big and heavy for their ship.',
+ today:'Scientists saw how space treats machines. The camera mostly still worked, white parts had turned tan from dust and radiation, and there was little sign of space-rock damage. That helped engineers plan long-lasting Moon equipment. The camera is now on loan to the Smithsonian. (A germ reported inside it was probably picked up on Earth.)'},
+a12:{about:'Intrepid was the lunar module that landed Pete Conrad and Alan Bean on Nov. 19, 1969, about 600 ft from Surveyor 3. It was the first pinpoint Moon landing. A lunar module had two parts: a bottom stage with the legs and landing engine, and a top stage with the crew cabin.',
+ why:'The bottom stage was the launch pad for the trip home, so it stayed. Only the top stage lifted off to meet the ship in orbit. It was then crashed back onto the Moon on purpose, so the seismometer the crew left behind could record the shaking.',
+ today:'Apollo 12 left a nuclear-powered science station on the Moon, the first built to run for a long time. NASA’s Lunar Reconnaissance Orbiter has photographed the site, showing the landing stage, Surveyor 3 and the astronauts’ paths. The pinpoint landing proved we can aim for exact spots.'},
+a11:{about:'Eagle was the lunar module that carried Neil Armstrong and Buzz Aldrin to the Moon on July 20, 1969. They stayed 21 hours 36 minutes on the surface. A plaque on its landing stage says they came in peace for all mankind.',
+ why:'Like every lunar module, Eagle was built in two pieces. The landing stage was the launch pad and stayed behind. The top stage carried the astronauts back to the ship Columbia and was then let go in lunar orbit.',
+ today:'Apollo 11 left a mirror panel with 100 glass corner cubes, and scientists still use it for laser measurements of the Moon’s distance. The Moon rocks the crew brought home are still being studied with new tools. Orbiters photograph the site, which helps future missions plan their landings.'},
+jz:{about:'In early 2023, Perseverance placed 10 sealed titanium tubes on the floor of Jezero Crater, at a spot called Three Forks. Each tube holds a rock core about as long as a finger. It was the first sample depot on another world, a backup in case the rover cannot deliver its own tubes.',
+ why:'Bringing them home needs a pickup lander, a rocket that launches from Mars, and a ship to catch it in orbit. That plan was called Mars Sample Return. In January 2026 the US Congress chose not to fund it, so right now there is no ride home. Check NASA for updates.',
+ today:'The tubes are waiting like a time capsule. They hold rocks from an ancient river delta, which could someday be studied in labs on Earth, by NASA or another country. China plans its own Mars sample mission, Tianwen-3, to launch around 2028.'},
+pv:{about:'Perseverance is a car-sized NASA rover that landed in Jezero Crater on Feb. 18, 2021. It weighs about 2,260 lb, drives on six wheels, and has a drill, cameras and many science tools. It has filled more than 30 sample tubes with rock, dust and air.',
+ why:'A rover cannot launch itself off Mars. It would need a rocket as big as a building, and it was built to explore, not to fly home. So it stays on Mars, still carrying its sealed tubes.',
+ today:'It is still exploring today. It studies the ancient river delta, and it found a rock named Cheyava Falls with “leopard spots” that might be a sign of ancient life. Scientists need more study to know. It also tested making oxygen from Martian air for future astronauts.'},
+ig:{about:'Ingenuity was a 4-pound helicopter that rode to Mars on Perseverance. On April 19, 2021, it made the first powered, controlled flight on another planet. It was built for 5 test flights, but flew 72 times over nearly three years, about 17 km in total.',
+ why:'On Jan. 18, 2024, a rotor blade was damaged during its 72nd landing, so it could never fly again. It was a small test machine with no way to carry itself home. It rests where it made its last landing in Jezero Crater.',
+ today:'It proved that flying on Mars is possible, even in very thin air. It scouted safe paths, took photos and made 3D maps for Perseverance’s team. Engineers are using what it taught them to design future flying machines for Mars.'}};
+function relSet(box,id,k){k=k||'about';box.dataset.rel=id;box.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k==k));const r=RELICS[id];if(r)box.querySelector('.rt').textContent=r[k]}
+$$('.relf').forEach(b=>{b.onclick=e=>{const t=e.target.closest('button');if(t&&b.dataset.rel)relSet(b,b.dataset.rel,t.dataset.k)}});
 
-<script>Object.assign(EMB,{a15:'data:image/jpeg;base64,'+
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+let bestRun=0,RUN=null;
+function stopRun(){if(RUN){cancelAnimationFrame(RUN.raf);document.removeEventListener('keydown',RUN.kd);RUN=null}}
+function gQuiz(b,Q0){const Q=shuf(Q0);let i=0,s=0;(function q(){if(i>=Q.length){b.innerHTML=`<span class="label t">Quick Quiz</span><h2>You scored ${s} out of ${Q.length}</h2><p>${s==Q.length?'Perfect score, space cadet!':'Good try. Read the earlier pages and play again.'}</p><button class="btn" id="again">Play again</button>`;$('#again').onclick=gQuiz.bind(null,b,Q0);return}
+ const[t,ok,bad]=Q[i],o=shuf([ok,...bad]);b.innerHTML=`<span class="label t">Quick Quiz · Question ${i+1} of ${Q.length}</span><h3 style="font-size:20px">${t}</h3><div class="opts">${o.map((x,k)=>`<button class="opt"><i>${'ABC'[k]}</i>${x}</button>`).join('')}</div><div class="msg" id="gm"></div>`;let done=0;
+ b.querySelectorAll('.opt').forEach(e=>e.onclick=()=>{if(done)return;if(e.textContent.slice(1)==ok){done=1;s++;e.classList.add('right');$('#gm').style.color='#0b9a7c';$('#gm').textContent='Correct! +15 XP';addXP(15,e);setTimeout(()=>{i++;q()},900)}else{e.classList.add('wrong');$('#gm').style.color='#e05555';$('#gm').textContent='Not quite. Try again!';setTimeout(()=>e.classList.remove('wrong'),400)}})})()}
+function gMatch(b,P0,nm){const P=shuf(P0).slice(0,6),R=shuf(P.map((p,i)=>i));let sl=null,m=0;
+ b.innerHTML=`<span class="label t">${nm}</span><h3>Match each item to its clue</h3><div class="mt"><div>${P.map((p,i)=>`<button class="opt ml" data-i="${i}">${p[0]}</button>`).join('')}</div><div>${R.map(i=>`<button class="opt mr" data-i="${i}">${P[i][1]}</button>`).join('')}</div></div><div class="msg" id="gm">Pick an item, then its clue.</div>`;
+ b.querySelectorAll('.ml').forEach(e=>e.onclick=()=>{if(e.disabled)return;b.querySelectorAll('.ml').forEach(x=>x.style.borderColor='');sl=e;e.style.borderColor='var(--blue)'});
+ b.querySelectorAll('.mr').forEach(e=>e.onclick=()=>{if(!sl||e.disabled)return;if(sl.dataset.i==e.dataset.i){[sl,e].forEach(x=>{x.classList.add('right');x.disabled=true;x.style.borderColor=''});sl=null;m++;addXP(10,e);if(m==P.length){$('#gm').style.color='#0b9a7c';$('#gm').textContent='All matched! Great job. +30 XP';addXP(30,e)}}else{e.classList.add('wrong');setTimeout(()=>e.classList.remove('wrong'),400)}})}
+function gBuggy(b){b.innerHTML=`<span class="label a">Buggy Run</span><h3>Drive the Moon buggy over rocks and craters</h3><p style="margin:0 0 8px;font-size:13px">Press Space, the Up arrow, or tap the screen to jump. Best: <b id="bs">${bestRun}</b> m</p><div class="cvw"><canvas id="cv" width="720" height="260"></canvas></div>`;startRun()}
+function startRun(){stopRun();const c=$('#cv');if(!c)return;const x=c.getContext('2d'),G=205,W=720,bx=100;let y=0,vy=0,sp=5,sc=0,over=0,nx=70,ob=[],t=0,ms=0;
+ const st=[...Array(40)].map(()=>[Math.random()*W,Math.random()*140,Math.random()*1.5+.5]);
+ function jump(){if(over){startRun();return}if(y==0)vy=-11.5}
+ const kd=e=>{if((e.code=='Space'||e.code=='ArrowUp')&&$('#cv')){e.preventDefault();jump()}};document.addEventListener('keydown',kd);c.onpointerdown=jump;
+ function loop(){if(!document.body.contains(c))return;RUN.raf=requestAnimationFrame(loop);
+  if(!over){t++;sp=Math.min(9,5+t/900);vy+=.62;y+=vy;if(y>=0){y=0;vy=0}sc+=sp/12;nx-=sp/5;
+   if(nx<=0){const cr=Math.random()<.5;ob.push(cr?{k:'c',x:W+10,w:70}:{k:'r',x:W+10,w:26,h:24});nx=60+Math.random()*70}
+   ob.forEach(o=>o.x-=sp);ob=ob.filter(o=>o.x>-90);
+   ob.forEach(o=>{if(o.k=='r'&&o.x<bx+58&&o.x+o.w>bx+6&&y>-o.h+2)over=1;if(o.k=='c'&&y==0&&o.x+8<bx+32&&o.x+o.w-8>bx+32)over=1});
+   if(Math.floor(sc/100)>ms){ms=Math.floor(sc/100);addXP(10,c)}
+   if(over&&sc>bestRun){bestRun=Math.floor(sc);const e=$('#bs');if(e)e.textContent=bestRun}}
+  x.fillStyle='#05071a';x.fillRect(0,0,W,260);x.fillStyle='#fff';st.forEach(s=>{if(!over)s[0]=(s[0]-s[2]*.3+W)%W;x.fillRect(s[0],s[1],s[2],s[2])});
+  x.fillStyle='#1c2670';x.beginPath();x.moveTo(0,G);for(let i=0;i<=W;i+=60)x.lineTo(i,G-38-30*Math.abs(Math.sin((i+t*.6)/140)));x.lineTo(W,G);x.fill();
+  x.fillStyle='#9aa3d0';x.fillRect(0,G,W,60);
+  ob.forEach(o=>{if(o.k=='c'){x.fillStyle='#2b3370';x.beginPath();x.ellipse(o.x+o.w/2,G+4,o.w/2,13,0,0,6.3);x.fill()}else{x.fillStyle='#6a74a8';x.beginPath();x.moveTo(o.x,G);x.lineTo(o.x+6,G-o.h);x.lineTo(o.x+o.w-4,G-o.h+6);x.lineTo(o.x+o.w,G);x.fill()}});
+  const by=G+y;x.fillStyle='#f5a524';x.fillRect(bx,by-34,64,10);x.fillStyle='#fff';x.fillRect(bx+22,by-46,20,12);x.strokeStyle='#fff';x.lineWidth=2;x.beginPath();x.moveTo(bx+8,by-34);x.lineTo(bx+8,by-58);x.stroke();x.fillStyle='#f5a524';x.beginPath();x.ellipse(bx+8,by-59,10,3,0,0,6.3);x.fill();
+  [bx+14,bx+50].forEach(wx=>{x.fillStyle='#2b3370';x.beginPath();x.arc(wx,by-11,11,0,6.3);x.fill();x.strokeStyle='#fff';x.lineWidth=3;x.stroke()});
+  x.fillStyle='#fff';x.font='700 18px Plus Jakarta Sans,sans-serif';x.fillText(Math.floor(sc)+' m',W-100,28);
+  if(over){x.fillStyle='#05071acc';x.fillRect(0,0,W,260);x.fillStyle='#fff';x.textAlign='center';x.font='700 28px Plus Jakarta Sans,sans-serif';x.fillText('Crash! '+Math.floor(sc)+' m',W/2,120);x.font='600 16px Plus Jakarta Sans,sans-serif';x.fillText('Tap or press Space to try again',W/2,152);x.textAlign='left'}}
+ RUN={kd,raf:requestAnimationFrame(loop)}}
+function gBal(b){b.innerHTML=`<span class="label">Rocket Balancer</span><h3>How heavy is your cargo?</h3><p style="font-size:14px">Every kilogram that leaves Mars needs a lot of fuel. This is a simplified estimate: about 15 kg of fuel for each 1 kg.</p><div class="chips"><button class="chip" data-w="15">Rock tubes (15 kg)</button><button class="chip" data-w="1025">Whole rover (1,025 kg)</button></div><label for="w" style="font-weight:700;font-size:13px">Cargo: <span id="wv">15 kg</span></label><input type="range" id="w" min="5" max="1200" value="15"><div style="display:flex;align-items:baseline;gap:8px"><div class="big" id="fuel">225 kg</div><span style="font-size:13px;color:var(--mute)">fuel needed</span></div><div class="meter"><i id="tank"></i></div><div class="note" id="verdict"></div>`;
+ const f=()=>{const w=+$('#w').value,fu=w*15;$('#wv').textContent=w+' kg';$('#fuel').textContent=fu.toLocaleString()+' kg';$('#tank').style.width=Math.min(100,fu/300*100)+'%';const ok=fu<=300;$('#tank').style.background=ok?'var(--teal)':'var(--coral)';$('#verdict').textContent=ok?'This fits in a small Mars rocket. Ready to launch.':'Too much fuel! You would need a rocket as big as a skyscraper.'};
+ $('#w').oninput=f;b.querySelectorAll('[data-w]').forEach(e=>e.onclick=()=>{$('#w').value=e.dataset.w;f();addXP(5,e)});f()}
+function gSort(b,S,note){let n=0;const L=shuf(S.map((s,i)=>i));b.innerHTML=`<span class="label a">Step Sorter</span><h3>Put the steps in order</h3><p style="font-size:14px">${note}</p><div class="opts two">${L.map(i=>`<button class="opt" data-i="${i}"><i>?</i>${S[i][0]}</button>`).join('')}</div><div class="msg" id="gm"></div>`;
+ b.querySelectorAll('.opt').forEach(e=>e.onclick=()=>{if(e.disabled)return;if(+e.dataset.i==n){e.disabled=true;e.classList.add('right');e.querySelector('i').textContent=n+1;$('#gm').style.color='var(--mute)';$('#gm').textContent=S[n][0]+': '+S[n][1];n++;addXP(10,e);if(n==S.length){$('#gm').style.color='#0b9a7c';$('#gm').textContent='Perfect order! +25 XP';addXP(25,e)}}else{e.classList.add('wrong');setTimeout(()=>e.classList.remove('wrong'),400)}})}
+function gTF(b,Q0){const Q=shuf(Q0);let i=0,s=0;(function q(){if(i>=Q.length){b.innerHTML=`<span class="label t">True or False</span><h2>${s} out of ${Q.length} correct</h2><button class="btn" id="again">Play again</button>`;$('#again').onclick=gTF.bind(null,b,Q0);return}
+ b.innerHTML=`<span class="label t">True or False · ${i+1} of ${Q.length}</span><h3 style="font-size:21px;margin:8px 0 14px">${Q[i][0]}</h3><div class="chips"><button class="btn" data-a="1">True</button><button class="btn" data-a="0">False</button></div><div class="msg" id="gm"></div>`;let d=0;
+ b.querySelectorAll('[data-a]').forEach(e=>e.onclick=()=>{if(d)return;d=1;const ok=+e.dataset.a==Q[i][1];if(ok){s++;addXP(10,e)}$('#gm').style.color=ok?'#0b9a7c':'#e05555';$('#gm').textContent=(ok?'Correct! ':'Not quite. ')+Q[i][2];setTimeout(()=>{i++;q()},1800)})})()}
+
+var EMB={};
+const DY=CR.flatMap(c=>c.ff);let dyi=Math.floor(Math.random()*DY.length);
+function dyk(){const e=$('#dykt');if(e)e.textContent=DY[dyi=(dyi+1)%DY.length]}
+function artURI(id){return 'data:image/svg+xml;utf8,'+encodeURIComponent(ART[id])}
+function loadArt(im,cap,id){const art=()=>{im.onload=null;im.onerror=null;im.src=artURI(id);if(cap)cap.textContent='Illustration'};
+ if(EMB[id]){im.onload=()=>{if(cap)cap.textContent=(id=='jz'?'NASA test footage':'Photo: NASA')};im.onerror=art;im.src=EMB[id]}else art()}
+let cw='moon',cid='a15',cpg=1,vis=new Set(),gk='quiz',lgc='';
+const WN={moon:'Moon',mars:'Mars'};
+function markDone(){$$('#pick .pk').forEach(b=>{const id=b.dataset.id;if([1,2,3].every(p=>vis.has(id+p))&&!b.querySelector('.ck'))b.insertAdjacentHTML('beforeend','<b class="ck">✓</b>')})}
+function renderPick(){$('#pick').innerHTML=CR.filter(c=>c.w==cw).map(c=>`<button class="pk${c.id==cid?' on':''}" data-id="${c.id}"><img alt=""><span>${c.n}</span></button>`).join('');$$('#pick .pk').forEach(b=>loadArt(b.querySelector('img'),null,b.dataset.id));markDone()}
+function renderGames(c){if(lgc!=c.id){gk='quiz';lgc=c.id}stopRun();const ks=[['quiz','Quick Quiz'],['tf','True or False'],['sp',c.sp.name]];
+ $('#gt').innerHTML=ks.map(k=>`<button class="chip${gk==k[0]?' on':''}" data-g="${k[0]}">${k[1]}</button>`).join('');
+ $('#gt').onclick=e=>{const b=e.target.closest('[data-g]');if(b){gk=b.dataset.g;renderGames(c)}};
+ const b=$('#gbody'),p=c.sp;if(gk=='quiz')gQuiz(b,c.qz);else if(gk=='tf')gTF(b,c.tf);else if(p.k=='buggy')gBuggy(b);else if(p.k=='bal')gBal(b);else if(p.k=='match')gMatch(b,p.pairs,p.name);else gSort(b,p.steps,p.note)}
+function renderBook(){const c=CR.find(x=>x.id==cid),R=RELICS[cid],L=CR.filter(x=>x.w==cw),ix=L.indexOf(c);stopRun();
+ $('#ctag').textContent=WN[cw]+' relic '+(ix+1)+' of '+L.length+' · '+c.tag;$('#cname').textContent=c.n;
+ $$('#pgs .st').forEach(b=>{const p=+b.dataset.pg;b.classList.toggle('on',p==cpg);b.classList.toggle('dn',p!=cpg&&vis.has(cid+p))});$$('#pgs .ln').forEach((l,i)=>l.classList.toggle('fl',cpg>i+1));$$('#pick .pk').forEach(b=>b.classList.toggle('on',b.dataset.id==cid));
+ if(cpg==1){$('#bk').innerHTML=`<div class="p1"><figure class="art2"><img id="cimg" alt="${c.full}"><figcaption class="pcap" id="ccap"></figcaption></figure><div class="info"><p class="lead">${R.about}</p><div class="stats">${c.st.map(s=>`<div class="stat"><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div><h4>Fast facts</h4><ul class="ff">${c.ff.map(f=>`<li>${f}</li>`).join('')}</ul><button class="tease" id="tz">Why couldn’t ${c.n} come home? Turn the page <span>→</span></button></div></div>`;loadArt($('#cimg'),$('#ccap'),cid);$('#cimg').parentNode.style.setProperty('--bgimg','url(\"'+(EMB[cid]||artURI(cid))+'\")');$('#tz').onclick=()=>{cpg=2;renderBook()}}
+ else if(cpg==2){$('#bk').innerHTML=`<div class="p2"><div class="col2"><div class="blk"><h4>Why it can’t come back</h4><p>${R.why}</p></div><div class="blk g"><h4>How it helps us today</h4><p>${R.today}</p></div></div><div class="blk b"><h4>NASA’s steps to help</h4><ol class="stp">${c.steps.map(x=>`<li>${x}</li>`).join('')}</ol><button class="btn" id="pgame">Next: play the mini games →</button></div></div>`;$('#pgame').onclick=()=>{cpg=3;renderBook()}}
+ else{$('#bk').innerHTML=`<div class="p3"><div class="chips" id="gt"></div><div class="gbox" id="gbody"></div></div>`;renderGames(c)}
+ $('#prevp').textContent=cpg==2?'← Back: Start':'← Back: End';$('#prevp').style.visibility=cpg==1?'hidden':'';
+ $('#nextp').textContent=cpg==1?'Next: The ending →':cpg==2?'Next: Your turn →':ix<L.length-1?'Next craft: '+L[ix+1].n+' →':cw=='moon'?'Go to the Mars relics →':'See the Radar Map →';
+ const bk=$('#bk');bk.classList.remove('inR','inL');void bk.offsetWidth;bk.classList.add(cpg>=(window.lastPg||1)?'inR':'inL');window.lastPg=cpg;const k=cid+cpg;if(!vis.has(k)){vis.add(k);addXP(10,null)}markDone();if(window.FG)FG.afterBook()}
+function show(t){$$('.nv').forEach(x=>x.classList.toggle('on',x.dataset.t==t));const sec=(t=='moon'||t=='mars')?'file':t;$$('section').forEach(s=>s.classList.toggle('on',s.id==sec));stopRun();scrollTo(0,0);
+ if(t=='moon'||t=='mars'){if(cw!=t){cw=t;cid=CR.find(c=>c.w==t).id;cpg=1}renderPick();renderBook()}if(t=='radar')requestAnimationFrame(resetV);if(t=='home')homeImgs();if(t=='lab')labOpen()}
+function openFile(id){const c=CR.find(x=>x.id==id);cw=c.w;cid=id;cpg=1;show(c.w)}
+$('#nav').onclick=e=>{const b=e.target.closest('.nv');if(b)show(b.dataset.t)};
+$('#pick').onclick=e=>{const b=e.target.closest('.pk');if(b){cid=b.dataset.id;cpg=1;renderBook()}};
+$('#pgs').onclick=e=>{const b=e.target.closest('[data-pg]');if(b){cpg=+b.dataset.pg;renderBook()}};
+$('#prevp').onclick=()=>{cpg=Math.max(1,cpg-1);renderBook()};
+$('#nextp').onclick=()=>{const L=CR.filter(x=>x.w==cw),i=L.findIndex(x=>x.id==cid);if(cpg<3)cpg++;else if(i<L.length-1){cid=L[i+1].id;cpg=1}else{FG.next();return}renderBook()};
+document.addEventListener('keydown',e=>{if(!$('#file').classList.contains('on')||/INPUT|TEXTAREA/.test((e.target||{}).tagName||''))return;if(e.key=='ArrowRight'&&cpg<3&&!$('#cv')){cpg++;renderBook()}else if(e.key=='ArrowLeft'&&cpg>1&&!$('#cv')){cpg--;renderBook()}});
+setInterval(dyk,14000);dyk();
+/* ---------- MAP ---------- */
+const NS='http://www.w3.org/2000/svg',svg=$('#svg'),mw=$('#mw');
+const MAPS={
+ moon:{lon:[-26,28],lat:[-5,30],kmW:1636,step:.0,gs:5,dec:0,name:'LUNAR NEARSIDE',pins:[
+  {id:'s3',n:'Surveyor 3',t:'lander',lon:-23.42,lat:-3.01,dx:46,dy:-40,c:'3.0° S, 23.4° W',d:'A robot that landed in 1967. Apollo 12 astronauts walked over to visit it.'},
+  {id:'a12',n:'Apollo 12',t:'lander',lon:-23.42,lat:-3.01,c:'3.01° S, 23.42° W',d:'Pete Conrad and Alan Bean made a pinpoint landing here in 1969.'},
+  {id:'a15',n:'Moon Buggy',t:'rover',lon:3.63,lat:26.13,c:'26.1° N, 3.6° E',d:'The first car driven on the Moon. Scott and Irwin drove it 17.3 miles.'},
+  {id:'a11',n:'Tranquility Base',t:'lander',lon:23.47,lat:0.67,c:'0.7° N, 23.5° E',d:'Neil Armstrong and Buzz Aldrin landed here on July 20, 1969.'}]},
+ mars:{lon:[76.6,78.6],lat:[17.7,19.1],kmW:112,gs:.5,dec:1,name:'JEZERO CRATER, MARS',pins:[
+  {id:'jz',n:'Rock Tube Depot',t:'depot',lon:77.38,lat:18.55,c:'18.4° N, 77.6° E',d:'Rock tubes waiting in Jezero Crater for a ride home.'},
+  {id:'pv',n:'Perseverance',t:'rover',lon:77.6,lat:18.38,c:'18.4° N, 77.6° E',d:'A car-sized rover collecting rock samples.'},
+  {id:'ig',n:'Ingenuity',t:'rover',lon:77.85,lat:18.22,c:'Jezero Crater',d:'The first helicopter to fly on another planet.'}]}};
+let pl='moon',M=MAPS.moon,seen=new Set(),filt='all',sel=null,V={x:0,y:0,w:1000},W0=1000;
+const proj=(m,lo,la)=>[(lo-m.lon[0])/(m.lon[1]-m.lon[0])*1000,(m.lat[1]-la)/(m.lat[1]-m.lat[0])*700];
+const unproj=(m,x,y)=>[m.lon[0]+x/1000*(m.lon[1]-m.lon[0]),m.lat[1]-y/700*(m.lat[1]-m.lat[0])];
+const rng=s=>()=>(s=(s*16807)%2147483647)/2147483647;
+function blob(cx,cy,r,seed,j=.18,n=14){const rn=rng(seed*997+13),p=[];for(let i=0;i<n;i++){const a=i/n*6.2832,q=r*(1+(rn()-.5)*2*j);p.push([cx+Math.cos(a)*q,cy+Math.sin(a)*q*.86])}
+ const m=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2];let d='M'+m(p[n-1],p[0]);for(let i=0;i<n;i++)d+='Q'+p[i]+' '+m(p[i],p[(i+1)%n]);return d+'Z'}
+function terrain(){let s='';const P=(a,b)=>proj(M,a,b),rn=rng(7);
+ const cr=(x,y,r,sd,hi)=>s+=`<path class="crt" d="${blob(x,y,r,sd,.06,10)}"/><path class="ct ${hi?'hi':''}" d="${blob(x,y,r*.6,sd+3,.08,10)}"/>`;
+ if(pl=='moon'){
+  [[-22,4,230,1],[30,9,210,2],[18,28,125,3],[-14,34,260,4]].forEach(([lo,la,r,sd])=>{const[x,y]=P(lo,la);s+=`<path class="mare" d="${blob(x,y,r,sd,.22)}"/>`;[.78,.56,.34].forEach((f,i)=>s+=`<path class="ct" d="${blob(x,y,r*f,sd+i+5,.25)}"/>`)});
+  for(let k=0;k<5;k++){const a=P(-10,16),b=P(-3,20),c=P(2,23.5),d=P(7,28.5);s+=`<path class="ct ${k==2?'hi':''}" transform="translate(${k*9} ${k*7})" d="M${a} Q${b} ${c} T${d}"/>`}
+  let q=P(-20,9.6);cr(q[0],q[1],28,21,1);q=P(-11.3,14.5);cr(q[0],q[1],18,22);
+  for(let i=0;i<45;i++)cr(rn()*1000,rn()*700,3+rn()*9,30+i);
+  const[hx,hy]=P(3.63,26.13);s+=`<path class="rille" d="M${hx-60} ${hy+34}C${hx-30} ${hy+46} ${hx-26} ${hy-12} ${hx+4} ${hy+6}S${hx+34} ${hy-44} ${hx+70} ${hy-34}"/>`;
+  [['OCEANUS PROCELLARUM',90,545,'start'],['MARE TRANQUILLITATIS',960,420,'end'],['MARE SERENITATIS',960,70,'end'],['MARE IMBRIUM',90,60,'start'],['MONTES APENNINUS',330,235,'start'],['HADLEY RILLE',hx-70,hy+60,'start'],['COPERNICUS',...P(-20,9.6).map((v,i)=>v+(i?44:-30)),'start']].forEach(([t,x,y,a])=>s+=`<text class="rl" x="${x}" y="${y}" text-anchor="${a}">${t}</text>`)
+ }else{
+  s+=`<path class="mare" d="${blob(500,360,222,41,.03,16)}"/>`;[215,232,252].forEach((r,i)=>s+=`<path class="ct ${i==0?'hi':''}" d="${blob(500,360,r,50+i,.035,16)}"/>`);
+  [[320,300,70],[300,330,45]].forEach(([x,y,r],i)=>{s+=`<path class="crt" d="${blob(x,y,r,60+i,.3,10)}"/>`;[.7,.4].forEach((f,j)=>s+=`<path class="ct" d="${blob(x,y,r*f,70+j,.3,10)}"/>`)});
+  for(let k=0;k<7;k++){const y=500+k*16,x=560+rn()*80;s+=`<path class="ct" d="M${x} ${y}q20 -12 40 0t40 0t40 0"/>`}
+  for(let i=0;i<40;i++)cr(rn()*1000,rn()*700,3+rn()*8,100+i);
+  [['JEZERO CRATER',500,190,'middle'],['DELTA FAN',300,245,'middle'],['CRATER FLOOR',590,560,'middle']].forEach(([t,x,y,a])=>s+=`<text class="rl" x="${x}" y="${y}" text-anchor="${a}">${t}</text>`)}
+ $('#terrain').innerHTML=s;
+ let g='';for(let lo=Math.ceil(M.lon[0]/M.gs)*M.gs;lo<=M.lon[1];lo+=M.gs){const x=proj(M,lo,0)[0];g+=`<line class="gl" x1="${x}" x2="${x}" y1="-3000" y2="4000"/>`}
+ for(let la=Math.ceil(M.lat[0]/M.gs)*M.gs;la<=M.lat[1];la+=M.gs){const y=proj(M,0,la)[1];g+=`<line class="gl" y1="${y}" y2="${y}" x1="-3000" x2="4000"/>`}
+ $('#grid').innerHTML=g}
+const fmtLat=v=>Math.abs(v).toFixed(M.dec)+'° '+(v<0?'S':'N'),fmtLon=v=>Math.abs(v).toFixed(M.dec)+'° '+(pl=='moon'&&v<0?'W':'E');
+function ticks(k){let t='';const h=V.h;
+ for(let lo=Math.ceil(M.lon[0]/M.gs)*M.gs;lo<=M.lon[1];lo+=M.gs){const x=proj(M,lo,0)[0];if(x>V.x&&x<V.x+V.w)t+=`<text class="tk" x="${x+4*k}" y="${V.y+14*k}">${fmtLon(Math.round(lo*100)/100)}</text>`}
+ for(let la=Math.ceil(M.lat[0]/M.gs)*M.gs;la<=M.lat[1];la+=M.gs){const y=proj(M,0,la)[1];if(y>V.y&&y<V.y+h)t+=`<text class="tk" x="${V.x+6*k}" y="${y-4*k}">${fmtLat(Math.round(la*100)/100)}</text>`}
+ $('#gl').innerHTML=t}
+function fit(){const cw=svg.clientWidth||800,ch=svg.clientHeight||500;W0=Math.min(1000,700*cw/ch);}
+function setV(){const cw=svg.clientWidth||800,ch=svg.clientHeight||500,h=V.w*ch/cw;V.h=h;
+ V.w=Math.min(W0,Math.max(W0*.22,V.w));V.h=V.w*ch/cw;const mx=V.w*.12,my=V.h*.22;V.x=Math.max(-mx,Math.min(1000-V.w+mx,V.x));V.y=Math.max(-my,Math.min(700-V.h+my,V.y));
+ svg.setAttribute('viewBox',`${V.x} ${V.y} ${V.w} ${V.h}`);const k=V.w/cw*(MOB?1.12:1);svg.style.setProperty('--fs',11*k+'px');
+ $$('#pins .pin').forEach(g=>g.setAttribute('transform',`translate(${g._x} ${g._y}) scale(${k})`));ticks(k);
+ const kmpx=M.kmW*V.w/1000/cw,nice=[.5,1,2,5,10,20,50,100,200,500,1000],km=nice.find(n=>n/kmpx>=70)||1000;$('#sb').style.width=km/kmpx+'px';$('#sbt').textContent=km+' km'}
+function resetV(){fit();V={x:0,y:0,w:W0};V.x=(1000-W0)/2;const ch=svg.clientHeight||500,cw=svg.clientWidth||800;V.y=(700-W0*ch/cw)/2;setV()}
+function zoom(f){const cx=V.x+V.w/2,cy=V.y+V.h/2;V.w*=f;V.x=cx-V.w/2;V.y=cy-V.w*(svg.clientHeight/svg.clientWidth)/2;setV()}
+function panTo(x,y){V.x=x-V.w/2;V.y=y-V.h/2;setV()}
+function pinsDraw(){const gp=$('#pins');gp.innerHTML='';$('#ln').innerHTML='';
+ M.pins.forEach((p,i)=>{const[bx,by]=p.x!=null?[p.x,p.y]:proj(M,p.lon,p.lat);p._x=bx+(p.dx||0);p._y=by+(p.dy||0);
+  if(p.dx)$('#ln').innerHTML+=`<line class="gl" style="stroke:#ffb59d;stroke-opacity:.9;stroke-dasharray:3 3" x1="${bx}" y1="${by}" x2="${p._x}" y2="${p._y}"/><circle cx="${bx}" cy="${by}" r="3" fill="#ffb59d"/>`;
+  const right=p._x<700,w=p.n.length*7.1+16,g=document.createElementNS(NS,'g');g.setAttribute('class','pin t-'+p.t+(seen.has(p.id)?' seen':''));g._x=p._x;g._y=p._y;g._p=p;g.setAttribute('tabindex',0);g.setAttribute('role','button');g.setAttribute('aria-label',p.n);
+  g.innerHTML=`<circle class="pc2" r="15"/><circle class="pr" r="15"/><text class="pn" y="5" text-anchor="middle">${i+1}</text><g class="pl"><rect x="${right?21:-21-w}" y="-12" width="${w}" height="24" rx="7"/><text x="${right?29:-29}" y="4" text-anchor="${right?'start':'end'}">${p.n}</text></g>`;
+  g.onclick=()=>{if(!moved)pick(p)};g.onkeydown=e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();pick(p)}};gp.appendChild(g)});
+ $('#plist').innerHTML=M.pins.map((p,i)=>`<button class="chip" data-i="${i}">${i+1} · ${p.n.replace(' (far off map)','')}</button>`).join('');applyF();cnt()}
+function applyF(){$$('#pins .pin').forEach(g=>g.style.display=(filt=='all'||g._p.t==filt)?'':'none')}
+function pick(p){$('#hint').style.display='none';$('#open').style.display='';$$('#pins .pin').forEach(g=>{g.classList.toggle('on',g._p==p);if(g._p==p)g.classList.add('seen')});sel=p;$('#rt').textContent=p.n.replace(' (far off map)','');$('#rc').textContent=p.c;relSet($('#rrel'),p.id);const im=$('#rimg');im.style.display='';loadArt(im,null,p.id);
+ if(!seen.has(p.id)){seen.add(p.id);addXP(30,svg);cnt()}if(V.w<W0*.99||MOB)panTo(p._x,p._y)}
+function cnt(){const n=M.pins.filter(q=>seen.has(q.id)).length,t=M.pins.length;$('#found').textContent=n+'/'+t+' found'+(n==t?' · Medal earned!':'')}
+function build(){M=MAPS[pl];$('#mname').textContent=M.name;terrain();pinsDraw();$('#hint').style.display=pl=='moon'?'':'none';$('#open').style.display='none';resetV()}
+$('#plist').onclick=e=>{const b=e.target.closest('[data-i]');if(b)pick(M.pins[+b.dataset.i])};
+$('#planet').onclick=e=>{if(!e.target.dataset.pl)return;pl=e.target.dataset.pl;$$('#planet .chip').forEach(c=>c.classList.toggle('on',c===e.target));sel=null;$('#rimg').style.display='none';$('#open').style.display='none';sel=null;$('#rt').textContent='Select a marker';$('#rc').textContent='No target selected';$('#rrel').dataset.rel='';$('#rd').textContent='Choose a spot on the map to learn what is there.';build()};
+$('#flt').onclick=e=>{if(!e.target.dataset.f)return;filt=e.target.dataset.f;$$('#flt button').forEach(b=>b.classList.toggle('on',b===e.target));applyF()};
+$('#zi').onclick=()=>zoom(.7);$('#zo').onclick=()=>zoom(1.4);$('#zr').onclick=resetV;$('#open').onclick=()=>{if(sel)openFile(sel.id)};$('#hint').onclick=()=>pick(MAPS.moon.pins[2]);
+let drag=null,moved=false;
+svg.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,vx:V.x,vy:V.y};moved=false});
+svg.addEventListener('pointermove',e=>{const r=svg.getBoundingClientRect(),ux=V.x+(e.clientX-r.left)/r.width*V.w,uy=V.y+(e.clientY-r.top)/r.height*V.h,[lo,la]=unproj(M,ux,uy);$('#ro').textContent=fmtLat(la)+' · '+fmtLon(lo);
+ if(drag&&(Math.abs(e.clientX-drag.x)+Math.abs(e.clientY-drag.y)>5)){moved=true;svg.setPointerCapture(e.pointerId);svg.style.cursor='grabbing';V.x=drag.vx-(e.clientX-drag.x)/r.width*V.w;V.y=drag.vy-(e.clientY-drag.y)/r.height*V.h;setV()}});
+const end=()=>{drag=null;svg.style.cursor='';setTimeout(()=>moved=false,0)};svg.addEventListener('pointerup',end);svg.addEventListener('pointercancel',end);
+svg.addEventListener('wheel',e=>{e.preventDefault();zoom(e.deltaY>0?1.15:.87)},{passive:false});
+addEventListener('resize',()=>{fit();setV()});
+
+(function(){var x0=null,y0=0,f=document.getElementById('file');f.addEventListener('touchstart',function(e){if(e.target.closest('#cv,input,.pick')){x0=null;return}x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});f.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5){if(dx<0&&cpg<3){cpg++;renderBook()}else if(dx>0&&cpg>1){cpg--;renderBook()}}},{passive:true})})();
+/* ---------- 3D LAB ---------- */
+var LAB={ready:false,loading:false,id:'a15',sel:null,hover:null,tab:'learn',sim:{on:false,t:0,speed:1,step:-1},st:{},exT:0,focus:null};
+var LABCR=[['a15','Moon Buggy'],['s3','Surveyor 3'],['a12','Intrepid'],['a11','Eagle'],['pv','Perseverance'],['ig','Ingenuity'],['jz','Rock Tube Depot']];
+var LABINTRO={a15:'The Apollo 15 Moon buggy, a folding electric car. Drag to turn it, scroll to zoom, and tap any part to see what it does.',s3:'Surveyor 3, a robot lander from 1967. Tap a part to learn its job.',a12:'Intrepid, the Apollo 12 lunar module. It has two halves. Tap a part to see what each does.',a11:'Eagle, the Apollo 11 lunar module that landed the first people on the Moon. Tap a part to learn its job.',pv:'Perseverance, the car-sized rover exploring Jezero Crater on Mars. Tap a part to learn its job.',ig:'Ingenuity, the first helicopter to fly on another planet. Tap a part to learn its job.',jz:'The Three Forks sample depot: sealed tubes of Mars rock waiting on the ground. Tap a tube or a rock.'};
+var LP={
+a15:{chassis:['Folding frame','The frame was made of aluminum tubes. It folded flat to ride on the side of the lunar module, then unfolded into a car on the Moon.','It could carry more than twice its own weight in astronauts, tools and Moon rocks.'],
+ wheels:['Wire-mesh wheels','Woven wire with metal strips took the place of air-filled tires, so they could never go flat. Every wheel had its own small electric motor.','Each wheel was a mesh of woven wires covered with titanium strips.'],
+ battery:['Batteries','Two batteries that could not be recharged powered the motors, the steering and the radio.','Apollo 15 drove the buggy 17.3 miles in total.'],
+ tcontrol:['T-handle controller','The driver used one hand controller. Push it forward to go, tilt it left or right to steer, and pull it back to brake.','There were no pedals and no steering wheel.'],
+ dish:['Umbrella antenna','A dish that opened like an umbrella. The crew pointed it at Earth to send TV pictures and voices home.','It folded flat for the trip to the Moon.'],
+ camera:['TV camera','A color TV camera that Mission Control on Earth could aim and zoom by remote control.','It sent live pictures of the astronauts at work.'],
+ nav:['Navigation unit','A gyroscope and distance counters kept track of where the buggy was, so the crew always knew the way back to the lunar module.','There was no GPS on the Moon, so this was the buggy’s compass.'],
+ seats:['Seats','Two folding seats with seat belts held the astronauts in place.','The seats folded flat for the trip to the Moon.'],
+ console:['Control panel','A small panel in front of the seats showed the driver the speed, the heading and how much battery power was left.','It sat right next to the hand controller, so the driver could check it without letting go.'],
+ tools:['Tool carrier','The back of the buggy carried the geology tools: scoops, tongs, a rock hammer and bags for Moon samples.','The crew used these tools to collect rocks and soil at each stop.']},
+s3:{body:['Main frame','A triangle-shaped frame of aluminum tubes held the radio, the computers and the batteries.','Apollo 12 astronauts landed within walking distance of it.'],
+ retro:['Landing rocket','Rocket motors fired as the robot came down to slow it for a soft landing.','It still bounced twice before it settled.'],
+ camera:['TV camera','It took pictures through a mirror that could tilt. The Apollo 12 astronauts removed it and brought it home.','It is now on loan to the Smithsonian.'],
+ arm:['Scoop arm','An arm that could reach about 5 feet and dig about 7 inches deep to test the Moon soil.','The tests showed the ground was strong enough to land astronauts.'],
+ solar:['Solar panel','It turned sunlight into electricity to charge the battery and run the robot.','Without sunlight the robot went quiet.'],
+ legs:['Landing legs','Three legs with wide footpads soaked up the bump of landing.','The legs spread out so the robot would not tip over.'],
+ antenna:['Radio antenna','A flat antenna on a boom sent pictures and signals to Earth and received commands.','Without it, Surveyor 3 could not have sent any pictures home.'],
+ thrusters:['Steering rockets','Three small rockets and their fuel tanks steered the robot and helped slow it as it came down.','These small rockets were still firing near the end of the landing.']},
+a12:{antennas:['Antennas','Two dishes and a few rods sent radio signals to Earth and to the ship. A small radar dish helped find the ship in orbit.','Radio dishes had to be aimed, so the crew pointed them toward Earth.'],
+ descent:['Landing stage','The bottom half held the landing engine and fuel. It also worked as the launch pad.','It stayed on the Moon when the astronauts left.'],
+ engine:['Landing engine','A rocket engine that could change how hard it pushed, so it could slow the lander gently.','The astronauts could adjust the push while landing.'],
+ legs:['Landing legs','Four legs folded for launch and opened for landing. Long probes under the feet touched the ground first and lit a light.','The light told the crew to shut off the engine.'],
+ ladder:['Ladder','The astronauts climbed down this ladder to walk on the Moon.','The lowest rung was high above the ground, so the crew jumped up to start climbing back in.'],
+ ascent:['Crew cabin','The top half was where the two astronauts lived and flew. Its own engine lifted them back to the ship in orbit.','After the crew left, it was crashed on the Moon on purpose so seismometers could record the shaking.'],
+ windows:['Windows','Two small triangular windows let the astronauts see the ground while they landed.','The astronauts stood up while they flew the lander.'],
+ thrusters:['Steering thrusters','Small rocket thrusters around the cabin turned the lander and nudged it sideways.','They were also used to line up with the ship in orbit.']},
+a11:{antennas:['Antennas','Two dishes and a few rods sent radio signals to Earth and to the ship. A small radar dish helped find the ship in orbit.','Radio dishes had to be aimed, so the crew pointed them toward Earth.'],
+ descent:['Landing stage','The bottom half held the landing engine and fuel. It also worked as the launch pad.','It stayed on the Moon when the astronauts left.'],
+ engine:['Landing engine','A rocket engine that could change how hard it pushed, so it could slow the lander gently.','The astronauts could adjust the push while landing.'],
+ legs:['Landing legs','Four legs folded for launch and opened for landing. Long probes under the feet touched the ground first and lit a light.','The light told the crew to shut off the engine.'],
+ plaque:['Ladder, plaque and flag','The astronauts climbed down the ladder. A plaque on the landing stage says they came in peace for all mankind. They also planted a flag nearby.','Neil Armstrong was the first person to step down.'],
+ ascent:['Crew cabin','The top half was where the two astronauts lived and flew. Its engine lifted them back to the ship Columbia.','After the astronauts docked, the cabin was let go in lunar orbit.'],
+ windows:['Windows','Two small triangular windows let the astronauts see the ground while they landed.','The astronauts stood up while they flew the lander.'],
+ thrusters:['Steering thrusters','Small rocket thrusters around the cabin turned the lander and nudged it sideways.','They were also used to line up with the ship in orbit.']},
+pv:{body:['Rover body','A warm box keeps the computers and electronics safe from the cold of Mars.','The whole rover is about the size of a car.'],
+ mast:['Mast cameras and SuperCam','The “head” holds cameras that zoom in on rocks. SuperCam can zap a rock with a laser to study what it is made of.','Perseverance also has microphones, so we have heard sounds from Mars.'],
+ arm:['Robotic arm and drill','The arm holds a drill that cuts out rock cores. The cores are sealed in tubes.','The arm also carries tools that study rocks up close.'],
+ rtg:['Power generator','A small nuclear power source turns the heat of plutonium into electricity.','It works day and night, even when dust covers the sunlight.'],
+ wheels:['Wheels and suspension','Six strong grooved wheels, each with its own motor, hang from a rocker-bogie suspension that lets the rover climb over rocks without tipping.','The tread leaves marks that spell “JPL” in Morse code.'],
+ antenna:['Antennas','The flat six-sided antenna sends data to Earth. A thin rod antenna talks to spacecraft orbiting Mars, which pass messages along.','Mars is so far away that a radio message takes minutes to reach Earth.'],
+ caching:['Sample handling system','Inside the front of the rover, a robotic system moves empty tubes to the drill and seals the tubes once they are filled.','The tubes are stored inside the rover until they are dropped on the ground.']},
+ig:{body:['Body and brain','A small box holds the computer, the batteries and a camera that watches the ground.','The whole helicopter weighed just 4 pounds.'],
+ rotors:['Two rotors','Two sets of blades spin in opposite directions, about 2,400 times a minute, to push against the thin Mars air.','Flying on Mars is like flying very high above Earth, where the air is thin.'],
+ solar:['Solar panel','Sunlight charged the battery between flights.','The battery had to survive freezing Martian nights.'],
+ legs:['Landing legs','Four legs gave it a steady landing.','On its 72nd flight a damaged rotor blade ended its flying.'],
+ camera:['Cameras','A camera that looks down at the ground helped it stay on course, and a color camera took pictures.','Ingenuity’s photos helped the Perseverance team plan safe routes.'],
+ antenna:['Antenna','A small antenna sent radio messages to Perseverance, which passed them on to Earth.','Ingenuity could only talk to Earth through the rover.']},
+jz:{tube:['Sample tube','A sealed titanium tube holds a rock core about as long as a finger.','One of the ten tubes is a “witness” tube that helps check for Earth dust.'],
+ rock:['Rock sample','A piece of Mars rock, chosen because it might tell us about the planet’s past.','Scientists on Earth could study it with big lab machines if it ever comes home.']}};
+var LSIM={
+a15:{intro:'Try the controls like an astronaut driving the buggy, or press Play to watch it work.',steps:[['Push the T-handle forward. Motors in all four wheels start turning.',['tcontrol','wheels','battery']],['Tilt it left and right. All four wheels steer.',['tcontrol','wheels']],['Pull it back. The brakes slow the buggy down.',['tcontrol']],['Stop, then point the dish at Earth to send TV pictures.',['dish','camera']]],ctl:[['v','Drive speed',0,1,.01,0],['steer','Steering',-1,1,.01,0],['dish','Antenna aim',-1,1,.01,0]]},
+s3:{intro:'Move the camera, the scoop arm and the solar panel yourself, or press Play.',steps:[['The camera turns to look around.',['camera']],['The scoop arm reaches down and digs to test the soil.',['arm']],['The solar panel turns toward the Sun.',['solar']],['Pictures go to Earth until the power runs out.',['camera','solar']]],ctl:[['cam','Camera turn',-1,1,.01,0],['scoop','Scoop reach',0,1,.01,0],['sun','Solar panel turn',-1,1,.01,0]]},
+a12:{intro:'Lower the lander to the Moon, then pull the top half up to see why the bottom half stays behind.',steps:[['The landing engine slows the lander.',['engine','legs']],['The legs touch down and the crew explores the Moon.',['legs','descent','ladder']],['The top half’s engine lifts the cabin off.',['ascent','thrusters']],['The landing stage stays behind on the Moon.',['descent']]],ctl:[['alt','Height above the Moon',0,1,.01,0],['sep','Lift-off of the top half',0,1,.01,0]]},
+a11:{intro:'Lower Eagle to the Moon, then pull the top half up to see why the bottom half stays behind.',steps:[['The landing engine slows Eagle.',['engine','legs']],['The legs touch down and the first people walk on the Moon.',['legs','descent','plaque']],['The top half’s engine lifts the cabin off.',['ascent','thrusters']],['The landing stage stays behind at Tranquility Base.',['descent','plaque']]],ctl:[['alt','Height above the Moon',0,1,.01,0],['sep','Lift-off of the top half',0,1,.01,0]]},
+pv:{intro:'Drive the rover, turn the mast and reach the drill arm yourself, or press Play.',steps:[['The wheels drive across Mars.',['wheels','body']],['The mast looks around, and the laser can study a rock.',['mast']],['The arm reaches down and the drill cuts a rock core.',['arm']],['The core is sealed in a tube and stored inside the rover.',['arm','caching']]],ctl:[['v','Drive speed',0,1,.01,0],['mast','Mast turn',-1,1,.01,0],['arm','Arm reach',0,1,.01,0],['drill','Drill speed',0,1,.01,0]]},
+ig:{intro:'Spin the rotors, lift off and tilt to fly, or press Play.',steps:[['The rotors spin faster and faster.',['rotors']],['It lifts off the ground.',['rotors','body']],['It tilts and flies forward.',['body','rotors']],['It lands on its four legs.',['legs']]],ctl:[['rpm','Rotor speed',0,1,.01,0],['alt','Height',0,1,.01,0],['tilt','Tilt',0,1,.01,0]]},
+jz:{intro:'Drop the tubes on the ground one by one, or press Play.',steps:[['Perseverance puts a sealed tube on the ground.',['tube']],['Tube after tube, ten in all.',['tube']],['The tubes sit sealed and safe, like a time capsule.',['tube','rock']],['No ride home is funded right now, so they wait.',['tube']]],ctl:[['n','Tubes on the ground',0,10,1,10]]}};
+function labMsg(t){var e=$('#labmsg');if(e)e.textContent=t||''}
+function labLoad(ok,fail){var a=document.createElement('script');a.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';a.onload=function(){var b=document.createElement('script');b.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js';b.onload=ok;b.onerror=fail;document.head.appendChild(b)};a.onerror=fail;document.head.appendChild(a)}
+function labOpen(){if(LAB.ready){labResize();return}if(LAB.loading)return;LAB.loading=true;labMsg('Loading the 3D engine…');
+ var go=function(){try{if(labBuild()!==false){LAB.ready=true;labMsg('')}}catch(e){labMsg('Sorry, the 3D model could not start. ('+e.message+')')}LAB.loading=false};
+ if(window.THREE&&THREE.OrbitControls)go();else labLoad(go,function(){LAB.loading=false;labMsg('The 3D viewer needs an internet connection to load. Please check your connection, then open this tab again.')})}
+function labResize(){if(!LAB.r)return;var h=$('#labcv'),w=h.clientWidth,ht=h.clientHeight;if(w&&ht){LAB.r.setSize(w,ht);LAB.cam.aspect=w/ht;LAB.cam.updateProjectionMatrix()}}
+function labBuild(){
+ const T=THREE,host=$('#labcv'),W=host.clientWidth||640,H=host.clientHeight||420;
+ const scene=new T.Scene(),camera=new T.PerspectiveCamera(42,W/H,.1,200);
+ let renderer;try{renderer=new T.WebGLRenderer({alpha:true,antialias:true})}catch(e){labMsg('Your browser could not start 3D graphics on this device.');return false}
+ renderer.setSize(W,H);renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.25;
+ host.appendChild(renderer.domElement);LAB.r=renderer;LAB.cam=camera;
+ const controls=new T.OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.08;controls.minDistance=2.5;controls.maxDistance=24;controls.maxPolarAngle=Math.PI*.495;controls.autoRotate=true;controls.autoRotateSpeed=.9;
+ controls.addEventListener('start',()=>{LAB.focus=null});
+ /* textures */
+ function tex(type){const c=document.createElement('canvas');c.width=c.height=256;const x=c.getContext('2d');
+  if(type==='foil'){x.fillStyle='#808080';x.fillRect(0,0,256,256);for(let i=0;i<500;i++){const a=Math.random()*6.28,l=Math.random()*40+10,x1=Math.random()*256,y1=Math.random()*256;x.strokeStyle=Math.random()>.5?'rgba(255,255,255,.45)':'rgba(0,0,0,.45)';x.lineWidth=Math.random()*2.5+.5;x.beginPath();x.moveTo(x1,y1);x.lineTo(x1+Math.cos(a)*l,y1+Math.sin(a)*l);x.stroke()}}
+  else if(type==='solar'){x.fillStyle='#061630';x.fillRect(0,0,256,256);x.strokeStyle='#38bdf8';x.lineWidth=1;for(let i=0;i<=256;i+=16){x.beginPath();x.moveTo(i,0);x.lineTo(i,256);x.stroke();x.beginPath();x.moveTo(0,i);x.lineTo(256,i);x.stroke()}}
+  else if(type==='metal'){x.fillStyle='#94a3b8';x.fillRect(0,0,256,256);for(let y=0;y<256;y+=2){const b=Math.floor(130+Math.random()*50);x.fillStyle='rgb('+b+','+b+','+b+')';x.fillRect(0,y,256,1)}}
+  else{x.fillStyle='#808080';x.fillRect(0,0,256,256);for(let i=0;i<1800;i++){x.fillStyle=Math.random()>.4?'rgba(255,255,255,.2)':'rgba(0,0,0,.3)';x.beginPath();x.arc(Math.random()*256,Math.random()*256,Math.random()*3+.5,0,6.28);x.fill()}}
+  const t=new T.CanvasTexture(c);t.wrapS=t.wrapT=T.RepeatWrapping;return t}
+ const foilT=tex('foil');foilT.repeat.set(4,4);const solarT=tex('solar');solarT.repeat.set(3,5);const metalT=tex('metal');metalT.repeat.set(2,2);const regT=tex('reg');regT.repeat.set(6,6);
+ /* lights */
+ scene.add(new T.AmbientLight(0xdce7f9,.9));
+ const sun=new T.DirectionalLight(0xfffaed,3.4);sun.position.set(14,20,12);sun.castShadow=true;sun.shadow.mapSize.width=sun.shadow.mapSize.height=2048;sun.shadow.camera.left=-9;sun.shadow.camera.right=9;sun.shadow.camera.top=9;sun.shadow.camera.bottom=-9;sun.shadow.camera.near=.5;sun.shadow.camera.far=60;sun.shadow.bias=-.0008;scene.add(sun);
+ const rim=new T.DirectionalLight(0x8fd3ff,1.3);rim.position.set(-14,8,-12);scene.add(rim);
+ /* ground */
+ const gg=new T.PlaneGeometry(60,60,48,48),pa=gg.attributes.position;
+ for(let i=0;i<pa.count;i++){const x=pa.getX(i),y=pa.getY(i),d=Math.sqrt(x*x+y*y),k=Math.min(1,Math.max(0,(d-3)/6));pa.setZ(i,(Math.sin(x*.35)*Math.cos(y*.35)*.12)*k+Math.exp(-Math.pow(d-9,2)/5)*-.4)}
+ gg.computeVertexNormals();
+ const gMat=new T.MeshStandardMaterial({color:0x4a5d7a,bumpMap:regT,bumpScale:.1,roughness:.95,metalness:.05});
+ const ground=new T.Mesh(gg,gMat);ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
+ const grid=new T.GridHelper(40,40,0x8fd3ff,0x4b7aa8);scene.add(grid);
+ /* materials */
+ const mk=(c,r,m,o)=>new T.MeshStandardMaterial(Object.assign({color:c,roughness:r,metalness:m},o||{}));
+ const mGold=mk(0xf59e0b,.25,.85,{bumpMap:foilT,bumpScale:.08}),mSilver=mk(0xf1f5f9,.28,.9,{bumpMap:foilT,bumpScale:.06}),mAl=mk(0x94a3b8,.35,.75,{bumpMap:metalT,bumpScale:.02}),mDk=mk(0x1e293b,.65,.45),
+  mWire=mk(0xe2e8f0,.3,.85,{wireframe:true}),mWhite=mk(0xf8fafc,.3,.15),mOr=mk(0xea580c,.45,.2),mSolar=mk(0x0369a1,.12,.9,{map:solarT,emissive:0x0284c7,emissiveIntensity:.3}),
+  mCarbon=mk(0x0b1120,.4,.65),mTi=mk(0xf1f5f9,.18,.95),mOptic=mk(0x38bdf8,.08,.9,{emissive:0x0ea5e9,emissiveIntensity:.6}),mRock=mk(0x9a3412,.95,.05),mYel=mk(0xfacc15,.35,.5);
+ /* helpers */
+ const sh=m=>{m.castShadow=true;m.receiveShadow=true;return m};
+ const K=(o,k)=>{o.userData.key=k;return o};
+ const box=(w,h,l,mat,x,y,z)=>{const m=sh(new T.Mesh(new T.BoxGeometry(w,h,l),mat));m.position.set(x||0,y||0,z||0);return m};
+ const cyl=(a,b,h,mat,x,y,z,seg)=>{const m=sh(new T.Mesh(new T.CylinderGeometry(a,b,h,seg||16),mat));m.position.set(x||0,y||0,z||0);return m};
+ const up=new T.Vector3(0,1,0);
+ const limb=(A,B,r,mat)=>{const d=new T.Vector3().subVectors(B,A),len=d.length(),m=sh(new T.Mesh(new T.CylinderGeometry(r,r,len,10),mat));m.position.copy(A).add(B).multiplyScalar(.5);m.quaternion.setFromUnitVectors(up,d.normalize());return m};
+ const V=(x,y,z)=>new T.Vector3(x,y,z);
+ const RX=(m,a)=>{m.rotation.x=a;return m},RY=(m,a)=>{m.rotation.y=a;return m};
+ const sph=(r,mat,x,y,z,ws,hs)=>{const m=sh(new T.Mesh(new T.SphereGeometry(r,ws||14,hs||10),mat));m.position.set(x||0,y||0,z||0);return m};
+ const cone=(r,h,mat,x,y,z,seg)=>{const m=sh(new T.Mesh(new T.ConeGeometry(r,h,seg||14),mat));m.position.set(x||0,y||0,z||0);return m};
+ const tor=(R,r,mat,x,y,z)=>{const m=sh(new T.Mesh(new T.TorusGeometry(R,r,8,24),mat));m.position.set(x||0,y||0,z||0);return m};
+ const mDish=mk(0xf59e0b,.3,.8,{bumpMap:foilT,bumpScale:.05,side:T.DoubleSide}),mGlass=mk(0x0b1d33,.05,.9,{emissive:0x0a2a4a,emissiveIntensity:.5}),mScreen=mk(0x16a34a,.4,.1,{emissive:0x16a34a,emissiveIntensity:.9}),mBlack=mk(0x111827,.7,.3),mRed=mk(0xdc2626,.6,.1),mBlue=mk(0x1d4ed8,.6,.1),mSoil=mk(0x5b4636,1,0);
+ /* a dish that opens upward; returns a group whose origin is the middle of the rim */
+ function dish(r,mat){const g=new T.Group(),th=Math.PI/2.7,d=sh(new T.Mesh(new T.SphereGeometry(r,28,14,0,Math.PI*2,0,th),mat));d.rotation.x=Math.PI;d.position.y=r*Math.cos(th);g.add(d);g.add(RX(tor(r*Math.sin(th),.014,mAl,0,0,0),Math.PI/2));g.add(cyl(.012,.012,r*.9,mAl,0,r*.42,0,6));g.add(box(.07,.07,.07,mDk,0,r*.9,0));return g}
+ const tri=(mat,x,y,z,roll)=>{const g=new T.Group();g.position.set(x,y,z);g.rotation.z=roll;const m=sh(new T.Mesh(new T.CylinderGeometry(.22,.22,.05,3),mat));m.rotation.x=Math.PI/2;g.add(m);return g};
+ /* wheel with a ring of cleats */
+ function wheel(o){const steer=new T.Group(),spin=new T.Group();
+  const tire=cyl(o.r,o.r,o.w,o.tire,0,0,0,28);tire.rotation.x=Math.PI/2;spin.add(tire);
+  const rim=cyl(o.r*.7,o.r*.7,o.w+.01,o.hub,0,0,0,20);rim.rotation.x=Math.PI/2;spin.add(rim);
+  const hub=cyl(o.hr,o.hr,o.w+.05,mAl,0,0,0,14);hub.rotation.x=Math.PI/2;spin.add(hub);
+  for(let c=0;c<(o.n||10);c++){const a=c*Math.PI*2/(o.n||10),ch=box(.07,.05,o.w+.03,o.chev,Math.cos(a)*o.r,Math.sin(a)*o.r,0);ch.rotation.z=a;spin.add(ch)}
+  for(let c=0;c<5;c++){const a=c*Math.PI*2/5;spin.add(limb(V(0,0,0),V(Math.cos(a)*o.r*.68,Math.sin(a)*o.r*.68,0),.02,mAl))}
+  steer.add(spin);if(o.fender){const f=sh(new T.Mesh(new T.CylinderGeometry(o.r+.08,o.r+.08,o.w+.06,20,1,true,0,Math.PI),mFend));f.rotation.x=Math.PI/2;f.rotation.z=Math.PI/2;f.position.y=.02;steer.add(f)}
+  return {steer:steer,spin:spin}}
+ const mFend=mk(0x64748b,.6,.4,{side:T.DoubleSide});
+ const G={};
+ /* ===== 1. Apollo 15 Moon buggy ===== */
+ const lrv=new T.Group();G.a15=lrv;const L={wheels:[]};
+ const rect=(x0,x1,z0,y)=>[[x0,z0,x1,z0],[x0,-z0,x1,-z0],[x0,z0,x0,-z0],[x1,z0,x1,-z0]].forEach(e=>lrv.add(K(limb(V(e[0],y,e[1]),V(e[2],y,e[3]),.03,mAl),'chassis')));
+ rect(-1.9,-.83,.74,.1);rect(-.83,.83,.78,.1);rect(.83,1.9,.74,.1);
+ lrv.add(K(box(1.6,.04,1.5,mAl,0,.08,0),'chassis'));lrv.add(K(box(1.0,.04,1.4,mAl,1.35,.08,0),'chassis'));lrv.add(K(box(1.0,.04,1.4,mAl,-1.35,.08,0),'chassis'));
+ for(let i=-.6;i<=.61;i+=.3)lrv.add(K(box(.03,.05,1.5,mDk,i,.1,0),'chassis'));
+ [-.83,.83].forEach(x=>[.76,-.76].forEach(z=>lrv.add(K(cyl(.05,.05,.14,mDk,x,.1,z,10),'chassis'))));
+ [[-1.42,1.1],[1.42,1.1],[-1.42,-1.1],[1.42,-1.1]].forEach(p=>{const sz=Math.sign(p[1]);
+  lrv.add(K(limb(V(p[0]*.72,.14,sz*.74),V(p[0],-.02,sz*.95),.025,mDk),'chassis'));lrv.add(K(limb(V(p[0]*.72,-.02,sz*.74),V(p[0],-.38,sz*.95),.025,mDk),'chassis'));lrv.add(K(limb(V(p[0]*.8,.22,sz*.74),V(p[0],-.12,sz*.93),.02,mAl),'chassis'));
+  const mt=cyl(.1,.1,.2,mDk,p[0],-.22,sz*.9,12);mt.rotation.x=Math.PI/2;lrv.add(K(mt,'wheels'))});
+ [.45,-.45].forEach(s=>{lrv.add(K(box(.62,.06,.6,mDk,-.15,.3,s),'seats'));const bk=box(.05,.62,.56,mDk,-.5,.66,s);bk.rotation.z=.14;lrv.add(K(bk,'seats'));
+  [-.27,.27].forEach(o=>{lrv.add(K(limb(V(-.42,.3,s+o),V(-.57,.98,s+o),.022,mAl),'seats'));lrv.add(K(limb(V(-.15,.08,s+o),V(-.15,.3,s+o),.022,mAl),'seats'))});
+  lrv.add(K(limb(V(-.57,.98,s-.27),V(-.57,.98,s+.27),.022,mAl),'seats'));lrv.add(K(box(.5,.05,.5,mAl,.42,.14,s),'seats'));lrv.add(K(box(.04,.02,.5,mOr,.32,.18,s),'seats'));
+  const b1=box(.02,.5,.06,mOr,-.12,.6,s-.14);b1.rotation.z=.45;lrv.add(K(b1,'seats'));const b2=box(.02,.5,.06,mOr,-.12,.6,s+.14);b2.rotation.z=.45;lrv.add(K(b2,'seats'))});
+ lrv.add(K(cyl(.04,.04,.5,mAl,.62,.35,0,10),'console'));const con=box(.3,.26,.42,mDk,.62,.72,0);con.rotation.z=-.25;lrv.add(K(con,'console'));
+ const scr=box(.02,.16,.3,mScreen,.465,.76,0);scr.rotation.z=-.25;lrv.add(K(scr,'console'));[-.14,-.05,.05,.14].forEach(z=>lrv.add(K(box(.03,.03,.05,mRed,.47,.64,z),'console')));
+ const tA=new T.Group();K(tA,'tcontrol');tA.add(cyl(.035,.04,.5,mOr,.9,.38,0,10));const th2=cyl(.025,.025,.38,mOr,.9,.66,0,10);th2.rotation.x=Math.PI/2;tA.add(th2);[-.19,.19].forEach(z=>tA.add(RX(cyl(.045,.045,.1,mBlack,.9,.66,z,10),Math.PI/2)));tA.add(tor(.05,.01,mAl,.9,.5,0));lrv.add(tA);
+ [.3,-.3].forEach(z=>{lrv.add(K(box(.5,.3,.4,mDk,1.28,.3,z),'battery'));lrv.add(K(box(.5,.02,.4,mWhite,1.28,.47,z),'battery'));for(let i=0;i<5;i++)lrv.add(K(box(.5,.03,.015,mAl,1.28,.5,z-.15+i*.075),'battery'))});
+ lrv.add(K(cyl(.12,.12,.3,mAl,-.15,.3,0,14),'nav'));lrv.add(K(box(.3,.12,.14,mDk,.08,.2,0),'nav'));
+ const lcru=box(.42,.28,.42,mWhite,1.65,.34,0);lrv.add(K(lcru,'dish'));
+ const dishG=new T.Group();K(dishG,'dish');dishG.position.set(1.65,.48,0);dishG.add(cyl(.03,.03,.9,mAl,0,.45,0,10));const dt=new T.Group();dt.position.y=.95;dt.rotation.z=.5;dt.add(dish(.6,mDish));dishG.add(dt);lrv.add(dishG);
+ const cam=new T.Group();K(cam,'camera');cam.add(cyl(.035,.035,.8,mAl,1.62,.62,.62,10));cam.add(box(.3,.24,.22,mDk,1.62,1.06,.62));cam.add(box(.32,.04,.24,mGold,1.62,1.2,.62));const cl=cyl(.07,.07,.2,mBlack,1.82,1.06,.62,14);cl.rotation.z=Math.PI/2;cam.add(cl);const cs=cyl(.1,.07,.1,mAl,1.94,1.06,.62,14);cs.rotation.z=Math.PI/2;cam.add(cs);lrv.add(cam);
+ lrv.add(K(box(.5,.05,1.0,mAl,-1.75,.32,0),'tools'));[-.3,0,.3].forEach(z=>lrv.add(K(box(.2,.16,.16,mWhite,-1.75,.44,z),'tools')));
+ lrv.add(K(limb(V(-2.0,.36,.42),V(-1.3,.7,.42),.016,mAl),'tools'));lrv.add(K(box(.12,.1,.14,mAl,-1.26,.72,.42),'tools'));lrv.add(K(limb(V(-2.0,.36,-.42),V(-1.3,.68,-.42),.016,mAl),'tools'));lrv.add(K(limb(V(-1.95,.38,.55),V(-1.6,.38,.55),.03,mWhite),'tools'));
+ [[-1.42,1.1,0],[1.42,1.1,1],[-1.42,-1.1,0],[1.42,-1.1,1]].forEach(p=>{const w=wheel({r:.46,w:.3,hr:.14,tire:mWire,hub:mDk,chev:mYel,fender:true,n:20});w.front=!!p[2];K(w.steer,'wheels');w.steer.position.set(p[0],-.22,p[1]);lrv.add(w.steer);L.wheels.push(w)});
+ /* ===== 2. Surveyor 3 ===== */
+ const sv=new T.Group();G.s3=sv;
+ const SD3=[0,1,2].map(i=>{const t=i*Math.PI*2/3;return V(Math.sin(t),0,Math.cos(t))}),fv=SD3.map(d=>V(d.x*1.1,.15,d.z*1.1)),fb=SD3.map(d=>V(d.x*1.1,-.3,d.z*1.1));
+ for(let i=0;i<3;i++){const j=(i+1)%3;[limb(fv[i],fv[j],.04,mAl),limb(fb[i],fb[j],.04,mAl),limb(fv[i],fb[i],.04,mAl),limb(fv[i],V(0,.6,0),.03,mAl)].forEach(m=>sv.add(K(m,'body')))}
+ [[.45,-.05,.1,.55,.45,.55],[-.45,-.05,.1,.55,.45,.55],[0,.05,-.5,.5,.4,.4]].forEach(b=>sv.add(K(box(b[3],b[4],b[5],mWhite,b[0],b[1],b[2]),'body')));
+ sv.add(K(sph(.5,mDk,0,-.4,0,18,14),'retro'));sv.add(K(RX(cone(.45,.8,mDk,0,-.75,0,16),Math.PI),'retro'));
+ SD3.forEach(d=>{sv.add(K(sph(.2,mSilver,d.x*.85,-.42,d.z*.85,14,10),'thrusters'));const nz=cone(.1,.35,mDk,d.x*.85,-.78,d.z*.85,12);nz.rotation.x=Math.PI;sv.add(K(nz,'thrusters'))});
+ SD3.forEach(d=>{const A=V(d.x*1.05,-.25,d.z*1.05),P=V(d.x*2,-1.15,d.z*2),M=A.clone().lerp(P,.55);sv.add(K(limb(A,M,.06,mAl),'legs'));sv.add(K(limb(M,P,.04,mAl),'legs'));sv.add(K(limb(V(d.x*.6,.1,d.z*.6),A.clone().lerp(P,.4),.03,mAl),'legs'));sv.add(K(cyl(.38,.44,.13,mDk,P.x,-1.18,P.z),'legs'));sv.add(K(RX(tor(.4,.03,mAl,P.x,-1.12,P.z),Math.PI/2),'legs'))});
+ sv.add(K(cyl(.04,.04,1.9,mAl,0,1.5,0,10),'solar'));
+ const sPiv=new T.Group();K(sPiv,'solar');sPiv.position.set(0,2.45,0);const spn=box(1.1,.05,.95,mSolar,0,.12,0);spn.rotation.x=-.45;sPiv.add(spn);sPiv.add(cyl(.06,.06,.1,mDk,0,0,0,10));sv.add(sPiv);
+ sv.add(K(limb(V(0,1.7,0),V(.65,1.95,-.3),.025,mAl),'antenna'));const ant=box(.5,.04,.5,mSilver,.7,2.0,-.32);ant.rotation.x=-.5;sv.add(K(ant,'antenna'));
+ sv.add(K(limb(fv[0],V(.7,.5,.6),.04,mAl),'camera'));sv.add(K(limb(V(.5,.05,.2),V(.7,.5,.6),.04,mAl),'camera'));
+ const cPiv=new T.Group();cPiv.position.set(.7,.55,.6);K(cPiv,'camera');const cTilt=new T.Group();cTilt.rotation.z=-.3;cPiv.add(cTilt);
+ cTilt.add(cyl(.13,.13,.24,mDk,0,0,0));cTilt.add(cyl(.16,.16,.55,mOr,0,.4,0,16));cTilt.add(cyl(.1,.1,.06,mGlass,0,.7,0,14));const mir=box(.22,.17,.04,mSilver,0,.82,.09);mir.rotation.x=-.5;cTilt.add(mir);sv.add(cPiv);
+ const arm=new T.Group();K(arm,'arm');const S0=V(-.6,.1,.5),E0=V(-1.0,-.1,1.0),W0=V(-1.55,-.55,1.45);arm.add(limb(S0,E0,.045,mAl));arm.add(limb(V(-.6,-.1,.5),V(-1.0,-.3,1.0),.045,mAl));arm.add(limb(E0,W0,.04,mAl));arm.add(limb(V(-1.0,-.3,1.0),V(-1.5,-.7,1.45),.03,mAl));[S0,E0,W0].forEach(v=>arm.add(sph(.07,mDk,v.x,v.y,v.z,10,8)));arm.add(box(.3,.2,.3,mOptic,-1.62,-.62,1.5));arm.add(box(.1,.14,.3,mDk,-1.62,-.78,1.5));sv.add(arm);
+ /* ===== 3 and 4. lunar modules ===== */
+ function buildLM(eagle){const lm=new T.Group(),o={};
+  const de=new T.Group();K(de,'descent');const oct=cyl(1.7,1.85,1.35,mGold,0,0,0,8);oct.rotation.y=Math.PI/8;de.add(oct);
+  for(let k=0;k<8;k++){const a=k*Math.PI/4;const pn=box(1.1,.95,.03,mSilver,Math.sin(a)*1.68,0,Math.cos(a)*1.68);pn.rotation.y=a;de.add(pn)}
+  de.add(RY(box(.85,.65,.05,mBlack,1.7,-.05,0),Math.PI/2));
+  de.add(RX(tor(1.78,.05,mAl,0,.67,0),Math.PI/2));lm.add(de);
+  lm.add(K(cyl(.52,.95,.75,mDk,0,-.92,0,20),'engine'));lm.add(K(RX(tor(.93,.04,mAl,0,-1.3,0),Math.PI/2),'engine'));
+  for(let k=0;k<4;k++){const t=k*Math.PI/2,d=V(Math.sin(t),0,Math.cos(t)),tg=V(d.z,0,-d.x),A=V(d.x*1.66,-.1,d.z*1.66),P=V(d.x*2.6,-1.14,d.z*2.6),M=A.clone().lerp(P,.62);
+   lm.add(K(limb(A,P,.07,mAl),'legs'));lm.add(K(limb(V(d.x*1.2,-.62,d.z*1.2),M,.045,mAl),'legs'));[1,-1].forEach(s=>lm.add(K(limb(V(d.x*1.55+tg.x*.6*s,-.5,d.z*1.55+tg.z*.6*s),M,.03,mAl),'legs')));
+   lm.add(K(cyl(.5,.54,.13,mGold,P.x,-1.18,P.z),'legs'));lm.add(K(RX(tor(.5,.03,mDk,P.x,-1.12,P.z),Math.PI/2),'legs'));
+   if(k>0)lm.add(K(limb(V(d.x*2.6,-1.2,d.z*2.6),V(d.x*3.7,-1.2,d.z*3.7),.018,mOr),'legs'))}
+  const lad=new T.Group();K(lad,eagle?'plaque':'ladder');const La=V(0,-.05,1.75),Lb=V(0,-1.1,2.55);[-.2,.2].forEach(x=>lad.add(limb(V(x,La.y,La.z),V(x,Lb.y,Lb.z),.025,mAl)));for(let r=0;r<7;r++){const p=La.clone().lerp(Lb,.1+r*.14);lad.add(box(.4,.025,.05,mAl,0,p.y,p.z))}
+  lad.add(box(.6,.03,.55,mAl,0,.1,1.98));lad.add(limb(V(-.3,.1,1.75),V(-.3,.45,1.75),.015,mAl));if(eagle){lad.add(box(.3,.36,.02,mSilver,0,-.45,2.05));lad.add(cyl(.02,.02,2,mAl,4.1,-.25,1.2,8));lad.add(box(.9,.55,.02,mWhite,4.55,.42,1.2));[.1,.28,-.1,-.28].forEach(y=>lad.add(box(.9,.07,.025,mRed,4.55,.42+y,1.2)));lad.add(box(.36,.28,.03,mBlue,4.28,.55,1.2))}
+  lm.add(lad);
+  const asc=new T.Group();const cab=cyl(1.0,1.12,1.25,mAl,0,1.3,0,8);cab.rotation.y=Math.PI/8;asc.add(K(cab,'ascent'));asc.add(K(box(1.15,.9,.35,mAl,0,1.3,.9),'ascent'));asc.add(K(box(.62,.62,.05,mSilver,0,1.15,1.1),'ascent'));asc.add(K(box(.8,.22,.8,mDk,0,.55,0),'ascent'));
+  [1,-1].forEach(s=>asc.add(K(box(.3,.8,.9,mSilver,s*1.18,1.2,0),'ascent')));
+  asc.add(K(cyl(.38,.5,.5,mDk,0,2.05,0,14),'ascent'));asc.add(K(RX(tor(.42,.045,mAl,0,2.3,0),Math.PI/2),'ascent'));
+  asc.add(K(tri(mGlass,.48,1.6,1.1,.4),'windows'));asc.add(K(tri(mGlass,-.48,1.6,1.1,-.4),'windows'));
+  asc.add(K(limb(V(-.5,2,-.3),V(-.75,2.45,-.55),.025,mAl),'antennas'));const sb=dish(.38,mDish);sb.position.set(-.75,2.5,-.55);sb.rotation.z=.5;asc.add(K(sb,'antennas'));
+  asc.add(K(limb(V(.55,2.0,.3),V(.55,2.2,.35),.025,mAl),'antennas'));const rd=dish(.22,mSilver);rd.position.set(.55,2.22,.35);rd.rotation.z=-.4;asc.add(K(rd,'antennas'));
+  asc.add(K(limb(V(.3,2.1,-.5),V(.5,3.0,-.7),.012,mAl),'antennas'));asc.add(K(limb(V(.65,2.1,-.1),V(.85,2.9,-.2),.012,mAl),'antennas'));
+  [[1.05,1.05],[-1.05,1.05],[1.05,-1.05],[-1.05,-1.05]].forEach(q=>{const g=new T.Group();K(g,'thrusters');g.position.set(q[0],1.45,q[1]);g.add(box(.22,.22,.22,mDk,0,0,0));[[.17,0,0,0,0,-Math.PI/2],[-.17,0,0,0,0,Math.PI/2],[0,0,.17,Math.PI/2,0,0],[0,0,-.17,-Math.PI/2,0,0],[0,.17,0,0,0,0]].forEach(n=>{const c=cone(.05,.16,mOr,n[0],n[1],n[2],10);c.rotation.set(n[3],n[4],n[5]);g.add(c)});asc.add(g)});
+  const fm=new T.MeshBasicMaterial({color:0xffc247,transparent:true,opacity:.85});
+  const fD=new T.Mesh(new T.ConeGeometry(.4,1.5,16),fm);fD.rotation.x=Math.PI;fD.position.set(0,-2.05,0);fD.visible=false;lm.add(fD);
+  const fA=new T.Mesh(new T.ConeGeometry(.3,1.1,16),fm);fA.rotation.x=Math.PI;fA.position.set(0,-.1,0);fA.visible=false;asc.add(fA);
+  lm.add(asc);o.root=lm;o.asc=asc;o.fD=fD;o.fA=fA;return o}
+ const LM12=buildLM(false),LM11=buildLM(true);G.a12=LM12.root;G.a11=LM11.root;
+ /* ===== 5. Perseverance ===== */
+ const pvG=new T.Group();G.pv=pvG;const PW=[];
+ pvG.add(K(box(2.95,.95,1.9,mWhite,0,.2,0),'body'));pvG.add(K(box(1.0,.03,.8,mBlack,-.2,.69,.5),'body'));pvG.add(K(box(.9,.03,.7,mBlack,-.3,.69,-.55),'body'));pvG.add(K(box(.5,.12,.5,mDk,.9,.72,.45),'body'));
+ [[1.5,.55],[1.5,-.55],[-1.5,.55],[-1.5,-.55]].forEach(p=>pvG.add(K(box(.06,.1,.16,mBlack,p[0],.05,p[1]),'body')));
+ pvG.add(K(box(.05,.4,.95,mBlack,1.48,.05,0),'caching'));for(let i=0;i<5;i++)pvG.add(K(cyl(.035,.035,.34,mTi,1.53,.05,-.36+i*.18,10),'caching'));
+ const mastP=new T.Group();K(mastP,'mast');mastP.position.set(1.08,.68,.42);mastP.add(cyl(.06,.075,1.6,mCarbon,0,.8,0,14));
+ const head=new T.Group();head.position.set(0,1.62,0);head.add(box(.46,.32,.4,mDk,0,0,0));[-.12,.12].forEach(z=>{const l=cyl(.07,.07,.12,mOptic,.28,0,z,16);l.rotation.z=Math.PI/2;head.add(l);const sv2=cyl(.09,.07,.08,mBlack,.36,0,z,16);sv2.rotation.z=Math.PI/2;head.add(sv2)});const sc=cyl(.1,.1,.14,mGlass,.3,.1,.0,16);sc.rotation.z=Math.PI/2;head.add(sc);[-.15,.15].forEach(z=>head.add(box(.1,.08,.08,mBlack,0,.22,z)));mastP.add(head);mastP.add(limb(V(0,1.1,0),V(-.35,1.3,.25),.015,mAl));mastP.add(limb(V(0,.9,0),V(.3,1.05,-.25),.015,mAl));pvG.add(mastP);
+ pvG.add(K(cyl(.03,.03,.5,mAl,-.9,.95,-.5,8),'antenna'));const hga=cyl(.42,.42,.03,mSilver,-.9,1.22,-.5,6);hga.rotation.z=.4;const hg2=hga;pvG.add(K(hga,'antenna'));pvG.add(K(cyl(.012,.012,1.0,mAl,-1.2,1.15,.5,6),'antenna'));pvG.add(K(cyl(.05,.05,.25,mAl,-1.0,.82,.55,10),'antenna'));
+ const rt=new T.Group();K(rt,'rtg');const rb=cyl(.22,.22,1.0,mDk,0,0,0,18);rb.rotation.z=Math.PI/2;rt.add(rb);for(let f=0;f<8;f++){const a=f*Math.PI/4,fin=box(.9,.02,.2,mAl,0,Math.sin(a)*.3,Math.cos(a)*.3);fin.rotation.x=-a;rt.add(fin)}[.5,-.5].forEach(x=>{const cp=cyl(.24,.24,.06,mAl,x,0,0,18);cp.rotation.z=Math.PI/2;rt.add(cp)});rt.position.set(-1.7,.5,0);pvG.add(rt);pvG.add(K(limb(V(-1.4,.1,.35),V(-1.6,.4,.15),.04,mAl),'rtg'));pvG.add(K(limb(V(-1.4,.1,-.35),V(-1.6,.4,-.15),.04,mAl),'rtg'));
+ const DRX=1.28,armP=new T.Group();K(armP,'arm');armP.position.set(1.42,.55,-.55);armP.add(sph(.1,mAl,0,0,0));armP.add(limb(V(0,0,0),V(.55,-.1,0),.065,mAl));armP.add(sph(.09,mAl,.55,-.1,0));armP.add(limb(V(.55,-.1,0),V(1.0,-.55,0),.055,mAl));
+ const tur=cyl(.2,.22,.32,mOr,1.05,-.6,0,16);tur.rotation.z=Math.PI/2;armP.add(tur);armP.add(box(.24,.18,.18,mDk,1.05,-.4,.14));armP.add(box(.2,.14,.2,mSilver,1.05,-.8,-.14));const gd=cyl(.07,.07,.03,mTi,1.2,-.42,-.14,12);gd.rotation.z=Math.PI/2;armP.add(gd);
+ const drill=new T.Group();drill.position.set(DRX,-.6,0);const bit=cyl(.045,.045,.34,mTi,0,0,0,10);bit.rotation.z=Math.PI/2;drill.add(bit);for(let f=0;f<4;f++){const a=f*Math.PI/2;drill.add(box(.22,.02,.07,mYel,0,Math.sin(a)*.07,Math.cos(a)*.07))}armP.add(drill);pvG.add(armP);
+ const rockP=(sz)=>{const dif=V(.2,.12,sz*.98),piv=V(-.45,-.18,sz*1.05);pvG.add(K(limb(dif,V(1.28,-.5,sz*1.12),.06,mAl),'wheels'));pvG.add(K(limb(dif,piv,.06,mAl),'wheels'));pvG.add(K(limb(piv,V(0,-.5,sz*1.18),.05,mAl),'wheels'));pvG.add(K(limb(piv,V(-1.28,-.5,sz*1.12),.05,mAl),'wheels'));pvG.add(K(sph(.08,mDk,piv.x,piv.y,piv.z,10,8),'wheels'))};rockP(1);rockP(-1);pvG.add(K(limb(V(.2,.12,-.98),V(.2,.12,.98),.06,mDk),'wheels'));
+ [[-1.28,1.28],[0,1.38],[1.28,1.28],[-1.28,-1.28],[0,-1.38],[1.28,-1.28]].forEach(p=>{const w=wheel({r:.42,w:.38,hr:.12,tire:mDk,hub:mAl,chev:mAl,fender:false,n:18});w.front=true;K(w.steer,'wheels');w.steer.position.set(p[0],-.5,p[1]);pvG.add(w.steer);PW.push(w)});
+ /* ===== 6. Ingenuity ===== */
+ const igG=new T.Group();G.ig=igG;
+ igG.add(K(box(.46,.46,.46,mGold,0,.44,0),'body'));
+ [-1,1].forEach(a=>[-1,1].forEach(b=>[-1,1].forEach(c=>{[[1,0,0],[0,1,0],[0,0,1]].forEach(ax=>{if((ax[0]&&a>0)||(ax[1]&&b>0)||(ax[2]&&c>0))return;const A=V(a*.25,.44+b*.25,c*.25),B=V(a*.25+(ax[0]?.5:0),.44+b*.25+(ax[1]?.5:0),c*.25+(ax[2]?.5:0));igG.add(K(limb(A,B,.012,mCarbon),'body'))})})));
+ igG.add(K(cyl(.05,.05,.04,mGlass,0,.19,0,12),'camera'));igG.add(K(box(.09,.09,.05,mBlack,0,.5,.26),'camera'));igG.add(K(RX(cyl(.03,.03,.03,mGlass,0,.5,.3,10),Math.PI/2),'camera'));
+ igG.add(K(cyl(.034,.034,.98,mAl,0,.9,0,8),'rotors'));
+ const mkRotor=(y)=>{const g=new T.Group();K(g,'rotors');g.position.y=y;g.add(cyl(.07,.07,.06,mAl,0,0,0,12));[1,-1].forEach(s=>{const bl=box(1.15,.018,.16,mCarbon,s*.65,0,0);bl.rotation.x=s*.08;g.add(bl);g.add(box(.08,.03,.18,mAl,s*1.22,0,0))});return g};
+ const rT=mkRotor(1.3),rB=mkRotor(1.04);igG.add(rT);igG.add(rB);
+ igG.add(K(box(.7,.02,.7,mSolar,0,1.42,0),'solar'));[[.35,.35],[-.35,.35],[.35,-.35],[-.35,-.35]].forEach(c=>igG.add(K(limb(V(c[0]*.2,1.36,c[1]*.2),V(c[0],1.42,c[1]),.012,mAl),'solar')));
+ igG.add(K(cyl(.01,.01,.4,mAl,.3,1.62,.3,6),'antenna'));igG.add(K(sph(.025,mAl,.3,1.82,.3,8,6),'antenna'));
+ [[1,1],[-1,1],[1,-1],[-1,-1]].forEach(c=>{const A=V(c[0]*.2,.2,c[1]*.2),P=V(c[0]*.72,-.6,c[1]*.72);igG.add(K(limb(A,P,.022,mCarbon),'legs'));igG.add(K(sph(.05,mDk,P.x,-.62,P.z,8,6),'legs'));igG.add(K(limb(V(c[0]*.24,.3,c[1]*.24),A.clone().lerp(P,.5),.012,mCarbon),'legs'))});
+ /* ===== 7. Three Forks sample depot ===== */
+ const dp=new T.Group();G.jz=dp;const TB=[];let sd=7;const rnd=()=>(sd=(sd*9301+49297)%233280)/233280;
+ for(let i=0;i<10;i++){const tg=new T.Group();const tb=cyl(.05,.05,.8,mTi,0,0,0,16);tb.rotation.z=Math.PI/2;tg.add(K(tb,'tube'));
+  const c1=cyl(.065,.065,.06,mDk,.4,0,0,16);c1.rotation.z=Math.PI/2;tg.add(K(c1,'tube'));const fl=cyl(.075,.075,.04,mOr,.3,0,0,16);fl.rotation.z=Math.PI/2;tg.add(K(fl,'tube'));const rg=tor(.055,.01,mAl,-.38,0,0);rg.rotation.y=Math.PI/2;tg.add(K(rg,'tube'));
+  const rk=sh(new T.Mesh(new T.DodecahedronGeometry(.14),mRock));rk.position.set(-.55,0,0);tg.add(K(rk,'rock'));
+  const mound=sh(new T.Mesh(new T.CylinderGeometry(.3,.38,.03,14),mSoil));mound.position.y=-.06;tg.add(mound);
+  tg.position.set(-4+i*.9,-1.19,(i%2?.7:-.7)+(rnd()-.5)*.4);tg.rotation.y=(rnd()-.5)*1.2;dp.add(tg);TB.push(tg)}
+ for(let i=0;i<70;i++){const pb=sh(new T.Mesh(new T.DodecahedronGeometry(.03+rnd()*.06),i%3?mSoil:mRock));pb.position.set((rnd()-.5)*10.5,-1.23,(rnd()-.5)*4.6);pb.rotation.set(rnd()*3,rnd()*3,rnd()*3);dp.add(pb)}
+ const CRG=['a15','s3','a12','a11','pv','ig','jz'];
+ CRG.forEach(k=>{scene.add(G[k]);G[k].visible=false});
+ const GY={a15:-.7,s3:-1.25,a12:-1.25,a11:-1.25,pv:-.95,ig:-.67,jz:-1.25};
+ const CAMD={a15:[7.5,.4],s3:[9,.7],a12:[11.5,.4],a11:[11.5,.4],pv:[9,.5],ig:[6.8,.6],jz:[8.5,-.9]};
+ /* part registry and exploded-view vectors */
+ const REG={};
+ CRG.forEach(id=>{REG[id]={};(function walk(o,k){const kk=(o.userData&&o.userData.key)||k;if(o.isMesh&&kk&&o.material&&o.material.emissive){o.userData._k=kk;o.material=o.material.clone();o.material.userData._e=o.material.emissive.getHex();o.material.userData._ei=o.material.emissiveIntensity;(REG[id][kk]=REG[id][kk]||[]).push(o)}o.children.forEach(c=>walk(c,kk))})(G[id],null);
+  const gb=new T.Box3().setFromObject(G[id]),gc=gb.getCenter(new T.Vector3());G[id].children.forEach(c=>{c.userData._b=c.position.clone();const b=new T.Box3().setFromObject(c);c.userData._x=b.getCenter(new T.Vector3()).sub(gc).multiplyScalar(.9);c.userData._p=new T.Vector3()})});
+ /* state, motion and simulations */
+ let dist=0;const scroll=d=>{dist+=d;regT.offset.x+=d*.143;grid.position.x=-(dist%1)};
+ const drive=(st,dt,W,R,steerMax)=>{scroll(st.v*dt*2.4);W.forEach(w=>{w.spin.rotation.z-=st.v*dt*2.4/R*1;w.steer.rotation.y=(w.front?1:-1)*st.steer*steerMax})};
+ const SIM={
+  a15:{def:{v:0,steer:0,dish:0},run(st,s,p){if(s===0){st.v=Math.min(1,p*2);st.steer=0;st.dish=0}else if(s===1){st.v=.8;st.steer=Math.sin(p*9.4)}else if(s===2){st.v=.8*(1-p);st.steer=0}else{st.v=0;st.steer=0;st.dish=Math.sin(p*6.28)*.9}},
+   apply(st,dt){drive(st,dt,L.wheels,.46,.35);dishG.rotation.y=st.dish*.9}},
+  s3:{def:{cam:0,scoop:0,sun:0},run(st,s,p){st.cam=0;st.scoop=0;if(s===0)st.cam=Math.sin(p*6.28);else if(s===1)st.scoop=Math.sin(p*Math.PI);else if(s===2)st.sun=-1+2*p;else st.cam=Math.sin(p*12)*.3},
+   apply(st){cPiv.rotation.y=st.cam*1.3;arm.rotation.x=st.scoop*.3;sPiv.rotation.y=st.sun*.9}},
+  pv:{def:{v:0,mast:0,arm:0,drill:0},run(st,s,p){st.v=0;st.mast=0;st.arm=0;st.drill=0;if(s===0)st.v=.7;else if(s===1)st.mast=Math.sin(p*6.28);else if(s===2){st.arm=Math.min(1,p*3)*(p<.8?1:(1-p)*5);st.drill=p>.3&&p<.8?1:0}else st.arm=Math.max(0,.4*(1-p*2))},
+   apply(st,dt){drive(st,dt,PW,.42,0);head.rotation.y=st.mast*1.2;armP.rotation.z=.3-st.arm*.75;drill.rotation.x+=st.drill*dt*16;drill.position.x=DRX+(st.drill>0?Math.sin(performance.now()/40)*.015:0)}},
+  ig:{def:{rpm:0,alt:0,tilt:0},run(st,s,p){if(s===0){st.rpm=p;st.alt=0;st.tilt=0}else if(s===1){st.rpm=1;st.alt=p;st.tilt=0}else if(s===2){st.rpm=1;st.alt=1;st.tilt=Math.sin(Math.min(p*3,1)*1.57)}else{st.rpm=1-p*.85;st.alt=1-p;st.tilt=0}},
+   apply(st,dt){rT.rotation.y+=st.rpm*dt*42;rB.rotation.y-=st.rpm*dt*42;igG.position.y=st.alt*1.8+(st.alt>.05?Math.sin(performance.now()/300)*.04:0);igG.rotation.z=-st.tilt*.28;if(st.alt>.3)scroll(st.tilt*dt*2.2)}},
+  jz:{def:{n:10},run(st,s,p){st.n=s===0?p:s===1?1+p*9:10},
+   apply(st){TB.forEach((t,i)=>{t.visible=st.n>i;const f=Math.min(1,Math.max(0,st.n-i));t.userData._e=(1-f)*(1-f)*2.2})}}};
+ const lmSim=l=>({def:{alt:0,sep:0},run(st,s,p){if(s===0){st.alt=1-p;st.sep=0}else if(s===1){st.alt=0;st.sep=0}else if(s===2){st.alt=0;st.sep=p*.5}else{st.alt=0;st.sep=.5+p*.5}},
+  apply(st){l.root.position.y=st.alt*4;l.asc.userData._e=st.sep*5;l.fD.visible=st.alt>.02;l.fA.visible=st.sep>.02&&st.sep<.98;const f=1+Math.sin(performance.now()/60)*.12;l.fD.scale.y=f;l.fA.scale.y=f}});
+ SIM.a12=lmSim(LM12);SIM.a11=lmSim(LM11);
+ /* UI */
+ const SD=3.2;
+ function info(k){const p=k&&LP[LAB.id][k],nm=(LABCR.filter(c=>c[0]==LAB.id)[0]||[0,''])[1];
+  $('#pinfo').innerHTML=p?'<div class="coord">Selected part</div><h3>'+p[0]+'</h3><h4>What it does</h4><p>'+p[1]+'</p><div class="note b"><b>Did you know?</b> '+p[2]+'</div>':'<div class="coord">3D model</div><h3>'+nm+'</h3><p>'+LABINTRO[LAB.id]+'</p>';
+  $$('#plist2 .chip').forEach(b=>b.classList.toggle('on',b.dataset.k===k))}
+ function select(k){LAB.sel=k;info(k);if(window.FG&&FG.onPart)FG.onPart(k);if(!k){return}controls.autoRotate=false;$('#lbSpin').classList.remove('on');if(!(window.FG&&FG.quest))setTab('learn');
+  const ms=REG[LAB.id][k]||[];if(!ms.length)return;const b=new T.Box3();ms.forEach(m=>b.expandByObject(m));const c=b.getCenter(new T.Vector3()),s=b.getSize(new T.Vector3()),d=Math.max(s.x,s.y,s.z)*2.2+3.2,dir=camera.position.clone().sub(controls.target).normalize();
+  LAB.focus={t:c,p:c.clone().addScaledVector(dir,d)}}
+ function setTab(t){LAB.tab=t;$$('#labtabs .chip').forEach(b=>b.classList.toggle('on',b.dataset.lt===t));$('#labl').style.display=t==='learn'?'':'none';$('#labs').style.display=t==='sim'?'':'none';var q=$('#labq');if(q)q.style.display=t==='quest'?'':'none';if(window.FG&&FG.onTab)FG.onTab(t)}
+ function simUI(){const c=LSIM[LAB.id];$('#sintro').textContent=c.intro;$('#sstep').innerHTML=c.steps.map(s=>'<li>'+s[0]+'</li>').join('');
+  $('#sctl').innerHTML=c.ctl.map((x,i)=>'<label><span>'+x[1]+'</span><span class="sv" id="sv'+i+'">'+x[5]+'</span></label><input type="range" data-p="'+x[0]+'" data-i="'+i+'" min="'+x[2]+'" max="'+x[3]+'" step="'+x[4]+'" value="'+x[5]+'">').join('');
+  $$('#sctl input').forEach(e=>{e.oninput=()=>{LAB.st[e.dataset.p]=+e.value;$('#sv'+e.dataset.i).textContent=(+e.value).toFixed(e.step<1?2:0)}});$('#splay').textContent='Play simulation';$('#splay').classList.remove('on');syncCtl(false)}
+ function syncCtl(dis){$$('#sctl input').forEach(e=>{e.disabled=dis;if(dis||true){const v=LAB.st[e.dataset.p];if(v!==undefined){e.value=v;$('#sv'+e.dataset.i).textContent=(+v).toFixed(e.step<1?2:0)}}})}
+ function stepUI(n){$$('#sstep li').forEach((li,i)=>li.classList.toggle('act',i===n));LAB.simKeys=n>=0?LSIM[LAB.id].steps[n][1]:null}
+ function simStop(){LAB.sim.on=false;LAB.simKeys=null;stepUI(-1);LAB.st=Object.assign({},SIM[LAB.id].def);$('#splay').textContent='Play simulation';$('#splay').classList.remove('on');syncCtl(false)}
+ function simPlay(){if(LAB.sim.on){simStop();return}LAB.exT=0;$('#lbEx').classList.remove('on');LAB.sim.on=true;LAB.sim.t=0;LAB.sim.step=-1;controls.autoRotate=false;$('#lbSpin').classList.remove('on');$('#splay').textContent='Stop simulation';$('#splay').classList.add('on');syncCtl(true)}
+ function camReset(){const c=CAMD[LAB.id];controls.target.set(0,c[1],0);camera.position.set(0,c[1]+c[0]*.42,c[0]*.9);LAB.focus=null;controls.update()}
+ function craft(id){if(LAB.sim.on)simStop();LAB.id=id;LAB.sel=null;LAB.exT=0;LAB.hover=null;$('#lbEx').classList.remove('on');
+  CRG.forEach(k=>G[k].visible=k===id);ground.position.y=GY[id];grid.position.y=GY[id]+.01;gMat.color.setHex(id==='pv'||id==='ig'||id==='jz'?0x8a4a30:0x4a5d7a);
+  LAB.st=Object.assign({},SIM[id].def);camReset();
+  $$('#labpick .pk').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
+  $('#plist2').innerHTML=Object.keys(LP[id]).map(k=>'<button class="chip" data-k="'+k+'">'+LP[id][k][0]+'</button>').join('');info(null);simUI();setTab('learn')}
+ LAB.craft=craft;LAB.select=select;LAB.setTab=setTab;
+ $('#labpick').innerHTML=LABCR.map(c=>'<button class="pk" data-id="'+c[0]+'"><img alt=""><span>'+c[1]+'</span></button>').join('');
+ $$('#labpick .pk').forEach(b=>loadArt(b.querySelector('img'),null,b.dataset.id));
+ $('#labpick').onclick=e=>{const b=e.target.closest('.pk');if(b)craft(b.dataset.id)};
+ $('#plist2').onclick=e=>{const b=e.target.closest('[data-k]');if(b)select(b.dataset.k)};
+ $('#labtabs').onclick=e=>{const b=e.target.closest('[data-lt]');if(b)setTab(b.dataset.lt)};
+ $('#splay').onclick=simPlay;$('#sreset').onclick=()=>{simStop()};
+ $('#sspeed').onclick=e=>{const b=e.target.closest('[data-sp]');if(b){LAB.sim.speed=+b.dataset.sp;$$('#sspeed .chip').forEach(x=>x.classList.toggle('on',x===b))}};
+ $('#lbEx').onclick=function(){if(LAB.sim.on)simStop();LAB.exT=LAB.exT?0:1;this.classList.toggle('on',!!LAB.exT)};
+ $('#lbReset').onclick=()=>{camReset();select(null)};
+ $('#lbSpin').onclick=function(){controls.autoRotate=!controls.autoRotate;this.classList.toggle('on',controls.autoRotate)};
+ $('#lbSpin').classList.add('on');
+ /* picking */
+ const ray=new T.Raycaster(),mv=new T.Vector2(),dom=renderer.domElement;let down=null,lastMove=0;
+ const hit=ev=>{const r=dom.getBoundingClientRect();mv.x=((ev.clientX-r.left)/r.width)*2-1;mv.y=-((ev.clientY-r.top)/r.height)*2+1;ray.setFromCamera(mv,camera);const hs=ray.intersectObjects(G[LAB.id].children,true);for(let i=0;i<hs.length;i++){const k=hs[i].object.userData._k;if(k)return k}return null};
+ dom.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,t:performance.now()}});
+ dom.addEventListener('pointerup',e=>{if(!down)return;const m=Math.abs(e.clientX-down.x)+Math.abs(e.clientY-down.y),dt=performance.now()-down.t;down=null;if(m<7&&dt<600)select(hit(e))});
+ dom.addEventListener('pointermove',e=>{if(e.buttons||e.pointerType!=='mouse')return;const n=performance.now();if(n-lastMove<60)return;lastMove=n;const k=hit(e);LAB.hover=k;dom.style.cursor=k?'pointer':'grab'});
+ dom.addEventListener('pointerleave',()=>{LAB.hover=null});
+ /* render loop */
+ let last=performance.now(),ex=0;const pink=0xff5fa2;
+ function tick(){const now=performance.now();if(!$('#lab').classList.contains('on')){last=now;setTimeout(tick,250);return}requestAnimationFrame(tick);
+  const dt=Math.min(.05,(now-last)/1000);last=now;const id=LAB.id,sm=SIM[id];
+  if(LAB.sim.on){LAB.sim.t+=dt*LAB.sim.speed;const n=LSIM[id].steps.length,s=Math.floor(LAB.sim.t/SD)%n,p=(LAB.sim.t%SD)/SD;if(s!==LAB.sim.step){LAB.sim.step=s;stepUI(s)}sm.run(LAB.st,s,p)}
+  sm.apply(LAB.st,dt);
+  ex+=(LAB.exT-ex)*Math.min(1,dt*6);G[id].children.forEach(c=>{const u=c.userData;if(!u._b)return;c.position.copy(u._b).addScaledVector(u._x,ex);if(u._e)c.position.y+=u._e})
+  if(LAB.focus){controls.target.lerp(LAB.focus.t,.12);camera.position.lerp(LAB.focus.p,.12);if(controls.target.distanceTo(LAB.focus.t)<.02)LAB.focus=null}
+  const reg=REG[id],tt=now/1000;for(const k in reg){let mode=0;if(k===LAB.sel)mode=2;else if(LAB.simKeys&&LAB.simKeys.indexOf(k)>-1)mode=2;else if(k===LAB.hover)mode=1;
+   reg[k].forEach(m=>{const mt=m.material;if(mode===0){if(m.userData._h){mt.emissive.setHex(mt.userData._e);mt.emissiveIntensity=mt.userData._ei;m.userData._h=0}}else{m.userData._h=1;mt.emissive.setHex(pink);mt.emissiveIntensity=mode===2?.45+.25*Math.sin(tt*5):.28}})}
+  controls.update();renderer.render(scene,camera)}
+ if(window.ResizeObserver)new ResizeObserver(labResize).observe(host);else window.addEventListener('resize',labResize);
+ LAB.reg=REG;LAB.G=G;LAB.GY=GY;craft('a15');tick();return true}
+
+function homeImgs(){[['h1i','a15'],['h2i','ig'],['h3i','s3']].forEach(function(p){var e=document.getElementById(p[0]);if(e)loadArt(e,null,p[1]);e.parentNode.style.setProperty('--bgimg','url("'+(EMB[p[1]]||artURI(p[1]))+'")')})}
+document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(g)show(g.dataset.go)});
+document.addEventListener('DOMContentLoaded',function(){build();show('home')});
+</script><script>Object.assign(EMB,{a15:'data:image/jpeg;base64,'+
 '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkMCwoMDxoRDw4ODx8WGBMaJSEnJiQhJCMpLjsyKSw4LCMkM0Y0OD0/'+
 'QkNCKDFITUhATTtBQj//2wBDAQsMDA8NDx4RER4/KiQqPz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/'+
 'Pz8/Pz8/Pz//wAARCAHgAeADASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAAAAIDBAUGAQcI/8QAQhAAAgEDAwIEBAQEBAUD'+
@@ -2671,11 +3526,110 @@ pv:'data:image/jpeg;base64,'+
 '8+xyv1uIgYAn1V9sLHGCw3Dav65SPvjH/wAJ/wA7ZzrUdTySJHGhZ3baoHc/Xtjw8KKQ7tTqWBHJAA2g4jESI+DXJ/llizASAMaL'+
 'ci8y1FQxSNo0JVSep7jKkseChIrsOT9sI/8A04/qc4/kjPc98GjWnVwhAP5hySf0GNMGEYWMDeasnovyc7oaHteFb/2cXyRfzmLX'+
 'SC6eNi3muAADw5FfoPf5xiSoQ52gFuLcc1/TK6XmVAeQCeMF4gT5Upvnaf5YKsrxPXHUOIIPQl0Tf8zkwlIFIDF1RrLgUGbsMyX4'+
-'dq+MNqWYR0GI9F9fnOsnjno+t1e6FIbBccuR2PsM7M5f3M7H8xz6t1//2Q=='});</script>
-<div id="fg-cinema" data-fg-cinema role="dialog" aria-label="Welcome">
-  <canvas id="fgc-cv"></canvas>
+'dq+MNqWYR0GI9F9fnOsnjno+t1e6FIbBccuR2PsM7M5f3M7H8xz6t1//2Q=='});</script><script>
+(function(){
+var DOC=document.documentElement;if(MOB)DOC.classList.add('mobx');
+var ST={a15:['The car that folded itself onto a spaceship','1971: it unfolds beside the lunar module and drives away.','Parked at the Apollo 15 site for good. Its batteries could not be recharged.'],
+s3:['The robot that waited for visitors','1967: it lands, bounces twice, then digs and takes pictures.','1969: astronauts snip off its camera and bring it home. The rest stays.'],
+a12:['The landing that hit its target','1969: lightning strikes the rocket, yet Intrepid lands near Surveyor 3.','The top half lifts off and is crashed on purpose. The bottom half stays.'],
+a11:['The first footprints','1969: Eagle lands and two people step onto the Moon.','The top half returns to Columbia. The landing stage stays at Tranquility Base.'],
+pv:['The rover building a library of rocks','2021: a sky crane lowers it into Jezero Crater.','It cannot fly home, so it keeps exploring and carrying its sealed tubes.'],
+ig:['The helicopter that was only a test','2021: the first powered flight on another planet.','2024: a damaged rotor ends its flying after 72 flights. The idea worked.'],
+jz:['The time capsule on Mars','2023: Perseverance lays 10 sealed tubes on the ground.','Waiting. No ride home is funded right now.']};
+var NQ={a15:'Apollo 15 lunar roving vehicle',s3:'Surveyor 3 Apollo 12',a12:'Apollo 12 lunar module Intrepid',a11:'Apollo 11 lunar module Eagle',pv:'Perseverance rover Jezero',ig:'Ingenuity helicopter Mars',jz:'Perseverance Three Forks sample depot'};
+var SL={a15:[['NASA Apollo Lunar Surface Journal','https://history.nasa.gov/alsj/']],a12:[['NASA Apollo Lunar Surface Journal','https://history.nasa.gov/alsj/']],a11:[['NASA Apollo Lunar Surface Journal','https://history.nasa.gov/alsj/']],
+s3:[['NASA Surveyor 3','https://science.nasa.gov/mission/lunar-rangers-and-surveyors/surveyor-3/']],pv:[['NASA Mars 2020 Perseverance','https://science.nasa.gov/mission/mars-2020-perseverance/']],
+ig:[['NASA Ingenuity','https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/']],jz:[['NASA Mars Sample Return','https://science.nasa.gov/mission/mars-sample-return/']]};
+var RS={a15:'about 10 ft (3.1 m) long, a bit shorter than a small car',a12:'about 23 ft (7 m) tall with its legs out',a11:'about 23 ft (7 m) tall with its legs out',pv:'about 10 ft (3 m) long, car-sized',ig:'about 19 in (49 cm) tall, with blades 4 ft (1.2 m) across'};
+for(var k in RS)if(window.LABINTRO&&LABINTRO[k])LABINTRO[k]+=' Real size: '+RS[k]+'.';
+function el(t,c){var e=document.createElement(t);if(c)e.className=c;DOC.appendChild(e);return e}
+function modal(h){var o=el('div','fgo lt on');o.innerHTML='<div class="fgc" role="dialog" aria-modal="true">'+h+'<button class="fgxb" aria-label="Close">\u00d7</button></div>';
+ o.close=function(){o.classList.remove('on');setTimeout(function(){o.remove()},350)};o.querySelector('.fgxb').onclick=o.close;o.addEventListener('click',function(e){if(e.target===o)o.close()});return o}
+addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.querySelectorAll('.fgo.lt.on');if(m.length)m[m.length-1].close()}});
+/* opening */
+function stars(c,host){var x=c.getContext('2d'),w,h,S=[];function fit(){w=c.width=host.clientWidth||innerWidth;h=c.height=host.clientHeight||innerHeight}fit();addEventListener('resize',fit);
+ for(var i=0;i<140;i++)S.push([Math.random(),Math.random(),Math.random()*1.6+.3,Math.random()*.0004+.0001]);
+ function pl(cx,cy,r,a,b){var g=x.createRadialGradient(cx-r*.3,cy-r*.3,r*.1,cx,cy,r);g.addColorStop(0,a);g.addColorStop(1,b);x.globalAlpha=1;x.fillStyle=g;x.beginPath();x.arc(cx,cy,r,0,6.3);x.fill()}
+ (function f(){if(!c.isConnected)return;x.clearRect(0,0,w,h);S.forEach(function(s){s[1]=(s[1]+s[3])%1;x.globalAlpha=.4+.6*Math.abs(Math.sin(s[1]*40+s[0]*9));x.fillStyle='#fff';x.fillRect(s[0]*w,s[1]*h,s[2],s[2])});
+ var m=Math.min(w,h);pl(w*.16,h+m*.08,m*.5,'#d9deea','#5b647d');pl(w*.88,h+m*.1,m*.4,'#ff9a6b','#8a3b24');requestAnimationFrame(f)})()}
+function intro(){var o=el('div','fgo on');o.setAttribute('role','dialog');o.setAttribute('aria-label','Welcome');
+ o.innerHTML='<canvas></canvas><div class="fgi"><h1>Machines we left behind, <em>stories we never finished</em></h1><p class="fgl">1967: a robot lands on the Moon.</p><p class="fgl">1969: two people walk over to visit it.</p><p class="fgl">2021: a helicopter flies on Mars.</p><p class="fgl">None of them came home. Can you find them all?</p><div class="fgb"><button class="btn" id="fgGo">Begin the mission</button><button class="btn alt" id="fgTr">Watch the 2-minute tour</button><button class="btn ghost" id="fgSk">Skip</button></div></div>';
+ stars(o.querySelector('canvas'),o);var L=o.querySelectorAll('.fgl'),B=o.querySelector('.fgb'),n=0,tm=setInterval(function(){if(n<L.length)L[n++].classList.add('on');else{B.classList.add('on');clearInterval(tm)}},1300);
+ function end(){clearInterval(tm);o.classList.remove('on');setTimeout(function(){o.remove()},600);try{sessionStorage.setItem('fgSeen','1')}catch(e){}}
+ o.querySelector('#fgGo').onclick=function(){end();show('moon')};o.querySelector('#fgSk').onclick=end;o.querySelector('#fgTr').onclick=function(){end();tourStart()};
+ setTimeout(function(){B.classList.add('on')},9000)}
+/* NASA live */
+var NC={};
+function nasa(id){var c=CR.find(function(x){return x.id==id}),q=NQ[id];
+ var lk=(SL[id]||[]).concat([['Search all NASA photos','https://images.nasa.gov/search?q='+encodeURIComponent(q)]]).map(function(l){return '<a href="'+l[1]+'" target="_blank" rel="noopener">'+l[0]+'</a>'}).join(' \u00b7 ');
+ var o=modal('<span class="label a">Live from NASA</span><h2>'+c.n+'</h2><p>Official photos from the NASA Image and Video Library. Tap one to open its NASA record.</p><div class="fgg" id="fgg">Contacting NASA\u2026</div><p class="fgs">Check the facts: '+lk+'</p>'),g=o.querySelector('#fgg');
+ function paint(items){g.textContent='';items.slice(0,4).forEach(function(it){var d=(it.data||[])[0]||{},l=(it.links||[])[0];if(!l)return;var a=document.createElement('a');a.href='https://images.nasa.gov/details/'+encodeURIComponent(d.nasa_id||'');a.target='_blank';a.rel='noopener';var im=new Image();im.loading='lazy';im.alt=d.title||'NASA image';im.src=l.href;var s=document.createElement('span');s.textContent=(d.title||'NASA image')+' \u00b7 '+(d.nasa_id||'');a.appendChild(im);a.appendChild(s);g.appendChild(a)});if(!g.children.length)g.textContent='No photos found right now.'}
+ if(NC[id])return paint(NC[id]);var ac=window.AbortController?new AbortController():null,to=setTimeout(function(){ac&&ac.abort()},9000);
+ fetch('https://images-api.nasa.gov/search?media_type=image&q='+encodeURIComponent(q),ac?{signal:ac.signal}:{}).then(function(r){return r.json()}).then(function(j){clearTimeout(to);NC[id]=j.collection.items;paint(NC[id])}).catch(function(){g.textContent='Could not reach NASA right now (are you offline?). Use the links below instead.'})}
+/* chapters */
+function chap(){var o=modal('<span class="label">Chapter complete</span><h2>The Moon is finished. Mars is next.</h2><p>You followed four Moon stories: a buggy, a robot and two landers. All of them stayed behind. On Mars, the machines are still working.</p><div class="fgbtn"><button class="btn" id="fgM">Go to Mars</button></div>');o.querySelector('#fgM').onclick=function(){o.close();show('mars')}}
+function finale(tour){var n=CR.filter(function(c){return[1,2,3].every(function(p){return vis.has(c.id+p)})}).length;if(!FG.fin){FG.fin=1;addXP(50)}
+ var li=CR.map(function(c,i){var d=[1,2,3].every(function(p){return vis.has(c.id+p)});return '<li class="'+(d?'ok':'')+'"><b>'+(i+1)+'. '+c.n+'</b>: '+ST[c.id][0]+'</li>'}).join('');
+ var o=modal('<span class="label t">Mission complete</span><h2>Seven machines, seven stories</h2><p>You have '+xp+' XP and finished '+n+' of 7 chapters'+(FG.qd?', plus '+FG.qd+' 3D quest'+(FG.qd>1?'s':''):'')+'. Every one of these machines is still out there.</p><ul class="fgli">'+li+'</ul><div class="fgbtn"><button class="btn" id="fgR">Open the radar map</button><button class="btn alt" id="fgT">Replay the 2-minute tour</button></div>');
+ o.querySelector('#fgR').onclick=function(){o.close();tourStop();show('radar')};o.querySelector('#fgT').onclick=function(){o.close();tourStart()};if(tour)o.querySelector('.fgxb').addEventListener('click',tourStop)}
+/* story banner */
+function afterBook(){var c=CR.find(function(x){return x.id==cid}),s=ST[cid],t=$('#ctag');if(!c||!s)return;
+ t.textContent='Chapter '+(CR.indexOf(c)+1)+' of 7 \u00b7 '+c.tag;
+ var b=['START','END','YOUR TURN'][cpg-1],x=cpg==1?s[1]:cpg==2?s[2]:'Test what you remember about: '+s[0]+'.';
+ var sw=$('.bk-foot .swipe');if(sw)sw.innerHTML='<b>'+b+'</b> '+x;
+ if(MOB){var bk=$('#bk');if(bk)bk.insertAdjacentHTML('afterbegin','<div class="fgsl"><em>'+s[0]+'</em><b>'+b+'</b> '+x+'</div>')}
+ var pk=$('#pick');if(pk&&!$('#fgNB')){var n=document.createElement('button');n.id='fgNB';n.className='chip fgnb';n.textContent='\ud83d\udce1 NASA photos';n.onclick=function(){nasa(cid)};pk.appendChild(n)}}
+function next(){if(cw=='moon')chap();else finale()}
+/* 3D quest */
+var Q={l:[],i:0,ok:0,lock:0,miss:0};
+function labUI(){var tb=$('#labtabs');if(!tb||$('#labq'))return;var b=document.createElement('button');b.className='chip';b.dataset.lt='quest';b.textContent='Quest';tb.appendChild(b);
+ var q=document.createElement('div');q.id='labq';q.style.display='none';$('#labs').parentNode.appendChild(q);
+ var t=$('.labtools');if(t){var n=document.createElement('button');n.textContent='\ud83d\udce1 NASA';n.onclick=function(){nasa(LAB.id)};t.appendChild(n)}}
+function qs(){Q.l=shuf(Object.keys(LP[LAB.id])).slice(0,5);Q.i=0;Q.ok=0;Q.lock=0;Q.miss=0;qr()}
+function qr(){var q=$('#labq');if(!q)return;var id=LAB.id;
+ if(Q.i>=Q.l.length){FG.qd++;addXP(30);q.innerHTML='<span class="label t">Quest complete</span><h3>'+Q.ok+' of '+Q.l.length+' parts found on the first try</h3><p class="lead">Nice engineering eyes! Run the simulation to see the parts working together.</p><div class="sbtns"><button class="btn" id="qa">Play again</button><button class="chip" id="qsm">Open simulation</button></div>';$('#qa').onclick=qs;$('#qsm').onclick=function(){LAB.setTab('sim')};return}
+ var k=Q.l[Q.i];q.innerHTML='<span class="label t">Part quest \u00b7 '+(Q.i+1)+' of '+Q.l.length+'</span><h3>Tap the part that does this</h3><div class="note">'+LP[id][k][1]+'</div><div class="msg" id="qm">Tap the part on the 3D model.</div><div class="sbtns"><button class="chip" id="qh">Hint</button><button class="chip" id="qk">Skip</button></div>';
+ $('#qh').onclick=function(){LAB.hover=k;setTimeout(function(){if(LAB.hover===k)LAB.hover=null},1800)};$('#qk').onclick=function(){Q.i++;Q.miss=0;Q.lock=0;qr()}}
+function onPart(k){if(!FG.quest||!k||Q.lock||Q.i>=Q.l.length)return;var p=LP[LAB.id][k],m=$('#qm');if(!p||!m)return;
+ if(k===Q.l[Q.i]){Q.lock=1;if(!Q.miss)Q.ok++;addXP(20);m.style.color='#0b9a7c';m.innerHTML='Yes! That is the <b>'+p[0]+'</b>. Did you know? '+p[2]+' <button class="chip" id="qn">Next</button>';$('#qn').onclick=function(){Q.i++;Q.miss=0;Q.lock=0;qr()}}
+ else{Q.miss=1;m.style.color='#e05555';m.textContent='That is the '+p[0]+'. Not this one, look again!'}}
+function onTab(t){FG.quest=t==='quest';if(FG.quest)qs()}
+/* 2-minute tour */
+function whenLab(cb){var n=0;(function p(){if(window.LAB&&LAB.ready&&LAB.craft)return cb(true);if(++n>40)return cb(false);setTimeout(p,300)})()}
+function lab(id){return function(){show('lab');whenLab(function(ok){if(!ok){openFile(id);return}LAB.craft(id);LAB.setTab('sim');var b=$('#splay');if(b&&!LAB.sim.on)b.click()})}}
+var TS=[{d:10,t:'Welcome to the Galactic Field Guide. Robots and rovers have left their footprints on the Moon and Mars. Every one has a story with a start, a middle and an end.',go:function(){show('home')}},
+{d:13,t:'Story one: the Moon buggy. It rode to the Moon folded flat and drove 17 miles. When the astronauts left, it stayed, because every pound mattered for the trip home.',go:lab('a15')},
+{d:13,t:'Story two: Surveyor 3. This robot dug the Moon soil and took pictures. Thirty-one months later, Apollo 12 astronauts walked over and brought its camera back to Earth.',go:lab('s3')},
+{d:12,t:'Story three: the lunar module. Watch the top half blast off. The bottom half is the launch pad, so it stays on the Moon forever.',go:lab('a12')},
+{d:12,t:'Every relic has an address. On the radar map, pins show where people and robots touched down. This one is Tranquility Base.',go:function(){show('radar');var c=$('#planet [data-pl="moon"]');if(c)c.click();var p=$('#plist [data-i="3"]');if(p)p.click()}},
+{d:13,t:'Now Mars. Perseverance drills rock cores and seals them in tubes. It cannot launch itself home, so it keeps exploring while carrying its samples.',go:lab('pv')},
+{d:12,t:'Ingenuity was a four pound helicopter built for five flights. It flew seventy two times, and proved that flying on Mars is possible.',go:lab('ig')},
+{d:12,t:'At Three Forks, ten sealed tubes wait like a time capsule. Right now no ride home is funded, so this story is still unfinished.',go:lab('jz')},
+{d:11,t:'Now it is your turn. Quizzes, matching games and puzzles help you remember every story.',go:function(){cw='mars';cid='pv';cpg=3;show('mars')}},
+{d:12,t:'Seven machines, seven stories. Which one is your favorite? Pick a chapter and start exploring.',go:function(){finale(1)}}];
+var cum=[],tot=0;TS.forEach(function(s){tot+=s.d;cum.push(tot)});var tms=0,tp=0,tc=-1,tt=0,narr=1,tb;var tourAudio=null;
+function tourUI(){tb=el('div','fgt');tb.setAttribute('role','region');tb.setAttribute('aria-label','Guided tour');
+ tb.innerHTML='<p class="fgtc" aria-live="polite"></p><div class="fgp"><i></i></div><div class="fgtr"><span class="fgtn"></span><span><button class="chip" id="fgPrev" aria-label="Previous step">◀</button> <button class="chip" id="fgP">Pause</button> <button class="chip" id="fgS" aria-label="Next step">▶</button> <button class="chip" id="fgV">Voice: on</button> <button class="chip" id="fgE">End tour</button></span></div>';
+ tb.querySelector('#fgP').onclick=function(){tp=!tp;this.textContent=tp?'Play':'Pause';if(tourAudio){if(tp){try{tourAudio.pause()}catch(e){}}else{try{tourAudio.play().catch(function(){})}catch(e){}}}};
+ tb.querySelector('#fgPrev').onclick=function(){if(tc>0){tms=cum[tc-1]+1}else{tms=0}tc=-2;if(tp){tp=0;tb.querySelector('#fgP').textContent='Pause'}};tb.querySelector('#fgS').onclick=function(){tms=cum[Math.max(0,tc)]+1;tc=-2;if(tp){tp=0;tb.querySelector('#fgP').textContent='Pause'}};tb.querySelector('#fgE').onclick=tourStop;
+ tb.querySelector('#fgV').onclick=function(){narr=!narr;this.textContent='Voice: '+(narr?'on':'off');if(!narr&&tourAudio){try{tourAudio.pause();tourAudio.currentTime=0}catch(e){}}};
+ var h=document.querySelector('header.top .xpp');if(h){var b=document.createElement('button');b.className='fgtb';b.textContent='\u25b6 Tour';b.setAttribute('aria-label','Start the 2-minute tour');b.onclick=tourStart;h.appendChild(b)}}
+function say(t){try{if(tourAudio){try{tourAudio.pause();tourAudio.currentTime=0}catch(e){}tourAudio=null}if(!narr)return;var i=-1;for(var j=0;j<TS.length;j++){if(TS[j].t===t){i=j;break}}if(i<0)return;var n=(i+1<10?'0':'')+(i+1);tourAudio=new Audio('audio/tour-'+n+'.mp3');tourAudio.onerror=function(){tourAudio=null};tourAudio.play().catch(function(){})}catch(e){}}
+function tick(){if(tp)return;tms+=250;var i=-1;for(var j=0;j<cum.length;j++){if(tms<cum[j]){i=j;break}}
+ if(i<0){tms=tot;return}tb.querySelector('.fgp i').style.width=(tms/tot*100)+'%';
+ if(i!==tc){tc=i;tb.querySelector('.fgtc').textContent=TS[i].t;tb.querySelector('.fgtn').textContent='Tour '+(i+1)+' of '+TS.length;try{TS[i].go()}catch(e){}say(TS[i].t)}}
+function tourStart(){document.querySelectorAll('.fgo').forEach(function(o){if(o.close)o.close()});tourStop(1);tms=0;tc=-1;tp=0;tb.classList.add('on');tt=setInterval(tick,250)}
+function tourStop(q){clearInterval(tt);tt=0;if(tb)tb.classList.remove('on');if(tourAudio){try{tourAudio.pause();tourAudio.currentTime=0}catch(e){}tourAudio=null}try{if(window.speechSynthesis)speechSynthesis.cancel();if(window.LAB&&LAB.sim&&LAB.sim.on){var b=$('#splay');if(b)b.click()}}catch(e){}}
+window.FG={quest:false,qd:0,fin:0,onPart:onPart,onTab:onTab,afterBook:afterBook,next:next,finale:finale,tour:tourStart};
+function init(){labUI();tourUI();var s=0;try{s=sessionStorage.getItem('fgSeen')}catch(e){}if(!s)intro()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<!-- === FG CINEMATIC INTRO (injected by patch_cinematic.py) === -->
+<div id="fg-cinema" data-fg-cinema role="dialog" aria-label="Welcome to the Galactic Field Guide">
+  <canvas id="fg-cin-canvas"></canvas>
   <div class="fg-cin-text">
-    <div class="fg-cin-line fg-cin-eyebrow" data-fg-step="0">Expedition Archive · Signal 049</div>
+    <div class="fg-cin-line fg-cin-eyebrow" data-fg-step="0">Expedition Archive &middot; Signal Record 049</div>
     <h1 class="fg-cin-line fg-cin-h1" data-fg-step="1">Some explorers never came home.</h1>
     <h2 class="fg-cin-line fg-cin-h2" data-fg-step="2">Here is their story.</h2>
     <p class="fg-cin-line fg-cin-body" data-fg-step="3">Across the quiet vacuum between worlds, lost beacons still pulse their final coordinates into the perpetual dark. Seven machines. Seven unfinished stories. Waiting for you to find them.</p>
@@ -2690,175 +3644,633 @@ pv:'data:image/jpeg;base64,'+
 'use strict';
 var root = document.getElementById('fg-cinema');
 if (!root) return;
-var KEY='fgCinema';
-var q = location.search || '';
-var forceOn = /[?&]cinema=1(?:&|$)/.test(q);
-var forceOff = /[?&]cinema=0(?:&|$)/.test(q);
+
+// -- Session + query flag handling ---------------------------------
+var SKIP_KEY = 'fgCinema';
+var search   = location.search || '';
+var forceOn  = /[?&]cinema=1(?:&|$)/.test(search);
+var forceOff = /[?&]cinema=0(?:&|$)/.test(search);
+
 try {
-  if (forceOff || (sessionStorage.getItem(KEY)==='1' && !forceOn)) {
-    if (root.parentNode) root.parentNode.removeChild(root); return;
+  if (forceOff || (sessionStorage.getItem(SKIP_KEY) === '1' && !forceOn)) {
+    if (root.parentNode) root.parentNode.removeChild(root);
+    return;
   }
-} catch(e){}
-document.querySelectorAll('.gfp-intro,.fgo').forEach(function(el){
-  if (el !== root && el.parentNode) el.parentNode.removeChild(el);
-});
-try { sessionStorage.setItem('gfp','1'); sessionStorage.setItem('fgSeen','1'); } catch(e){}
-var cv=document.getElementById('fgc-cv');
-var beginBtn=document.getElementById('fg-cin-begin');
-var skipBtn=document.getElementById('fg-cin-skip');
-var lines=root.querySelectorAll('.fg-cin-line');
-var reduced=!!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
-var done=false;
-function dismiss(anim){
-  if (done) return; done=true;
-  try { sessionStorage.setItem(KEY,'1'); sessionStorage.setItem('gfp','1'); sessionStorage.setItem('fgSeen','1'); } catch(e){}
-  if (!anim || reduced) { if (root.parentNode) root.parentNode.removeChild(root); return; }
+} catch (e) {}
+
+// -- Suppress any legacy intros so they don't stack ----------------
+function killLegacyIntros(){
+  try {
+    var old = document.querySelectorAll('.gfp-intro, .fgo:not(#fg-cinema)');
+    for (var i = 0; i < old.length; i++) {
+      if (old[i].parentNode) old[i].parentNode.removeChild(old[i]);
+    }
+  } catch (e) {}
+}
+killLegacyIntros();
+// Also mark session so patch.py / field-guide-plus.js skip their intros
+try {
+  sessionStorage.setItem('gfp', '1');
+  sessionStorage.setItem('fgSeen', '1');
+} catch (e) {}
+
+var canvas   = document.getElementById('fg-cin-canvas');
+var beginBtn = document.getElementById('fg-cin-begin');
+var skipBtn  = document.getElementById('fg-cin-skip');
+var steps    = root.querySelectorAll('.fg-cin-line');
+var reduced  = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+var dismissed = false;
+
+// -- Dismiss handler ----------------------------------------------
+function dismiss(animate){
+  if (dismissed) return;
+  dismissed = true;
+  try {
+    sessionStorage.setItem(SKIP_KEY, '1');
+    sessionStorage.setItem('gfp', '1');
+    sessionStorage.setItem('fgSeen', '1');
+  } catch (e) {}
+  try { if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) {}
+  var wait = animate && !reduced ? 1600 : 800;
+  if (!animate || reduced) {
+    if (root.parentNode) root.parentNode.removeChild(root);
+    return;
+  }
   root.classList.add('fg-out');
-  setTimeout(function(){ if (root.parentNode) root.parentNode.removeChild(root); }, 1600);
+  setTimeout(function(){ if (root.parentNode) root.parentNode.removeChild(root); }, wait);
 }
-beginBtn.onclick=function(){ dismiss(true); };
-skipBtn.onclick=function(){ dismiss(false); };
-document.addEventListener('keydown',function(e){ if(e.key==='Escape') dismiss(false); });
-var sched=[800,1800,2800,3800,5000];
-lines.forEach(function(el){
-  var idx=parseInt(el.getAttribute('data-fg-step')||'0',10)||0;
-  if (reduced) { el.classList.add('on'); return; }
-  setTimeout(function(){ el.classList.add('on'); }, sched[idx]||0);
-});
-try { var bz=parseFloat(getComputedStyle(document.body).zoom); if(bz&&bz!==1) root.style.zoom=String(1/bz); } catch(e){}
-var gl = cv.getContext('webgl',{alpha:true,antialias:true}) || cv.getContext('experimental-webgl');
-function fallback(){ root.style.background='radial-gradient(circle at 50% 30%, #1a2740, #05080f 70%)'; }
-if (reduced || !gl) { fallback(); return; }
+
+if (beginBtn) beginBtn.onclick = function(){ dismiss(true); };
+if (skipBtn)  skipBtn.onclick  = function(){ dismiss(false); };
+addEventListener('keydown', function(e){ if (e.key === 'Escape') dismiss(false); });
+
+// -- Text reveal schedule (ms from start) --------------------------
+var schedule = [800, 1800, 2800, 3800, 5000];
+if (reduced) {
+  for (var i = 0; i < steps.length; i++) steps[i].classList.add('on');
+} else {
+  for (var j = 0; j < steps.length; j++) {
+    (function(el){
+      var idx = parseInt(el.getAttribute('data-fg-step') || '0', 10) || 0;
+      setTimeout(function(){ el.classList.add('on'); }, schedule[idx] || 0);
+    })(steps[j]);
+  }
+}
+
+// -- Compensate for parent zoom (desktop index.html uses zoom) -----
+try {
+  var bz = parseFloat(getComputedStyle(document.body).zoom);
+  if (bz && bz !== 1) root.style.zoom = String(1 / bz);
+} catch (e) {}
+
+// -- Fallback if reduced-motion / no WebGL -------------------------
+var FALLBACK_BG = 'radial-gradient(circle at 50% 30%, #1a2740 0%, #0a1526 45%, #05080f 75%)';
+function useFallback(){ root.style.background = FALLBACK_BG; }
+if (reduced || !canvas) { useFallback(); return; }
+
+// -- WebGL setup ---------------------------------------------------
+var gl = canvas.getContext('webgl', {alpha:true, antialias:true, premultipliedAlpha:true})
+      || canvas.getContext('experimental-webgl', {alpha:true, antialias:true});
+if (!gl) { useFallback(); return; }
+
 function syncSize(){
-  var dpr=Math.min(window.devicePixelRatio||1,2);
-  var w=(cv.clientWidth||innerWidth)*dpr, h=(cv.clientHeight||innerHeight)*dpr;
-  if (cv.width!==w || cv.height!==h) { cv.width=w; cv.height=h; gl.viewport(0,0,w,h); }
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var w = Math.floor((canvas.clientWidth  || innerWidth)  * dpr);
+  var h = Math.floor((canvas.clientHeight || innerHeight) * dpr);
+  if (canvas.width !== w || canvas.height !== h) {
+    canvas.width = w; canvas.height = h;
+    if (gl) gl.viewport(0, 0, w, h);
+  }
 }
-if (window.ResizeObserver) new ResizeObserver(syncSize).observe(cv);
+if (window.ResizeObserver) new ResizeObserver(syncSize).observe(canvas);
 addEventListener('resize', syncSize);
 syncSize();
-var VS='attribute vec2 a;varying vec2 v;void main(){v=a*0.5+0.5;gl_Position=vec4(a,0.,1.);}';
-var FS=['precision highp float;','uniform float t;uniform vec2 res;','float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}','float stars(vec2 uv,float sc,float th,float sp){vec2 p=uv*sc;vec2 ip=floor(p);vec2 fp=fract(p)-0.5;float h=hash(ip);if(h<th)return 0.0;float tw=sin(t*sp+h*6.2831)*0.5+0.5;float s=(h-th)/(1.0-th);float d=length(fp);return smoothstep(0.14*s,0.0,d)*tw;}','void main(){vec2 uv=(gl_FragCoord.xy-0.5*res.xy)/min(res.x,res.y);vec3 col=vec3(0.012,0.020,0.038);float neb=sin(uv.x*2.4+t*0.045)*cos(uv.y*2.0-t*0.03);neb=smoothstep(-0.6,0.85,neb)*0.06;col+=vec3(0.05,0.09,0.17)*neb;float st=0.0;st+=stars(uv,36.0,0.92,1.6)*0.85;st+=stars(uv+vec2(0.3,0.7),66.0,0.95,2.3)*0.62;st+=stars(uv+vec2(0.8,0.2),115.0,0.97,3.1)*0.40;col+=vec3(st*0.85,st*0.92,st*1.0);vec2 mp=vec2(0.0,0.20);float R=0.26;vec2 md=uv-mp;float mdist=length(md);float appear=smoothstep(0.2,3.0,t);if(mdist<R+0.01){vec2 muv=md/R;float z=sqrt(max(0.0,1.0-dot(muv,muv)));vec3 n=normalize(vec3(muv.x,muv.y,z));vec3 L=normalize(vec3(0.62,0.58,0.52));float diff=max(0.0,dot(n,L));float n1=hash(floor((muv+1.0)*13.0));float n2=hash(floor((muv+1.0)*39.0));float cr=mix(0.72,1.06,n1*0.65+n2*0.35);vec3 alb=vec3(0.84,0.88,0.94)*cr;vec3 es=vec3(0.02,0.035,0.07);float term=smoothstep(-0.06,0.24,diff);vec3 lit=alb*term*(diff*1.15+0.1)+es*(1.0-term);float edge=smoothstep(R,R-0.006,mdist);col=mix(col,lit,edge*appear);}float halo=smoothstep(R+0.42,R,mdist);halo=pow(halo,2.2)*0.45*appear;col+=vec3(0.35,0.5,0.75)*halo;float vig=1.0-smoothstep(0.5,1.55,length(uv));col*=vig;gl_FragColor=vec4(col,1.0);}'].join('\n');
-function mk(type, src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
-var prog=gl.createProgram();
-gl.attachShader(prog,mk(gl.VERTEX_SHADER,VS));
-gl.attachShader(prog,mk(gl.FRAGMENT_SHADER,FS));
+
+var VS = [
+'attribute vec2 a;',
+'varying vec2 v;',
+'void main(){ v = a*0.5 + 0.5; gl_Position = vec4(a, 0.0, 1.0); }'
+].join('\n');
+
+var FS = [
+'precision highp float;',
+'uniform float t;',
+'uniform vec2 res;',
+'',
+'float hash(vec2 p){ p = fract(p*vec2(123.34, 456.21)); p += dot(p, p+45.32); return fract(p.x*p.y); }',
+'',
+'float stars(vec2 uv, float scale, float thr, float spd){',
+'  vec2 p = uv*scale; vec2 ip = floor(p); vec2 fp = fract(p)-0.5;',
+'  float h = hash(ip); if(h < thr) return 0.0;',
+'  float tw = sin(t*spd + h*6.2831)*0.5 + 0.5;',
+'  float s = (h-thr)/(1.0-thr);',
+'  float d = length(fp);',
+'  float b = smoothstep(0.14*s, 0.0, d) * tw;',
+'  if (h > 0.98) {',
+'    float fl = max(0.0, 1.0-abs(fp.x)*20.0)*max(0.0, 1.0-abs(fp.y)*1.6)',
+'             + max(0.0, 1.0-abs(fp.y)*20.0)*max(0.0, 1.0-abs(fp.x)*1.6);',
+'    b += fl * tw * 0.35;',
+'  }',
+'  return b;',
+'}',
+'',
+'void main(){',
+'  vec2 uv = (gl_FragCoord.xy - 0.5*res.xy) / min(res.x, res.y);',
+'',
+'  vec3 col = vec3(0.012, 0.020, 0.038);',
+'',
+'  float neb = sin(uv.x*2.4 + t*0.045) * cos(uv.y*2.0 - t*0.03);',
+'  neb = smoothstep(-0.6, 0.85, neb) * 0.06;',
+'  col += vec3(0.05, 0.09, 0.17) * neb;',
+'',
+'  float st = 0.0;',
+'  st += stars(uv,              36.0, 0.92, 1.6) * 0.85;',
+'  st += stars(uv+vec2(0.3,0.7),66.0, 0.95, 2.3) * 0.62;',
+'  st += stars(uv+vec2(0.8,0.2),115.0,0.97, 3.1) * 0.40;',
+'  col += vec3(st*0.85, st*0.92, st*1.0);',
+'',
+'  // -- Moon: upper-middle, fades in over first 3 seconds --',
+'  vec2 moonPos = vec2(0.0, 0.20);',
+'  float R = 0.26;',
+'  vec2  md = uv - moonPos;',
+'  float mdist = length(md);',
+'  float appear = smoothstep(0.2, 3.0, t);',
+'',
+'  if (mdist < R + 0.01) {',
+'    vec2  muv = md / R;',
+'    float z = sqrt(max(0.0, 1.0 - dot(muv, muv)));',
+'    vec3  n = normalize(vec3(muv.x, muv.y, z));',
+'    vec3  L = normalize(vec3(0.62, 0.58, 0.52));',
+'    float diff = max(0.0, dot(n, L));',
+'',
+'    float n1 = hash(floor((muv+1.0)*13.0));',
+'    float n2 = hash(floor((muv+1.0)*39.0));',
+'    float cr = mix(0.72, 1.06, n1*0.65 + n2*0.35);',
+'',
+'    vec3 alb = vec3(0.84, 0.88, 0.94) * cr;',
+'    vec3 earthshine = vec3(0.02, 0.035, 0.07);',
+'    float term = smoothstep(-0.06, 0.24, diff);',
+'    vec3 lit = alb*term*(diff*1.15 + 0.1) + earthshine*(1.0 - term);',
+'',
+'    float edge = smoothstep(R, R-0.006, mdist);',
+'    col = mix(col, lit, edge * appear);',
+'  }',
+'',
+'  float halo = smoothstep(R+0.42, R, mdist);',
+'  halo = pow(halo, 2.2) * 0.45 * appear;',
+'  col += vec3(0.35, 0.5, 0.75) * halo;',
+'',
+'  float vig = 1.0 - smoothstep(0.5, 1.55, length(uv));',
+'  col *= vig;',
+'',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+function compile(type, src){
+  var s = gl.createShader(type);
+  gl.shaderSource(s, src); gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+    console.warn('[fg-cinema] shader compile error:', gl.getShaderInfoLog(s));
+    return null;
+  }
+  return s;
+}
+var vsS = compile(gl.VERTEX_SHADER, VS);
+var fsS = compile(gl.FRAGMENT_SHADER, FS);
+if (!vsS || !fsS) { useFallback(); return; }
+
+var prog = gl.createProgram();
+gl.attachShader(prog, vsS);
+gl.attachShader(prog, fsS);
 gl.linkProgram(prog);
-if (!gl.getProgramParameter(prog,gl.LINK_STATUS)) { fallback(); return; }
+if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+  console.warn('[fg-cinema] program link error:', gl.getProgramInfoLog(prog));
+  useFallback(); return;
+}
 gl.useProgram(prog);
-var buf=gl.createBuffer();
-gl.bindBuffer(gl.ARRAY_BUFFER,buf);
-gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
-var loc=gl.getAttribLocation(prog,'a');
+
+var buf = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+var loc = gl.getAttribLocation(prog, 'a');
 gl.enableVertexAttribArray(loc);
-gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-var uT=gl.getUniformLocation(prog,'t');
-var uR=gl.getUniformLocation(prog,'res');
-var t0=performance.now();
-(function frame(){
-  if (!root.isConnected) return;
-  var sec=(performance.now()-t0)/1000;
-  gl.viewport(0,0,cv.width,cv.height);
-  if (uT) gl.uniform1f(uT,sec);
-  if (uR) gl.uniform2f(uR,cv.width,cv.height);
-  gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+var uT = gl.getUniformLocation(prog, 't');
+var uR = gl.getUniformLocation(prog, 'res');
+
+var start = performance.now();
+var stopped = false;
+
+function frame(){
+  if (stopped) return;
+  if (!root.isConnected) { stopped = true; return; }
+  var sec = (performance.now() - start) / 1000;
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  if (uT) gl.uniform1f(uT, sec);
+  if (uR) gl.uniform2f(uR, canvas.width, canvas.height);
+  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   requestAnimationFrame(frame);
-})();
+}
+frame();
 })();
 </script>
-<!-- CINEMATIC INTRO -->
-<div id="fg-cinema" data-fg-cinema role="dialog" aria-label="Welcome">
-  <canvas id="fgc-cv"></canvas>
-  <div class="fg-cin-text">
-    <div class="fg-cin-line fg-cin-eyebrow" data-fg-step="0">Expedition Archive · Signal 049</div>
-    <h1 class="fg-cin-line fg-cin-h1" data-fg-step="1">Some explorers never came home.</h1>
-    <h2 class="fg-cin-line fg-cin-h2" data-fg-step="2">Here is their story.</h2>
-    <p class="fg-cin-line fg-cin-body" data-fg-step="3">Across the quiet vacuum between worlds, lost beacons still pulse their final coordinates into the perpetual dark. Seven machines. Seven unfinished stories. Waiting for you to find them.</p>
-    <div class="fg-cin-actions fg-cin-line" data-fg-step="4">
-      <button class="fg-cin-begin" id="fg-cin-begin" type="button">Begin the mission</button>
-      <button class="fg-cin-skip" id="fg-cin-skip" type="button">Skip intro</button>
-    </div>
-  </div>
-</div>
+<!-- === /FG CINEMATIC INTRO BODY === -->
+
+<!-- === FG FUN SCRIPT === -->
 <script>
 (function(){
 'use strict';
-var root = document.getElementById('fg-cinema');
-if (!root) return;
-var KEY='fgCinema';
-var q = location.search || '';
-var forceOn = /[?&]cinema=1(?:&|$)/.test(q);
-var forceOff = /[?&]cinema=0(?:&|$)/.test(q);
-try {
-  if (forceOff || (sessionStorage.getItem(KEY)==='1' && !forceOn)) {
-    if (root.parentNode) root.parentNode.removeChild(root); return;
+
+// =================== SOUND ENGINE ===================
+var Sound = {
+  on: true,
+  ctx: null,
+  _init: function () {
+    if (this.ctx) return;
+    try { this.ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}
+  },
+  play: function (freq, dur, type, vol) {
+    if (!this.on) return;
+    this._init();
+    if (!this.ctx) return;
+    try {
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      var o = this.ctx.createOscillator();
+      var g = this.ctx.createGain();
+      o.type = type || 'sine';
+      o.frequency.value = freq;
+      o.connect(g);
+      g.connect(this.ctx.destination);
+      g.gain.setValueAtTime(vol || 0.06, this.ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + dur);
+      o.start();
+      o.stop(this.ctx.currentTime + dur);
+    } catch (e) {}
+  },
+  tap: function () { this.play(520, 0.05, 'triangle', 0.04); },
+  success: function () {
+    var self = this;
+    this.play(523, 0.12, 'sine', 0.08);
+    setTimeout(function () { self.play(659, 0.12, 'sine', 0.08); }, 90);
+    setTimeout(function () { self.play(784, 0.2, 'sine', 0.1); }, 180);
+  },
+  wrong: function () { this.play(180, 0.18, 'sawtooth', 0.05); },
+  fanfare: function () {
+    var self = this;
+    [523, 659, 784, 1047].forEach(function (n, i) {
+      setTimeout(function () { self.play(n, 0.25, 'sine', 0.08); }, i * 120);
+    });
   }
-} catch(e){}
-document.querySelectorAll('.gfp-intro,.fgo').forEach(function(el){
-  if (el !== root && el.parentNode) el.parentNode.removeChild(el);
-});
-try { sessionStorage.setItem('gfp','1'); sessionStorage.setItem('fgSeen','1'); } catch(e){}
-var cv=document.getElementById('fgc-cv');
-var beginBtn=document.getElementById('fg-cin-begin');
-var skipBtn=document.getElementById('fg-cin-skip');
-var lines=root.querySelectorAll('.fg-cin-line');
-var reduced=!!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
-var done=false;
-function dismiss(anim){
-  if (done) return; done=true;
-  try { sessionStorage.setItem(KEY,'1'); sessionStorage.setItem('gfp','1'); sessionStorage.setItem('fgSeen','1'); } catch(e){}
-  if (!anim || reduced) { if (root.parentNode) root.parentNode.removeChild(root); return; }
-  root.classList.add('fg-out');
-  setTimeout(function(){ if (root.parentNode) root.parentNode.removeChild(root); }, 1600);
+};
+
+// =================== CONFETTI ===================
+var CF = {
+  canvas: null, ctx: null, parts: [], raf: null,
+  init: function () {
+    if (this.canvas) return;
+    var c = document.createElement('canvas');
+    c.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9998';
+    c.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(c);
+    this.canvas = c;
+    this.ctx = c.getContext('2d');
+    this.resize();
+    window.addEventListener('resize', this.resize.bind(this));
+  },
+  resize: function () {
+    if (!this.canvas) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    this.canvas.width = innerWidth * dpr;
+    this.canvas.height = innerHeight * dpr;
+    this.canvas.style.width = innerWidth + 'px';
+    this.canvas.style.height = innerHeight + 'px';
+    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  },
+  burst: function (x, y, count) {
+    try {
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    } catch (e) {}
+    this.init();
+    count = count || 40;
+    x = x || innerWidth / 2;
+    y = y || innerHeight / 2;
+    var colors = ['#d96a3f', '#f0a577', '#3b6ea8', '#5a8a63', '#e8b04a', '#ff5c7a', '#ffd166'];
+    for (var i = 0; i < count; i++) {
+      var a = Math.random() * Math.PI * 2;
+      var s = 4 + Math.random() * 6;
+      this.parts.push({
+        x: x, y: y,
+        vx: Math.cos(a) * (2 + Math.random() * 6),
+        vy: Math.sin(a) * (2 + Math.random() * 6) - 3,
+        size: s,
+        color: colors[i % colors.length],
+        rot: Math.random() * Math.PI * 2,
+        vr: (Math.random() - 0.5) * 0.3,
+        life: 1
+      });
+    }
+    if (!this.raf) this.loop();
+  },
+  loop: function () {
+    var self = CF;
+    self.ctx.clearRect(0, 0, innerWidth, innerHeight);
+    for (var i = self.parts.length - 1; i >= 0; i--) {
+      var p = self.parts[i];
+      p.vy += 0.25;
+      p.vx *= 0.99;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vr;
+      p.life -= 0.012;
+      if (p.life <= 0 || p.y > innerHeight + 40) {
+        self.parts.splice(i, 1);
+        continue;
+      }
+      self.ctx.save();
+      self.ctx.translate(p.x, p.y);
+      self.ctx.rotate(p.rot);
+      self.ctx.globalAlpha = Math.max(0, p.life);
+      self.ctx.fillStyle = p.color;
+      self.ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+      self.ctx.restore();
+    }
+    if (self.parts.length) {
+      self.raf = requestAnimationFrame(self.loop);
+    } else {
+      self.raf = null;
+    }
+  }
+};
+
+// =================== BADGES ===================
+var BADGES = [
+  { id: 'rookie',   xp: 20,  emoji: '🚀', name: 'Space Cadet',      blurb: 'You started your journey! Every astronaut begins here.' },
+  { id: 'explorer', xp: 60,  emoji: '🔭', name: 'Explorer',          blurb: 'You are finding your way through the stars.' },
+  { id: 'pilot',    xp: 120, emoji: '🛸', name: 'Test Pilot',        blurb: 'You have earned your wings.' },
+  { id: 'commander',xp: 200, emoji: '⭐', name: 'Mission Commander', blurb: 'Nothing can stop you now.' },
+  { id: 'legend',   xp: 350, emoji: '🌟', name: 'Space Legend',      blurb: 'You know every story by heart.' }
+];
+var BadgeState = { earned: [] };
+try {
+  var saved = localStorage.getItem('fgBadges');
+  if (saved) BadgeState.earned = JSON.parse(saved);
+} catch (e) {}
+
+function saveBadges() {
+  try { localStorage.setItem('fgBadges', JSON.stringify(BadgeState.earned)); } catch (e) {}
 }
-beginBtn.onclick=function(){ dismiss(true); };
-skipBtn.onclick=function(){ dismiss(false); };
-document.addEventListener('keydown',function(e){ if(e.key==='Escape') dismiss(false); });
-var sched=[800,1800,2800,3800,5000];
-lines.forEach(function(el){
-  var idx=parseInt(el.getAttribute('data-fg-step')||'0',10)||0;
-  if (reduced) { el.classList.add('on'); return; }
-  setTimeout(function(){ el.classList.add('on'); }, sched[idx]||0);
-});
-try { var bz=parseFloat(getComputedStyle(document.body).zoom); if(bz&&bz!==1) root.style.zoom=String(1/bz); } catch(e){}
-var gl = cv.getContext('webgl',{alpha:true,antialias:true}) || cv.getContext('experimental-webgl');
-function fallback(){ root.style.background='radial-gradient(circle at 50% 30%, #1a2740, #05080f 70%)'; }
-if (reduced || !gl) { fallback(); return; }
-function syncSize(){
-  var dpr=Math.min(window.devicePixelRatio||1,2);
-  var w=(cv.clientWidth||innerWidth)*dpr, h=(cv.clientHeight||innerHeight)*dpr;
-  if (cv.width!==w || cv.height!==h) { cv.width=w; cv.height=h; gl.viewport(0,0,w,h); }
+
+function getCurrentXP() {
+  var el = document.getElementById('xp');
+  return el ? (parseInt(el.textContent, 10) || 0) : 0;
 }
-if (window.ResizeObserver) new ResizeObserver(syncSize).observe(cv);
-addEventListener('resize', syncSize);
-syncSize();
-var VS='attribute vec2 a;varying vec2 v;void main(){v=a*0.5+0.5;gl_Position=vec4(a,0.,1.);}';
-var FS=['precision highp float;','uniform float t;uniform vec2 res;','float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}','float stars(vec2 uv,float sc,float th,float sp){vec2 p=uv*sc;vec2 ip=floor(p);vec2 fp=fract(p)-0.5;float h=hash(ip);if(h<th)return 0.0;float tw=sin(t*sp+h*6.2831)*0.5+0.5;float s=(h-th)/(1.0-th);float d=length(fp);return smoothstep(0.14*s,0.0,d)*tw;}','void main(){vec2 uv=(gl_FragCoord.xy-0.5*res.xy)/min(res.x,res.y);vec3 col=vec3(0.012,0.020,0.038);float neb=sin(uv.x*2.4+t*0.045)*cos(uv.y*2.0-t*0.03);neb=smoothstep(-0.6,0.85,neb)*0.06;col+=vec3(0.05,0.09,0.17)*neb;float st=0.0;st+=stars(uv,36.0,0.92,1.6)*0.85;st+=stars(uv+vec2(0.3,0.7),66.0,0.95,2.3)*0.62;st+=stars(uv+vec2(0.8,0.2),115.0,0.97,3.1)*0.40;col+=vec3(st*0.85,st*0.92,st*1.0);vec2 mp=vec2(0.0,0.20);float R=0.26;vec2 md=uv-mp;float mdist=length(md);float appear=smoothstep(0.2,3.0,t);if(mdist<R+0.01){vec2 muv=md/R;float z=sqrt(max(0.0,1.0-dot(muv,muv)));vec3 n=normalize(vec3(muv.x,muv.y,z));vec3 L=normalize(vec3(0.62,0.58,0.52));float diff=max(0.0,dot(n,L));float n1=hash(floor((muv+1.0)*13.0));float n2=hash(floor((muv+1.0)*39.0));float cr=mix(0.72,1.06,n1*0.65+n2*0.35);vec3 alb=vec3(0.84,0.88,0.94)*cr;vec3 es=vec3(0.02,0.035,0.07);float term=smoothstep(-0.06,0.24,diff);vec3 lit=alb*term*(diff*1.15+0.1)+es*(1.0-term);float edge=smoothstep(R,R-0.006,mdist);col=mix(col,lit,edge*appear);}float halo=smoothstep(R+0.42,R,mdist);halo=pow(halo,2.2)*0.45*appear;col+=vec3(0.35,0.5,0.75)*halo;float vig=1.0-smoothstep(0.5,1.55,length(uv));col*=vig;gl_FragColor=vec4(col,1.0);}'].join('\n');
-function mk(type, src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
-var prog=gl.createProgram();
-gl.attachShader(prog,mk(gl.VERTEX_SHADER,VS));
-gl.attachShader(prog,mk(gl.FRAGMENT_SHADER,FS));
-gl.linkProgram(prog);
-if (!gl.getProgramParameter(prog,gl.LINK_STATUS)) { fallback(); return; }
-gl.useProgram(prog);
-var buf=gl.createBuffer();
-gl.bindBuffer(gl.ARRAY_BUFFER,buf);
-gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
-var loc=gl.getAttribLocation(prog,'a');
-gl.enableVertexAttribArray(loc);
-gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-var uT=gl.getUniformLocation(prog,'t');
-var uR=gl.getUniformLocation(prog,'res');
-var t0=performance.now();
-(function frame(){
-  if (!root.isConnected) return;
-  var sec=(performance.now()-t0)/1000;
-  gl.viewport(0,0,cv.width,cv.height);
-  if (uT) gl.uniform1f(uT,sec);
-  if (uR) gl.uniform2f(uR,cv.width,cv.height);
-  gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
-  requestAnimationFrame(frame);
+
+function checkBadges() {
+  var cur = getCurrentXP();
+  BADGES.forEach(function (b) {
+    if (cur >= b.xp && BadgeState.earned.indexOf(b.id) < 0) {
+      BadgeState.earned.push(b.id);
+      saveBadges();
+      showBadgePopup(b);
+    }
+  });
+}
+
+function showBadgePopup(badge) {
+  CF.burst(innerWidth / 2, innerHeight * 0.35, 70);
+  Sound.fanfare();
+  var pop = document.createElement('div');
+  pop.className = 'fg-badge-pop';
+  pop.setAttribute('role', 'dialog');
+  pop.setAttribute('aria-label', 'New badge: ' + badge.name);
+  pop.innerHTML = '<div class="fg-badge-card">' +
+    '<div class="fg-badge-emoji">' + badge.emoji + '</div>' +
+    '<div class="fg-badge-eyebrow">Badge earned</div>' +
+    '<div class="fg-badge-name">' + badge.name + '</div>' +
+    '<div class="fg-badge-blurb">' + badge.blurb + '</div>' +
+    '<button class="fg-badge-btn" type="button">Awesome!</button>' +
+    '</div>';
+  document.body.appendChild(pop);
+  var close = function () { if (pop.parentNode) pop.remove(); };
+  pop.querySelector('button').onclick = close;
+  pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
+  setTimeout(function () { if (pop.parentNode) close(); }, 7000);
+}
+
+// =================== TOAST ===================
+function showToast(text) {
+  var t = document.createElement('div');
+  t.className = 'fg-toast';
+  t.textContent = text;
+  document.body.appendChild(t);
+  setTimeout(function () { t.style.transition = 'opacity .4s'; t.style.opacity = '0'; }, 3500);
+  setTimeout(function () { if (t.parentNode) t.remove(); }, 4000);
+}
+
+// =================== MASCOT ===================
+var Mascot = {
+  el: null, bubble: null, tipIdx: 0, hideTimer: null,
+  tips: [
+    "Psst! Try the 3D Lab — you can spin the machines around with your finger!",
+    "Did you know? The Moon buggy could fold up like a suitcase!",
+    "Every relic has THREE pages. Don't miss the end!",
+    "Tap any part in the 3D Lab to hear its secret.",
+    "The story tour is only 2 minutes. Want a quick adventure?",
+    "Ingenuity was built for 5 flights. It flew 72!",
+    "Try the quiz — but read carefully, some answers are tricky!",
+    "The radar map has 7 markers. Can you find them all?",
+    "Fun fact: Moon dust smells like gunpowder. Astronauts said so!",
+    "The samples on Mars are waiting for a ride home. Want to help?",
+    "Apollo 12 landed right next to an old robot friend. Surprise visit!",
+    "Perseverance has microphones. You can HEAR Mars on NASA's site!",
+    "Sometimes the best explorers never come home — they stay to teach us.",
+    "Click me again for another tip!"
+  ],
+  init: function () {
+    if (this.el) return;
+    var m = document.createElement('button');
+    m.className = 'fg-mascot';
+    m.setAttribute('aria-label', 'Cosmo the guide: tap for a fun tip');
+    m.setAttribute('type', 'button');
+    m.innerHTML = '🤖';
+    m.onclick = function () { Mascot.nextTip(); };
+    document.body.appendChild(m);
+    this.el = m;
+    var b = document.createElement('div');
+    b.className = 'fg-mascot-bubble';
+    b.setAttribute('role', 'status');
+    b.setAttribute('aria-live', 'polite');
+    document.body.appendChild(b);
+    this.bubble = b;
+    setTimeout(function () { if (!Mascot.everShown) Mascot.nextTip(); }, 5000);
+  },
+  nextTip: function () {
+    this.everShown = true;
+    var tip = this.tips[this.tipIdx % this.tips.length];
+    this.tipIdx++;
+    this.bubble.textContent = tip;
+    this.bubble.classList.add('on');
+    Sound.tap();
+    clearTimeout(this.hideTimer);
+    this.hideTimer = setTimeout(function () {
+      Mascot.bubble.classList.remove('on');
+    }, 5500);
+  }
+};
+
+// =================== SOUND TOGGLE ===================
+function addSoundToggle() {
+  var h = document.querySelector('header.top');
+  if (!h || document.getElementById('fgSoundToggle')) return;
+  var b = document.createElement('button');
+  b.id = 'fgSoundToggle';
+  b.className = 'fg-sound';
+  b.setAttribute('type', 'button');
+  b.setAttribute('aria-label', 'Toggle sound effects');
+  b.setAttribute('aria-pressed', 'true');
+  b.textContent = '🔊';
+  b.onclick = function () {
+    Sound.on = !Sound.on;
+    b.textContent = Sound.on ? '🔊' : '🔇';
+    b.setAttribute('aria-pressed', String(Sound.on));
+    if (Sound.on) Sound.tap();
+  };
+  var xpp = h.querySelector('.xpp');
+  if (xpp) h.insertBefore(b, xpp);
+  else h.appendChild(b);
+}
+
+// =================== HOOK addXP ===================
+(function hookXP() {
+  if (typeof window.addXP !== 'function') {
+    setTimeout(hookXP, 200);
+    return;
+  }
+  if (window.addXP.__fgWrapped) return;
+  var orig = window.addXP;
+  var wrapped = function (n, e) {
+    var result = orig.apply(this, arguments);
+    try {
+      var x = innerWidth / 2, y = innerHeight / 2;
+      if (e && e.getBoundingClientRect) {
+        var r = e.getBoundingClientRect();
+        x = r.left + r.width / 2;
+        y = r.top + r.height / 2;
+      }
+      if (n >= 15) {
+        CF.burst(x, y, Math.min(20 + n, 60));
+        Sound.success();
+      } else if (n >= 5) {
+        Sound.tap();
+      }
+    } catch (err) {}
+    setTimeout(checkBadges, 100);
+    return result;
+  };
+  wrapped.__fgWrapped = true;
+  window.addXP = wrapped;
 })();
+
+// =================== WRONG-ANSWER SOUND ===================
+try {
+  new MutationObserver(function (muts) {
+    for (var i = 0; i < muts.length; i++) {
+      var m = muts[i];
+      if (m.type === 'attributes' && m.attributeName === 'class') {
+        var el = m.target;
+        if (el.classList && el.classList.contains('opt')) {
+          if (el.classList.contains('wrong') && !el.__fgW) {
+            el.__fgW = true;
+            Sound.wrong();
+          }
+        }
+      }
+    }
+  }).observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
+} catch (e) {}
+
+// =================== TAP SOUND ===================
+document.addEventListener('pointerdown', function (e) {
+  var t = e.target && e.target.closest ? e.target.closest('.btn, .chip, .st, .feat, .pk, .opt, .nv') : null;
+  if (t) Sound.tap();
+}, { passive: true });
+
+// =================== RANDOM FUN FACT BUTTON ===================
+function addRandomFact() {
+  var info = document.querySelector('#bk .info');
+  if (!info || info.querySelector('.fg-random-fact')) return;
+  var btn = document.createElement('button');
+  btn.className = 'fg-random-fact';
+  btn.type = 'button';
+  btn.textContent = '🎲 Random fun fact';
+  btn.onclick = function () {
+    try {
+      var c = window.CR && typeof cid !== 'undefined' ? CR.find(function (x) { return x.id === cid; }) : null;
+      if (!c || !c.ff || !c.ff.length) return;
+      var fact = c.ff[Math.floor(Math.random() * c.ff.length)];
+      showToast(fact);
+      Sound.tap();
+      CF.burst(innerWidth / 2, innerHeight * 0.75, 12);
+    } catch (err) {}
+  };
+  info.appendChild(btn);
+}
+
+function watchRelicPage() {
+  var bk = document.getElementById('bk');
+  if (!bk) { setTimeout(watchRelicPage, 300); return; }
+  var timer = null;
+  try {
+    new MutationObserver(function () {
+      clearTimeout(timer);
+      timer = setTimeout(addRandomFact, 120);
+    }).observe(bk, { childList: true, subtree: true });
+  } catch (e) {}
+  addRandomFact();
+}
+
+// =================== EASTER EGG ===================
+(function easterEgg() {
+  var brand = document.querySelector('.brand');
+  if (!brand) return;
+  var clicks = 0, last = 0;
+  brand.addEventListener('click', function () {
+    var now = Date.now();
+    if (now - last > 800) clicks = 0;
+    last = now;
+    clicks++;
+    if (clicks >= 5) {
+      clicks = 0;
+      CF.burst(innerWidth / 2, innerHeight / 2, 120);
+      Sound.fanfare();
+      var names = ['Commander', 'Explorer', 'Star Captain', 'Cosmic Cadet', 'Space Scout'];
+      var name = names[Math.floor(Math.random() * names.length)];
+      showToast('🚀 Secret unlocked! You are an honorary ' + name + '!');
+    }
+  });
+})();
+
+// =================== INIT ===================
+function init() {
+  CF.init();
+  Mascot.init();
+  addSoundToggle();
+  watchRelicPage();
+  setTimeout(checkBadges, 600);
+  console.log('[FG Fun] loaded');
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+// Expose for debugging
+window.FGFun = { Sound: Sound, CF: CF, Mascot: Mascot, BADGES: BADGES };
 })();
 </script>
+<!-- === /FG FUN SCRIPT === -->
 </body></html>
