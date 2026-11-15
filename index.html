@@ -3607,19 +3607,19 @@ var TS=[{d:10,t:'Welcome to the Galactic Field Guide. Robots and rovers have lef
 {d:12,t:'At Three Forks, ten sealed tubes wait like a time capsule. Right now no ride home is funded, so this story is still unfinished.',go:lab('jz')},
 {d:11,t:'Now it is your turn. Quizzes, matching games and puzzles help you remember every story.',go:function(){cw='mars';cid='pv';cpg=3;show('mars')}},
 {d:12,t:'Seven machines, seven stories. Which one is your favorite? Pick a chapter and start exploring.',go:function(){finale(1)}}];
-var cum=[],tot=0;TS.forEach(function(s){tot+=s.d;cum.push(tot)});var tms=0,tp=0,tc=-1,tt=0,narr=0,tb;
+var cum=[],tot=0;TS.forEach(function(s){tot+=s.d;cum.push(tot)});var tms=0,tp=0,tc=-1,tt=0,narr=1,tb;var tourAudio=null;
 function tourUI(){tb=el('div','fgt');tb.setAttribute('role','region');tb.setAttribute('aria-label','Guided tour');
- tb.innerHTML='<p class="fgtc" aria-live="polite"></p><div class="fgp"><i></i></div><div class="fgtr"><span class="fgtn"></span><span><button class="chip" id="fgP">Pause</button> <button class="chip" id="fgS">Skip</button> <button class="chip" id="fgV">Voice: off</button> <button class="chip" id="fgE">End tour</button></span></div>';
- tb.querySelector('#fgP').onclick=function(){tp=!tp;this.textContent=tp?'Play':'Pause';if(window.speechSynthesis){tp?speechSynthesis.pause():speechSynthesis.resume()}};
- tb.querySelector('#fgS').onclick=function(){tms=cum[Math.max(0,tc)]+1};tb.querySelector('#fgE').onclick=tourStop;
- tb.querySelector('#fgV').onclick=function(){narr=!narr;this.textContent='Voice: '+(narr?'on':'off');if(!narr&&window.speechSynthesis)speechSynthesis.cancel()};
+ tb.innerHTML='<p class="fgtc" aria-live="polite"></p><div class="fgp"><i></i></div><div class="fgtr"><span class="fgtn"></span><span><button class="chip" id="fgPrev" aria-label="Previous step">◀</button> <button class="chip" id="fgP">Pause</button> <button class="chip" id="fgS" aria-label="Next step">▶</button> <button class="chip" id="fgV">Voice: on</button> <button class="chip" id="fgE">End tour</button></span></div>';
+ tb.querySelector('#fgP').onclick=function(){tp=!tp;this.textContent=tp?'Play':'Pause';if(tourAudio){if(tp){try{tourAudio.pause()}catch(e){}}else{try{tourAudio.play().catch(function(){})}catch(e){}}}};
+ tb.querySelector('#fgPrev').onclick=function(){if(tc>0){tms=cum[tc-1]+1}else{tms=0}tc=-2;if(tp){tp=0;tb.querySelector('#fgP').textContent='Pause'}};tb.querySelector('#fgS').onclick=function(){tms=cum[Math.max(0,tc)]+1;tc=-2;if(tp){tp=0;tb.querySelector('#fgP').textContent='Pause'}};tb.querySelector('#fgE').onclick=tourStop;
+ tb.querySelector('#fgV').onclick=function(){narr=!narr;this.textContent='Voice: '+(narr?'on':'off');if(!narr&&tourAudio){try{tourAudio.pause();tourAudio.currentTime=0}catch(e){}}};
  var h=document.querySelector('header.top .xpp');if(h){var b=document.createElement('button');b.className='fgtb';b.textContent='\u25b6 Tour';b.setAttribute('aria-label','Start the 2-minute tour');b.onclick=tourStart;h.appendChild(b)}}
-function say(t){try{if(narr&&window.speechSynthesis){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.rate=.97;speechSynthesis.speak(u)}}catch(e){}}
+function say(t){try{if(tourAudio){try{tourAudio.pause();tourAudio.currentTime=0}catch(e){}tourAudio=null}if(!narr)return;var i=-1;for(var j=0;j<TS.length;j++){if(TS[j].t===t){i=j;break}}if(i<0)return;var n=(i+1<10?'0':'')+(i+1);tourAudio=new Audio('audio/tour-'+n+'.mp3');tourAudio.onerror=function(){tourAudio=null};tourAudio.play().catch(function(){})}catch(e){}}
 function tick(){if(tp)return;tms+=250;var i=-1;for(var j=0;j<cum.length;j++){if(tms<cum[j]){i=j;break}}
  if(i<0){tms=tot;return}tb.querySelector('.fgp i').style.width=(tms/tot*100)+'%';
  if(i!==tc){tc=i;tb.querySelector('.fgtc').textContent=TS[i].t;tb.querySelector('.fgtn').textContent='Tour '+(i+1)+' of '+TS.length;try{TS[i].go()}catch(e){}say(TS[i].t)}}
 function tourStart(){document.querySelectorAll('.fgo').forEach(function(o){if(o.close)o.close()});tourStop(1);tms=0;tc=-1;tp=0;tb.classList.add('on');tt=setInterval(tick,250)}
-function tourStop(q){clearInterval(tt);tt=0;if(tb)tb.classList.remove('on');try{if(window.speechSynthesis)speechSynthesis.cancel();if(window.LAB&&LAB.sim&&LAB.sim.on){var b=$('#splay');if(b)b.click()}}catch(e){}}
+function tourStop(q){clearInterval(tt);tt=0;if(tb)tb.classList.remove('on');if(tourAudio){try{tourAudio.pause();tourAudio.currentTime=0}catch(e){}tourAudio=null}try{if(window.speechSynthesis)speechSynthesis.cancel();if(window.LAB&&LAB.sim&&LAB.sim.on){var b=$('#splay');if(b)b.click()}}catch(e){}}
 window.FG={quest:false,qd:0,fin:0,onPart:onPart,onTab:onTab,afterBook:afterBook,next:next,finale:finale,tour:tourStart};
 function init(){labUI();tourUI();var s=0;try{s=sessionStorage.getItem('fgSeen')}catch(e){}if(!s)intro()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
