@@ -633,7 +633,12 @@ header.top{background:rgba(251,247,239,.78);backdrop-filter:blur(14px) saturate(
 </style>
 <noscript><style>.fg-story-band{display:none}</style></noscript>
 <!-- === /FG STORY THEME === -->
-</head><body class="desk"><div class="skyfx" aria-hidden="true"><svg class="cloud c1" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c2" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c3" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c4" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg></div><div class="app"><header class="top"><button class="brand" data-go="home" aria-label="Galactic Field Guide home"><svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10" fill="#ff6fae"/><ellipse cx="20" cy="20" rx="18" ry="6" fill="none" stroke="#4fb3f6" stroke-width="3" transform="rotate(-25 20 20)"/><circle cx="33" cy="9" r="2.6" fill="#fff" stroke="#4fb3f6"/></svg><div style="text-align:left"><h1>Galactic Field Guide</h1><small>Relics of the Moon &amp; Mars</small></div></button><nav id="nav"><button class="nv on" data-t="home">Home</button><button class="nv" data-t="moon">Moon Relics</button><button class="nv" data-t="mars">Mars Relics</button><button class="nv" data-t="lab">3D Lab</button><button class="nv" data-t="radar">Radar Map</button><button class="nv" data-t="credits">Credits</button></nav><div class="xpp"><span id="lvl">Level 1</span><span><b id="xp">0</b> XP</span><div class="t"><i id="xpbar"></i></div></div></header><main><section id="home">
+<style id="fg-home-hide">
+#home .feats .feat:nth-child(-n+3){display:none!important}
+#home .feats{grid-template-columns:repeat(2,1fr)!important}
+#fg-tour-btn{font:800 11px var(--fh);color:#fff;background:linear-gradient(180deg,#ff78b1,#ff5a9f);border:0;border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap;margin-right:8px}
+#fg-tour-btn:hover{transform:translateY(-1px)}
+</style><style id="fg-journey-style">.fg-tour-btn{font:700 11px var(--fh),sans-serif;color:#fff;background:linear-gradient(180deg,#ff78b1,#ff5a9f);border:0;border-radius:8px;padding:7px 13px;cursor:pointer;white-space:nowrap;margin-right:8px;box-shadow:0 4px 12px rgba(255,95,162,.35);transition:transform .15s,box-shadow .15s}.fg-tour-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(255,95,162,.5)}.fg-tour-btn:active{transform:scale(.97)}@media(max-width:640px){.fg-tour-btn{padding:5px 9px;font-size:9.5px;margin-right:6px}}</style></head><body class="desk"><div class="skyfx" aria-hidden="true"><svg class="cloud c1" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c2" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c3" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c4" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg></div><div class="app"><header class="top"><button class="brand" data-go="home" aria-label="Galactic Field Guide home"><svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10" fill="#ff6fae"/><ellipse cx="20" cy="20" rx="18" ry="6" fill="none" stroke="#4fb3f6" stroke-width="3" transform="rotate(-25 20 20)"/><circle cx="33" cy="9" r="2.6" fill="#fff" stroke="#4fb3f6"/></svg><div style="text-align:left"><h1>Galactic Field Guide</h1><small>Relics of the Moon &amp; Mars</small></div></button><nav id="nav"><button class="nv on" data-t="home">Home</button><button class="nv" data-t="moon">Moon Relics</button><button class="nv" data-t="mars">Mars Relics</button><button class="nv" data-t="lab">3D Lab</button><button class="nv" data-t="radar">Radar Map</button><button class="nv" data-t="credits">Credits</button></nav><button id="fg-tour-btn" type="button" class="fg-tour-btn" aria-label="Start 3D journey tour">&#9654; 3D Tour</button><div class="xpp"><span id="lvl">Level 1</span><span><b id="xp">0</b> XP</span><div class="t"><i id="xpbar"></i></div></div></header><main><section id="home">
 <!-- === FG STORY BAND (injected by patch_story.py) === -->
 <div class="fg-story-band" role="region" aria-label="Story introduction">
   <span class="eyebrow">Why this guide exists</span>
@@ -4273,27 +4278,57 @@ window.FGFun = { Sound: Sound, CF: CF, Mascot: Mascot, BADGES: BADGES };
 })();
 </script>
 <!-- === /FG FUN SCRIPT === -->
- <script>
-(function(){
-  // Load journey.js and add a tour button to the header
-  var s = document.createElement('script');
-  s.src = 'journey.js';
-  s.onload = function(){
-    setTimeout(function(){
-      if (document.getElementById('fg-tour-btn') || !window.Journey) return;
-      var hdr = document.querySelector('header.top');
-      if (!hdr) return;
-      var tb = document.createElement('button');
-      tb.id = 'fg-tour-btn';
-      tb.type = 'button';
-      tb.textContent = '▶ 3D Tour';
-      tb.style.cssText = 'font:700 11px var(--fh),sans-serif;color:#fff;background:linear-gradient(180deg,#ff78b1,#ff5a9f);border:0;border-radius:8px;padding:6px 12px;cursor:pointer;margin-right:8px;white-space:nowrap;box-shadow:0 4px 12px rgba(255,95,162,.35)';
-      tb.onclick = function(){ window.Journey.start(); };
-      var xpp = hdr.querySelector('.xpp');
-      if (xpp) hdr.insertBefore(tb, xpp); else hdr.appendChild(tb);
-    }, 200);
-  };
-  document.body.appendChild(s);
-})();
-</script>
-</body></html>
+<style id="fg-tour-css">
+#fgtour{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);width:min(620px,94vw);z-index:9997;display:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:0 20px 40px rgba(0,0,0,.25);font-family:var(--fb)}
+#fgtour.on{display:block}
+#fgtour .fgtxt{font:600 14.5px/1.5 var(--fb);color:var(--ink);margin-bottom:8px;min-height:2.4em}
+#fgtour .fgprog{height:4px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:10px}
+#fgtour .fgprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--pink2));transition:width .3s linear}
+#fgtour .fgrow{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+#fgtour .fgnum{font:700 10.5px var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase;color:var(--pinkd)}
+#fgtour button{font:600 12px var(--fh);padding:6px 11px;border-radius:7px;border:1px solid var(--line);background:var(--soft);color:var(--ink);cursor:pointer;min-height:32px;margin-left:4px}
+#fgtour button:hover{background:var(--pink3);border-color:var(--pink2)}
+@media(max-width:640px){#fgtour{bottom:calc(78px + env(safe-area-inset-bottom,0px))}}
+</style>
+<div id="fgtour" role="region" aria-label="Guided tour">
+<div class="fgtxt"></div>
+<div class="fgprog"><i></i></div>
+<div class="fgrow"><span class="fgnum"></span><span><button id="fgprev">◀ Prev</button><button id="fgnext">Next ▶</button><button id="fgend">End</button></span></div>
+</div>
+<script>(function(){
+var STEPS=[
+{t:"Welcome to the Galactic Field Guide! Seven machines, seven stories. Let's take a 2-minute tour.",go:function(){show('home')},d:8},
+{t:"Meet the Apollo 15 Moon buggy — the first car ever driven on the Moon.",go:function(){openFile('a15')},d:14},
+{t:"Surveyor 3 waited 31 months alone before Apollo 12 astronauts visited.",go:function(){openFile('s3')},d:14},
+{t:"Intrepid made the first pinpoint landing — right next to Surveyor 3.",go:function(){openFile('a12')},d:14},
+{t:"Eagle carried Neil Armstrong and Buzz Aldrin to the Moon in 1969.",go:function(){openFile('a11')},d:14},
+{t:"Perseverance is a car-sized rover collecting rock samples on Mars.",go:function(){openFile('pv')},d:14},
+{t:"Ingenuity flew 72 times — a helicopter on another planet!",go:function(){openFile('ig')},d:14},
+{t:"Ten sealed tubes wait at Three Forks for a ride home someday.",go:function(){openFile('jz')},d:14},
+{t:"Tour complete! Explore on your own, or try the 3D Lab.",go:function(){show('lab')},d:8}];
+var i=0,timer=null,active=false;
+var bar=document.getElementById('fgtour'),txt=bar.querySelector('.fgtxt'),num=bar.querySelector('.fgnum'),prog=bar.querySelector('.fgprog i');
+function step(idx){
+i=Math.max(0,Math.min(STEPS.length-1,idx));var s=STEPS[i];
+txt.textContent=s.t;num.textContent='Step '+(i+1)+' of '+STEPS.length;
+prog.style.transition='none';prog.style.width=((i+1)/STEPS.length*100)+'%';
+try{s.go()}catch(e){}
+clearTimeout(timer);
+timer=setTimeout(function(){if(!active)return;if(i<STEPS.length-1)step(i+1);else stop()},s.d*1000);}
+function stop(){active=false;bar.classList.remove('on');clearTimeout(timer);i=0;
+try{if(window.LAB&&LAB.sim&&LAB.sim.on){var b=document.getElementById('splay');if(b)b.click()}}catch(e){}}
+function start(){if(active)return;active=true;bar.classList.add('on');step(0)}
+document.getElementById('fgprev').onclick=function(){step(i-1)};
+document.getElementById('fgnext').onclick=function(){step(i+1)};
+document.getElementById('fgend').onclick=stop;
+function addBtn(){if(document.getElementById('fg-tour-btn'))return;var xpp=document.querySelector('header.top .xpp');if(!xpp)return;
+var b=document.createElement('button');b.id='fg-tour-btn';b.type='button';b.textContent='▶ Tour';b.setAttribute('aria-label','Start guided tour');b.onclick=start;xpp.parentNode.insertBefore(b,xpp);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addBtn);else addBtn();
+window.FGTour={start:start,stop:stop};
+})();</script><script>(function(){
+var n=window.EMB?Object.keys(EMB).length:0;
+var ok=!!(window.EMB&&EMB.a15&&EMB.pv);
+if(ok){console.log('[FG] Photo data OK: '+n+' images loaded');}
+else{console.warn('[FG] Photo data missing or incomplete ('+n+' images). Images will show SVG fallbacks. The <script>Object.assign(EMB,{a15:...}> block is likely truncated — copy it from your original index.html using Ctrl+Shift+End.');}
+window.FGDiag={emb:n,ok:ok};
+})();</script><script src="journey.js"></script><script>(function w(){  if(window.Journey&&window.Journey.start){    var b=document.getElementById("fg-tour-btn");    if(b&&!b.dataset.wired){      b.dataset.wired="1";      b.onclick=function(){window.Journey.start()};    }  }else{setTimeout(w,300)}})();</script></body></html>
