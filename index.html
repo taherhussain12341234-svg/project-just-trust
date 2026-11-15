@@ -4273,4 +4273,140 @@ window.FGFun = { Sound: Sound, CF: CF, Mascot: Mascot, BADGES: BADGES };
 })();
 </script>
 <!-- === /FG FUN SCRIPT === -->
+  <!-- CINEMATIC INTRO BODY + SCRIPT -->
+<div id="fg-cinema" data-fg-cinema role="dialog" aria-label="Welcome">
+  <canvas id="fgc-cv"></canvas>
+  <div class="fg-cin-text">
+    <div class="fg-cin-line fg-cin-eyebrow" data-fg-step="0">Expedition Archive · Signal 049</div>
+    <h1 class="fg-cin-line fg-cin-h1" data-fg-step="1">Some explorers never came home.</h1>
+    <h2 class="fg-cin-line fg-cin-h2" data-fg-step="2">Here is their story.</h2>
+    <p class="fg-cin-line fg-cin-body" data-fg-step="3">Across the quiet vacuum between worlds, lost beacons still pulse their final coordinates into the perpetual dark. Seven machines. Seven unfinished stories. Waiting for you to find them.</p>
+    <div class="fg-cin-actions fg-cin-line" data-fg-step="4">
+      <button class="fg-cin-begin" id="fg-cin-begin" type="button">Begin the mission</button>
+      <button class="fg-cin-skip" id="fg-cin-skip" type="button">Skip intro</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+'use strict';
+var root = document.getElementById('fg-cinema');
+if (!root) return;
+var KEY='fgCinema';
+var q = location.search || '';
+var forceOn = /[?&]cinema=1(?:&|$)/.test(q);
+var forceOff = /[?&]cinema=0(?:&|$)/.test(q);
+try {
+  if (forceOff || (sessionStorage.getItem(KEY)==='1' && !forceOn)) {
+    if (root.parentNode) root.parentNode.removeChild(root); return;
+  }
+} catch(e){}
+document.querySelectorAll('.gfp-intro,.fgo').forEach(function(el){
+  if (el !== root && el.parentNode) el.parentNode.removeChild(el);
+});
+try { sessionStorage.setItem('gfp','1'); sessionStorage.setItem('fgSeen','1'); } catch(e){}
+var cv=document.getElementById('fgc-cv');
+var beginBtn=document.getElementById('fg-cin-begin');
+var skipBtn=document.getElementById('fg-cin-skip');
+var lines=root.querySelectorAll('.fg-cin-line');
+var reduced=!!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+var done=false;
+function dismiss(anim){
+  if (done) return; done=true;
+  try { sessionStorage.setItem(KEY,'1'); sessionStorage.setItem('gfp','1'); sessionStorage.setItem('fgSeen','1'); } catch(e){}
+  if (!anim || reduced) { if (root.parentNode) root.parentNode.removeChild(root); return; }
+  root.classList.add('fg-out');
+  setTimeout(function(){ if (root.parentNode) root.parentNode.removeChild(root); }, 1600);
+}
+beginBtn.onclick=function(){ dismiss(true); };
+skipBtn.onclick=function(){ dismiss(false); };
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') dismiss(false); });
+var sched=[800,1800,2800,3800,5000];
+lines.forEach(function(el){
+  var idx=parseInt(el.getAttribute('data-fg-step')||'0',10)||0;
+  if (reduced) { el.classList.add('on'); return; }
+  setTimeout(function(){ el.classList.add('on'); }, sched[idx]||0);
+});
+try { var bz=parseFloat(getComputedStyle(document.body).zoom); if(bz&&bz!==1) root.style.zoom=String(1/bz); } catch(e){}
+var gl = cv.getContext('webgl',{alpha:true,antialias:true}) || cv.getContext('experimental-webgl');
+function fallback(){ root.style.background='radial-gradient(circle at 50% 30%, #1a2740, #05080f 70%)'; }
+if (reduced || !gl) { fallback(); return; }
+function syncSize(){
+  var dpr=Math.min(window.devicePixelRatio||1,2);
+  var w=(cv.clientWidth||innerWidth)*dpr, h=(cv.clientHeight||innerHeight)*dpr;
+  if (cv.width!==w || cv.height!==h) { cv.width=w; cv.height=h; gl.viewport(0,0,w,h); }
+}
+if (window.ResizeObserver) new ResizeObserver(syncSize).observe(cv);
+addEventListener('resize', syncSize);
+syncSize();
+var VS='attribute vec2 a;varying vec2 v;void main(){v=a*0.5+0.5;gl_Position=vec4(a,0.,1.);}';
+var FS=[
+'precision highp float;',
+'uniform float t;uniform vec2 res;',
+'float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}',
+'float stars(vec2 uv,float sc,float th,float sp){',
+'  vec2 p=uv*sc;vec2 ip=floor(p);vec2 fp=fract(p)-0.5;float h=hash(ip);',
+'  if(h<th)return 0.0;float tw=sin(t*sp+h*6.2831)*0.5+0.5;',
+'  float s=(h-th)/(1.0-th);float d=length(fp);',
+'  return smoothstep(0.14*s,0.0,d)*tw;}',
+'void main(){',
+'  vec2 uv=(gl_FragCoord.xy-0.5*res.xy)/min(res.x,res.y);',
+'  vec3 col=vec3(0.012,0.020,0.038);',
+'  float neb=sin(uv.x*2.4+t*0.045)*cos(uv.y*2.0-t*0.03);',
+'  neb=smoothstep(-0.6,0.85,neb)*0.06;col+=vec3(0.05,0.09,0.17)*neb;',
+'  float st=0.0;',
+'  st+=stars(uv,36.0,0.92,1.6)*0.85;',
+'  st+=stars(uv+vec2(0.3,0.7),66.0,0.95,2.3)*0.62;',
+'  st+=stars(uv+vec2(0.8,0.2),115.0,0.97,3.1)*0.40;',
+'  col+=vec3(st*0.85,st*0.92,st*1.0);',
+'  vec2 mp=vec2(0.0,0.20);float R=0.26;',
+'  vec2 md=uv-mp;float mdist=length(md);',
+'  float appear=smoothstep(0.2,3.0,t);',
+'  if(mdist<R+0.01){',
+'    vec2 muv=md/R;float z=sqrt(max(0.0,1.0-dot(muv,muv)));',
+'    vec3 n=normalize(vec3(muv.x,muv.y,z));',
+'    vec3 L=normalize(vec3(0.62,0.58,0.52));',
+'    float diff=max(0.0,dot(n,L));',
+'    float n1=hash(floor((muv+1.0)*13.0));',
+'    float n2=hash(floor((muv+1.0)*39.0));',
+'    float cr=mix(0.72,1.06,n1*0.65+n2*0.35);',
+'    vec3 alb=vec3(0.84,0.88,0.94)*cr;',
+'    vec3 es=vec3(0.02,0.035,0.07);',
+'    float term=smoothstep(-0.06,0.24,diff);',
+'    vec3 lit=alb*term*(diff*1.15+0.1)+es*(1.0-term);',
+'    float edge=smoothstep(R,R-0.006,mdist);',
+'    col=mix(col,lit,edge*appear);',
+'  }',
+'  float halo=smoothstep(R+0.42,R,mdist);halo=pow(halo,2.2)*0.45*appear;',
+'  col+=vec3(0.35,0.5,0.75)*halo;',
+'  float vig=1.0-smoothstep(0.5,1.55,length(uv));col*=vig;',
+'  gl_FragColor=vec4(col,1.0);}'
+].join('\n');
+function mk(type, src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
+var prog=gl.createProgram();
+gl.attachShader(prog,mk(gl.VERTEX_SHADER,VS));
+gl.attachShader(prog,mk(gl.FRAGMENT_SHADER,FS));
+gl.linkProgram(prog);
+if (!gl.getProgramParameter(prog,gl.LINK_STATUS)) { fallback(); return; }
+gl.useProgram(prog);
+var buf=gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+var loc=gl.getAttribLocation(prog,'a');
+gl.enableVertexAttribArray(loc);
+gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+var uT=gl.getUniformLocation(prog,'t');
+var uR=gl.getUniformLocation(prog,'res');
+var t0=performance.now();
+(function frame(){
+  if (!root.isConnected) return;
+  var sec=(performance.now()-t0)/1000;
+  gl.viewport(0,0,cv.width,cv.height);
+  if (uT) gl.uniform1f(uT,sec);
+  if (uR) gl.uniform2f(uR,cv.width,cv.height);
+  gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  requestAnimationFrame(frame);
+})();
+})();
+</script>
 </body></html>
