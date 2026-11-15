@@ -225,6 +225,78 @@ header.top{box-shadow:0 8px 28px #0d2f5514}
 .fgsl{margin:0 0 10px;padding:10px 14px;border-radius:12px;background:var(--t1);border:1px solid var(--t1l);font-size:14px}.fgsl em{display:block;font-style:normal;font-weight:800;color:var(--pinkd)}
 .fgnb{flex:none;align-self:center;white-space:nowrap}
 #labq{display:flex;flex-direction:column;flex:1;min-height:0;gap:8px}
+  /* ============================================================
+   SPACE THEME + BUTTON FIXES
+   ============================================================ */
+
+/* Force a deep-space palette (works whether OS is light or dark) */
+:root{
+  --bg1:#000308; --bg2:#030814; --bg3:#000000;
+  --ink:#eaf6ff; --p:#b8d4ee; --mute:#80a3c4;
+  --line:#17304d; --card:#08152a; --soft:#0a1a30;
+  --glass:#05101fdd; --chip:#122a44;
+  --t1:#102a45; --t1l:#1e3f63; --t2:#0c2138; --t2l:#17395c;
+  --sky3:#0f2f4f; --pink3:#3a1f36; --pinkd:#ff9ccb;
+  color-scheme:dark;
+}
+html,body{background:#000308}
+
+/* Black background + repeating star dots */
+body{
+  background-color:#000308!important;
+  background-image:
+    radial-gradient(1.6px 1.6px at 20px 30px,#fff,transparent 60%),
+    radial-gradient(1.2px 1.2px at 140px 90px,#cfe8ff,transparent 60%),
+    radial-gradient(1.4px 1.4px at 230px 20px,#fff,transparent 60%),
+    radial-gradient(1.1px 1.1px at 320px 160px,#a9c9ff,transparent 60%),
+    radial-gradient(1.9px 1.9px at 90px 200px,#fff,transparent 60%),
+    radial-gradient(1px 1px at 270px 220px,#dbeaff,transparent 60%),
+    radial-gradient(1.3px 1.3px at 40px 270px,#fff,transparent 60%),
+    radial-gradient(2px 2px at 360px 70px,#cfe8ff,transparent 60%),
+    radial-gradient(120% 80% at 50% -10%,#0a1c33 0%,#000308 55%,#000 100%)!important;
+  background-size:
+    380px 340px,380px 340px,380px 340px,380px 340px,
+    380px 340px,380px 340px,380px 340px,380px 340px,
+    100% 100%!important;
+  background-repeat:
+    repeat,repeat,repeat,repeat,repeat,repeat,repeat,repeat,no-repeat!important;
+  background-attachment:fixed!important;
+}
+.cloud{display:none!important}           /* no clouds in space */
+.skyfx::after{opacity:.9}                /* keep the sparkle overlay */
+
+/* Readability tweaks for dark surfaces */
+.card,.pk,.feat,.stat,.gbox,.blk,.opt,.chip,.note,.dyk,.tease{
+  border-color:var(--line);
+}
+.card{background:var(--card)}
+.chip.on{
+  background:linear-gradient(180deg,#3aa8ff,#1f7fd6)!important;
+  color:#fff!important;border-color:transparent!important;
+}
+.blk.g h4,.lnk,.cr a{color:#8fd0ff!important}
+
+/* Buttons — stop them overlapping / squishing */
+.cta,.fgb,.fgbtn,.labtools,.sbtns,.chips,.pick{ gap:12px!important; }
+.cta{flex-wrap:wrap}
+.cta .btn,.fgb .btn{flex:0 0 auto;white-space:nowrap}
+
+/* Make the 3D Tour button pop */
+.tour-3d-prominent,.fgtb{
+  padding:10px 18px!important;
+  font-size:13px!important;
+  letter-spacing:.04em!important;
+  border-radius:12px!important;
+  background:linear-gradient(180deg,#7fe0ff,#2aa8ff)!important;
+  color:#02121f!important;
+  font-weight:800!important;
+  box-shadow:0 0 0 2px #7fe0ff55,0 8px 22px #2aa8ff66,0 0 24px #7fe0ff88!important;
+  animation:tourGlow 2.4s ease-in-out infinite;
+}
+@keyframes tourGlow{
+  0%,100%{box-shadow:0 0 0 2px #7fe0ff55,0 8px 22px #2aa8ff66,0 0 24px #7fe0ff88}
+  50%    {box-shadow:0 0 0 3px #7fe0ffaa,0 10px 28px #2aa8ff99,0 0 40px #7fe0ffcc}
+}
 </style>
 <!-- === FG CINEMATIC INTRO (injected by patch_cinematic.py) === -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -252,6 +324,82 @@ header.top{box-shadow:0 8px 28px #0d2f5514}
 .fg-cin-skip:hover{color:rgba(196,199,202,.9)}
 @media(min-width:720px){#fg-cinema{justify-content:center;padding:32px}.fg-cin-text{margin-bottom:0}}
 @media(prefers-reduced-motion:reduce){.fg-cin-line{transition:none!important;opacity:1!important;transform:none!important}#fg-cinema{transition:opacity .4s!important}.fg-cin-eyebrow::before{animation:none!important}}
+/* ============ SPACE THEME + OVERLAP FIX + 3D TOUR (PASTE #1) ============ */
+:root{
+  --bg1:#000308; --bg2:#030814; --bg3:#000000;
+  --ink:#eaf6ff; --p:#b8d4ee; --mute:#80a3c4;
+  --line:#17304d; --card:#08152a; --soft:#0a1a30;
+  --glass:#05101fdd; --chip:#122a44;
+  --t1:#102a45; --t1l:#1e3f63; --t2:#0c2138; --t2l:#17395c;
+  --sky3:#0f2f4f; --pink3:#3a1f36; --pinkd:#ff9ccb;
+  color-scheme:dark;
+}
+html,body{background:#000308}
+body{
+  background-color:#000308!important;
+  background-image:
+    radial-gradient(1.6px 1.6px at 20px 30px,#fff,transparent 60%),
+    radial-gradient(1.2px 1.2px at 140px 90px,#cfe8ff,transparent 60%),
+    radial-gradient(1.4px 1.4px at 230px 20px,#fff,transparent 60%),
+    radial-gradient(1.1px 1.1px at 320px 160px,#a9c9ff,transparent 60%),
+    radial-gradient(1.9px 1.9px at 90px 200px,#fff,transparent 60%),
+    radial-gradient(1px 1px at 270px 220px,#dbeaff,transparent 60%),
+    radial-gradient(1.3px 1.3px at 40px 270px,#fff,transparent 60%),
+    radial-gradient(2px 2px at 360px 70px,#cfe8ff,transparent 60%),
+    radial-gradient(120% 80% at 50% -10%,#0a1c33 0%,#000308 55%,#000 100%)!important;
+  background-size:
+    380px 340px,380px 340px,380px 340px,380px 340px,
+    380px 340px,380px 340px,380px 340px,380px 340px,
+    100% 100%!important;
+  background-repeat:
+    repeat,repeat,repeat,repeat,repeat,repeat,repeat,repeat,no-repeat!important;
+  background-attachment:fixed!important;
+}
+.cloud{display:none!important}
+.skyfx::after{opacity:.9}
+.card{background:var(--card);border-color:var(--line)}
+.chip.on{
+  background:linear-gradient(180deg,#3aa8ff,#1f7fd6)!important;
+  color:#fff!important;border-color:transparent!important;
+}
+.blk.g h4,.lnk,.cr a{color:#8fd0ff!important}
+
+/* --- overlap prevention --- */
+main{overflow:auto!important;padding:16px 24px 10px}
+section.on{overflow:auto;min-height:0}
+.card,.blk,.gbox,.bk-body{min-width:0;min-height:0;overflow:auto}
+header.top{flex-wrap:wrap;row-gap:8px;padding:8px 20px}
+#nav{flex-wrap:wrap;gap:18px}
+.hero{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:24px}
+.hero h1{font-size:clamp(30px,5vw,52px)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-art{max-height:none}}
+.cta,.fgb,.fgbtn,.sbtns,.labtools,.chips,.pick{
+  display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+}
+.cta .btn{flex:0 1 auto;max-width:100%;white-space:normal}
+.feats{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))!important}
+.p1{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.p2{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+
+/* --- make 3D Tour button obvious --- */
+.tour-3d-prominent,.fgtb{
+  padding:12px 22px!important;
+  font-size:14px!important;
+  font-weight:800!important;
+  letter-spacing:.04em!important;
+  border-radius:12px!important;
+  background:linear-gradient(180deg,#8fe6ff,#2aa8ff)!important;
+  color:#02121f!important;
+  border:0!important;
+  cursor:pointer;
+  box-shadow:0 0 0 2px #8fe6ff66,0 10px 26px #2aa8ff77,0 0 30px #8fe6ff99!important;
+  animation:tourGlow 2.4s ease-in-out infinite;
+}
+@keyframes tourGlow{
+  0%,100%{box-shadow:0 0 0 2px #8fe6ff66,0 10px 26px #2aa8ff77,0 0 30px #8fe6ff99}
+  50%    {box-shadow:0 0 0 4px #8fe6ffcc,0 12px 32px #2aa8ffaa,0 0 46px #8fe6ffdd}
+}
+/* ============ END PASTE #1 ============ */
 </style>
 <noscript><style>#fg-cinema .fg-cin-line{opacity:1!important;transform:none!important}#fg-cinema{background:radial-gradient(circle at 50% 30%, #1a2740 0%, #05080f 70%)}#fg-cin-begin,#fg-cin-skip{display:none}</style></noscript>
 <!-- === /FG CINEMATIC INTRO HEAD === -->
@@ -633,7 +781,12 @@ header.top{background:rgba(251,247,239,.78);backdrop-filter:blur(14px) saturate(
 </style>
 <noscript><style>.fg-story-band{display:none}</style></noscript>
 <!-- === /FG STORY THEME === -->
-</head><body class="desk"><div class="skyfx" aria-hidden="true"><svg class="cloud c1" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c2" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c3" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c4" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg></div><div class="app"><header class="top"><button class="brand" data-go="home" aria-label="Galactic Field Guide home"><svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10" fill="#ff6fae"/><ellipse cx="20" cy="20" rx="18" ry="6" fill="none" stroke="#4fb3f6" stroke-width="3" transform="rotate(-25 20 20)"/><circle cx="33" cy="9" r="2.6" fill="#fff" stroke="#4fb3f6"/></svg><div style="text-align:left"><h1>Galactic Field Guide</h1><small>Relics of the Moon &amp; Mars</small></div></button><nav id="nav"><button class="nv on" data-t="home">Home</button><button class="nv" data-t="moon">Moon Relics</button><button class="nv" data-t="mars">Mars Relics</button><button class="nv" data-t="lab">3D Lab</button><button class="nv" data-t="radar">Radar Map</button><button class="nv" data-t="credits">Credits</button></nav><div class="xpp"><span id="lvl">Level 1</span><span><b id="xp">0</b> XP</span><div class="t"><i id="xpbar"></i></div></div></header><main><section id="home">
+<style id="fg-home-hide">
+#home .feats .feat:nth-child(-n+3){display:none!important}
+#home .feats{grid-template-columns:repeat(2,1fr)!important}
+#fg-tour-btn{font:800 11px var(--fh);color:#fff;background:linear-gradient(180deg,#ff78b1,#ff5a9f);border:0;border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap;margin-right:8px}
+#fg-tour-btn:hover{transform:translateY(-1px)}
+</style><style id="fg-journey-style">.fg-tour-btn{font:700 11px var(--fh),sans-serif;color:#fff;background:linear-gradient(180deg,#ff78b1,#ff5a9f);border:0;border-radius:8px;padding:7px 13px;cursor:pointer;white-space:nowrap;margin-right:8px;box-shadow:0 4px 12px rgba(255,95,162,.35);transition:transform .15s,box-shadow .15s}.fg-tour-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(255,95,162,.5)}.fg-tour-btn:active{transform:scale(.97)}@media(max-width:640px){.fg-tour-btn{padding:5px 9px;font-size:9.5px;margin-right:6px}}</style></head><body class="desk"><div class="skyfx" aria-hidden="true"><svg class="cloud c1" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c2" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c3" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg><svg class="cloud c4" viewBox="0 0 120 60" aria-hidden="true"><path d="M25 52a18 18 0 0 1 2-36 24 24 0 0 1 46-4 20 20 0 0 1 24 18 16 16 0 0 1-2 22z"/></svg></div><div class="app"><header class="top"><button class="brand" data-go="home" aria-label="Galactic Field Guide home"><svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10" fill="#ff6fae"/><ellipse cx="20" cy="20" rx="18" ry="6" fill="none" stroke="#4fb3f6" stroke-width="3" transform="rotate(-25 20 20)"/><circle cx="33" cy="9" r="2.6" fill="#fff" stroke="#4fb3f6"/></svg><div style="text-align:left"><h1>Galactic Field Guide</h1><small>Relics of the Moon &amp; Mars</small></div></button><nav id="nav"><button class="nv on" data-t="home">Home</button><button class="nv" data-t="moon">Moon Relics</button><button class="nv" data-t="mars">Mars Relics</button><button class="nv" data-t="lab">3D Lab</button><button class="nv" data-t="radar">Radar Map</button><button class="nv" data-t="credits">Credits</button></nav><button id="fg-tour-btn" type="button" class="fg-tour-btn" aria-label="Start 3D journey tour">&#9654; 3D Tour</button><div class="xpp"><span id="lvl">Level 1</span><span><b id="xp">0</b> XP</span><div class="t"><i id="xpbar"></i></div></div></header><main><section id="home">
 <!-- === FG STORY BAND (injected by patch_story.py) === -->
 <div class="fg-story-band" role="region" aria-label="Story introduction">
   <span class="eyebrow">Why this guide exists</span>
@@ -4273,6 +4426,178 @@ window.FGFun = { Sound: Sound, CF: CF, Mascot: Mascot, BADGES: BADGES };
 })();
 </script>
 <!-- === /FG FUN SCRIPT === -->
-</body></html>
+<style id="fg-tour-css">
+#fgtour{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);width:min(620px,94vw);z-index:9997;display:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:0 20px 40px rgba(0,0,0,.25);font-family:var(--fb)}
+#fgtour.on{display:block}
+#fgtour .fgtxt{font:600 14.5px/1.5 var(--fb);color:var(--ink);margin-bottom:8px;min-height:2.4em}
+#fgtour .fgprog{height:4px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:10px}
+#fgtour .fgprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--pink2));transition:width .3s linear}
+#fgtour .fgrow{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+#fgtour .fgnum{font:700 10.5px var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase;color:var(--pinkd)}
+#fgtour button{font:600 12px var(--fh);padding:6px 11px;border-radius:7px;border:1px solid var(--line);background:var(--soft);color:var(--ink);cursor:pointer;min-height:32px;margin-left:4px}
+#fgtour button:hover{background:var(--pink3);border-color:var(--pink2)}
+@media(max-width:640px){#fgtour{bottom:calc(78px + env(safe-area-inset-bottom,0px))}}
+</style>
+<div id="fgtour" role="region" aria-label="Guided tour">
+<div class="fgtxt"></div>
+<div class="fgprog"><i></i></div>
+<div class="fgrow"><span class="fgnum"></span><span><button id="fgprev">◀ Prev</button><button id="fgnext">Next ▶</button><button id="fgend">End</button></span></div>
+</div>
+<script>(function(){
+var STEPS=[
+{t:"Welcome to the Galactic Field Guide! Seven machines, seven stories. Let's take a 2-minute tour.",go:function(){show('home')},d:8},
+{t:"Meet the Apollo 15 Moon buggy — the first car ever driven on the Moon.",go:function(){openFile('a15')},d:14},
+{t:"Surveyor 3 waited 31 months alone before Apollo 12 astronauts visited.",go:function(){openFile('s3')},d:14},
+{t:"Intrepid made the first pinpoint landing — right next to Surveyor 3.",go:function(){openFile('a12')},d:14},
+{t:"Eagle carried Neil Armstrong and Buzz Aldrin to the Moon in 1969.",go:function(){openFile('a11')},d:14},
+{t:"Perseverance is a car-sized rover collecting rock samples on Mars.",go:function(){openFile('pv')},d:14},
+{t:"Ingenuity flew 72 times — a helicopter on another planet!",go:function(){openFile('ig')},d:14},
+{t:"Ten sealed tubes wait at Three Forks for a ride home someday.",go:function(){openFile('jz')},d:14},
+{t:"Tour complete! Explore on your own, or try the 3D Lab.",go:function(){show('lab')},d:8}];
+var i=0,timer=null,active=false;
+var bar=document.getElementById('fgtour'),txt=bar.querySelector('.fgtxt'),num=bar.querySelector('.fgnum'),prog=bar.querySelector('.fgprog i');
+function step(idx){
+i=Math.max(0,Math.min(STEPS.length-1,idx));var s=STEPS[i];
+txt.textContent=s.t;num.textContent='Step '+(i+1)+' of '+STEPS.length;
+prog.style.transition='none';prog.style.width=((i+1)/STEPS.length*100)+'%';
+try{s.go()}catch(e){}
+clearTimeout(timer);
+timer=setTimeout(function(){if(!active)return;if(i<STEPS.length-1)step(i+1);else stop()},s.d*1000);}
+function stop(){active=false;bar.classList.remove('on');clearTimeout(timer);i=0;
+try{if(window.LAB&&LAB.sim&&LAB.sim.on){var b=document.getElementById('splay');if(b)b.click()}}catch(e){}}
+function start(){if(active)return;active=true;bar.classList.add('on');step(0)}
+document.getElementById('fgprev').onclick=function(){step(i-1)};
+document.getElementById('fgnext').onclick=function(){step(i+1)};
+document.getElementById('fgend').onclick=stop;
+function addBtn(){if(document.getElementById('fg-tour-btn'))return;var xpp=document.querySelector('header.top .xpp');if(!xpp)return;
+var b=document.createElement('button');b.id='fg-tour-btn';b.type='button';b.textContent='▶ Tour';b.setAttribute('aria-label','Start guided tour');b.onclick=start;xpp.parentNode.insertBefore(b,xpp);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addBtn);else addBtn();
+window.FGTour={start:start,stop:stop};
+})();</script><script>(function(){
+var n=window.EMB?Object.keys(EMB).length:0;
+var ok=!!(window.EMB&&EMB.a15&&EMB.pv);
+if(ok){console.log('[FG] Photo data OK: '+n+' images loaded');}
+else{console.warn('[FG] Photo data missing or incomplete ('+n+' images). Images will show SVG fallbacks. The <script>Object.assign(EMB,{a15:...}> block is likely truncated — copy it from your original index.html using Ctrl+Shift+End.');}
+window.FGDiag={emb:n,ok:ok};
+})();</script><script src="journey.js"></script><script>(function w(){  if(window.Journey&&window.Journey.start){    var b=document.getElementById("fg-tour-btn");    if(b&&!b.dataset.wired){      b.dataset.wired="1";      b.onclick=function(){window.Journey.start()};    }  }else{setTimeout(w,300)}})();</script>
+<script>
+(function(){
+  var TOUR_SRC = 'journey.js';
 
-  
+  function loadTour(cb){
+    if (window.Journey) return cb();
+    var s = document.createElement('script');
+    s.src = TOUR_SRC;
+    s.onload = cb;
+    s.onerror = function(){
+      alert('journey.js could not be loaded. Is it uploaded next to index.html?');
+    };
+    document.head.appendChild(s);
+  }
+
+  function addButton(){
+    if (document.getElementById('fg-tour-btn')) return true;
+    var header = document.querySelector('header.top') || document.querySelector('.top');
+    if (!header) return false;
+
+    var btn = document.createElement('button');
+    btn.id = 'fg-tour-btn';
+    btn.type = 'button';
+    btn.textContent = '▶ 3D Tour';
+    btn.setAttribute('aria-label', 'Start 3D tour');
+
+    var xpp = header.querySelector('.xpp');
+    if (xpp) header.insertBefore(btn, xpp);
+    else header.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+      loadTour(function(){
+        try { window.Journey.start(); }
+        catch(e){ alert('Tour failed to start: ' + e.message); }
+      });
+    });
+    return true;
+  }
+
+  if (!addButton()) {
+    document.addEventListener('DOMContentLoaded', addButton);
+    var n = 0, t = setInterval(function(){
+      if (addButton() || ++n > 40) clearInterval(t);
+    }, 250);
+  }
+})();
+</script>
+  <script src="journey.js"></script>
+  <script>
+(function(){
+  var txt = function(el){return (el.textContent||'').replace(/\s+/g,' ').trim();};
+  var all = function(){
+    return Array.prototype.slice.call(
+      document.querySelectorAll('button, a, .btn, .fgtb')
+    );
+  };
+
+  // 1) Remove the "Try 3D Lab" button on the home screen
+  all().forEach(function(el){
+    var t = txt(el).toLowerCase();
+    if(t === 'try 3d lab' || t === 'try the 3d lab' ||
+       t === 'try 3d'      || t === '3d lab'){
+      el.remove();
+    }
+  });
+
+  // 2) Remove the plain "Tour" button, but never touch the floating launcher
+  all().forEach(function(el){
+    if(el.classList.contains('fgtb')) return;       // keep launcher
+    var t = txt(el).toLowerCase();
+    if((t === 'tour' || t === 'take the tour' || t === 'start tour')
+       && !/3d/.test(t)){
+      el.remove();
+    }
+  });
+
+  // 3) Make the 3D Tour button impossible to miss
+  all().forEach(function(el){
+    if(/3d\s*tour/.test(txt(el).toLowerCase())){
+      el.classList.add('tour-3d-prominent');
+    }
+  });
+  document.querySelectorAll('.fgtb').forEach(function(el){
+    el.classList.add('tour-3d-prominent');
+    if(!/tour/i.test(txt(el))) el.textContent = '3D Tour';
+  });
+})();
+</script>
+  <!-- ============ BUTTON FIXES (PASTE #2) ============ -->
+<script>
+(function(){
+  var norm = function(el){
+    return (el.innerText || el.textContent || '').replace(/\s+/g,' ').trim().toLowerCase();
+  };
+  var SEL = 'button, a, [role="button"], .btn, .feat, .tease, .st, .pk, div[onclick], .fgtb';
+
+  document.querySelectorAll(SEL).forEach(function(el){
+    var t = norm(el);
+    if(!t) return;
+    if(el.closest('#nav') || el.classList.contains('fgtb')) return;
+
+    var has3D   = /\b3\s*d\b/.test(t);
+    var hasLab  = /\blab\b/.test(t);
+    var hasTour = /\btour\b/.test(t);
+
+    // remove "Try 3D Lab"
+    if(hasLab && has3D){ el.remove(); return; }
+
+    // remove plain Tour, keep 3D Tour
+    if(hasTour && !has3D){ el.remove(); return; }
+    if(hasTour && has3D){ el.classList.add('tour-3d-prominent'); }
+  });
+
+  // also highlight the floating launcher if present
+  document.querySelectorAll('.fgtb').forEach(function(el){
+    el.classList.add('tour-3d-prominent');
+  });
+})();
+</script>
+<!-- ============ END PASTE #2 ============ -->
+</body></html>
