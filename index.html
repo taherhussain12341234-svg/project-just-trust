@@ -324,6 +324,82 @@ body{
 .fg-cin-skip:hover{color:rgba(196,199,202,.9)}
 @media(min-width:720px){#fg-cinema{justify-content:center;padding:32px}.fg-cin-text{margin-bottom:0}}
 @media(prefers-reduced-motion:reduce){.fg-cin-line{transition:none!important;opacity:1!important;transform:none!important}#fg-cinema{transition:opacity .4s!important}.fg-cin-eyebrow::before{animation:none!important}}
+/* ============ SPACE THEME + OVERLAP FIX + 3D TOUR (PASTE #1) ============ */
+:root{
+  --bg1:#000308; --bg2:#030814; --bg3:#000000;
+  --ink:#eaf6ff; --p:#b8d4ee; --mute:#80a3c4;
+  --line:#17304d; --card:#08152a; --soft:#0a1a30;
+  --glass:#05101fdd; --chip:#122a44;
+  --t1:#102a45; --t1l:#1e3f63; --t2:#0c2138; --t2l:#17395c;
+  --sky3:#0f2f4f; --pink3:#3a1f36; --pinkd:#ff9ccb;
+  color-scheme:dark;
+}
+html,body{background:#000308}
+body{
+  background-color:#000308!important;
+  background-image:
+    radial-gradient(1.6px 1.6px at 20px 30px,#fff,transparent 60%),
+    radial-gradient(1.2px 1.2px at 140px 90px,#cfe8ff,transparent 60%),
+    radial-gradient(1.4px 1.4px at 230px 20px,#fff,transparent 60%),
+    radial-gradient(1.1px 1.1px at 320px 160px,#a9c9ff,transparent 60%),
+    radial-gradient(1.9px 1.9px at 90px 200px,#fff,transparent 60%),
+    radial-gradient(1px 1px at 270px 220px,#dbeaff,transparent 60%),
+    radial-gradient(1.3px 1.3px at 40px 270px,#fff,transparent 60%),
+    radial-gradient(2px 2px at 360px 70px,#cfe8ff,transparent 60%),
+    radial-gradient(120% 80% at 50% -10%,#0a1c33 0%,#000308 55%,#000 100%)!important;
+  background-size:
+    380px 340px,380px 340px,380px 340px,380px 340px,
+    380px 340px,380px 340px,380px 340px,380px 340px,
+    100% 100%!important;
+  background-repeat:
+    repeat,repeat,repeat,repeat,repeat,repeat,repeat,repeat,no-repeat!important;
+  background-attachment:fixed!important;
+}
+.cloud{display:none!important}
+.skyfx::after{opacity:.9}
+.card{background:var(--card);border-color:var(--line)}
+.chip.on{
+  background:linear-gradient(180deg,#3aa8ff,#1f7fd6)!important;
+  color:#fff!important;border-color:transparent!important;
+}
+.blk.g h4,.lnk,.cr a{color:#8fd0ff!important}
+
+/* --- overlap prevention --- */
+main{overflow:auto!important;padding:16px 24px 10px}
+section.on{overflow:auto;min-height:0}
+.card,.blk,.gbox,.bk-body{min-width:0;min-height:0;overflow:auto}
+header.top{flex-wrap:wrap;row-gap:8px;padding:8px 20px}
+#nav{flex-wrap:wrap;gap:18px}
+.hero{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:24px}
+.hero h1{font-size:clamp(30px,5vw,52px)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-art{max-height:none}}
+.cta,.fgb,.fgbtn,.sbtns,.labtools,.chips,.pick{
+  display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+}
+.cta .btn{flex:0 1 auto;max-width:100%;white-space:normal}
+.feats{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))!important}
+.p1{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.p2{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+
+/* --- make 3D Tour button obvious --- */
+.tour-3d-prominent,.fgtb{
+  padding:12px 22px!important;
+  font-size:14px!important;
+  font-weight:800!important;
+  letter-spacing:.04em!important;
+  border-radius:12px!important;
+  background:linear-gradient(180deg,#8fe6ff,#2aa8ff)!important;
+  color:#02121f!important;
+  border:0!important;
+  cursor:pointer;
+  box-shadow:0 0 0 2px #8fe6ff66,0 10px 26px #2aa8ff77,0 0 30px #8fe6ff99!important;
+  animation:tourGlow 2.4s ease-in-out infinite;
+}
+@keyframes tourGlow{
+  0%,100%{box-shadow:0 0 0 2px #8fe6ff66,0 10px 26px #2aa8ff77,0 0 30px #8fe6ff99}
+  50%    {box-shadow:0 0 0 4px #8fe6ffcc,0 12px 32px #2aa8ffaa,0 0 46px #8fe6ffdd}
+}
+/* ============ END PASTE #1 ============ */
 </style>
 <noscript><style>#fg-cinema .fg-cin-line{opacity:1!important;transform:none!important}#fg-cinema{background:radial-gradient(circle at 50% 30%, #1a2740 0%, #05080f 70%)}#fg-cin-begin,#fg-cin-skip{display:none}</style></noscript>
 <!-- === /FG CINEMATIC INTRO HEAD === -->
@@ -4492,4 +4568,36 @@ window.FGDiag={emb:n,ok:ok};
   });
 })();
 </script>
+  <!-- ============ BUTTON FIXES (PASTE #2) ============ -->
+<script>
+(function(){
+  var norm = function(el){
+    return (el.innerText || el.textContent || '').replace(/\s+/g,' ').trim().toLowerCase();
+  };
+  var SEL = 'button, a, [role="button"], .btn, .feat, .tease, .st, .pk, div[onclick], .fgtb';
+
+  document.querySelectorAll(SEL).forEach(function(el){
+    var t = norm(el);
+    if(!t) return;
+    if(el.closest('#nav') || el.classList.contains('fgtb')) return;
+
+    var has3D   = /\b3\s*d\b/.test(t);
+    var hasLab  = /\blab\b/.test(t);
+    var hasTour = /\btour\b/.test(t);
+
+    // remove "Try 3D Lab"
+    if(hasLab && has3D){ el.remove(); return; }
+
+    // remove plain Tour, keep 3D Tour
+    if(hasTour && !has3D){ el.remove(); return; }
+    if(hasTour && has3D){ el.classList.add('tour-3d-prominent'); }
+  });
+
+  // also highlight the floating launcher if present
+  document.querySelectorAll('.fgtb').forEach(function(el){
+    el.classList.add('tour-3d-prominent');
+  });
+})();
+</script>
+<!-- ============ END PASTE #2 ============ -->
 </body></html>
