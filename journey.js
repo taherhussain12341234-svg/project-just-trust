@@ -1,28 +1,45 @@
-/* journey.js — 3D cinematic tour for Galactic Field Guide
-   Adds a full-screen 3D journey overlay. The Tour button launches it.
-   Per relic: fly to it → show info card → auto-open its page → auto-show 3D
-   lab → continue to next relic. User can pause, skip, or end anytime.
-   Uses Three.js r128 (already loaded by the site) + jsDelivr textures. */
+/* journey.js — standalone 3D cinematic tour for Galactic Field Guide
+   Self-contained. No dependencies on openFile / LAB / show.
+   Loads Three.js from CDN if not already present.
+   Creates the tour button if missing.
+   API: window.Journey.start()  /  window.Journey.stop()  */
 
 (function(){
 'use strict';
 
+var THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js';
+var threeRequested = false;
+
 function boot(tries){
   tries = tries || 0;
   if (document.getElementById('j3-overlay')) return;
+
   if (typeof window.THREE === 'undefined') {
-    if (tries > 40) { console.error('[journey] Three.js never loaded — aborting'); return; }
+    if (!threeRequested) {
+      threeRequested = true;
+      var s = document.createElement('script');
+      s.src = THREE_URL;
+      s.onload = function(){ boot(tries); };
+      s.onerror = function(){
+        console.error('[journey] failed to load Three.js from ' + THREE_URL);
+        alert('Could not load the 3D library.');
+      };
+      document.head.appendChild(s);
+      return;
+    }
+    if (tries > 60) { console.error('[journey] THREE never appeared'); return; }
     return setTimeout(function(){ boot(tries + 1); }, 250);
   }
+
   try { build(); }
-  catch (e) { console.error('[journey] build failed:', e); alert('Tour build failed: ' + e.message); }
+  catch(e) { console.error('[journey] build failed:', e); alert('Tour failed: ' + e.message); }
 }
 
 function build(){
 
 /* ---------- CSS ---------- */
-var css = document.createElement('style');
-css.textContent = [
+var style = document.createElement('style');
+style.textContent = [
   '#j3-overlay{position:fixed;inset:0;z-index:10000;background:#05080f;display:none;overflow:hidden}',
   '#j3-overlay.on{display:block}',
   '#j3-cv{position:absolute;inset:0;width:100%;height:100%;display:block}',
@@ -50,34 +67,32 @@ css.textContent = [
   '.j3-card p{font-size:13px;line-height:1.55;color:#c4c7ca;margin:0 0 14px}',
   '.j3-card .j3-next{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#05080f;background:#58d6f1;border:0;padding:10px 18px;border-radius:7px;cursor:pointer;font-weight:500}',
   '.j3-card .j3-next:hover{background:#7ee4ff}',
-  '.j3-cont{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);z-index:9999;background:linear-gradient(180deg,#ff78b1,#ff5a9f);color:#fff;border:0;padding:14px 26px;border-radius:10px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;cursor:pointer;box-shadow:0 20px 40px rgba(255,95,162,.4);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}',
-  '.j3-cont.on{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}',
-  '.j3-cont:hover{box-shadow:0 24px 48px rgba(255,95,162,.6)}',
-  '@media(max-width:640px){.j3-top{padding:14px}.j3-bottom{padding:12px 14px 16px}.j3-card{top:auto;bottom:140px;right:14px;left:14px;width:auto;transform:translateY(20px)}.j3-card.on{transform:translateY(0)}.j3-cont{bottom:calc(80px + env(safe-area-inset-bottom,0px))}}'
+  '@media(max-width:640px){.j3-top{padding:14px}.j3-bottom{padding:12px 14px 16px}.j3-card{top:auto;bottom:140px;right:14px;left:14px;width:auto;transform:translateY(20px)}.j3-card.on{transform:translateY(0)}}'
 ].join('');
-document.head.appendChild(css);
+document.head.appendChild(style);
 
 /* ---------- HTML ---------- */
 var ov = document.createElement('div');
 ov.id = 'j3-overlay';
-ov.innerHTML = '<canvas id="j3-cv"></canvas>' +
+ov.innerHTML =
+  '<canvas id="j3-cv"></canvas>' +
   '<div class="j3-hud">' +
     '<div class="j3-top"><div class="j3-brand">Galactic <em>Journey</em><small>3D Tour</small></div>' +
-    '<div class="j3-dest"><b id="j3-dest">Earth</b><span id="j3-dist">Orbit</span></div></div>' +
+      '<div class="j3-dest"><b id="j3-dest">Earth</b><span id="j3-dist">Orbit</span></div></div>' +
     '<div class="j3-card" id="j3-card">' +
       '<div class="j3-label" id="j3-clab"></div>' +
       '<h3 id="j3-cname"></h3>' +
       '<div class="j3-loc" id="j3-cloc"></div>' +
       '<p id="j3-cbody"></p>' +
-      '<button class="j3-next" id="j3-next-art">Visit this relic →</button>' +
+      '<button class="j3-next" id="j3-next-art">Continue →</button>' +
     '</div>' +
     '<div class="j3-bottom"><div class="j3-progress"><i id="j3-prog"></i></div>' +
-    '<div class="j3-meta"><div class="j3-phase" id="j3-phase">Launch<small id="j3-sub">Departing Earth</small></div>' +
-    '<div class="j3-ctrl"><button id="j3-end">End journey</button><button id="j3-pause">Pause</button></div></div></div>' +
+      '<div class="j3-meta"><div class="j3-phase" id="j3-phase">Launch<small id="j3-sub">Departing Earth</small></div>' +
+      '<div class="j3-ctrl"><button id="j3-end">End journey</button><button id="j3-pause">Pause</button></div></div></div>' +
   '</div>';
 document.body.appendChild(ov);
 
-/* ---------- Three.js scene ---------- */
+/* ---------- Scene ---------- */
 var canvas = document.getElementById('j3-cv');
 var renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -97,22 +112,20 @@ var sunSphere = new THREE.Mesh(new THREE.SphereGeometry(14, 32, 32),
 sunSphere.position.copy(sunLight.position).multiplyScalar(2);
 scene.add(sunSphere);
 
-/* stars */
 (function(){
   var g = new THREE.BufferGeometry();
   var N = 4000, pos = new Float32Array(N*3);
   for (var i=0;i<N;i++){
     var r = 1000 + Math.random()*800;
     var t = Math.random()*Math.PI*2, p = Math.acos(2*Math.random()-1);
-    pos[i*3]=r*Math.sin(p)*Math.cos(t);
-    pos[i*3+1]=r*Math.sin(p)*Math.sin(t);
-    pos[i*3+2]=r*Math.cos(p);
+    pos[i*3]   = r*Math.sin(p)*Math.cos(t);
+    pos[i*3+1] = r*Math.sin(p)*Math.sin(t);
+    pos[i*3+2] = r*Math.cos(p);
   }
   g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   scene.add(new THREE.Points(g, new THREE.PointsMaterial({color:0xffffff,size:0.9,transparent:true,opacity:0.85,sizeAttenuation:true})));
 })();
 
-/* textures — try real NASA/threejs images, fall back to color */
 var texLoader = new THREE.TextureLoader();
 texLoader.crossOrigin = 'anonymous';
 function tryLoad(urls, cb){
@@ -123,7 +136,6 @@ function tryLoad(urls, cb){
   })();
 }
 
-/* Mars procedural fallback (no reliable CDN) */
 function marsProcTex(){
   var c = document.createElement('canvas'); c.width = c.height = 1024;
   var x = c.getContext('2d');
@@ -147,28 +159,24 @@ function marsProcTex(){
   return t;
 }
 
-/* planets */
 var PLANETS = {};
 
 PLANETS.earth = new THREE.Mesh(
   new THREE.SphereGeometry(6, 64, 64),
   new THREE.MeshStandardMaterial({color:0x2a5a80, roughness:0.9, metalness:0.05})
 );
-PLANETS.earth.position.set(0, 0, 0);
 scene.add(PLANETS.earth);
 
 var earthGlow = new THREE.Mesh(
   new THREE.SphereGeometry(6.35, 48, 48),
   new THREE.MeshBasicMaterial({color:0x4a9eff, transparent:true, opacity:0.22, side:THREE.BackSide})
 );
-earthGlow.position.copy(PLANETS.earth.position);
 scene.add(earthGlow);
 
 PLANETS.clouds = new THREE.Mesh(
   new THREE.SphereGeometry(6.06, 64, 64),
   new THREE.MeshStandardMaterial({color:0xffffff, transparent:true, opacity:0.35, roughness:1})
 );
-PLANETS.clouds.position.copy(PLANETS.earth.position);
 scene.add(PLANETS.clouds);
 
 PLANETS.moon = new THREE.Mesh(
@@ -185,7 +193,6 @@ PLANETS.mars = new THREE.Mesh(
 PLANETS.mars.position.set(120, -6, -70);
 scene.add(PLANETS.mars);
 
-/* Load real textures async */
 tryLoad([
   'https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/planets/earth_atmos_2048.jpg',
   'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg'
@@ -230,19 +237,19 @@ scene.add(ship);
 
 /* artifacts */
 var ARTIFACTS = [
-  {id:'a15',name:'Moon Buggy',planet:'moon',label:'Apollo 15 · 1971',loc:'Hadley Rille · 26.1°N, 3.6°E',lat:26.13,lon:3.63,
+  {name:'Moon Buggy', planet:'moon', label:'Apollo 15 · 1971', loc:'Hadley Rille', lat:26.13, lon:3.63,
    body:'A folding electric car that drove 17.3 miles across the Moon. Still parked at Hadley, still reflecting lasers back to Earth.'},
-  {id:'s3',name:'Surveyor 3',planet:'moon',label:'Robot lander · 1967',loc:'Ocean of Storms · 3.0°S, 23.4°W',lat:-3.01,lon:-23.42,
+  {name:'Surveyor 3', planet:'moon', label:'Robot lander · 1967', loc:'Ocean of Storms', lat:-3.01, lon:-23.42,
    body:'A robot that bounced twice, dug trenches, and waited alone for 31 months until Apollo 12 astronauts walked over to visit.'},
-  {id:'a12',name:'Intrepid',planet:'moon',label:'Apollo 12 · 1969',loc:'Ocean of Storms · 3.1°S, 23.5°W',lat:-3.1,lon:-23.5,
+  {name:'Intrepid', planet:'moon', label:'Apollo 12 · 1969', loc:'Ocean of Storms', lat:-3.1, lon:-23.5,
    body:'The first pinpoint lunar landing, a bullseye next to Surveyor 3. Its bottom half stayed behind as a launch pad.'},
-  {id:'a11',name:'Eagle',planet:'moon',label:'Apollo 11 · 1969',loc:'Tranquility Base · 0.7°N, 23.5°E',lat:0.67,lon:23.47,
+  {name:'Eagle', planet:'moon', label:'Apollo 11 · 1969', loc:'Tranquility Base', lat:0.67, lon:23.47,
    body:'The lunar module that delivered Neil Armstrong and Buzz Aldrin to the surface. The landing stage still rests at Tranquility Base.'},
-  {id:'pv',name:'Perseverance',planet:'mars',label:'Mars rover · 2021',loc:'Jezero Crater · 18.4°N, 77.6°E',lat:18.4,lon:77.6,
+  {name:'Perseverance', planet:'mars', label:'Mars rover · 2021', loc:'Jezero Crater', lat:18.4, lon:77.6,
    body:'A car-sized rover collecting rock cores in the floor of Jezero Crater. It has found signs that a lake once filled this basin.'},
-  {id:'ig',name:'Ingenuity',planet:'mars',label:'Mars helicopter · 2021',loc:'Jezero Crater · 18.4°N, 77.5°E',lat:18.44,lon:77.45,
+  {name:'Ingenuity', planet:'mars', label:'Mars helicopter · 2021', loc:'Jezero Crater', lat:18.44, lon:77.45,
    body:'A four-pound helicopter built for five flights. It flew seventy-two times before a rotor broke on its final landing.'},
-  {id:'jz',name:'Three Forks',planet:'mars',label:'Sample depot · 2023',loc:'Jezero Crater · 18.6°N, 77.4°E',lat:18.55,lon:77.38,
+  {name:'Three Forks', planet:'mars', label:'Sample depot · 2023', loc:'Jezero Crater', lat:18.55, lon:77.38,
    body:'Ten sealed titanium tubes of Mars rock, waiting on the ground for a ride home that is not yet funded.'}
 ];
 
@@ -265,7 +272,6 @@ ARTIFACTS.forEach(function(a){
   var m = new THREE.Mesh(new THREE.SphereGeometry(0.13, 16, 16),
     new THREE.MeshBasicMaterial({color:0x58d6f1}));
   m.position.copy(worldPos);
-  m.userData.artifact = a;
   markerGroup.add(m);
   var ring = new THREE.Mesh(new THREE.RingGeometry(0.22, 0.3, 24),
     new THREE.MeshBasicMaterial({color:0x58d6f1, transparent:true, opacity:0.55, side:THREE.DoubleSide}));
@@ -274,55 +280,57 @@ ARTIFACTS.forEach(function(a){
   ring.userData.pulse = true;
   markerGroup.add(ring);
   a.world = worldPos;
-  a.marker = m;
 });
 
 /* beats */
-function posOf(i){ return ARTIFACTS[i].world.clone(); }
-function vel(fromArr, toArr){ return fromArr.map(function(v,i){ return v*1.04; }); }
-
 var BEATS = [];
+
 BEATS.push({name:'Launch', sub:'Departing Earth orbit', dur:3500, artifact:null,
   shipA:[0,4,16], shipB:[0,4,12], camA:[0,5,22], camB:[0,5,20], look:[0,0,0],
   dest:'EARTH', dist:'Home'});
+
 BEATS.push({name:'Moon transit', sub:'3 days · 386,000 km', dur:4500, artifact:null,
   shipA:[0,4,12], shipB:[14,5,-2], camA:[0,5,20], camB:[15,6,3], look:[20,4,-5],
-  dest:'MOON', dist:'384,000 km away'});
+  dest:'MOON', dist:'384,000 km'});
 
 [0,1,2,3].forEach(function(i){
   var a = ARTIFACTS[i];
-  var prev = i===0 ? [14,5,-2] : posOf(i-1).add(new THREE.Vector3(0.8,0.8,1)).toArray();
+  var prev = i===0 ? [14,5,-2] : ARTIFACTS[i-1].world.clone().add(new THREE.Vector3(0.8,0.8,1)).toArray();
   BEATS.push({name:a.name, sub:a.label, dur:3500, artifact:i,
-    shipA:prev, shipB:posOf(i).add(new THREE.Vector3(0,0.5,1)).toArray(),
-    camA:vel(prev,[0,0,0]),
-    camB:posOf(i).add(new THREE.Vector3(1.5,1.2,1.8)).toArray(),
-    look:posOf(i).toArray(),
+    shipA:prev, shipB:a.world.clone().add(new THREE.Vector3(0,0.5,1)).toArray(),
+    camA:prev.slice(), camB:a.world.clone().add(new THREE.Vector3(1.5,1.2,1.8)).toArray(),
+    look:a.world.toArray(),
     dest:a.planet.toUpperCase(), dist:a.loc});
 });
 
 BEATS.push({name:'Mars transit', sub:'7 months · 225M km', dur:5500, artifact:null,
-  shipA:posOf(3).add(new THREE.Vector3(0,0.5,1)).toArray(),
+  shipA:ARTIFACTS[3].world.clone().add(new THREE.Vector3(0,0.5,1)).toArray(),
   shipB:[70,2,-30],
-  camA:posOf(3).add(new THREE.Vector3(1.5,1.2,1.8)).toArray(),
+  camA:ARTIFACTS[3].world.clone().add(new THREE.Vector3(1.5,1.2,1.8)).toArray(),
   camB:[72,3,-25], look:[120,-6,-70],
-  dest:'MARS', dist:'225M km away'});
+  dest:'MARS', dist:'225M km'});
 
 [4,5,6].forEach(function(i){
   var a = ARTIFACTS[i];
-  var prev = i===4 ? [70,2,-30] : posOf(i-1).add(new THREE.Vector3(0.8,0.8,1)).toArray();
+  var prev = i===4 ? [70,2,-30] : ARTIFACTS[i-1].world.clone().add(new THREE.Vector3(0.8,0.8,1)).toArray();
   BEATS.push({name:a.name, sub:a.label, dur:3500, artifact:i,
-    shipA:prev, shipB:posOf(i).add(new THREE.Vector3(0,0.5,1)).toArray(),
-    camA:vel(prev,[0,0,0]),
-    camB:posOf(i).add(new THREE.Vector3(2,1.5,2.2)).toArray(),
-    look:posOf(i).toArray(),
+    shipA:prev, shipB:a.world.clone().add(new THREE.Vector3(0,0.5,1)).toArray(),
+    camA:prev.slice(), camB:a.world.clone().add(new THREE.Vector3(2,1.5,2.2)).toArray(),
+    look:a.world.toArray(),
     dest:a.planet.toUpperCase(), dist:a.loc});
 });
 
 /* state */
 var J = {state:'idle', beat:0, beatStart:0, paused:false, timers:[]};
-function clearTimers(){ J.timers.forEach(clearTimeout); J.timers = []; }
+
+function clearTimers(){
+  J.timers.forEach(clearTimeout);
+  J.timers = [];
+}
 function after(ms, fn){
   var id = setTimeout(function(){
+    var i = J.timers.indexOf(id);
+    if (i >= 0) J.timers.splice(i, 1);
     if (J.paused) { after(300, fn); return; }
     fn();
   }, ms);
@@ -344,7 +352,7 @@ function setBeat(i){
   document.getElementById('j3-card').classList.remove('on');
 
   if (b.artifact != null) {
-    after(b.dur + 200, function(){
+    after(b.dur + 300, function(){
       if (J.state !== 'flying' && J.state !== 'arrival') return;
       var a = ARTIFACTS[b.artifact];
       document.getElementById('j3-clab').textContent = a.label;
@@ -352,50 +360,16 @@ function setBeat(i){
       document.getElementById('j3-cloc').textContent = a.loc;
       document.getElementById('j3-cbody').textContent = a.body;
       document.getElementById('j3-card').classList.add('on');
-      after(3500, function(){
-        if (J.state === 'flying' || J.state === 'arrival') showArtifactPage(b.artifact);
-      });
+      J.state = 'arrival';
     });
   }
 }
 
-function showArtifactPage(idx){
-  var a = ARTIFACTS[idx];
-  J.state = 'page';
+function nextBeat(){
+  if (J.beat >= BEATS.length - 1) { journeyComplete(); return; }
   document.getElementById('j3-card').classList.remove('on');
-  try { window.openFile(a.id); } catch(e){}
-  document.getElementById('j3-overlay').classList.remove('on');
-  showContinue('View 3D model →', function(){ showArtifact3D(idx); });
-  after(6000, function(){
-    if (J.state === 'page' && document.getElementById('file').classList.contains('on')) showArtifact3D(idx);
-    else if (J.state === 'page') Journey.stop();
-  });
-}
-
-function showArtifact3D(idx){
-  var a = ARTIFACTS[idx];
-  J.state = 'lab';
-  hideContinue();
-  try {
-    window.show('lab');
-    if (window.LAB && LAB.craft) LAB.craft(a.id);
-    if (window.LAB && LAB.setTab) LAB.setTab('learn');
-  } catch(e){}
-  showContinue('Next artifact →', advance);
-  after(4500, function(){
-    if (J.state === 'lab' && document.getElementById('lab').classList.contains('on')) advance();
-    else if (J.state === 'lab') Journey.stop();
-  });
-}
-
-function advance(){
-  if (J.state !== 'lab' && J.state !== 'page') return;
-  hideContinue();
   J.state = 'flying';
-  document.getElementById('j3-overlay').classList.add('on');
-  var nb = J.beat + 1;
-  if (nb >= BEATS.length) journeyComplete();
-  else setBeat(nb);
+  setBeat(J.beat + 1);
 }
 
 function journeyComplete(){
@@ -406,33 +380,22 @@ function journeyComplete(){
   document.getElementById('j3-cbody').textContent = 'You have visited every relic in the Galactic Field Guide.';
   var nb = document.getElementById('j3-next-art');
   nb.textContent = 'Return home';
-  nb.onclick = function(){ Journey.stop(); try { window.show('home'); } catch(e){} };
+  nb.onclick = function(){ window.Journey.stop(); };
   document.getElementById('j3-card').classList.add('on');
-  after(15000, function(){ if (J.state === 'complete') Journey.stop(); });
+  after(15000, function(){ if (J.state === 'complete') window.Journey.stop(); });
 }
 
-/* continue button */
-var contBtn = document.createElement('button');
-contBtn.className = 'j3-cont';
-contBtn.type = 'button';
-document.body.appendChild(contBtn);
-function showContinue(label, fn){ contBtn.textContent = label; contBtn.onclick = fn; contBtn.classList.add('on'); }
-function hideContinue(){ contBtn.classList.remove('on'); contBtn.onclick = null; }
-
-/* "Visit this relic" button */
+/* overlay buttons */
 document.getElementById('j3-next-art').onclick = function(){
-  var b = BEATS[J.beat];
-  if (b.artifact != null) showArtifactPage(b.artifact);
+  if (BEATS[J.beat].artifact != null) nextBeat();
 };
-
-/* controls */
-document.getElementById('j3-end').onclick = function(){ Journey.stop(); };
+document.getElementById('j3-end').onclick = function(){ window.Journey.stop(); };
 document.getElementById('j3-pause').onclick = function(){
   J.paused = !J.paused;
   this.textContent = J.paused ? 'Resume' : 'Pause';
 };
 
-/* animation */
+/* animation loop */
 function animate(){
   requestAnimationFrame(animate);
 
@@ -453,9 +416,10 @@ function animate(){
       camera.position.lerp(new THREE.Vector3(cp[0],cp[1],cp[2]), 0.06);
       camera.lookAt(b.look[0], b.look[1], b.look[2]);
 
-      if (p >= 1 && b.artifact == null) {
+      if (p >= 1 && b.artifact == null && J.state === 'arrival') {
+        J.state = 'transition';
         after(500, function(){
-          if (J.state === 'flying' && J.beat < BEATS.length - 1) setBeat(J.beat + 1);
+          if ((J.state === 'transition' || J.state === 'arrival') && J.beat < BEATS.length - 1) nextBeat();
         });
       }
     }
@@ -483,43 +447,59 @@ addEventListener('resize', function(){
   camera.updateProjectionMatrix();
 });
 
-/* public API */
-var Journey = window.Journey = {
+/* public API — defined before any button wiring so button handlers always find it */
+window.Journey = {
   start: function(){
     J.state = 'flying'; J.beat = 0; J.beatStart = performance.now();
-    J.paused = false; clearTimers(); hideContinue();
+    J.paused = false; clearTimers();
     document.getElementById('j3-overlay').classList.add('on');
     document.getElementById('j3-pause').textContent = 'Pause';
-    var nb = document.getElementById('j3-next-art');
-    nb.textContent = 'Visit this relic →';
-    nb.onclick = function(){ var b = BEATS[J.beat]; if (b.artifact != null) showArtifactPage(b.artifact); };
-    camera.position.set(0, 5, 22); ship.position.set(0, 4, 16);
+    document.getElementById('j3-next-art').textContent = 'Continue →';
+    camera.position.set(0, 5, 22);
+    ship.position.set(0, 4, 16);
     setBeat(0);
   },
   stop: function(){
-    J.state = 'idle'; clearTimers(); hideContinue();
+    J.state = 'idle'; clearTimers();
     document.getElementById('j3-overlay').classList.remove('on');
     document.getElementById('j3-card').classList.remove('on');
   }
 };
 
-/* wire all tour buttons */
+/* wire any tour buttons already in the page */
 ['fg-tour-btn','gfp-tb','fgtb'].forEach(function(id){
   var b = document.getElementById(id);
-  if (b) { b.textContent = '▶ 3D Tour'; b.onclick = function(e){ if(e) e.preventDefault(); Journey.start(); }; }
+  if (b) b.onclick = function(e){ if(e) e.preventDefault(); window.Journey.start(); };
 });
-document.querySelectorAll('header button').forEach(function(btn){
-  if (/tour/i.test(btn.textContent) && !btn.dataset.j3wired) {
-    btn.dataset.j3wired = '1';
-    btn.textContent = '▶ 3D Tour';
-    btn.onclick = function(e){ e.preventDefault(); Journey.start(); };
+
+/* create the tour button if it doesn't exist yet */
+if (!document.getElementById('fg-tour-btn')) {
+  var header = document.querySelector('header.top') || document.querySelector('.top') || document.querySelector('header');
+  if (header) {
+    var tourBtn = document.createElement('button');
+    tourBtn.id = 'fg-tour-btn';
+    tourBtn.type = 'button';
+    tourBtn.textContent = '▶ 3D Tour';
+    tourBtn.setAttribute('aria-label', 'Start 3D tour');
+    tourBtn.style.cssText =
+      'font:800 11px "JetBrains Mono",monospace;color:#fff;' +
+      'background:linear-gradient(180deg,#ff78b1,#ff5a9f);border:0;border-radius:8px;' +
+      'padding:6px 12px;cursor:pointer;white-space:nowrap;margin-right:8px';
+    var xpp = header.querySelector('.xpp');
+    if (xpp) header.insertBefore(tourBtn, xpp);
+    else header.appendChild(tourBtn);
+    tourBtn.onclick = function(e){ e.preventDefault(); window.Journey.start(); };
   }
-});
+}
 
 animate();
 
 }
 
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ boot(); });
-else boot();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function(){ boot(); });
+} else {
+  boot();
+}
+
 })();
